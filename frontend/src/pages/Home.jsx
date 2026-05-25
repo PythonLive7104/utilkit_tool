@@ -190,11 +190,11 @@ export default function Home() {
       {/* ── Stats ──────────────────────────────────────────── */}
       {!filtered && (
         <section className="px-4 pb-10">
-          <div className="max-w-3xl mx-auto grid grid-cols-4 gap-3">
+          <div className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-3">
             {STATS.map(({ value, label }) => (
               <div key={label} className="card text-center py-4">
                 <p className="text-2xl font-bold text-indigo-500 dark:text-indigo-400">{value}</p>
-                <p className="text-xs text-zinc-500 mt-0.5">{label}</p>
+                <p className="text-xs text-zinc-500 mt-0.5 leading-snug">{label}</p>
               </div>
             ))}
           </div>

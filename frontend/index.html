@@ -14,15 +14,33 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Ko-fi floating widget -->
-    <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
-    <script>
-      kofiWidgetOverlay.draw('J3V520613M', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Support us',
-        'floating-chat.donateButton.background-color': '#f59e0b',
-        'floating-chat.donateButton.text-color': '#fff'
-      });
-    </script>
+    <!-- Ko-fi floating button -->
+    <style>
+      #kofi-btn {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #ff5f5f;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      #kofi-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+      #kofi-btn img { height: 20px; width: 20px; }
+    </style>
+    <a id="kofi-btn" href="https://ko-fi.com/J3V520613M" target="_blank" rel="noopener noreferrer">
+      <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="" />
+      Support us
+    </a>
   </body>
 </html>

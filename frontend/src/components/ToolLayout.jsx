@@ -138,17 +138,8 @@ function RelatedTools({ toolId }) {
 // ── Coffee CTA ────────────────────────────────────────────────────────────────
 function CoffeeBox() {
   return (
-    <div className="mt-10 rounded-2xl border border-amber-400/25 bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-amber-950/25 dark:to-orange-950/25 p-6 text-center">
-      <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center mx-auto mb-3 text-2xl">☕</div>
-      <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100 mb-1">Enjoying UtilKit?</h3>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-5 max-w-sm mx-auto leading-relaxed">
-        Every tool is free — no ads, no sign-ups, no limits. If UtilKit saved you time today, a small coffee keeps it free for everyone.
-      </p>
-      <a
-        href="https://ko-fi.com/J3V520613M"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+    <div className="mt-10 flex justify-center">
+      <a href="https://ko-fi.com/J3V520613M" target="_blank" rel="noopener noreferrer">
         <img
           height="36"
           style={{ border: 0, height: 36 }}
@@ -156,7 +147,6 @@ function CoffeeBox() {
           alt="Buy Me a Coffee at ko-fi.com"
         />
       </a>
-      <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-3">One-time · No account needed · 100% optional</p>
     </div>
   )
 }

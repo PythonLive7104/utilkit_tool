@@ -77,13 +77,11 @@ fi
 echo ""
 echo "[6/7] Starting services and obtaining SSL certificate..."
 
-# Start backend + nginx on HTTP only
 docker compose up -d --build backend nginx
 
 echo "  Waiting 5 seconds for nginx to be ready..."
 sleep 5
 
-# Get certificate
 docker compose run --rm certbot certonly \
   --webroot \
   --webroot-path=/var/www/certbot \
@@ -97,13 +95,8 @@ docker compose run --rm certbot certonly \
 echo ""
 echo "[7/7] Enabling HTTPS..."
 
-# Replace placeholders in SSL config with actual domain
 sed "s/utilkit\.io/$DOMAIN/g" nginx/nginx.ssl.conf > nginx/nginx.conf
-
-# Reload nginx (no downtime)
 docker compose exec nginx nginx -s reload
-
-# Start certbot renewal daemon
 docker compose up -d certbot
 
 echo ""

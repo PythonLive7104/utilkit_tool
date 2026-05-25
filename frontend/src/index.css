@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Theme variables ────────────────────────────────────────
+   :root = light (default), .dark = dark override.
+   All component classes read from these vars, so a single
+   class toggle on <html> flips the whole UI.
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --bg:       #fafafa;
+  --bg-alt:   #f4f4f5;
+  --surface:  #ffffff;
+  --surface2: #f4f4f5;
+  --border:   #e4e4e7;
+  --border2:  #d4d4d8;
+  --text-1:   #18181b;
+  --text-2:   #52525b;
+  --text-3:   #71717a;
+  --text-4:   #a1a1aa;
+  --scroll:   #d4d4d8;
+  --scroll-h: #a1a1aa;
+}
+
+.dark {
+  --bg:       #09090b;
+  --bg-alt:   #09090b;
+  --surface:  #18181b;
+  --surface2: #27272a;
+  --border:   #3f3f46;
+  --border2:  #52525b;
+  --text-1:   #f4f4f5;
+  --text-2:   #a1a1aa;
+  --text-3:   #71717a;
+  --text-4:   #52525b;
+  --scroll:   #3f3f46;
+  --scroll-h: #52525b;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+@layer base {
+  * { box-sizing: border-box; }
+
+  html, body {
+    background-color: var(--bg);
+    color: var(--text-1);
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-alt); }
+  ::-webkit-scrollbar-thumb { background: var(--scroll); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--scroll-h); }
+}
+
+/* ─── Component classes (all use CSS vars) ───────────────── */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors border disabled:opacity-50 disabled:cursor-not-allowed;
+    background-color: var(--surface2);
+    border-color: var(--border);
+    color: var(--text-1);
+  }
+  .btn-secondary:hover { background-color: var(--border); }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors;
+    color: var(--text-2);
+  }
+  .btn-ghost:hover { color: var(--text-1); background-color: var(--surface2); }
+
+  .input {
+    @apply w-full px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-1);
+  }
+  .input::placeholder { color: var(--text-4); }
+  /* Ensure native select/option elements pick up the theme */
+  select.input option {
+    background-color: var(--surface);
+    color: var(--text-1);
+  }
+
+  .textarea {
+    @apply w-full px-3 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors resize-none font-mono;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-1);
+  }
+  .textarea::placeholder { color: var(--text-4); }
+
+  .card {
+    @apply rounded-xl p-5;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .upload-zone {
+    @apply border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors;
+    border-color: var(--border2);
+  }
+  .upload-zone:hover {
+    border-color: #6366f1;
+    background-color: rgba(99, 102, 241, 0.05);
+  }
+  .upload-zone.dragging {
+    border-color: #6366f1;
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+
+  .badge-private {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-500/10 text-xs font-medium rounded-full border border-emerald-500/20;
+    color: #059669;
+  }
+  .dark .badge-private { color: #34d399; }
+
+  .badge-server {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 text-xs font-medium rounded-full border border-amber-500/20;
+    color: #d97706;
+  }
+  .dark .badge-server { color: #fbbf24; }
+}
+
+/* ─── Light-mode overrides for inline Tailwind zinc utilities ─
+   Tool pages hardcode zinc-* colors. These overrides flip them
+   to appropriate light-mode equivalents without touching every
+   individual component file.
+   ─────────────────────────────────────────────────────────── */
+
+/* Backgrounds */
+html:not(.dark) .bg-zinc-950 { background-color: #f4f4f5; }
+html:not(.dark) .bg-zinc-900 { background-color: #ffffff; }
+html:not(.dark) .bg-zinc-800 { background-color: #f4f4f5; }
+html:not(.dark) .bg-zinc-800\/50 { background-color: rgba(244, 244, 245, 0.6); }
+html:not(.dark) .hover\:bg-zinc-800:hover { background-color: #f4f4f5; }
+html:not(.dark) .hover\:bg-zinc-800\/50:hover { background-color: rgba(244, 244, 245, 0.6); }
+html:not(.dark) .hover\:bg-zinc-700:hover { background-color: #e4e4e7; }
+
+/* Borders */
+html:not(.dark) .border-zinc-800 { border-color: #e4e4e7; }
+html:not(.dark) .border-zinc-700 { border-color: #d4d4d8; }
+html:not(.dark) .hover\:border-zinc-700:hover { border-color: #a1a1aa; }
+html:not(.dark) .hover\:border-zinc-600:hover { border-color: #71717a; }
+
+/* Text — inverts the dark-on-dark grey scale to dark-on-light */
+html:not(.dark) .text-zinc-100 { color: #18181b; }
+html:not(.dark) .text-zinc-200 { color: #27272a; }
+html:not(.dark) .text-zinc-300 { color: #3f3f46; }
+html:not(.dark) .text-zinc-400 { color: #52525b; }
+html:not(.dark) .text-zinc-500 { color: #71717a; }
+html:not(.dark) .text-zinc-600 { color: #a1a1aa; }
+html:not(.dark) .hover\:text-zinc-100:hover { color: #18181b; }
+html:not(.dark) .hover\:text-zinc-200:hover { color: #27272a; }
+html:not(.dark) .hover\:text-zinc-300:hover { color: #3f3f46; }
+
+/* Focus ring is fine in both modes (indigo) */

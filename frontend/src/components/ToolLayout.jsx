@@ -145,13 +145,16 @@ function CoffeeBox() {
         Every tool is free — no ads, no sign-ups, no limits. If UtilKit saved you time today, a small coffee keeps it free for everyone.
       </p>
       <a
-        href="https://ko-fi.com/utilkit"
+        href="https://ko-fi.com/J3V520613M"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 active:bg-amber-600 text-white text-sm font-semibold transition-colors shadow-sm"
       >
-        <Coffee size={15} />
-        Buy us a coffee — $5
+        <img
+          height="36"
+          style={{ border: 0, height: 36 }}
+          src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
+          alt="Buy Me a Coffee at ko-fi.com"
+        />
       </a>
       <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-3">One-time · No account needed · 100% optional</p>
     </div>

@@ -139,7 +139,7 @@ function RelatedTools({ toolId }) {
 function CoffeeBox() {
   return (
     <div className="mt-10 flex justify-center">
-      <a href="https://ko-fi.com/J3V520613M" target="_blank" rel="noopener noreferrer">
+      <a href="https://ko-fi.com/utility_kits" target="_blank" rel="noopener noreferrer">
         <img
           height="36"
           style={{ border: 0, height: 36 }}

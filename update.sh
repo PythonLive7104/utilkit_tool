@@ -5,7 +5,7 @@
 # ─────────────────────────────────────────────────────────────
 set -euo pipefail
 
-DOMAIN="utilkit.io"   # change if different
+DOMAIN="utilkit.us"
 
 echo "==> Pulling latest code..."
 git pull

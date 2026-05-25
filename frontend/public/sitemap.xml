@@ -3,75 +3,75 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://utilkit.io/</loc>
+    <loc>https://utilkit.us/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://utilkit.io/privacy</loc>
+    <loc>https://utilkit.us/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- AI Tools -->
-  <url><loc>https://utilkit.io/tools/ai-humanizer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-paraphraser</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-grammar-fixer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-summarizer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-title-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-email-writer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-humanizer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-paraphraser</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-grammar-fixer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-summarizer</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-title-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-email-writer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- PDF Tools -->
-  <url><loc>https://utilkit.io/tools/pdf-to-word</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/word-to-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/merge-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/compress-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/split-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/pdf-unlocker</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/pdf-watermark</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/rotate-pdf</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://utilkit.io/tools/ocr-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/esign-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/pdf-to-word</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/word-to-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/merge-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/compress-pdf</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/split-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/pdf-unlocker</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/pdf-watermark</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/rotate-pdf</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://utilkit.us/tools/ocr-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/esign-pdf</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Image Tools -->
-  <url><loc>https://utilkit.io/tools/image-converter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/image-compressor</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/background-remover</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/image-resizer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/meme-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/ai-image-upscaler</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/png-to-jpg</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/jpg-to-png</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/webp-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/image-converter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/image-compressor</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/background-remover</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/image-resizer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/meme-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/ai-image-upscaler</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/png-to-jpg</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/jpg-to-png</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/webp-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Generator Tools -->
-  <url><loc>https://utilkit.io/tools/qr-code-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/url-shortener</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/password-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/qr-code-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/url-shortener</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/password-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
   <!-- Developer Tools -->
-  <url><loc>https://utilkit.io/tools/json-formatter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/base64</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/regex-tester</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/code-diff</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/jwt-decoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/sql-formatter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/html-minifier</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://utilkit.io/tools/css-minifier</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://utilkit.io/tools/uuid-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/markdown-previewer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://utilkit.us/tools/json-formatter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/base64</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/regex-tester</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/code-diff</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/jwt-decoder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/sql-formatter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/html-minifier</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://utilkit.us/tools/css-minifier</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://utilkit.us/tools/uuid-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/markdown-previewer</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- Text Tools -->
-  <url><loc>https://utilkit.io/tools/word-counter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/case-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/lorem-ipsum</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/temp-email</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/word-counter</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/case-converter</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/lorem-ipsum</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/temp-email</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Viral Tools -->
-  <url><loc>https://utilkit.io/tools/fake-chat-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/invoice-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/resume-builder</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://utilkit.io/tools/bio-link-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://utilkit.io/tools/typing-speed-test</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://utilkit.us/tools/fake-chat-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/invoice-generator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/resume-builder</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://utilkit.us/tools/bio-link-generator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://utilkit.us/tools/typing-speed-test</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>

@@ -27,8 +27,8 @@ services:
     volumes:
       - certbot_conf:/etc/letsencrypt
       - certbot_www:/var/www/certbot
-    # Renews certificate every 12 hours
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    # Renews certificate every 12 hours (started after initial cert is obtained)
+    command: renew
     restart: unless-stopped
 
 volumes:

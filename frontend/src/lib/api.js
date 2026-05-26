@@ -9,7 +9,8 @@ async function request(path, options = {}) {
   let data
   try { data = JSON.parse(text) } catch { data = text }
   if (!res.ok) {
-    const msg = data?.detail || (typeof data === 'string' ? data : `HTTP ${res.status}`)
+    const isHtml = typeof data === 'string' && data.trimStart().startsWith('<')
+    const msg = data?.detail || (isHtml ? `Server error (${res.status})` : (typeof data === 'string' ? data : `HTTP ${res.status}`))
     throw new Error(msg)
   }
   return data

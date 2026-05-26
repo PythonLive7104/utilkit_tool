@@ -78,7 +78,7 @@ export default function Layout() {
         </main>
       </div>
 
-      <PaystackButton variant="floating" />
+      <PaystackButton variant="floating" label="☕ Support our Team" />
     </div>
   )
 }

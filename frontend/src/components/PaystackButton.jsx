@@ -130,7 +130,7 @@ export default function PaystackButton({ variant = 'inline', label = '☕ Suppor
           onClick={() => setOpen(true)}
           className="fixed bottom-5 left-5 z-40 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
         >
-          ☕ Support
+          {label}
         </button>
       ) : (
         <button

@@ -18,6 +18,10 @@ function Modal({ onClose }) {
   function pay(e) {
     e.preventDefault()
     if (!email || !amount) return
+    if (!window.PaystackPop) {
+      alert('Payment script not loaded yet. Please refresh and try again.')
+      return
+    }
     setBusy(true)
     const handler = window.PaystackPop.setup({
       key: PK,
@@ -25,8 +29,8 @@ function Modal({ onClose }) {
       amount: amount * 100,
       currency: CURRENCY,
       ref: `utilkit_${Date.now()}`,
-      onSuccess: () => { setBusy(false); setDone(true) },
-      onCancel:  () => setBusy(false),
+      callback: () => { setBusy(false); setDone(true) },
+      onClose:  () => setBusy(false),
     })
     handler.openIframe()
   }

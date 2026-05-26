@@ -16,14 +16,21 @@
     <title>UtilKit — Free Online Utility Tools</title>
 
     <!-- Paystack inline checkout -->
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6743047876807902" crossorigin="anonymous"></script>
+    <script src="https://js.paystack.co/v1/inline.js" defer></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
+    <!-- Google AdSense — loaded after page to avoid blocking the tab spinner -->
+    <script>
+      window.addEventListener('load', function () {
+        var s = document.createElement('script')
+        s.async = true
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6743047876807902'
+        s.crossOrigin = 'anonymous'
+        document.body.appendChild(s)
+      })
+    </script>
   </body>
 </html>

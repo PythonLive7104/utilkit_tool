@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'bg_remover',
     'ai_tools',
     'payments',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +118,9 @@ CORS_ALLOW_METHODS = ['GET', 'POST', 'DELETE', 'OPTIONS']
 REMOVE_BG_API_KEY    = config('REMOVE_BG_API_KEY', default='')
 OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
 PAYSTACK_SECRET_KEY  = config('PAYSTACK_SECRET_KEY', default='')
+RESEND_API_KEY       = config('RESEND_API_KEY', default='')
+RESEND_FROM_EMAIL    = config('RESEND_FROM_EMAIL', default='noreply@utilkit.io')
+CONTACT_EMAIL        = config('CONTACT_EMAIL', default='')
 TEMP_EMAIL_DOMAINS = config('TEMP_EMAIL_DOMAINS', default='tempmail.dev,mailnull.io,throwaway.email', cast=Csv())
 TEMP_EMAIL_EXPIRY_MINUTES = config('TEMP_EMAIL_EXPIRY_MINUTES', default=30, cast=int)
 

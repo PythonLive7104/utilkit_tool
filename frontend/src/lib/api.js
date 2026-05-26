@@ -72,6 +72,14 @@ export const aiTool = (action, text) =>
     body: JSON.stringify({ action, text }),
   })
 
+// ── Contact ──────────────────────────────────────────────────
+export const contact = ({ name, email, subject, message }) =>
+  request('/api/contact/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, subject, message }),
+  })
+
 // ── Background Remover ───────────────────────────────────────
 export async function removeBackground(file, size = 'auto') {
   const form = new FormData()

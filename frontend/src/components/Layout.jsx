@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import PaystackButton from './PaystackButton'
+import ContactWidget from './ContactWidget'
 import { Menu, Moon, Sun, Zap } from 'lucide-react'
 
 export default function Layout() {
@@ -79,6 +80,7 @@ export default function Layout() {
       </div>
 
       <PaystackButton variant="floating" label="☕ Support our Team" />
+      <ContactWidget />
     </div>
   )
 }

@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'temp_email',
     'bg_remover',
     'ai_tools',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -113,8 +114,9 @@ else:
 CORS_ALLOW_METHODS = ['GET', 'POST', 'DELETE', 'OPTIONS']
 
 # ── App-specific config ───────────────────────────────────────
-REMOVE_BG_API_KEY = config('REMOVE_BG_API_KEY', default='')
-OPENAI_API_KEY   = config('OPENAI_API_KEY', default='')
+REMOVE_BG_API_KEY    = config('REMOVE_BG_API_KEY', default='')
+OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
+PAYSTACK_SECRET_KEY  = config('PAYSTACK_SECRET_KEY', default='')
 TEMP_EMAIL_DOMAINS = config('TEMP_EMAIL_DOMAINS', default='tempmail.dev,mailnull.io,throwaway.email', cast=Csv())
 TEMP_EMAIL_EXPIRY_MINUTES = config('TEMP_EMAIL_EXPIRY_MINUTES', default=30, cast=int)
 

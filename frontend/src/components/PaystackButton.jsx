@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 
 const PK = 'pk_live_c993a64d0b90760e2f42a25889360af489694486'
-const PRESETS = [500, 1000, 2000, 5000]
+const CURRENCY = 'USD'
+const SYMBOL   = '$'
+const PRESETS  = [2, 5, 10, 20]
 
 function Modal({ onClose }) {
   const [email, setEmail]   = useState('')
-  const [preset, setPreset] = useState(1000)
+  const [preset, setPreset] = useState(5)
   const [custom, setCustom] = useState('')
   const [busy, setBusy]     = useState(false)
   const [done, setDone]     = useState(false)
@@ -21,7 +23,7 @@ function Modal({ onClose }) {
       key: PK,
       email,
       amount: amount * 100,
-      currency: 'NGN',
+      currency: CURRENCY,
       ref: `utilkit_${Date.now()}`,
       onSuccess: () => { setBusy(false); setDone(true) },
       onCancel:  () => setBusy(false),
@@ -70,7 +72,7 @@ function Modal({ onClose }) {
               />
 
               <div>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">Amount (₦)</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">Amount (USD)</p>
                 <div className="grid grid-cols-4 gap-2 mb-2">
                   {PRESETS.map(a => (
                     <button
@@ -83,13 +85,13 @@ function Modal({ onClose }) {
                           : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700'
                       }`}
                     >
-                      {a >= 1000 ? `₦${a / 1000}k` : `₦${a}`}
+                      {SYMBOL}{a}
                     </button>
                   ))}
                 </div>
                 <input
                   type="number"
-                  min="100"
+                  min="1"
                   placeholder="Custom amount"
                   value={custom}
                   onChange={e => { setCustom(e.target.value); setPreset(0) }}
@@ -102,7 +104,7 @@ function Modal({ onClose }) {
                 disabled={busy || !email || !amount}
                 className="w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors"
               >
-                {busy ? 'Opening Paystack…' : `Pay ₦${amount.toLocaleString()}`}
+                {busy ? 'Opening Paystack…' : `Pay ${SYMBOL}${amount}`}
               </button>
             </form>
           </>

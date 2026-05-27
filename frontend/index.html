@@ -12,24 +12,58 @@
     <meta name="description" content="UtilKit — 20 free browser-based utility tools for PDF, images, generators, developer tools, and text processing." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
     <title>UtilKit — Free Online Utility Tools</title>
+    <meta name="robots" content="index, follow" />
 
-    <!-- Paystack inline checkout -->
-    <script src="https://js.paystack.co/v1/inline.js" defer></script>
+    <!-- Static structured data: Google reads this before executing JavaScript -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "UtilKit",
+      "url": "https://utilkit.us",
+      "description": "47 free online tools — PDF conversion, image editing, AI writing tools, developer utilities, and text processing. No sign-up required.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://utilkit.us/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "UtilKit",
+      "url": "https://utilkit.us",
+      "logo": "https://utilkit.us/og-image.png",
+      "description": "Free online utility tools — PDF, image, AI, developer, and text tools. All browser-based, all free, no account needed."
+    }
+    </script>
+
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Google AdSense — loaded after page to avoid blocking the tab spinner -->
+    <!-- Third-party scripts loaded after page to avoid blocking the tab spinner -->
     <script>
       window.addEventListener('load', function () {
-        var s = document.createElement('script')
-        s.async = true
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6743047876807902'
-        s.crossOrigin = 'anonymous'
-        document.body.appendChild(s)
+        var paystack = document.createElement('script')
+        paystack.src = 'https://js.paystack.co/v1/inline.js'
+        document.body.appendChild(paystack)
+
+        var adsense = document.createElement('script')
+        adsense.async = true
+        adsense.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6743047876807902'
+        adsense.crossOrigin = 'anonymous'
+        document.body.appendChild(adsense)
       })
     </script>
   </body>

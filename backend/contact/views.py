@@ -1,4 +1,3 @@
-import resend
 from django.conf import settings
 from rest_framework.decorators import api_view, throttle_classes
 from rest_framework.throttling import AnonRateThrottle
@@ -12,6 +11,8 @@ class ContactThrottle(AnonRateThrottle):
 @api_view(['POST'])
 @throttle_classes([ContactThrottle])
 def contact(request):
+    import resend
+
     name = (request.data.get('name') or '').strip()
     email = (request.data.get('email') or '').strip()
     subject = (request.data.get('subject') or '').strip()

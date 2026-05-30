@@ -8,7 +8,7 @@ set -euo pipefail
 
 # ── EDIT THESE BEFORE RUNNING ────────────────────────────────
 DOMAIN="utilkit.us"
-EMAIL="your@email.com"
+EMAIL="your@email.com"       
 REPO="https://github.com/PythonLive7104/utilkit_tool.git"
 APP_DIR="/opt/utilkit"
 # ─────────────────────────────────────────────────────────────

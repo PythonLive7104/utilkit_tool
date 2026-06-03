@@ -64,6 +64,30 @@ import ResumeBuilder from './pages/tools/ResumeBuilder'
 import BioLinkGenerator from './pages/tools/BioLinkGenerator'
 import TypingSpeedTest from './pages/tools/TypingSpeedTest'
 
+// Calculators
+import PercentageCalculator from './pages/tools/PercentageCalculator'
+import AgeCalculator from './pages/tools/AgeCalculator'
+import BmiCalculator from './pages/tools/BmiCalculator'
+import LoanCalculator from './pages/tools/LoanCalculator'
+import DiscountCalculator from './pages/tools/DiscountCalculator'
+import UnitConverter from './pages/tools/UnitConverter'
+
+// More Developer Tools
+import HashGenerator from './pages/tools/HashGenerator'
+import TimestampConverter from './pages/tools/TimestampConverter'
+import UrlEncoder from './pages/tools/UrlEncoder'
+import CsvToJson from './pages/tools/CsvToJson'
+import ColorConverter from './pages/tools/ColorConverter'
+import NumberBaseConverter from './pages/tools/NumberBaseConverter'
+
+// More Image Tools
+import ImageToPdf from './pages/tools/ImageToPdf'
+import ImageCropper from './pages/tools/ImageCropper'
+
+// More Text Tools
+import TextCleaner from './pages/tools/TextCleaner'
+import SlugGenerator from './pages/tools/SlugGenerator'
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -136,6 +160,30 @@ export default function App() {
           <Route path="tools/resume-builder" element={<ResumeBuilder />} />
           <Route path="tools/bio-link-generator" element={<BioLinkGenerator />} />
           <Route path="tools/typing-speed-test" element={<TypingSpeedTest />} />
+
+          {/* Calculators */}
+          <Route path="tools/percentage-calculator" element={<PercentageCalculator />} />
+          <Route path="tools/age-calculator" element={<AgeCalculator />} />
+          <Route path="tools/bmi-calculator" element={<BmiCalculator />} />
+          <Route path="tools/loan-calculator" element={<LoanCalculator />} />
+          <Route path="tools/discount-calculator" element={<DiscountCalculator />} />
+          <Route path="tools/unit-converter" element={<UnitConverter />} />
+
+          {/* More Developer Tools */}
+          <Route path="tools/hash-generator" element={<HashGenerator />} />
+          <Route path="tools/timestamp-converter" element={<TimestampConverter />} />
+          <Route path="tools/url-encoder" element={<UrlEncoder />} />
+          <Route path="tools/csv-to-json" element={<CsvToJson />} />
+          <Route path="tools/color-converter" element={<ColorConverter />} />
+          <Route path="tools/number-base-converter" element={<NumberBaseConverter />} />
+
+          {/* More Image Tools */}
+          <Route path="tools/image-to-pdf" element={<ImageToPdf />} />
+          <Route path="tools/image-cropper" element={<ImageCropper />} />
+
+          {/* More Text Tools */}
+          <Route path="tools/text-cleaner" element={<TextCleaner />} />
+          <Route path="tools/slug-generator" element={<SlugGenerator />} />
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />

@@ -19,6 +19,10 @@ import {
   ShieldCheck, Database, Code, Hash, FileCode,
   // New viral tools
   MessageSquare, Receipt, ClipboardList, Link2, Keyboard,
+  // Calculators
+  Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
+  // More dev / image / text tools
+  Fingerprint, Clock, Table, Palette, FileImage, Crop, Sparkles, Spline,
 } from 'lucide-react'
 
 const iconMap = {
@@ -36,6 +40,10 @@ const iconMap = {
   ShieldCheck, Database, Code, Hash, FileCode,
   // New viral tools
   MessageSquare, Receipt, ClipboardList, Link2, Keyboard,
+  // Calculators
+  Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
+  // More dev / image / text tools
+  Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
 }
 
 const categoryTheme = {
@@ -46,11 +54,12 @@ const categoryTheme = {
   text:      { badge: 'bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border-emerald-500/20', bar: 'bg-emerald-500', ring: 'ring-emerald-500/20',   hover: 'hover:border-emerald-300 dark:hover:border-emerald-800' },
   ai:        { badge: 'bg-purple-500/10 text-purple-500 dark:text-purple-400 border-purple-500/20', bar: 'bg-purple-500',      ring: 'ring-purple-500/20',    hover: 'hover:border-purple-300 dark:hover:border-purple-800' },
   viral:     { badge: 'bg-pink-500/10 text-pink-500 dark:text-pink-400 border-pink-500/20',         bar: 'bg-pink-500',        ring: 'ring-pink-500/20',      hover: 'hover:border-pink-300 dark:hover:border-pink-800' },
+  calculator:{ badge: 'bg-teal-500/10 text-teal-500 dark:text-teal-400 border-teal-500/20',         bar: 'bg-teal-500',        ring: 'ring-teal-500/20',      hover: 'hover:border-teal-300 dark:hover:border-teal-800' },
 }
 
 const STATS = [
-  { value: '47', label: 'Free tools' },
-  { value: '7', label: 'Categories' },
+  { value: '63', label: 'Free tools' },
+  { value: '8', label: 'Categories' },
   { value: '0', label: 'Sign-ups needed' },
   { value: '∞', label: 'Uses per day' },
 ]
@@ -87,7 +96,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'UtilKit',
   url: SITE_URL,
-  description: '47 free online tools — PDF, image, AI, developer, and text utilities. No sign-up required.',
+  description: '63 free online tools — PDF, image, AI, developer, calculator, and text utilities. No sign-up required.',
   potentialAction: {
     '@type': 'SearchAction',
     target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/?q={search_term_string}` },
@@ -128,20 +137,20 @@ export default function Home() {
     <div className="min-h-screen">
 
       <Helmet>
-        <title>UtilKit — 47 Free Online Tools. No Sign-Up Required.</title>
-        <meta name="description" content="Free PDF converter, image compressor, AI writing tools, QR code generator, password generator, and 42 more utilities. All browser-based, all free, no account needed." />
+        <title>UtilKit — 63 Free Online Tools. No Sign-Up Required.</title>
+        <meta name="description" content="Free PDF converter, image compressor, AI writing tools, calculators, QR code generator, password generator, and 58 more utilities. All browser-based, all free, no account needed." />
         <link rel="canonical" href={SITE_URL} />
         <meta property="og:type"         content="website" />
         <meta property="og:site_name"    content="UtilKit" />
         <meta property="og:url"          content={SITE_URL} />
-        <meta property="og:title"        content="UtilKit — 47 Free Online Tools. No Sign-Up Required." />
+        <meta property="og:title"        content="UtilKit — 63 Free Online Tools. No Sign-Up Required." />
         <meta property="og:description"  content="Free PDF, image, AI, developer, and text tools. All browser-based. No account required." />
         <meta property="og:image"        content={OG_IMAGE} />
         <meta property="og:image:width"  content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card"        content="summary_large_image" />
         <meta name="twitter:site"        content="@utilkit" />
-        <meta name="twitter:title"       content="UtilKit — 47 Free Online Tools" />
+        <meta name="twitter:title"       content="UtilKit — 63 Free Online Tools" />
         <meta name="twitter:description" content="PDF, image, AI, developer, and text tools. Free, no sign-up." />
         <meta name="twitter:image"       content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
@@ -152,7 +161,7 @@ export default function Home() {
       <section className="px-4 pt-16 pb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500 dark:text-indigo-400 text-xs font-medium mb-6">
           <Zap size={12} fill="currentColor" />
-          47 free tools — no account required
+          63 free tools — no account required
         </div>
 
         <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tight">
@@ -303,7 +312,7 @@ export default function Home() {
           <span className="font-bold text-sm text-zinc-700 dark:text-zinc-300">UtilKit</span>
         </div>
         <p className="text-xs text-zinc-400">
-          47 free utility tools · No account required ·{' '}
+          63 free utility tools · No account required ·{' '}
           <NavLink to="/privacy" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
             Privacy policy
           </NavLink>

@@ -953,4 +953,316 @@ export const toolContent = {
       { q: 'Can I choose the passage?', a: 'A random passage is selected each time. Click "New Passage" to get a different one.' },
     ],
   },
+
+  // ─── Calculators ────────────────────────────────────────────────────────────
+
+  'percentage-calculator': {
+    why: 'Percentage questions come in a few standard forms, and mixing them up is a common source of mistakes. This tool separates the three most common ones — X% of Y, X as a percent of Y, and the percentage change between two numbers — so you always apply the right formula.',
+    howTo: [
+      { step: '1', title: 'Pick the calculation', body: 'Choose the box that matches your question: percent of a number, one number as a percent of another, or a percentage change.' },
+      { step: '2', title: 'Enter your numbers', body: 'Type the values into the fields. Results update instantly as you type.' },
+      { step: '3', title: 'Read the result', body: 'The answer appears in bold. Percentage decreases show in red, increases in green.' },
+    ],
+    useCases: [
+      { title: 'Shopping & discounts', body: 'Work out how much a percentage off saves you, or the percentage discount from two prices.' },
+      { title: 'Grades & scores', body: 'Convert marks into percentages, e.g. 47 out of 60 as a percentage.' },
+      { title: 'Finance & stats', body: 'Calculate percentage growth or decline between two figures like revenue or followers.' },
+    ],
+    faq: [
+      { q: 'How do I calculate percentage change?', a: 'Percentage change = (new − old) ÷ |old| × 100. The tool does this for you in the third box.' },
+      { q: 'Does it handle decreases?', a: 'Yes. A drop from 100 to 80 shows as −20%, and an increase from 80 to 100 shows as +25%.' },
+      { q: 'Is anything sent to a server?', a: 'No. All maths runs in your browser.' },
+    ],
+  },
+
+  'age-calculator': {
+    why: 'Counting age by hand is error-prone because months have different lengths and leap years shift the maths. This tool computes the exact difference in years, months, and days, and also expresses your age in total months, weeks, days, and hours.',
+    howTo: [
+      { step: '1', title: 'Enter date of birth', body: 'Pick the birth date using the date selector.' },
+      { step: '2', title: 'Set the target date', body: 'Leave it on today, or choose any date to find age at that point in time.' },
+      { step: '3', title: 'View the breakdown', body: 'See exact age plus totals and a countdown to the next birthday.' },
+    ],
+    useCases: [
+      { title: 'Forms & eligibility', body: 'Confirm exact age for applications, age-restricted services, or benefits.' },
+      { title: 'Milestones', body: 'Find out how many days or hours someone has been alive for a birthday surprise.' },
+      { title: 'Date planning', body: 'Calculate age at a future event like a wedding or graduation.' },
+    ],
+    faq: [
+      { q: 'Does it account for leap years?', a: 'Yes. The calculation uses real calendar dates, so leap years are handled correctly.' },
+      { q: 'Can I calculate age at a past or future date?', a: 'Yes. Set the "Age at date" field to any date on or after the date of birth.' },
+      { q: 'Are my dates uploaded?', a: 'No. Everything is calculated locally in your browser.' },
+    ],
+  },
+
+  'bmi-calculator': {
+    why: 'Body Mass Index is a quick screening tool used by health services worldwide to flag whether weight may be too low or too high for a given height. It is easy to miscalculate by mixing units — this tool handles both metric and imperial correctly.',
+    howTo: [
+      { step: '1', title: 'Choose your units', body: 'Switch between metric (cm, kg) and imperial (ft/in, lb).' },
+      { step: '2', title: 'Enter height and weight', body: 'Type your measurements into the fields.' },
+      { step: '3', title: 'Read your category', body: 'Your BMI and weight category appear instantly, colour-coded against WHO ranges.' },
+    ],
+    useCases: [
+      { title: 'Health check-ins', body: 'Track whether your weight sits in the healthy range over time.' },
+      { title: 'Fitness goals', body: 'Use BMI as one reference point alongside other measures when setting targets.' },
+      { title: 'Medical forms', body: 'Quickly compute BMI when a form or doctor asks for it.' },
+    ],
+    faq: [
+      { q: 'What is a healthy BMI?', a: 'The WHO ranges are: under 18.5 underweight, 18.5–25 normal, 25–30 overweight, 30+ obese.' },
+      { q: 'Is BMI accurate for everyone?', a: 'BMI is a screening tool, not a diagnosis. It does not distinguish muscle from fat, so very muscular people may read high. Consult a professional for personalised advice.' },
+      { q: 'Is my data stored?', a: 'No. The calculation runs entirely in your browser.' },
+    ],
+  },
+
+  'loan-calculator': {
+    why: 'The monthly payment on an amortising loan is not simply the amount divided by the number of months — interest compounds over the term. This calculator uses the standard EMI formula so you can see your true monthly cost and total interest before you borrow.',
+    howTo: [
+      { step: '1', title: 'Enter the loan amount', body: 'Type the principal you intend to borrow.' },
+      { step: '2', title: 'Set rate and term', body: 'Enter the annual interest rate and the term in years.' },
+      { step: '3', title: 'Review the breakdown', body: 'See your monthly EMI, total interest paid, and total amount payable.' },
+    ],
+    useCases: [
+      { title: 'Mortgages', body: 'Estimate monthly home-loan repayments across different rates and terms.' },
+      { title: 'Car & personal loans', body: 'Compare offers by seeing the real total cost including interest.' },
+      { title: 'Budgeting', body: 'Check whether a prospective repayment fits your monthly budget.' },
+    ],
+    faq: [
+      { q: 'What is EMI?', a: 'EMI (Equated Monthly Instalment) is the fixed amount you pay each month, covering both principal and interest, until the loan is fully repaid.' },
+      { q: 'Does it support a 0% rate?', a: 'Yes. With a 0% rate the payment is simply the principal divided by the number of months.' },
+      { q: 'Is this financial advice?', a: 'No. It is an estimate for comparison. Lenders may add fees and use different rounding.' },
+    ],
+  },
+
+  'discount-calculator': {
+    why: 'Sales advertise percentages off, but what you really want to know is the final price and how much you actually save — especially when tax is added afterwards. This tool gives you all three figures at once.',
+    howTo: [
+      { step: '1', title: 'Enter the original price', body: 'Type the pre-discount price of the item.' },
+      { step: '2', title: 'Enter the discount', body: 'Add the discount percentage, and optionally a tax rate to apply on top.' },
+      { step: '3', title: 'See your savings', body: 'View the final price, the amount saved, and the price after discount before tax.' },
+    ],
+    useCases: [
+      { title: 'Sales & coupons', body: 'Check the true price of a "25% off" deal before you buy.' },
+      { title: 'Black Friday', body: 'Compare stacked discounts quickly while shopping.' },
+      { title: 'Retail & invoicing', body: 'Apply a discount and tax line to quote a customer price.' },
+    ],
+    faq: [
+      { q: 'How is the discount applied?', a: 'The discount percentage is subtracted from the original price first, then any tax is applied to the discounted amount.' },
+      { q: 'Can I leave tax blank?', a: 'Yes. Leave tax at 0 to see just the discounted price.' },
+      { q: 'Does it work in any currency?', a: 'Yes. The maths is currency-agnostic — just read the numbers in your own currency.' },
+    ],
+  },
+
+  'unit-converter': {
+    why: 'Switching between metric and imperial units by memory is unreliable. This converter uses precise SI conversion factors across six measurement categories plus temperature, so results are accurate every time.',
+    howTo: [
+      { step: '1', title: 'Pick a category', body: 'Choose length, weight, temperature, area, volume, or speed.' },
+      { step: '2', title: 'Select units', body: 'Choose the unit to convert from and the unit to convert to. Use the swap button to reverse them.' },
+      { step: '3', title: 'Enter a value', body: 'Type the value and read the converted result instantly.' },
+    ],
+    useCases: [
+      { title: 'Travel', body: 'Convert miles to kilometres or Fahrenheit to Celsius while abroad.' },
+      { title: 'Cooking', body: 'Switch recipe measurements between cups, millilitres, and grams.' },
+      { title: 'Study & work', body: 'Convert engineering and science units accurately for homework or reports.' },
+    ],
+    faq: [
+      { q: 'How accurate are the conversions?', a: 'Conversions use standard SI factors and are accurate to six decimal places.' },
+      { q: 'Does it convert temperature correctly?', a: 'Yes. Temperature uses proper offset formulas (not simple ratios) for Celsius, Fahrenheit, and Kelvin.' },
+      { q: 'Is it free?', a: 'Yes, completely free with no limits, and it runs entirely in your browser.' },
+    ],
+  },
+
+  // ─── More Developer Tools ────────────────────────────────────────────────────
+
+  'hash-generator': {
+    why: 'Cryptographic hashes are used everywhere — verifying downloads, storing password fingerprints, and signing data. This tool computes them with the browser\'s native Web Crypto API, so your input never leaves your device.',
+    howTo: [
+      { step: '1', title: 'Type or paste text', body: 'Enter the text you want to hash into the input box.' },
+      { step: '2', title: 'See all digests', body: 'SHA-1, SHA-256, SHA-384, and SHA-512 are computed automatically as you type.' },
+      { step: '3', title: 'Copy a hash', body: 'Click the copy icon next to any algorithm to copy its digest.' },
+    ],
+    useCases: [
+      { title: 'File & data integrity', body: 'Generate a checksum to confirm data has not been altered.' },
+      { title: 'Development & testing', body: 'Produce known hash values for unit tests and fixtures.' },
+      { title: 'Learning', body: 'See how the same input always maps to the same fixed-length hash.' },
+    ],
+    faq: [
+      { q: 'Why no MD5?', a: 'MD5 is not provided by the browser\'s Web Crypto API and is cryptographically broken. SHA-256 or stronger is recommended for new work.' },
+      { q: 'Is my text uploaded?', a: 'No. Hashing happens entirely in your browser using crypto.subtle.' },
+      { q: 'Can I reverse a hash?', a: 'No. Cryptographic hashes are one-way — the original text cannot be recovered from the digest.' },
+    ],
+  },
+
+  'timestamp-converter': {
+    why: 'Logs, databases, and APIs store time as a Unix epoch number, which is unreadable at a glance. This converter translates between epoch timestamps and human dates in both directions, showing local, UTC, and ISO formats.',
+    howTo: [
+      { step: '1', title: 'Convert a timestamp', body: 'Paste a Unix timestamp (seconds or milliseconds) to see the matching date in local, UTC, and ISO formats.' },
+      { step: '2', title: 'Convert a date', body: 'Pick a date and time to get its Unix timestamp in seconds.' },
+      { step: '3', title: 'Copy the result', body: 'Click any value to copy it. The live clock shows the current Unix time.' },
+    ],
+    useCases: [
+      { title: 'Debugging logs', body: 'Turn epoch timestamps in server logs into readable dates.' },
+      { title: 'API development', body: 'Generate timestamps for requests or verify ones in responses.' },
+      { title: 'Database work', body: 'Convert stored Unix times to human-readable values for inspection.' },
+    ],
+    faq: [
+      { q: 'Seconds or milliseconds?', a: 'The tool auto-detects: values longer than 11 digits are treated as milliseconds, otherwise as seconds.' },
+      { q: 'What timezone is used?', a: 'It shows your local timezone plus UTC and ISO 8601 so you can use whichever you need.' },
+      { q: 'Is the conversion done online?', a: 'No. Everything runs in your browser.' },
+    ],
+  },
+
+  'url-encoder': {
+    why: 'URLs can only contain a limited set of characters, so spaces, ampersands, and non-ASCII text must be percent-encoded. Using the wrong function (whole URL vs. a single query value) is a frequent bug — this tool lets you pick the right one.',
+    howTo: [
+      { step: '1', title: 'Choose encode or decode', body: 'Switch between encoding plain text and decoding an encoded string.' },
+      { step: '2', title: 'Pick the scope', body: 'Use component encoding for query values, or turn it off to preserve full-URL structure.' },
+      { step: '3', title: 'Paste and copy', body: 'Enter your text and copy the converted output.' },
+    ],
+    useCases: [
+      { title: 'Building query strings', body: 'Safely encode parameter values that contain spaces or symbols.' },
+      { title: 'Debugging links', body: 'Decode an encoded URL to read what it actually points to.' },
+      { title: 'API requests', body: 'Encode path and query components before sending requests.' },
+    ],
+    faq: [
+      { q: 'Component vs. full-URL encoding?', a: 'Component encoding (encodeURIComponent) escapes characters like / ? & = and is for individual values. Full-URL encoding (encodeURI) leaves those intact to preserve the URL structure.' },
+      { q: 'Why does decoding fail sometimes?', a: 'A malformed percent sequence (like a lone %) cannot be decoded. Check the input for incomplete escapes.' },
+      { q: 'Is it private?', a: 'Yes. All encoding and decoding happens in your browser.' },
+    ],
+  },
+
+  'csv-to-json': {
+    why: 'Spreadsheet exports come as CSV, but most APIs and apps expect JSON. Converting by hand is tedious and naive splitting breaks on quoted fields containing commas. This parser handles quotes, escapes, and custom delimiters correctly.',
+    howTo: [
+      { step: '1', title: 'Paste your CSV', body: 'Paste the CSV data, with the first row as column headers.' },
+      { step: '2', title: 'Set options', body: 'Choose the delimiter and whether numeric strings should become real numbers.' },
+      { step: '3', title: 'Copy or download', body: 'Copy the JSON array or download it as a .json file.' },
+    ],
+    useCases: [
+      { title: 'Seeding databases', body: 'Turn a CSV export into JSON to import into an app or database.' },
+      { title: 'API payloads', body: 'Convert tabular data into a JSON array of objects for requests.' },
+      { title: 'Data wrangling', body: 'Quickly reshape spreadsheet data for use in JavaScript.' },
+    ],
+    faq: [
+      { q: 'Does it handle quoted commas?', a: 'Yes. Fields wrapped in double quotes can contain commas, line breaks, and escaped quotes ("").' },
+      { q: 'Can I use a semicolon or tab delimiter?', a: 'Yes. Pick comma, semicolon, or tab from the delimiter dropdown.' },
+      { q: 'Is my data uploaded?', a: 'No. Parsing happens entirely in your browser.' },
+    ],
+  },
+
+  'color-converter': {
+    why: 'Designers and developers need the same colour in different formats — HEX for CSS, RGB for canvas, HSL for adjusting lightness. This tool converts between all three and previews the result so you never copy the wrong value.',
+    howTo: [
+      { step: '1', title: 'Pick or type a colour', body: 'Use the colour swatch or type a HEX value like #6366f1.' },
+      { step: '2', title: 'See every format', body: 'HEX, RGB, and HSL values are shown together with a live preview.' },
+      { step: '3', title: 'Copy what you need', body: 'Click the copy icon next to the format you want to use.' },
+    ],
+    useCases: [
+      { title: 'CSS styling', body: 'Convert a designer\'s HEX colour into HSL to fine-tune lightness.' },
+      { title: 'Canvas & graphics', body: 'Get RGB values for drawing APIs that need numeric channels.' },
+      { title: 'Brand consistency', body: 'Translate a brand colour across formats for different tools.' },
+    ],
+    faq: [
+      { q: 'Does it accept short HEX codes?', a: 'Yes. Three-digit shorthand like #63f is expanded automatically.' },
+      { q: 'Does it support alpha/opacity?', a: 'The converter focuses on solid colours (HEX, RGB, HSL). Add opacity separately in your CSS if needed.' },
+      { q: 'Is it free and private?', a: 'Yes. It runs entirely in your browser with no limits.' },
+    ],
+  },
+
+  'number-base-converter': {
+    why: 'Working with binary, octal, and hexadecimal is routine in low-level programming, but mental conversion is slow and error-prone. This tool converts a number across all four bases at once, using BigInt so even very large numbers stay exact.',
+    howTo: [
+      { step: '1', title: 'Type in any base', body: 'Enter a value into the binary, octal, decimal, or hex field.' },
+      { step: '2', title: 'See all bases', body: 'The other three fields update instantly with the equivalent value.' },
+      { step: '3', title: 'Copy a value', body: 'Click the copy icon next to the base you need.' },
+    ],
+    useCases: [
+      { title: 'Bitmasks & flags', body: 'Convert binary flag values to hex and decimal while coding.' },
+      { title: 'Colour & encoding work', body: 'Translate hex colour or byte values into decimal and binary.' },
+      { title: 'Learning CS', body: 'Understand how the same number is represented across number systems.' },
+    ],
+    faq: [
+      { q: 'How large a number can it handle?', a: 'It uses JavaScript BigInt, so it stays accurate for numbers far beyond the normal 64-bit range.' },
+      { q: 'Does it support negative numbers?', a: 'It is designed for non-negative whole numbers across bases.' },
+      { q: 'Is the conversion done online?', a: 'No. It runs entirely in your browser.' },
+    ],
+  },
+
+  // ─── More Image Tools ────────────────────────────────────────────────────────
+
+  'image-to-pdf': {
+    why: 'Sending several photos or scans is cleaner as a single PDF than as loose image files. This tool combines JPG and PNG images into one document, with control over page order and size, all without uploading anything.',
+    howTo: [
+      { step: '1', title: 'Add your images', body: 'Click or drag JPG and PNG files into the upload area. Add more at any time.' },
+      { step: '2', title: 'Order and size', body: 'Use the arrows to reorder pages and choose fit-to-image, A4, or Letter.' },
+      { step: '3', title: 'Create the PDF', body: 'Click Create PDF to generate and download the combined document.' },
+    ],
+    useCases: [
+      { title: 'Receipts & expenses', body: 'Combine photographed receipts into one PDF for an expense claim.' },
+      { title: 'Scanned documents', body: 'Merge phone-scanned pages into a single shareable PDF.' },
+      { title: 'Portfolios', body: 'Bundle image-based work samples into one downloadable file.' },
+    ],
+    faq: [
+      { q: 'Which image formats are supported?', a: 'JPG and PNG. Each image becomes one page in the PDF.' },
+      { q: 'Are my images uploaded?', a: 'No. The PDF is built in your browser with pdf-lib — images never leave your device.' },
+      { q: 'Can I reorder pages?', a: 'Yes. Use the left/right arrows on each thumbnail before creating the PDF.' },
+    ],
+  },
+
+  'image-cropper': {
+    why: 'Cropping to an exact region or aspect ratio is essential for profile pictures, thumbnails, and social posts. This cropper gives you a draggable selection with optional fixed ratios and exports the result at full source resolution.',
+    howTo: [
+      { step: '1', title: 'Upload an image', body: 'Click or drag an image into the upload area.' },
+      { step: '2', title: 'Select the crop', body: 'Drag the selection box and its corner handle. Lock a ratio like 1:1 or 16:9 if needed.' },
+      { step: '3', title: 'Download', body: 'Choose PNG or JPG and download just the cropped region.' },
+    ],
+    useCases: [
+      { title: 'Profile pictures', body: 'Crop a square 1:1 avatar from any photo.' },
+      { title: 'Thumbnails', body: 'Cut a 16:9 thumbnail for videos or articles.' },
+      { title: 'Social posts', body: 'Trim images to the exact region you want to share.' },
+    ],
+    faq: [
+      { q: 'Does cropping reduce quality?', a: 'No. The crop is taken from the original full-resolution image, not the on-screen preview.' },
+      { q: 'Can I crop to a fixed shape?', a: 'Yes. Choose 1:1, 4:3, 16:9, or 3:4, or use Free for any rectangle.' },
+      { q: 'Is my image uploaded?', a: 'No. Cropping happens on a canvas in your browser.' },
+    ],
+  },
+
+  // ─── More Text Tools ─────────────────────────────────────────────────────────
+
+  'text-cleaner': {
+    why: 'Text copied from PDFs, emails, and web pages often arrives with broken line breaks, double spaces, and invisible characters. This cleaner applies the fixes you choose in one pass so you get tidy, paste-ready text.',
+    howTo: [
+      { step: '1', title: 'Paste your text', body: 'Drop the messy text into the input box.' },
+      { step: '2', title: 'Choose clean-up rules', body: 'Toggle options like collapsing spaces, removing blank lines, or stripping special characters.' },
+      { step: '3', title: 'Copy the result', body: 'The cleaned text updates live — copy it with one click.' },
+    ],
+    useCases: [
+      { title: 'PDF copy-paste', body: 'Fix text pulled from a PDF that breaks awkwardly mid-sentence.' },
+      { title: 'Email & web text', body: 'Remove stray formatting from quoted emails or scraped content.' },
+      { title: 'Data prep', body: 'Normalise whitespace before importing text into another tool.' },
+    ],
+    faq: [
+      { q: 'What does "remove line breaks" do?', a: 'It joins everything into a single paragraph, replacing line breaks with spaces — useful for unwrapping hard-wrapped text.' },
+      { q: 'Will it change my words?', a: 'No. It only adjusts whitespace, blank lines, case, and non-printable characters based on the options you select.' },
+      { q: 'Is my text uploaded?', a: 'No. Cleaning runs entirely in your browser.' },
+    ],
+  },
+
+  'slug-generator': {
+    why: 'Clean, readable URLs rank better and are easier to share. Turning a title into a good slug means lowercasing, removing accents and punctuation, and replacing spaces with hyphens — this tool does all of it automatically.',
+    howTo: [
+      { step: '1', title: 'Enter a title', body: 'Type or paste the title or sentence you want to convert.' },
+      { step: '2', title: 'Set the style', body: 'Choose hyphen or underscore separators and whether to lowercase the result.' },
+      { step: '3', title: 'Copy the slug', body: 'The URL-safe slug appears instantly — copy it for your page or post.' },
+    ],
+    useCases: [
+      { title: 'Blog & CMS URLs', body: 'Generate the slug for a new article from its headline.' },
+      { title: 'File & folder names', body: 'Create safe, consistent names without spaces or symbols.' },
+      { title: 'API & database keys', body: 'Produce readable identifiers from human-friendly labels.' },
+    ],
+    faq: [
+      { q: 'Does it handle accented characters?', a: 'Yes. Accents are transliterated (é becomes e) and other special characters are removed.' },
+      { q: 'Can I use underscores instead of hyphens?', a: 'Yes. Pick your separator from the dropdown.' },
+      { q: 'Is it free?', a: 'Yes, and it runs entirely in your browser.' },
+    ],
+  },
 }

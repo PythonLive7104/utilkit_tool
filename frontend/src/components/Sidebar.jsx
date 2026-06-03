@@ -16,6 +16,10 @@ import {
   ShieldCheck, Database, Code, Hash, FileCode,
   // New viral tools
   MessageSquare, Receipt, ClipboardList, Link2, Keyboard,
+  // Calculators
+  Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
+  // More dev / image / text tools
+  Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
 } from 'lucide-react'
 
 const iconMap = {
@@ -34,6 +38,10 @@ const iconMap = {
   ShieldCheck, Database, Code, Hash, FileCode,
   // New viral tools
   MessageSquare, Receipt, ClipboardList, Link2, Keyboard,
+  // Calculators
+  Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
+  // More dev / image / text tools
+  Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
 }
 
 const categoryColors = {
@@ -43,6 +51,7 @@ const categoryColors = {
   generator: 'text-violet-500 dark:text-violet-400',
   developer: 'text-amber-500 dark:text-amber-400',
   text: 'text-emerald-500 dark:text-emerald-400',
+  calculator: 'text-teal-500 dark:text-teal-400',
   viral: 'text-pink-500 dark:text-pink-400',
 }
 
@@ -125,7 +134,7 @@ export default function Sidebar({ onClose }) {
       {/* Footer */}
       <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800 flex-shrink-0">
         <p className="text-xs text-zinc-400 dark:text-zinc-600">
-          47 tools · All free ·{' '}
+          63 tools · All free ·{' '}
           <NavLink to="/privacy" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
             Privacy
           </NavLink>

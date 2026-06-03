@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X } from 'lucide-react'
+import { X, Coffee } from 'lucide-react'
 
 const PK = 'pk_live_c993a64d0b90760e2f42a25889360af489694486'
 const CURRENCY = 'USD'
@@ -118,7 +118,7 @@ function Modal({ onClose }) {
   )
 }
 
-// variant="floating" → fixed bottom-left pill button
+// variant="floating" → fixed icon button, stacked above the Contact widget
 // variant="inline"   → normal button (used inside CoffeeBox)
 export default function PaystackButton({ variant = 'inline', label = '☕ Support UtilKit' }) {
   const [open, setOpen] = useState(false)
@@ -128,9 +128,11 @@ export default function PaystackButton({ variant = 'inline', label = '☕ Suppor
       {variant === 'floating' ? (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-5 left-5 z-40 flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+          aria-label={label}
+          title={label}
+          className="fixed bottom-24 right-6 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
         >
-          {label}
+          <Coffee size={20} />
         </button>
       ) : (
         <button

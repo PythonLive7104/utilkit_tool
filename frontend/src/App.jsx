@@ -4,6 +4,8 @@ import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import ProgrammaticPage from './pages/ProgrammaticPage'
 import Privacy from './pages/Privacy'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 
 // Original tools
 import PdfToWord from './pages/tools/PdfToWord'
@@ -187,6 +189,10 @@ export default function App() {
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />
+
+          {/* Blog */}
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:slug" element={<BlogPost />} />
 
           {/* Programmatic SEO pages — must be last */}
           <Route path=":slug" element={<ProgrammaticPage />} />

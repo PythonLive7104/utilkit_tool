@@ -135,6 +135,10 @@ export default function Sidebar({ onClose }) {
       <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800 flex-shrink-0">
         <p className="text-xs text-zinc-400 dark:text-zinc-600">
           63 tools · All free ·{' '}
+          <NavLink to="/blog" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
+            Blog
+          </NavLink>
+          {' '}·{' '}
           <NavLink to="/privacy" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
             Privacy
           </NavLink>

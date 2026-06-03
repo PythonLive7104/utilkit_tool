@@ -313,6 +313,10 @@ export default function Home() {
         </div>
         <p className="text-xs text-zinc-400">
           63 free utility tools · No account required ·{' '}
+          <NavLink to="/blog" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
+            Blog
+          </NavLink>
+          {' '}·{' '}
           <NavLink to="/privacy" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
             Privacy policy
           </NavLink>

@@ -25,6 +25,25 @@ import UrlShortener from './tools/UrlShortener'
 import WordCounter from './tools/WordCounter'
 import WordToPdf from './tools/WordToPdf'
 
+// Calculators
+import PercentageCalculator from './tools/PercentageCalculator'
+import AgeCalculator from './tools/AgeCalculator'
+import BmiCalculator from './tools/BmiCalculator'
+import LoanCalculator from './tools/LoanCalculator'
+import DiscountCalculator from './tools/DiscountCalculator'
+import UnitConverter from './tools/UnitConverter'
+// More developer / image / text tools
+import HashGenerator from './tools/HashGenerator'
+import TimestampConverter from './tools/TimestampConverter'
+import UrlEncoder from './tools/UrlEncoder'
+import CsvToJson from './tools/CsvToJson'
+import ColorConverter from './tools/ColorConverter'
+import NumberBaseConverter from './tools/NumberBaseConverter'
+import ImageToPdf from './tools/ImageToPdf'
+import ImageCropper from './tools/ImageCropper'
+import TextCleaner from './tools/TextCleaner'
+import SlugGenerator from './tools/SlugGenerator'
+
 const TOOL_COMPONENTS = {
   'background-remover': BackgroundRemover,
   'base64-tool': Base64Tool,
@@ -46,6 +65,24 @@ const TOOL_COMPONENTS = {
   'url-shortener': UrlShortener,
   'word-counter': WordCounter,
   'word-to-pdf': WordToPdf,
+  // Calculators
+  'percentage-calculator': PercentageCalculator,
+  'age-calculator': AgeCalculator,
+  'bmi-calculator': BmiCalculator,
+  'loan-calculator': LoanCalculator,
+  'discount-calculator': DiscountCalculator,
+  'unit-converter': UnitConverter,
+  // More developer / image / text tools
+  'hash-generator': HashGenerator,
+  'timestamp-converter': TimestampConverter,
+  'url-encoder': UrlEncoder,
+  'csv-to-json': CsvToJson,
+  'color-converter': ColorConverter,
+  'number-base-converter': NumberBaseConverter,
+  'image-to-pdf': ImageToPdf,
+  'image-cropper': ImageCropper,
+  'text-cleaner': TextCleaner,
+  'slug-generator': SlugGenerator,
 }
 
 export default function ProgrammaticPage() {

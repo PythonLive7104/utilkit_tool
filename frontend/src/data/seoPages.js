@@ -859,6 +859,282 @@ export const seoPages = {
     tagline: 'A free temp mail inbox that checks for new messages every 10 seconds automatically.',
     features: ['10-second auto-poll', 'Manual refresh button', 'Unread message counter'],
   },
+
+  // ── Percentage Calculator ────────────────────────────────────────────────
+  'percentage-increase-calculator': {
+    toolId: 'percentage-calculator', toolPath: '/tools/percentage-calculator', toolName: 'Percentage Calculator',
+    title: 'Percentage Increase Calculator — Free Online | UtilKit',
+    description: 'Calculate the percentage increase between two numbers instantly. Free, no signup — see the exact percent change as you type.',
+    h1: 'Percentage Increase Calculator',
+    tagline: 'Find the percentage increase from one value to another — perfect for prices, salaries, growth, and statistics.',
+    features: ['Instant percent change', 'Handles any two numbers', 'Free, no signup'],
+  },
+  'reverse-percentage-calculator': {
+    toolId: 'percentage-calculator', toolPath: '/tools/percentage-calculator', toolName: 'Percentage Calculator',
+    title: 'Reverse Percentage Calculator — Work Backwards from a Total | UtilKit',
+    description: 'Work out the original number before a percentage was added or removed. Free reverse percentage calculator, no signup.',
+    h1: 'Reverse Percentage Calculator',
+    tagline: 'Find what number a percentage came from — useful for working out pre-tax prices and original amounts.',
+    features: ['Find the original value', 'Add or remove percent', 'Live results'],
+  },
+  'percentage-difference-calculator': {
+    toolId: 'percentage-calculator', toolPath: '/tools/percentage-calculator', toolName: 'Percentage Calculator',
+    title: 'Percentage Difference Calculator — Free Online | UtilKit',
+    description: 'Calculate the percentage difference or change between two values instantly. Free and private — runs in your browser.',
+    h1: 'Percentage Difference Calculator',
+    tagline: 'Compare two numbers and see the percentage difference between them in real time.',
+    features: ['Increase and decrease', 'No rounding errors', 'Works on any numbers'],
+  },
+
+  // ── Age Calculator ───────────────────────────────────────────────────────
+  'age-calculator-from-date-of-birth': {
+    toolId: 'age-calculator', toolPath: '/tools/age-calculator', toolName: 'Age Calculator',
+    title: 'Age Calculator from Date of Birth — Free Online | UtilKit',
+    description: 'Calculate your exact age from your date of birth in years, months, and days. Free, instant, and private.',
+    h1: 'Age Calculator from Date of Birth',
+    tagline: 'Enter your date of birth to find your exact age in years, months, days, and a countdown to your next birthday.',
+    features: ['Exact years, months, days', 'Next birthday countdown', 'Private — runs locally'],
+  },
+  'chronological-age-calculator': {
+    toolId: 'age-calculator', toolPath: '/tools/age-calculator', toolName: 'Age Calculator',
+    title: 'Chronological Age Calculator — Years, Months & Days | UtilKit',
+    description: 'Calculate chronological age between two dates for assessments, forms, and reports. Free and accurate.',
+    h1: 'Chronological Age Calculator',
+    tagline: 'Work out chronological age between any two dates — ideal for assessments, eligibility, and paperwork.',
+    features: ['Any two dates', 'Leap-year accurate', 'Totals in months and weeks'],
+  },
+
+  // ── BMI Calculator ───────────────────────────────────────────────────────
+  'bmi-calculator-kg': {
+    toolId: 'bmi-calculator', toolPath: '/tools/bmi-calculator', toolName: 'BMI Calculator',
+    title: 'BMI Calculator (kg & cm) — Free Metric BMI | UtilKit',
+    description: 'Calculate your BMI in kilograms and centimetres using the WHO formula. Free metric BMI calculator, no signup.',
+    h1: 'BMI Calculator (kg & cm)',
+    tagline: 'Enter your height in centimetres and weight in kilograms to get your BMI and weight category instantly.',
+    features: ['Metric kg & cm input', 'WHO category ranges', 'Instant result'],
+  },
+  'bmi-calculator-for-women': {
+    toolId: 'bmi-calculator', toolPath: '/tools/bmi-calculator', toolName: 'BMI Calculator',
+    title: 'BMI Calculator for Women — Free Online | UtilKit',
+    description: 'Calculate BMI for women in metric or imperial units and see your weight category against WHO ranges. Free.',
+    h1: 'BMI Calculator for Women',
+    tagline: 'Check your Body Mass Index and weight category in seconds, in metric or imperial units.',
+    features: ['Metric & imperial', 'Colour-coded categories', 'Free and private'],
+  },
+  'bmi-calculator-for-men': {
+    toolId: 'bmi-calculator', toolPath: '/tools/bmi-calculator', toolName: 'BMI Calculator',
+    title: 'BMI Calculator for Men — Free Online | UtilKit',
+    description: 'Calculate BMI for men in metric or imperial units with instant weight-category results. Free, no signup.',
+    h1: 'BMI Calculator for Men',
+    tagline: 'Work out your Body Mass Index and see where you sit on the WHO scale, in metric or imperial.',
+    features: ['Metric & imperial', 'WHO ranges', 'Instant, private result'],
+  },
+
+  // ── Loan / EMI Calculator ────────────────────────────────────────────────
+  'emi-calculator': {
+    toolId: 'loan-calculator', toolPath: '/tools/loan-calculator', toolName: 'Loan / EMI Calculator',
+    title: 'EMI Calculator — Monthly Loan Instalment | UtilKit',
+    description: 'Calculate your Equated Monthly Instalment (EMI), total interest, and total payable for any loan. Free EMI calculator.',
+    h1: 'EMI Calculator',
+    tagline: 'Find your fixed monthly instalment and total interest for any loan amount, rate, and term.',
+    features: ['Monthly EMI', 'Total interest & cost', 'Compare scenarios'],
+  },
+  'mortgage-calculator': {
+    toolId: 'loan-calculator', toolPath: '/tools/loan-calculator', toolName: 'Loan / EMI Calculator',
+    title: 'Mortgage Calculator — Monthly Home Loan Repayment | UtilKit',
+    description: 'Estimate your monthly mortgage repayment and total interest over the term. Free mortgage calculator, no signup.',
+    h1: 'Mortgage Repayment Calculator',
+    tagline: 'Estimate monthly home-loan repayments and total interest across different rates and terms.',
+    features: ['Monthly repayment', 'Total interest over term', 'Adjust rate & years'],
+  },
+  'car-loan-calculator': {
+    toolId: 'loan-calculator', toolPath: '/tools/loan-calculator', toolName: 'Loan / EMI Calculator',
+    title: 'Car Loan Calculator — Monthly Payment & Interest | UtilKit',
+    description: 'Calculate your monthly car loan payment and total interest before you buy. Free auto loan calculator.',
+    h1: 'Car Loan Calculator',
+    tagline: 'See your monthly car payment and the true cost including interest before signing.',
+    features: ['Monthly car payment', 'Total interest', 'Free comparison tool'],
+  },
+
+  // ── Discount Calculator ──────────────────────────────────────────────────
+  'percent-off-calculator': {
+    toolId: 'discount-calculator', toolPath: '/tools/discount-calculator', toolName: 'Discount Calculator',
+    title: 'Percent Off Calculator — Sale Price & Savings | UtilKit',
+    description: 'Calculate the price after a percent-off discount and exactly how much you save. Free percent off calculator.',
+    h1: 'Percent Off Calculator',
+    tagline: 'Enter a price and a percent-off to see the sale price and your exact savings instantly.',
+    features: ['Final sale price', 'Amount saved', 'Optional tax line'],
+  },
+  'sale-price-calculator': {
+    toolId: 'discount-calculator', toolPath: '/tools/discount-calculator', toolName: 'Discount Calculator',
+    title: 'Sale Price Calculator — Discount & Tax | UtilKit',
+    description: 'Work out the final sale price after a discount and tax. Free, instant, and currency-agnostic.',
+    h1: 'Sale Price Calculator',
+    tagline: 'Calculate the final price of a discounted item, with optional sales tax added on top.',
+    features: ['Discount + tax', 'Savings breakdown', 'Any currency'],
+  },
+
+  // ── Unit Converter ───────────────────────────────────────────────────────
+  'cm-to-inches': {
+    toolId: 'unit-converter', toolPath: '/tools/unit-converter', toolName: 'Unit Converter',
+    title: 'CM to Inches Converter — Free Online | UtilKit',
+    description: 'Convert centimetres to inches instantly with an accurate, free unit converter. No signup required.',
+    h1: 'CM to Inches Converter',
+    tagline: 'Quickly convert centimetres to inches (and back) with precise SI conversion factors.',
+    features: ['Accurate to 6 decimals', 'Swap direction instantly', 'Free, no signup'],
+  },
+  'kg-to-lbs': {
+    toolId: 'unit-converter', toolPath: '/tools/unit-converter', toolName: 'Unit Converter',
+    title: 'KG to LBS Converter — Kilograms to Pounds | UtilKit',
+    description: 'Convert kilograms to pounds instantly with a free, accurate weight converter. Works both ways.',
+    h1: 'KG to LBS Converter',
+    tagline: 'Convert kilograms to pounds and back with exact conversion factors, in real time.',
+    features: ['Kg ⇄ lb both ways', 'Precise factors', 'Live conversion'],
+  },
+  'celsius-to-fahrenheit': {
+    toolId: 'unit-converter', toolPath: '/tools/unit-converter', toolName: 'Unit Converter',
+    title: 'Celsius to Fahrenheit Converter — Free Online | UtilKit',
+    description: 'Convert Celsius to Fahrenheit instantly with the correct temperature formula. Free, accurate, no signup.',
+    h1: 'Celsius to Fahrenheit Converter',
+    tagline: 'Convert temperatures between Celsius, Fahrenheit, and Kelvin using proper offset formulas.',
+    features: ['Correct temp formulas', 'C, F, and Kelvin', 'Instant results'],
+  },
+
+  // ── Hash Generator ───────────────────────────────────────────────────────
+  'sha256-hash-generator': {
+    toolId: 'hash-generator', toolPath: '/tools/hash-generator', toolName: 'Hash Generator',
+    title: 'SHA-256 Hash Generator — Free Online | UtilKit',
+    description: 'Generate a SHA-256 hash from any text instantly in your browser using the Web Crypto API. Free and private.',
+    h1: 'SHA-256 Hash Generator',
+    tagline: 'Create a SHA-256 digest of any text — computed locally, so your input never leaves your device.',
+    features: ['Native Web Crypto', 'Copy with one click', '100% client-side'],
+  },
+  'sha512-hash-generator': {
+    toolId: 'hash-generator', toolPath: '/tools/hash-generator', toolName: 'Hash Generator',
+    title: 'SHA-512 Hash Generator — Free Online | UtilKit',
+    description: 'Generate a SHA-512 hash from any text instantly and privately in your browser. Free, no signup.',
+    h1: 'SHA-512 Hash Generator',
+    tagline: 'Produce a SHA-512 digest of any text right in your browser, with nothing uploaded.',
+    features: ['SHA-512 output', 'Instant as you type', 'Private by design'],
+  },
+
+  // ── Timestamp Converter ──────────────────────────────────────────────────
+  'epoch-converter': {
+    toolId: 'timestamp-converter', toolPath: '/tools/timestamp-converter', toolName: 'Timestamp Converter',
+    title: 'Epoch Converter — Unix Timestamp to Date | UtilKit',
+    description: 'Convert Unix epoch timestamps to human-readable dates and back. Supports seconds and milliseconds. Free.',
+    h1: 'Epoch Converter',
+    tagline: 'Convert epoch time to a readable date in local, UTC, and ISO formats — and back again.',
+    features: ['Seconds & milliseconds', 'Local, UTC, ISO', 'Live current epoch'],
+  },
+  'unix-timestamp-converter': {
+    toolId: 'timestamp-converter', toolPath: '/tools/timestamp-converter', toolName: 'Timestamp Converter',
+    title: 'Unix Timestamp Converter — Free Online | UtilKit',
+    description: 'Convert Unix timestamps to dates and dates to timestamps instantly. Auto-detects seconds vs milliseconds.',
+    h1: 'Unix Timestamp Converter',
+    tagline: 'Translate Unix timestamps into dates and vice versa, with automatic seconds/milliseconds detection.',
+    features: ['Two-way conversion', 'Auto unit detection', 'Copy any value'],
+  },
+
+  // ── URL Encoder ──────────────────────────────────────────────────────────
+  'url-decoder': {
+    toolId: 'url-encoder', toolPath: '/tools/url-encoder', toolName: 'URL Encoder / Decoder',
+    title: 'URL Decoder — Decode Percent-Encoded URLs | UtilKit',
+    description: 'Decode percent-encoded URLs and query strings back to readable text instantly. Free URL decoder, no signup.',
+    h1: 'URL Decoder',
+    tagline: 'Paste an encoded URL to decode the percent-encoding back into readable text.',
+    features: ['Decode %XX escapes', 'Component or full URL', 'Copy result'],
+  },
+
+  // ── Color Converter ──────────────────────────────────────────────────────
+  'hex-to-rgb': {
+    toolId: 'color-converter', toolPath: '/tools/color-converter', toolName: 'Color Converter',
+    title: 'HEX to RGB Converter — Free Color Tool | UtilKit',
+    description: 'Convert HEX color codes to RGB values instantly with a live preview. Free HEX to RGB converter.',
+    h1: 'HEX to RGB Converter',
+    tagline: 'Convert any HEX color to RGB (and HSL) with a live swatch preview as you type.',
+    features: ['HEX → RGB & HSL', 'Live preview', 'Copy any format'],
+  },
+  'rgb-to-hex': {
+    toolId: 'color-converter', toolPath: '/tools/color-converter', toolName: 'Color Converter',
+    title: 'RGB to HEX Converter — Free Color Tool | UtilKit',
+    description: 'Convert RGB values to a HEX color code instantly with a live preview. Free RGB to HEX converter.',
+    h1: 'RGB to HEX Converter',
+    tagline: 'Turn RGB values into a HEX code for CSS, with HSL shown alongside and a live preview.',
+    features: ['RGB → HEX & HSL', 'CSS-ready output', 'One-click copy'],
+  },
+
+  // ── Number Base Converter ────────────────────────────────────────────────
+  'binary-to-decimal': {
+    toolId: 'number-base-converter', toolPath: '/tools/number-base-converter', toolName: 'Number Base Converter',
+    title: 'Binary to Decimal Converter — Free Online | UtilKit',
+    description: 'Convert binary numbers to decimal (and octal/hex) instantly. Free binary to decimal converter using BigInt.',
+    h1: 'Binary to Decimal Converter',
+    tagline: 'Convert binary to decimal, octal, and hexadecimal at once — accurate even for very large numbers.',
+    features: ['Binary → decimal', 'Also octal & hex', 'BigInt accuracy'],
+  },
+  'decimal-to-binary': {
+    toolId: 'number-base-converter', toolPath: '/tools/number-base-converter', toolName: 'Number Base Converter',
+    title: 'Decimal to Binary Converter — Free Online | UtilKit',
+    description: 'Convert decimal numbers to binary, octal, and hexadecimal instantly. Free, accurate, BigInt-powered.',
+    h1: 'Decimal to Binary Converter',
+    tagline: 'Convert decimal numbers into binary, octal, and hex in real time.',
+    features: ['Decimal → binary', 'All four bases', 'Copy any value'],
+  },
+  'hex-to-decimal': {
+    toolId: 'number-base-converter', toolPath: '/tools/number-base-converter', toolName: 'Number Base Converter',
+    title: 'Hex to Decimal Converter — Free Online | UtilKit',
+    description: 'Convert hexadecimal to decimal, binary, and octal instantly. Free hex to decimal converter.',
+    h1: 'Hex to Decimal Converter',
+    tagline: 'Convert hexadecimal values to decimal, binary, and octal at the same time.',
+    features: ['Hex → decimal', 'Binary & octal too', 'Large-number safe'],
+  },
+
+  // ── Image to PDF ─────────────────────────────────────────────────────────
+  'jpg-to-pdf': {
+    toolId: 'image-to-pdf', toolPath: '/tools/image-to-pdf', toolName: 'Image to PDF',
+    title: 'JPG to PDF Converter — Free Online | UtilKit',
+    description: 'Convert JPG images to a single PDF in your browser. Reorder pages and choose A4 or Letter. Free, no upload.',
+    h1: 'JPG to PDF Converter',
+    tagline: 'Combine one or more JPG photos into a single PDF — built entirely in your browser.',
+    features: ['Multiple JPGs to one PDF', 'Reorder & resize pages', 'No upload, fully private'],
+  },
+  'png-to-pdf': {
+    toolId: 'image-to-pdf', toolPath: '/tools/image-to-pdf', toolName: 'Image to PDF',
+    title: 'PNG to PDF Converter — Free Online | UtilKit',
+    description: 'Convert PNG images into a single PDF document privately in your browser. Free, no signup, no upload.',
+    h1: 'PNG to PDF Converter',
+    tagline: 'Turn PNG images into a single, shareable PDF with control over order and page size.',
+    features: ['PNGs into one PDF', 'Fit, A4, or Letter', 'Client-side & free'],
+  },
+
+  // ── Text Cleaner ─────────────────────────────────────────────────────────
+  'remove-line-breaks': {
+    toolId: 'text-cleaner', toolPath: '/tools/text-cleaner', toolName: 'Text Cleaner',
+    title: 'Remove Line Breaks from Text — Free Online | UtilKit',
+    description: 'Remove line breaks and join text into a single paragraph instantly. Free text tool, runs in your browser.',
+    h1: 'Remove Line Breaks',
+    tagline: 'Strip unwanted line breaks and merge text into one clean paragraph in a click.',
+    features: ['Remove line breaks', 'Collapse extra spaces', 'Copy clean text'],
+  },
+  'remove-extra-spaces': {
+    toolId: 'text-cleaner', toolPath: '/tools/text-cleaner', toolName: 'Text Cleaner',
+    title: 'Remove Extra Spaces from Text — Free Online | UtilKit',
+    description: 'Remove double spaces, trailing spaces, and blank lines from text instantly. Free online text cleaner.',
+    h1: 'Remove Extra Spaces',
+    tagline: 'Collapse multiple spaces, trim lines, and delete blank lines to tidy up messy text.',
+    features: ['Collapse double spaces', 'Trim & dedupe lines', 'Instant preview'],
+  },
+
+  // ── Slug Generator ───────────────────────────────────────────────────────
+  'url-slug-generator': {
+    toolId: 'slug-generator', toolPath: '/tools/slug-generator', toolName: 'Slug Generator',
+    title: 'URL Slug Generator — SEO-Friendly Slugs | UtilKit',
+    description: 'Turn any title into a clean, SEO-friendly URL slug. Removes accents and special characters automatically.',
+    h1: 'URL Slug Generator',
+    tagline: 'Convert titles into lowercase, hyphenated, accent-free slugs that are perfect for URLs.',
+    features: ['Removes accents', 'Hyphen or underscore', 'Lowercase toggle'],
+  },
 }
 
 export const seoPageList = Object.entries(seoPages).map(([slug, data]) => ({ slug, ...data }))

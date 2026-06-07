@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
-import { Megaphone, CheckCircle2, AlertCircle, Upload } from 'lucide-react'
+import { Megaphone, CheckCircle2, AlertCircle, Upload, ChevronDown } from 'lucide-react'
 import { ads } from '../lib/api'
 
 const CURRENCY = 'USD'
@@ -41,8 +41,7 @@ export default function Advertise() {
       .catch(() => setSlotsErr('Could not load advertising slots. Please try again later.'))
   }, [])
 
-  // When a category is chosen, bring its form into view (important on mobile,
-  // where the form opens beneath a long stack of cards).
+  // When a category is chosen, bring its form into view (important on mobile).
   useEffect(() => {
     if (selected && formRef.current) {
       formRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
@@ -129,56 +128,6 @@ export default function Advertise() {
     )
   }
 
-  // The booking form, rendered inline beneath the selected category card.
-  const formPanel = slot && (
-    <div
-      ref={formRef}
-      className="sm:col-span-2 rounded-xl border border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/40 dark:bg-indigo-950/20 p-4 space-y-5 scroll-mt-4"
-    >
-      <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
-        Book <span className="text-indigo-600 dark:text-indigo-400">{slot.name}</span> — {SYMBOL}{parseFloat(slot.price_usd)}/week
-      </p>
-
-      {/* Creative */}
-      <div>
-        <label className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">Upload your banner</label>
-        <label className="flex items-center justify-center gap-2 w-full px-4 py-5 rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 hover:border-indigo-400 cursor-pointer transition-colors bg-white/60 dark:bg-zinc-900/30">
-          <Upload size={16} className="text-zinc-400" />
-          <span className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-            {image ? image.name : `Choose image (recommended ${slot.recommended_size}, max 3 MB)`}
-          </span>
-          <input type="file" accept="image/*" onChange={onFile} className="hidden" />
-        </label>
-      </div>
-
-      {/* Details */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Your name" value={name} onChange={setName} required placeholder="Jane Doe" />
-        <Field label="Company (optional)" value={company} onChange={setCompany} placeholder="Acme Inc." />
-        <Field label="Email" type="email" value={email} onChange={setEmail} required placeholder="you@company.com" />
-        <Field label="Link URL" type="url" value={targetUrl} onChange={setTargetUrl} required placeholder="https://your-site.com" />
-      </div>
-      <Field label="Banner alt text (optional)" value={altText} onChange={setAltText} placeholder="Describe your banner for accessibility" />
-
-      {error && (
-        <div className="flex items-center gap-2 text-sm text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 rounded-lg px-4 py-3">
-          <AlertCircle size={16} className="flex-shrink-0" /> {error}
-        </div>
-      )}
-
-      <button
-        type="submit"
-        disabled={busy}
-        className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold transition-colors"
-      >
-        {busy ? 'Processing…' : `Pay ${SYMBOL}${parseFloat(slot.price_usd)} & go live for 1 week`}
-      </button>
-      <p className="text-xs text-zinc-400 text-center">
-        Secure payment via Paystack. Your advert goes live automatically once payment is confirmed.
-      </p>
-    </div>
-  )
-
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
       <Helmet>
@@ -203,48 +152,109 @@ export default function Advertise() {
         </div>
       )}
 
-      <form onSubmit={onSubmit}>
-        <label className="block text-sm font-semibold text-zinc-700 dark:text-zinc-200 mb-2">
-          Choose a category — the form opens right below it
-        </label>
-        <div className="grid sm:grid-cols-2 gap-2">
-          {slots.map((s) => {
-            const isSel = s.code === selected
-            const disabled = !s.available
-            return (
-              <Fragment key={s.code}>
-                <button
-                  type="button"
-                  onClick={() => !disabled && setSelected(s.code)}
-                  disabled={disabled}
-                  className={`text-left rounded-xl border p-3 transition-colors ${
-                    isSel
-                      ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-950/30'
-                      : disabled
-                        ? 'border-zinc-200 dark:border-zinc-800 opacity-60 cursor-not-allowed'
-                        : 'border-zinc-200 dark:border-zinc-700 hover:border-indigo-300 dark:hover:border-indigo-700'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">{s.name}</span>
-                    <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{SYMBOL}{parseFloat(s.price_usd)}<span className="text-xs font-normal text-zinc-400">/wk</span></span>
-                  </div>
-                  {disabled ? (
-                    <span className="text-xs text-rose-500 dark:text-rose-400">
-                      Booked{ s.next_available_date ? ` — free from ${formatDate(s.next_available_date)}` : '' }
-                    </span>
-                  ) : (
-                    <span className="text-xs text-zinc-400">{s.recommended_size} banner · available</span>
-                  )}
-                </button>
+      <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-200 mb-2">
+        Tap a category — the booking form opens right below it
+      </p>
 
-                {/* Form opens directly under the chosen card */}
-                {isSel && formPanel}
-              </Fragment>
-            )
-          })}
-        </div>
-      </form>
+      {/* Accordion: each category expands its own form directly beneath it */}
+      <div className="space-y-2">
+        {slots.map((s) => {
+          const isSel = s.code === selected
+          const disabled = !s.available
+          return (
+            <div
+              key={s.code}
+              className={`rounded-xl border overflow-hidden transition-colors ${
+                isSel
+                  ? 'border-indigo-500'
+                  : disabled
+                    ? 'border-zinc-200 dark:border-zinc-800 opacity-60'
+                    : 'border-zinc-200 dark:border-zinc-700'
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => !disabled && setSelected(isSel ? '' : s.code)}
+                disabled={disabled}
+                className={`w-full text-left p-3.5 transition-colors ${
+                  isSel
+                    ? 'bg-indigo-50 dark:bg-indigo-950/30'
+                    : disabled
+                      ? 'cursor-not-allowed'
+                      : 'hover:bg-zinc-50 dark:hover:bg-zinc-800/40'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">{s.name}</span>
+                  <span className="flex items-center gap-2">
+                    <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                      {SYMBOL}{parseFloat(s.price_usd)}<span className="text-xs font-normal text-zinc-400">/wk</span>
+                    </span>
+                    {!disabled && (
+                      <ChevronDown
+                        size={16}
+                        className={`text-zinc-400 transition-transform ${isSel ? 'rotate-180' : ''}`}
+                      />
+                    )}
+                  </span>
+                </div>
+                {disabled ? (
+                  <span className="text-xs text-rose-500 dark:text-rose-400">
+                    Booked{ s.next_available_date ? ` — free from ${formatDate(s.next_available_date)}` : '' }
+                  </span>
+                ) : (
+                  <span className="text-xs text-zinc-400">{s.recommended_size} banner · available</span>
+                )}
+              </button>
+
+              {/* The form for the selected category, inline beneath its header */}
+              {isSel && (
+                <form
+                  ref={formRef}
+                  onSubmit={onSubmit}
+                  className="border-t border-indigo-200 dark:border-indigo-900/50 bg-indigo-50/30 dark:bg-indigo-950/10 p-4 space-y-5 scroll-mt-4"
+                >
+                  <div>
+                    <label className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">Upload your banner</label>
+                    <label className="flex items-center justify-center gap-2 w-full px-4 py-5 rounded-xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 hover:border-indigo-400 cursor-pointer transition-colors bg-white/60 dark:bg-zinc-900/30">
+                      <Upload size={16} className="text-zinc-400" />
+                      <span className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                        {image ? image.name : `Choose image (recommended ${s.recommended_size}, max 3 MB)`}
+                      </span>
+                      <input type="file" accept="image/*" onChange={onFile} className="hidden" />
+                    </label>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <Field label="Your name" value={name} onChange={setName} required placeholder="Jane Doe" />
+                    <Field label="Company (optional)" value={company} onChange={setCompany} placeholder="Acme Inc." />
+                    <Field label="Email" type="email" value={email} onChange={setEmail} required placeholder="you@company.com" />
+                    <Field label="Link URL" type="url" value={targetUrl} onChange={setTargetUrl} required placeholder="https://your-site.com" />
+                  </div>
+                  <Field label="Banner alt text (optional)" value={altText} onChange={setAltText} placeholder="Describe your banner for accessibility" />
+
+                  {error && (
+                    <div className="flex items-center gap-2 text-sm text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 rounded-lg px-4 py-3">
+                      <AlertCircle size={16} className="flex-shrink-0" /> {error}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={busy}
+                    className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold transition-colors"
+                  >
+                    {busy ? 'Processing…' : `Pay ${SYMBOL}${parseFloat(s.price_usd)} & go live for 1 week`}
+                  </button>
+                  <p className="text-xs text-zinc-400 text-center">
+                    Secure payment via Paystack. Your advert goes live automatically once payment is confirmed.
+                  </p>
+                </form>
+              )}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }

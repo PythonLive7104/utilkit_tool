@@ -29,6 +29,7 @@ def _slot_payload(slot):
         'price_usd': str(slot.price_usd),
         'duration_days': slot.duration_days,
         'capacity': slot.capacity,
+        'spots_left': max(slot.capacity - slot.taken, 0),
         'available': slot.is_available,
         'next_available_date': slot.next_available_date,
     }
@@ -43,25 +44,24 @@ def slots(request):
 
 @api_view(['GET'])
 def active(request):
-    """Return a live ad for a slot (used by the frontend AdSlot component).
+    """Return the live ads for a category slot (used by the AdSlot component).
 
-    Picks one at random when several are live, and counts an impression.
+    Returns up to ``capacity`` live ads (two side-by-side boxes per page) plus
+    the slot capacity so the frontend can fill empty boxes with a placeholder.
+    Counts an impression for each ad shown.
     """
     code = request.query_params.get('slot', '')
-    ad = (
-        Advertisement.objects.filter(
-            slot__code=code, status=Advertisement.Status.LIVE
-        )
-        .select_related('slot')
-        .order_by('?')
-        .first()
-    )
-    ad = ad if (ad and ad.is_live) else None
-    if not ad:
-        return Response({'ad': None})
+    slot = AdSlot.objects.filter(code=code, is_active=True).first()
+    if not slot:
+        return Response({'ads': [], 'capacity': 0})
 
-    Advertisement.objects.filter(pk=ad.pk).update(impressions=F('impressions') + 1)
-    return Response({'ad': AdvertisementPublicSerializer(ad, context={'request': request}).data})
+    live = list(slot.live_ads().order_by('?')[: slot.capacity])
+    if live:
+        Advertisement.objects.filter(pk__in=[a.pk for a in live]).update(
+            impressions=F('impressions') + 1
+        )
+    data = AdvertisementPublicSerializer(live, many=True, context={'request': request}).data
+    return Response({'ads': data, 'capacity': slot.capacity})
 
 
 @api_view(['GET'])

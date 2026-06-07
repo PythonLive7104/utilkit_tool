@@ -29,7 +29,7 @@ def seed_slots(apps, schema_editor):
                 'recommended_size': '728×90',
                 'price_usd': WEEKLY_PRICE,
                 'duration_days': 7,
-                'capacity': 1,
+                'capacity': 2,
                 'is_active': True,
             },
         )

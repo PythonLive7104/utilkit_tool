@@ -1,24 +1,27 @@
 import { Link } from 'react-router-dom'
 import { Megaphone, ArrowRight } from 'lucide-react'
 
-// "Advertise Here" placeholder. Shown on the homepage (always) and in empty
-// category slots on tool pages. Links to the advertise form.
-export default function AdvertiseHere({ category = '', compact = false }) {
+// Eye-catching "Advertise Here" placeholder. Shown on the homepage and in any
+// empty category ad box on tool pages. Links to the advertise form.
+export default function AdvertiseHere({ category = '' }) {
   const to = category ? `/advertise?category=${encodeURIComponent(category)}` : '/advertise'
 
   return (
     <Link
       to={to}
-      className={`group flex items-center justify-center gap-3 rounded-xl border border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-50/60 dark:bg-zinc-900/40 hover:border-indigo-400 dark:hover:border-indigo-600 hover:bg-indigo-50/50 dark:hover:bg-indigo-950/20 transition-colors text-center ${
-        compact ? 'px-4 py-3' : 'px-4 py-5'
-      }`}
+      className="group relative flex flex-col items-center justify-center gap-2 text-center rounded-xl border-2 border-dashed border-indigo-300 dark:border-indigo-700/70 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/40 dark:via-zinc-900/30 dark:to-violet-950/30 hover:border-indigo-500 hover:shadow-md transition-all px-5 py-6 min-h-[124px]"
     >
-      <Megaphone size={compact ? 15 : 18} className="text-zinc-400 group-hover:text-indigo-500 transition-colors flex-shrink-0" />
-      <span className="text-sm text-zinc-500 dark:text-zinc-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors">
-        <span className="font-semibold">Advertise here</span>
-        <span className="hidden sm:inline"> — reach thousands of users on UtilKit</span>
+      <span className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 group-hover:scale-110 transition-transform">
+        <Megaphone size={20} />
       </span>
-      <ArrowRight size={14} className="text-zinc-300 dark:text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all flex-shrink-0" />
+      <span className="text-base font-bold text-indigo-700 dark:text-indigo-200">Advertise Here</span>
+      <span className="text-xs text-zinc-500 dark:text-zinc-400 max-w-xs">
+        Put your brand in front of thousands of UtilKit users
+      </span>
+      <span className="inline-flex items-center gap-1.5 mt-1 px-4 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold group-hover:bg-indigo-500 transition-colors">
+        Get started
+        <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+      </span>
     </Link>
   )
 }

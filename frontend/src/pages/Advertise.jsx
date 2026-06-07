@@ -203,7 +203,9 @@ export default function Advertise() {
                     Booked{ s.next_available_date ? ` — free from ${formatDate(s.next_available_date)}` : '' }
                   </span>
                 ) : (
-                  <span className="text-xs text-zinc-400">{s.recommended_size} banner · available</span>
+                  <span className="text-xs text-zinc-400">
+                    {s.recommended_size} banner · {s.spots_left} of {s.capacity} spot{s.capacity > 1 ? 's' : ''} open
+                  </span>
                 )}
               </button>
 

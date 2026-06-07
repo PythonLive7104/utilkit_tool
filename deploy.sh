@@ -36,6 +36,17 @@ if ! command -v node >/dev/null 2>&1 || [ "$(node -p 'process.versions.node.spli
 fi
 echo "  Node $(node --version), npm $(npm --version)"
 
+# Ensure swap exists. A 1GB droplet runs out of RAM during the Vite production
+# build (rollup/esbuild minification) and gets OOM-killed without swap.
+if ! swapon --show | grep -q .; then
+  echo "  Creating 2G swap file..."
+  fallocate -l 2G /swapfile || dd if=/dev/zero of=/swapfile bs=1M count=2048
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  grep -q '/swapfile' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab
+fi
+
 # 2. Docker
 echo "[2/7] Installing Docker..."
 curl -fsSL https://get.docker.com | sh

@@ -19,6 +19,17 @@ if ! command -v node >/dev/null 2>&1 || [ "$(node -p 'process.versions.node.spli
 fi
 echo "==> Using Node $(node --version)"
 
+# Ensure swap exists. On a 1GB droplet the Vite production build (rollup/esbuild
+# minification of large chunks) exceeds RAM and gets OOM-killed ("Killed").
+if ! swapon --show | grep -q .; then
+  echo "==> No swap found — creating 2G swap file..."
+  fallocate -l 2G /swapfile || dd if=/dev/zero of=/swapfile bs=1M count=2048
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  grep -q '/swapfile' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab
+fi
+
 echo "==> Rebuilding React frontend..."
 cd frontend
 npm ci --prefer-offline

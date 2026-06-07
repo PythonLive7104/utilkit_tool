@@ -8,7 +8,12 @@ set -euo pipefail
 DOMAIN="utilkit.us"
 
 echo "==> Pulling latest code..."
+# deploy.sh generates nginx/nginx.conf from nginx.ssl.conf, which leaves the
+# tracked file modified and blocks git pull. Reset it before pulling, then
+# regenerate it afterwards from the (updated) HTTPS template.
+git checkout -- nginx/nginx.conf 2>/dev/null || true
 git pull
+cp nginx/nginx.ssl.conf nginx/nginx.conf
 
 # Ensure Node.js 20+ (marked and pdfjs-dist require Node >= 20). Ubuntu's apt
 # Node is too old; install Node 20 LTS from NodeSource if missing/outdated.
@@ -36,10 +41,9 @@ npm ci --prefer-offline
 VITE_SITE_URL="https://$DOMAIN" npm run build
 cd ..
 
-echo "==> Rebuilding and restarting backend..."
-docker compose up -d --build backend
-
-echo "==> Reloading nginx..."
-docker compose exec nginx nginx -s reload
+echo "==> Rebuilding and restarting services..."
+# Recreate backend (runs migrations on start) AND nginx, so compose changes
+# such as the shared media volume take effect — a reload alone won't remount.
+docker compose up -d --build backend nginx
 
 echo "==> Done! Running: https://$DOMAIN"

@@ -10,6 +10,15 @@ DOMAIN="utilkit.us"
 echo "==> Pulling latest code..."
 git pull
 
+# Ensure Node.js 20+ (marked and pdfjs-dist require Node >= 20). Ubuntu's apt
+# Node is too old; install Node 20 LTS from NodeSource if missing/outdated.
+if ! command -v node >/dev/null 2>&1 || [ "$(node -p 'process.versions.node.split(".")[0]')" -lt 20 ]; then
+  echo "==> Upgrading to Node.js 20 LTS..."
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+  apt-get install -y -qq nodejs
+fi
+echo "==> Using Node $(node --version)"
+
 echo "==> Rebuilding React frontend..."
 cd frontend
 npm ci --prefer-offline

@@ -24,7 +24,17 @@ echo ""
 # 1. System packages
 echo "[1/7] Installing system packages..."
 apt-get update -qq
-apt-get install -y -qq curl git nodejs npm
+apt-get install -y -qq curl git ca-certificates gnupg
+
+# Node.js 20 LTS via NodeSource. Ubuntu's default 'nodejs' apt package is too
+# old (v18) for some dependencies — marked and pdfjs-dist require Node >= 20.
+# NodeSource's package bundles a matching npm, so we don't install npm separately.
+if ! command -v node >/dev/null 2>&1 || [ "$(node -p 'process.versions.node.split(".")[0]')" -lt 20 ]; then
+  echo "  Installing Node.js 20 LTS..."
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+  apt-get install -y -qq nodejs
+fi
+echo "  Node $(node --version), npm $(npm --version)"
 
 # 2. Docker
 echo "[2/7] Installing Docker..."

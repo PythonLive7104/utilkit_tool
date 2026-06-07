@@ -1,8 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
-import ProgrammaticPage from './pages/ProgrammaticPage'
+// Programmatic SEO landing pages are disabled for now — they were flagged by
+// AdSense as low-value/doorway content. Re-enable by restoring the import and
+// the catch-all route below (and re-adding their URLs to public/sitemap.xml).
+// import ProgrammaticPage from './pages/ProgrammaticPage'
 import Privacy from './pages/Privacy'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
@@ -194,8 +197,11 @@ export default function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
 
-          {/* Programmatic SEO pages — must be last */}
-          <Route path=":slug" element={<ProgrammaticPage />} />
+          {/* Programmatic SEO pages disabled for AdSense review.
+              <Route path=":slug" element={<ProgrammaticPage />} /> */}
+
+          {/* Unknown paths → home (must be last) */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'ai_tools',
     'payments',
     'contact',
+    'advertising',
 ]
 
 MIDDLEWARE = [
@@ -86,9 +87,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ── Static files ─────────────────────────────────────────────
+# ── Static & media files ─────────────────────────────────────
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ── DRF ──────────────────────────────────────────────────────
@@ -118,6 +121,7 @@ CORS_ALLOW_METHODS = ['GET', 'POST', 'DELETE', 'OPTIONS']
 REMOVE_BG_API_KEY    = config('REMOVE_BG_API_KEY', default='')
 OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
 PAYSTACK_SECRET_KEY  = config('PAYSTACK_SECRET_KEY', default='')
+PAYSTACK_PUBLIC_KEY  = config('PAYSTACK_PUBLIC_KEY', default='pk_live_c993a64d0b90760e2f42a25889360af489694486')
 RESEND_API_KEY       = config('RESEND_API_KEY', default='')
 RESEND_FROM_EMAIL    = config('RESEND_FROM_EMAIL', default='noreply@utilkit.io')
 CONTACT_EMAIL        = config('CONTACT_EMAIL', default='')

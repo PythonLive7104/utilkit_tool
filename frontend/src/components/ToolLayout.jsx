@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
+import AdSlot from './AdSlot'
 import PaystackButton from './PaystackButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
@@ -172,6 +173,9 @@ export default function ToolLayout({ title, description, about, toolId, children
       {toolId && <TrustBadges clientSide={clientSide} />}
 
       {children}
+
+      {/* Category-targeted advert (or "Advertise here" when the slot is empty) */}
+      {tool?.category && <AdSlot category={tool.category} />}
 
       {content?.howTo    && <HowTo steps={content.howTo} toolName={title} />}
       {content?.why      && <Why text={content.why} />}

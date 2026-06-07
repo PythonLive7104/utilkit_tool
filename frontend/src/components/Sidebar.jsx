@@ -139,6 +139,10 @@ export default function Sidebar({ onClose }) {
             Blog
           </NavLink>
           {' '}·{' '}
+          <NavLink to="/advertise" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
+            Advertise
+          </NavLink>
+          {' '}·{' '}
           <NavLink to="/privacy" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
             Privacy
           </NavLink>

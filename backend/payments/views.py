@@ -37,4 +37,16 @@ def paystack_webhook(request):
         reference = data.get('reference', '')
         logger.info('Payment received: %s paid %s %s (ref: %s)', email, amount, currency, reference)
 
+        # Advertising payments use an 'ad_' reference prefix. Place the advert
+        # live here as a backup to the frontend verify call.
+        if reference.startswith('ad_'):
+            from advertising.models import Advertisement
+            ad = (Advertisement.objects
+                  .filter(payment_reference=reference,
+                          status=Advertisement.Status.PENDING_PAYMENT)
+                  .select_related('slot')
+                  .first())
+            if ad:
+                ad.activate()
+
     return HttpResponse(status=200)

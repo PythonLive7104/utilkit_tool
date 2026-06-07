@@ -81,6 +81,39 @@ export const contact = ({ name, email, subject, message }) =>
     body: JSON.stringify({ name, email, subject, message }),
   })
 
+// ── Advertising ──────────────────────────────────────────────
+export const ads = {
+  // List bookable category slots with weekly price + availability.
+  slots: () => request('/api/ads/slots/'),
+
+  // Currently-live ad for a tool category (or null).
+  active: (category) => request(`/api/ads/active/?slot=${encodeURIComponent(category)}`),
+
+  // Submit a new advert (multipart: slot, advertiser_name, company,
+  // advertiser_email, image, target_url, alt_text). Returns Paystack params.
+  submit: async (formData) => {
+    const res = await fetch(`${BASE}/api/ads/submit/`, { method: 'POST', body: formData })
+    const text = await res.text()
+    let data
+    try { data = JSON.parse(text) } catch { data = text }
+    if (!res.ok) {
+      const err = new Error(data?.detail || `HTTP ${res.status}`)
+      err.status = res.status
+      err.data = data
+      throw err
+    }
+    return data
+  },
+
+  // Verify a Paystack payment and place the advert live.
+  verify: (reference) =>
+    request('/api/ads/verify/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reference }),
+    }),
+}
+
 // ── Background Remover ───────────────────────────────────────
 export async function removeBackground(file, size = 'auto') {
   const form = new FormData()

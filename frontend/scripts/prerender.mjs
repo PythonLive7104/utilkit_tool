@@ -240,6 +240,23 @@ function renderHome() {
   }
 }
 
+function renderAdvertise() {
+  const body =
+    '<div class="max-w-2xl mx-auto px-4 py-10">' +
+    '<h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">Advertise on UtilKit</h1>' +
+    '<p class="text-zinc-500 dark:text-zinc-400">Reach thousands of people using our free online tools. ' +
+    'Choose a tool category, upload your banner, and your advert goes live the moment your weekly payment is confirmed. ' +
+    'Each category has limited space — when it is full you can check back on the date the current advert expires.</p>' +
+    '</div>'
+  return {
+    path: '/advertise',
+    title: 'Advertise on UtilKit — Reach Thousands of Users',
+    description: "Place a banner advert on UtilKit's tool pages. Pick a tool category, pay by the week, and go live instantly after payment.",
+    body,
+    jsonLd: [breadcrumbLd([['Home', '/'], ['Advertise', '/advertise']])],
+  }
+}
+
 function renderPrivacy() {
   const body =
     '<div class="max-w-3xl mx-auto px-4 py-8">' +
@@ -329,6 +346,7 @@ function main() {
   const pages = [
     renderHome(),
     renderBlogIndex(),
+    renderAdvertise(),
     renderPrivacy(),
     ...tools.map(renderToolPage),
     ...blogPosts.map(renderBlogPost),

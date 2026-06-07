@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import Privacy from './pages/Privacy'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
+import Advertise from './pages/Advertise'
 
 // Original tools
 import PdfToWord from './pages/tools/PdfToWord'
@@ -192,6 +193,7 @@ export default function App() {
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />
+          <Route path="advertise" element={<Advertise />} />
 
           {/* Blog */}
           <Route path="blog" element={<Blog />} />

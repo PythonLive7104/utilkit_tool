@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { tools, categories } from '../data/tools'
+import AdvertiseHere from '../components/AdvertiseHere'
 import {
   Zap, Shield, Lock, Search, ArrowRight, Check,
   FileText, FileOutput, Scissors, PackageOpen, Combine,
@@ -206,6 +207,15 @@ export default function Home() {
                 <p className="text-xs text-zinc-500 mt-0.5 leading-snug">{label}</p>
               </div>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Advertise here CTA (no ads on the homepage) ─────── */}
+      {!filtered && (
+        <section className="px-4 pb-10">
+          <div className="max-w-3xl mx-auto">
+            <AdvertiseHere />
           </div>
         </section>
       )}

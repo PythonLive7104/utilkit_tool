@@ -94,6 +94,17 @@ import ImageCropper from './pages/tools/ImageCropper'
 import TextCleaner from './pages/tools/TextCleaner'
 import SlugGenerator from './pages/tools/SlugGenerator'
 
+// Newest additions
+import TipCalculator from './pages/tools/TipCalculator'
+import CompoundInterestCalculator from './pages/tools/CompoundInterestCalculator'
+import DateDurationCalculator from './pages/tools/DateDurationCalculator'
+import CssGradientGenerator from './pages/tools/CssGradientGenerator'
+import BoxShadowGenerator from './pages/tools/BoxShadowGenerator'
+import FindAndReplace from './pages/tools/FindAndReplace'
+import RemoveDuplicateLines from './pages/tools/RemoveDuplicateLines'
+import SortTextLines from './pages/tools/SortTextLines'
+import BackgroundChanger from './pages/tools/BackgroundChanger'
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -190,6 +201,17 @@ export default function App() {
           {/* More Text Tools */}
           <Route path="tools/text-cleaner" element={<TextCleaner />} />
           <Route path="tools/slug-generator" element={<SlugGenerator />} />
+
+          {/* Newest additions */}
+          <Route path="tools/tip-calculator" element={<TipCalculator />} />
+          <Route path="tools/compound-interest-calculator" element={<CompoundInterestCalculator />} />
+          <Route path="tools/date-duration-calculator" element={<DateDurationCalculator />} />
+          <Route path="tools/css-gradient-generator" element={<CssGradientGenerator />} />
+          <Route path="tools/box-shadow-generator" element={<BoxShadowGenerator />} />
+          <Route path="tools/find-and-replace" element={<FindAndReplace />} />
+          <Route path="tools/remove-duplicate-lines" element={<RemoveDuplicateLines />} />
+          <Route path="tools/sort-text-lines" element={<SortTextLines />} />
+          <Route path="tools/background-changer" element={<BackgroundChanger />} />
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />

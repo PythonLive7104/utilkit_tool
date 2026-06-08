@@ -217,7 +217,7 @@ function renderBlogIndex() {
 function renderHome() {
   let body = '<div class="max-w-6xl mx-auto px-4 py-10">'
   body += '<h1 class="text-3xl sm:text-4xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">Free Online Utility Tools</h1>'
-  body += `<p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mb-10">${esc('63 free, browser-based tools — PDF conversion, image editing, AI writing, calculators, developer utilities, and text processing. No sign-up, nothing leaves your device.')}</p>`
+  body += `<p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mb-10">${esc('72 free, browser-based tools — PDF conversion, image editing, AI writing, calculators, developer utilities, and text processing. No sign-up, nothing leaves your device.')}</p>`
 
   for (const cat of categories) {
     const catTools = tools.filter((t) => t.category === cat.id)
@@ -233,8 +233,8 @@ function renderHome() {
   body += '</div>'
   return {
     path: '/',
-    title: 'UtilKit — 63 Free Online Utility Tools',
-    description: 'Free PDF converter, image compressor, AI writing tools, QR code generator, password generator, and 58 more utilities. All browser-based, all free, no account needed.',
+    title: 'UtilKit — 72 Free Online Utility Tools',
+    description: 'Free PDF converter, image compressor, AI writing tools, QR code generator, password generator, and 66 more utilities. All browser-based, all free, no account needed.',
     body,
     jsonLd: [],
   }

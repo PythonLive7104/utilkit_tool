@@ -24,6 +24,8 @@ import {
   Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
   // More dev / image / text tools
   Fingerprint, Clock, Table, Palette, FileImage, Crop, Sparkles, Spline,
+  // Newest additions
+  Coins, TrendingUp, CalendarDays, Blend, Square, Replace, ListMinus, ArrowDownAZ, Wand2,
 } from 'lucide-react'
 
 const iconMap = {
@@ -45,6 +47,8 @@ const iconMap = {
   Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
   // More dev / image / text tools
   Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
+  // Newest additions
+  Coins, TrendingUp, CalendarDays, Blend, Square, Replace, ListMinus, ArrowDownAZ, Wand2,
 }
 
 const categoryTheme = {
@@ -59,7 +63,7 @@ const categoryTheme = {
 }
 
 const STATS = [
-  { value: '63', label: 'Free tools' },
+  { value: '72', label: 'Free tools' },
   { value: '8', label: 'Categories' },
   { value: '0', label: 'Sign-ups needed' },
   { value: '∞', label: 'Uses per day' },
@@ -97,7 +101,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'UtilKit',
   url: SITE_URL,
-  description: '63 free online tools — PDF, image, AI, developer, calculator, and text utilities. No sign-up required.',
+  description: '72 free online tools — PDF, image, AI, developer, calculator, and text utilities. No sign-up required.',
   potentialAction: {
     '@type': 'SearchAction',
     target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/?q={search_term_string}` },
@@ -138,20 +142,20 @@ export default function Home() {
     <div className="min-h-screen">
 
       <Helmet>
-        <title>UtilKit — 63 Free Online Tools. No Sign-Up Required.</title>
-        <meta name="description" content="Free PDF converter, image compressor, AI writing tools, calculators, QR code generator, password generator, and 58 more utilities. All browser-based, all free, no account needed." />
+        <title>UtilKit — 72 Free Online Tools. No Sign-Up Required.</title>
+        <meta name="description" content="Free PDF converter, image compressor, AI writing tools, calculators, QR code generator, password generator, and 66 more utilities. All browser-based, all free, no account needed." />
         <link rel="canonical" href={SITE_URL} />
         <meta property="og:type"         content="website" />
         <meta property="og:site_name"    content="UtilKit" />
         <meta property="og:url"          content={SITE_URL} />
-        <meta property="og:title"        content="UtilKit — 63 Free Online Tools. No Sign-Up Required." />
+        <meta property="og:title"        content="UtilKit — 72 Free Online Tools. No Sign-Up Required." />
         <meta property="og:description"  content="Free PDF, image, AI, developer, and text tools. All browser-based. No account required." />
         <meta property="og:image"        content={OG_IMAGE} />
         <meta property="og:image:width"  content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card"        content="summary_large_image" />
         <meta name="twitter:site"        content="@utilkit" />
-        <meta name="twitter:title"       content="UtilKit — 63 Free Online Tools" />
+        <meta name="twitter:title"       content="UtilKit — 72 Free Online Tools" />
         <meta name="twitter:description" content="PDF, image, AI, developer, and text tools. Free, no sign-up." />
         <meta name="twitter:image"       content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
@@ -162,7 +166,7 @@ export default function Home() {
       <section className="px-4 pt-16 pb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500 dark:text-indigo-400 text-xs font-medium mb-6">
           <Zap size={12} fill="currentColor" />
-          63 free tools — no account required
+          72 free tools — no account required
         </div>
 
         <h1 className="text-4xl sm:text-5xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 leading-tight tracking-tight">
@@ -322,7 +326,7 @@ export default function Home() {
           <span className="font-bold text-sm text-zinc-700 dark:text-zinc-300">UtilKit</span>
         </div>
         <p className="text-xs text-zinc-400">
-          63 free utility tools · No account required ·{' '}
+          72 free utility tools · No account required ·{' '}
           <NavLink to="/blog" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
             Blog
           </NavLink>

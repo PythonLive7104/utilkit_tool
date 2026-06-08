@@ -1265,4 +1265,175 @@ export const toolContent = {
       { q: 'Is it free?', a: 'Yes, and it runs entirely in your browser.' },
     ],
   },
+
+  'tip-calculator': {
+    why: 'Working out a tip and splitting the bill in your head is error-prone, especially with an odd number of people. This calculator does both instantly — pick a tip percentage, enter the bill, and see exactly what each person owes.',
+    howTo: [
+      { step: '1', title: 'Enter the bill amount', body: 'Type the total bill before the tip.' },
+      { step: '2', title: 'Choose a tip percentage', body: 'Tap a preset (10–25%) or enter your own custom percentage.' },
+      { step: '3', title: 'Split between people', body: 'Set how many people are paying to see the per-person amount, tip, and total.' },
+    ],
+    useCases: [
+      { title: 'Restaurants & bars', body: 'Quickly calculate a fair tip and split the check with friends.' },
+      { title: 'Group outings', body: 'Divide the total evenly so everyone pays the same amount.' },
+      { title: 'Travel', body: 'Work out customary tips quickly when you are eating out abroad.' },
+    ],
+    faq: [
+      { q: 'What is a standard tip percentage?', a: 'In the US, 15–20% is typical for table service; use the presets or enter your local custom.' },
+      { q: 'Does it split the tip too?', a: 'Yes. The per-person figure includes each person’s share of both the bill and the tip.' },
+      { q: 'Is my data saved?', a: 'No. Everything is calculated locally in your browser.' },
+    ],
+  },
+
+  'compound-interest-calculator': {
+    why: 'Compound interest is how savings and investments really grow — you earn interest on your interest, not just your original deposit. Seeing the numbers projected over years, with regular contributions, makes the long-term impact of saving clear.',
+    howTo: [
+      { step: '1', title: 'Enter your starting amount', body: 'Type the initial principal you are investing or saving.' },
+      { step: '2', title: 'Add rate, years and contributions', body: 'Set the annual interest rate, the number of years, and any regular monthly contribution.' },
+      { step: '3', title: 'Choose compounding frequency', body: 'Pick how often interest compounds, then read the final balance and total interest earned.' },
+    ],
+    useCases: [
+      { title: 'Retirement planning', body: 'Project how a pension or long-term investment could grow over decades.' },
+      { title: 'Savings goals', body: 'See how regular monthly deposits build toward a target amount.' },
+      { title: 'Comparing accounts', body: 'Compare how different interest rates and compounding frequencies affect returns.' },
+    ],
+    faq: [
+      { q: 'What is the difference between simple and compound interest?', a: 'Simple interest is earned only on the principal; compound interest is earned on the principal plus previously earned interest, so it grows faster.' },
+      { q: 'Does it account for monthly contributions?', a: 'Yes. Regular monthly contributions are compounded along with your starting balance.' },
+      { q: 'Is this financial advice?', a: 'No. It is an estimate for illustration only and does not account for tax, fees, or inflation.' },
+    ],
+  },
+
+  'date-duration-calculator': {
+    why: 'Counting the exact time between two dates by hand is tricky because months and years have different lengths and leap years get in the way. This tool gives you the precise number of days, weeks, and months instantly.',
+    howTo: [
+      { step: '1', title: 'Pick a start date', body: 'Choose the first date using the date picker.' },
+      { step: '2', title: 'Pick an end date', body: 'Choose the second date. It must be on or after the start date.' },
+      { step: '3', title: 'Read the duration', body: 'See the breakdown in years, months and days, plus total days and weeks. Optionally include the end day.' },
+    ],
+    useCases: [
+      { title: 'Project timelines', body: 'Measure how long a project ran or how many days remain until a deadline.' },
+      { title: 'Notice & contracts', body: 'Count notice periods, trial periods, or contract lengths exactly.' },
+      { title: 'Countdowns', body: 'Work out how many days until a wedding, holiday, or launch.' },
+    ],
+    faq: [
+      { q: 'Does it count leap years correctly?', a: 'Yes. The day count uses real calendar dates, so February 29 is handled automatically.' },
+      { q: 'What does “include the end day” do?', a: 'It adds one day so both the start and end dates are counted — useful for inclusive ranges.' },
+      { q: 'Is the months figure exact?', a: 'The years/months/days breakdown is exact; the standalone “months” total is an approximation based on average month length.' },
+    ],
+  },
+
+  'css-gradient-generator': {
+    why: 'Hand-writing CSS gradient syntax is fiddly and hard to visualise. This generator lets you pick colours and an angle and see the result live, then copy production-ready CSS that works across modern browsers.',
+    howTo: [
+      { step: '1', title: 'Choose gradient type', body: 'Switch between a linear or radial gradient.' },
+      { step: '2', title: 'Pick your colours', body: 'Select the start and end colours with the colour pickers.' },
+      { step: '3', title: 'Adjust and copy', body: 'For linear gradients, drag the angle slider, then copy the generated CSS.' },
+    ],
+    useCases: [
+      { title: 'Website backgrounds', body: 'Create eye-catching hero and section backgrounds.' },
+      { title: 'Buttons & cards', body: 'Add subtle gradient fills to UI components.' },
+      { title: 'Design prototyping', body: 'Quickly try colour combinations before committing in your stylesheet.' },
+    ],
+    faq: [
+      { q: 'Does the CSS work in all browsers?', a: 'Yes. Standard linear-gradient and radial-gradient are supported in all modern browsers.' },
+      { q: 'Can I use more than two colours?', a: 'This version uses two colours; you can add more stops manually in the copied CSS.' },
+      { q: 'Is it free?', a: 'Yes, and nothing leaves your browser.' },
+    ],
+  },
+
+  'box-shadow-generator': {
+    why: 'The CSS box-shadow property has several values — offset, blur, spread, colour, and inset — that are hard to tune blindly. A visual editor with a live preview lets you dial in exactly the depth and softness you want.',
+    howTo: [
+      { step: '1', title: 'Adjust the sliders', body: 'Set the horizontal and vertical offset, blur, and spread while watching the preview.' },
+      { step: '2', title: 'Set colour and opacity', body: 'Pick the shadow colour and how strong it appears.' },
+      { step: '3', title: 'Copy the CSS', body: 'Toggle inset if needed, then copy the ready-to-use box-shadow code.' },
+    ],
+    useCases: [
+      { title: 'Cards & panels', body: 'Give cards a subtle lift off the page with a soft shadow.' },
+      { title: 'Buttons', body: 'Add depth or pressed (inset) effects to buttons.' },
+      { title: 'Design systems', body: 'Generate consistent elevation shadows for a component library.' },
+    ],
+    faq: [
+      { q: 'What does the spread value do?', a: 'Spread grows or shrinks the shadow before the blur is applied — positive values make it larger, negative smaller.' },
+      { q: 'What is an inset shadow?', a: 'Inset draws the shadow inside the element instead of outside, useful for pressed or recessed effects.' },
+      { q: 'Can I stack multiple shadows?', a: 'Yes — copy this value and combine several comma-separated shadows in your CSS.' },
+    ],
+  },
+
+  'find-and-replace': {
+    why: 'When you need to swap every occurrence of a word or pattern in a block of text, doing it by hand is slow and easy to miss. This tool replaces them all at once and tells you how many it changed.',
+    howTo: [
+      { step: '1', title: 'Paste your text', body: 'Add the text you want to edit into the input box.' },
+      { step: '2', title: 'Enter find and replace terms', body: 'Type what to look for and what to replace it with.' },
+      { step: '3', title: 'Choose options and copy', body: 'Optionally enable case-insensitive matching or regular expressions, then copy the result.' },
+    ],
+    useCases: [
+      { title: 'Editing drafts', body: 'Rename a character, product, or term throughout a document.' },
+      { title: 'Cleaning data', body: 'Standardise values or strip unwanted strings from exported text.' },
+      { title: 'Code snippets', body: 'Rename variables or update URLs across a block of code.' },
+    ],
+    faq: [
+      { q: 'Does it support regular expressions?', a: 'Yes. Enable the regular expression option to use patterns, groups, and special characters.' },
+      { q: 'Can I make it case-insensitive?', a: 'Yes. Tick the case-insensitive box to match regardless of capitalisation.' },
+      { q: 'Is my text uploaded?', a: 'No. All find-and-replace happens locally in your browser.' },
+    ],
+  },
+
+  'remove-duplicate-lines': {
+    why: 'Lists exported from spreadsheets, logs, or scraped pages often contain repeated entries. Removing duplicates by hand is tedious; this tool keeps only the unique lines in one click.',
+    howTo: [
+      { step: '1', title: 'Paste your list', body: 'Add your list with one item per line.' },
+      { step: '2', title: 'Set the options', body: 'Choose whether to ignore case, trim whitespace, and remove blank lines.' },
+      { step: '3', title: 'Copy the unique lines', body: 'Read how many duplicates were removed, then copy the cleaned list.' },
+    ],
+    useCases: [
+      { title: 'Email & contact lists', body: 'Remove repeated addresses before importing into a mailing tool.' },
+      { title: 'Keyword research', body: 'De-duplicate keyword and tag lists for SEO and ads.' },
+      { title: 'Log analysis', body: 'Collapse repeated log lines to spot unique entries.' },
+    ],
+    faq: [
+      { q: 'Does it keep the original order?', a: 'Yes. The first occurrence of each line is kept in its original position.' },
+      { q: 'Can it ignore case and spaces?', a: 'Yes. Enable “ignore case” and “trim whitespace” so near-identical lines are treated as duplicates.' },
+      { q: 'Is there a size limit?', a: 'It handles large lists comfortably since everything runs in your browser.' },
+    ],
+  },
+
+  'sort-text-lines': {
+    why: 'Sorting a list alphabetically or numerically is a common chore that text editors make harder than it should be. This tool sorts your lines instantly with the order and options you choose.',
+    howTo: [
+      { step: '1', title: 'Paste your list', body: 'Enter your list with one item per line.' },
+      { step: '2', title: 'Choose how to sort', body: 'Pick alphabetical or numerical sorting and ascending or descending order.' },
+      { step: '3', title: 'Copy the result', body: 'Optionally ignore case or remove duplicates, then copy the sorted list.' },
+    ],
+    useCases: [
+      { title: 'Organising lists', body: 'Alphabetise names, tags, or to-do items in seconds.' },
+      { title: 'Data prep', body: 'Sort CSV columns or keyword lists before further processing.' },
+      { title: 'Numbers', body: 'Order a list of numbers correctly instead of as text.' },
+    ],
+    faq: [
+      { q: 'Does numerical sorting work?', a: 'Yes. Choose “numerical” to sort by value, so 2 comes before 10.' },
+      { q: 'Can I remove duplicates while sorting?', a: 'Yes. Tick “remove duplicates” to keep only unique lines in the sorted output.' },
+      { q: 'Is it case-sensitive?', a: 'You choose — enable “ignore case” for case-insensitive alphabetical sorting.' },
+    ],
+  },
+
+  'background-changer': {
+    why: 'Swapping a photo’s background usually means fiddly manual masking in an image editor. This tool removes the background automatically and lets you drop in a clean colour or your own image in seconds.',
+    howTo: [
+      { step: '1', title: 'Upload your photo', body: 'Choose the image whose background you want to change. The subject is cut out automatically.' },
+      { step: '2', title: 'Pick a new background', body: 'Select a solid colour, or upload a background image to place behind the subject.' },
+      { step: '3', title: 'Download', body: 'Preview the result and download the finished image as a PNG.' },
+    ],
+    useCases: [
+      { title: 'Profile pictures', body: 'Put a clean, consistent background behind a headshot for LinkedIn or a CV.' },
+      { title: 'Product photos', body: 'Place products on a plain white or branded background for stores and listings.' },
+      { title: 'ID & passport photos', body: 'Replace a busy background with the solid colour an application requires.' },
+    ],
+    faq: [
+      { q: 'How is the background removed?', a: 'The subject is detected and cut out automatically, then composited onto your chosen background in your browser.' },
+      { q: 'What formats can I download?', a: 'The finished image downloads as a PNG, which preserves crisp edges.' },
+      { q: 'Will the original photo be stored?', a: 'No. The cutout is processed for the request and the final image is created locally; nothing is kept.' },
+    ],
+  },
 }

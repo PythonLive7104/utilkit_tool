@@ -20,6 +20,7 @@ import {
   Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
   // More dev / image / text tools
   Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
+  Coins, TrendingUp, CalendarDays, Blend, Square, Replace, ListMinus, ArrowDownAZ, Wand2,
 } from 'lucide-react'
 
 const iconMap = {
@@ -42,6 +43,8 @@ const iconMap = {
   Percent, Cake, Scale, Landmark, BadgePercent, Ruler,
   // More dev / image / text tools
   Fingerprint, Clock, Globe, Table, Palette, FileImage, Crop, Sparkles, Spline,
+  // Newest additions
+  Coins, TrendingUp, CalendarDays, Blend, Square, Replace, ListMinus, ArrowDownAZ, Wand2,
 }
 
 const categoryColors = {
@@ -134,7 +137,7 @@ export default function Sidebar({ onClose }) {
       {/* Footer */}
       <div className="px-4 py-3 border-t border-zinc-200 dark:border-zinc-800 flex-shrink-0">
         <p className="text-xs text-zinc-400 dark:text-zinc-600">
-          63 tools · All free ·{' '}
+          72 tools · All free ·{' '}
           <NavLink to="/blog" onClick={onClose} className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
             Blog
           </NavLink>

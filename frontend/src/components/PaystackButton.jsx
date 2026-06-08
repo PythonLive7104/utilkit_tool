@@ -62,7 +62,7 @@ function Modal({ onClose }) {
           <>
             <p className="font-bold text-zinc-800 dark:text-zinc-100 mb-1">Support UtilKit ☕</p>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-5">
-              All 63 tools are free. A small support keeps the lights on.
+              All 72 tools are free. A small support keeps the lights on.
             </p>
 
             <form onSubmit={pay} className="space-y-4">

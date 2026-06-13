@@ -26,7 +26,7 @@ def seed_slots(apps, schema_editor):
             defaults={
                 'name': name,
                 'description': f'Banner shown on all {name} pages.',
-                'recommended_size': '728×90',
+                'recommended_size': '636×212',
                 'price_usd': WEEKLY_PRICE,
                 'duration_days': 7,
                 'capacity': 2,

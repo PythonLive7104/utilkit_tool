@@ -27,7 +27,8 @@ export default function AdSlot({ category }) {
   const hasRealAd = data.ads.length > 0
 
   return (
-    <div className="my-8">
+    <div className="my-8 mx-auto max-w-2xl">
+      {/* Two 636×212 (3:1) banners side by side; one box per slot capacity. */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {boxes.map((ad, i) =>
           ad ? (
@@ -36,17 +37,17 @@ export default function AdSlot({ category }) {
               href={ad.click_url}
               target="_blank"
               rel="sponsored noopener noreferrer"
-              className="block rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800"
+              className="block aspect-[3/1] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900"
             >
               <img
                 src={ad.image_url}
                 alt={ad.alt_text || 'Advertisement'}
-                className="w-full h-auto"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </a>
           ) : (
-            <AdvertiseHere key={`empty-${i}`} category={category} />
+            <AdvertiseHere key={`empty-${i}`} category={category} boxed />
           ),
         )}
       </div>

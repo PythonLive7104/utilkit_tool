@@ -1,38 +1,42 @@
 import { useState } from 'react'
 import { X, Coffee } from 'lucide-react'
 
-const PK = 'pk_live_c993a64d0b90760e2f42a25889360af489694486'
-const CURRENCY = 'USD'
-const SYMBOL   = '$'
-const PRESETS  = [2, 5, 10, 20]
+// "Support our team" runs on a Dodo Payments "Pay What You Want" product.
+// Set these from your Dodo dashboard (see frontend/.env.example):
+//   VITE_DODO_CHECKOUT_BASE   — checkout host (test vs live)
+//   VITE_DODO_SUPPORT_PRODUCT  — the PWYW product id, e.g. 'pdt_...'
+const CHECKOUT_BASE = import.meta.env.VITE_DODO_CHECKOUT_BASE || 'https://checkout.dodopayments.com'
+const PRODUCT_ID    = import.meta.env.VITE_DODO_SUPPORT_PRODUCT || ''
+const SYMBOL  = '$'
+const PRESETS = [2, 5, 10, 20]
+
+// Build a static "Pay What You Want" checkout link. paymentAmount is in cents.
+function supportLink(amount) {
+  const params = new URLSearchParams({
+    quantity: '1',
+    redirect_url: window.location.href,
+  })
+  if (amount > 0) params.set('paymentAmount', String(Math.round(amount * 100)))
+  return `${CHECKOUT_BASE}/buy/${PRODUCT_ID}?${params.toString()}`
+}
 
 function Modal({ onClose }) {
-  const [email, setEmail]   = useState('')
   const [preset, setPreset] = useState(5)
   const [custom, setCustom] = useState('')
-  const [busy, setBusy]     = useState(false)
-  const [done, setDone]     = useState(false)
+  const [opened, setOpened] = useState(false)
 
   const amount = custom ? parseInt(custom, 10) || 0 : preset
 
   function pay(e) {
     e.preventDefault()
-    if (!email || !amount) return
-    if (!window.PaystackPop) {
-      alert('Payment script not loaded yet. Please refresh and try again.')
+    if (!amount) return
+    if (!PRODUCT_ID) {
+      alert('Support is not configured yet. Please try again later.')
       return
     }
-    setBusy(true)
-    const handler = window.PaystackPop.setup({
-      key: PK,
-      email,
-      amount: amount * 100,
-      currency: CURRENCY,
-      ref: `utilkit_${Date.now()}`,
-      callback: () => { setBusy(false); setDone(true) },
-      onClose:  () => setBusy(false),
-    })
-    handler.openIframe()
+    // Dodo's hosted checkout opens in a new tab so the user keeps their place.
+    window.open(supportLink(amount), '_blank', 'noopener')
+    setOpened(true)
   }
 
   return (
@@ -46,11 +50,13 @@ function Modal({ onClose }) {
           <X size={18} />
         </button>
 
-        {done ? (
+        {opened ? (
           <div className="text-center py-4">
-            <p className="text-3xl mb-3">🎉</p>
+            <p className="text-3xl mb-3">💜</p>
             <p className="font-bold text-zinc-800 dark:text-zinc-100 mb-1">Thank you!</p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">Your support keeps UtilKit free for everyone.</p>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              Finish your support in the checkout tab that just opened. It keeps UtilKit free for everyone.
+            </p>
             <button
               onClick={onClose}
               className="mt-5 px-5 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors"
@@ -66,15 +72,6 @@ function Modal({ onClose }) {
             </p>
 
             <form onSubmit={pay} className="space-y-4">
-              <input
-                type="email"
-                required
-                placeholder="your@email.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              />
-
               <div>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-2">Amount (USD)</p>
                 <div className="grid grid-cols-4 gap-2 mb-2">
@@ -105,11 +102,12 @@ function Modal({ onClose }) {
 
               <button
                 type="submit"
-                disabled={busy || !email || !amount}
+                disabled={!amount}
                 className="w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold transition-colors"
               >
-                {busy ? 'Opening Paystack…' : `Pay ${SYMBOL}${amount}`}
+                {`Support ${SYMBOL}${amount}`}
               </button>
+              <p className="text-[11px] text-zinc-400 text-center">Secure checkout via Dodo Payments.</p>
             </form>
           </>
         )}
@@ -120,7 +118,7 @@ function Modal({ onClose }) {
 
 // variant="floating" → fixed icon button, stacked above the Contact widget
 // variant="inline"   → normal button (used inside CoffeeBox)
-export default function PaystackButton({ variant = 'inline', label = '☕ Support UtilKit' }) {
+export default function SupportButton({ variant = 'inline', label = '☕ Support UtilKit' }) {
   const [open, setOpen] = useState(false)
 
   return (

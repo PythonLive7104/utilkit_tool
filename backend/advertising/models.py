@@ -4,7 +4,7 @@ from django.db import models
 from django.utils import timezone
 
 # How long a 'pending_payment' advert reserves a slot while the advertiser is
-# at the Paystack checkout. After this it no longer counts toward capacity.
+# at the Dodo Payments checkout. After this it no longer counts toward capacity.
 HOLD_MINUTES = 30
 
 
@@ -38,6 +38,10 @@ class AdSlot(models.Model):
     )
     capacity = models.PositiveIntegerField(
         default=1, help_text="How many adverts can run in this slot at once."
+    )
+    dodo_product_id = models.CharField(
+        max_length=100, blank=True,
+        help_text="Dodo Payments product id for this slot's weekly booking, e.g. 'pdt_...'.",
     )
     is_active = models.BooleanField(
         default=True, help_text="Uncheck to stop selling this slot."
@@ -107,6 +111,8 @@ class Advertisement(models.Model):
         max_length=20, choices=Status.choices, default=Status.PENDING_PAYMENT
     )
     payment_reference = models.CharField(max_length=100, unique=True)
+    dodo_session_id = models.CharField(max_length=100, blank=True)
+    dodo_payment_id = models.CharField(max_length=100, blank=True)
     amount_paid = models.DecimalField(max_digits=8, decimal_places=2, default=0)
 
     # Lightweight tracking
@@ -137,7 +143,7 @@ class Advertisement(models.Model):
     def activate(self):
         """Put the advert live immediately, starting its booking window today.
 
-        Called when Paystack confirms payment, so a paid advert is placed
+        Called when Dodo Payments confirms payment, so a paid advert is placed
         automatically without manual approval.
         """
         today = timezone.localdate()

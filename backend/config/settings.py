@@ -120,8 +120,16 @@ CORS_ALLOW_METHODS = ['GET', 'POST', 'DELETE', 'OPTIONS']
 # ── App-specific config ───────────────────────────────────────
 REMOVE_BG_API_KEY    = config('REMOVE_BG_API_KEY', default='')
 OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
-PAYSTACK_SECRET_KEY  = config('PAYSTACK_SECRET_KEY', default='')
-PAYSTACK_PUBLIC_KEY  = config('PAYSTACK_PUBLIC_KEY', default='pk_live_c993a64d0b90760e2f42a25889360af489694486')
+# Dodo Payments (Merchant of Record). DODO_URL is the API host — use
+# https://test.dodopayments.com while developing and the live host in prod.
+# DODO_WEBHOOK_SECRET is the 'whsec_...' value shown when you add the webhook
+# endpoint. DODO_ADVERT_ID is the product that backs every advert booking.
+DODO_API_KEY         = config('DODO_API_KEY', default='')
+DODO_WEBHOOK_KEY     = config('DODO_WEBHOOK_SECRET', default='')
+DODO_API_BASE        = config('DODO_URL', default='https://live.dodopayments.com').rstrip('/')
+DODO_ADVERT_PRODUCT_ID = config('DODO_ADVERT_ID', default='')
+# Public site origin Dodo redirects the advertiser back to after checkout.
+SITE_URL             = config('SITE_URL', default='https://utilkit.us')
 RESEND_API_KEY       = config('RESEND_API_KEY', default='')
 RESEND_FROM_EMAIL    = config('RESEND_FROM_EMAIL', default='noreply@utilkit.io')
 CONTACT_EMAIL        = config('CONTACT_EMAIL', default='')

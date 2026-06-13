@@ -3,9 +3,11 @@ import { Helmet } from 'react-helmet-async'
 import { useSearchParams } from 'react-router-dom'
 import { Megaphone, CheckCircle2, AlertCircle, Upload, ChevronDown } from 'lucide-react'
 import { ads } from '../lib/api'
+import { DodoPayments } from 'dodopayments-checkout'
 
-const CURRENCY = 'USD'
 const SYMBOL = '$'
+// 'test' while developing, 'live' in production (VITE_DODO_MODE).
+const DODO_MODE = import.meta.env.VITE_DODO_MODE || 'test'
 
 function formatDate(d) {
   if (!d) return ''
@@ -34,12 +36,42 @@ export default function Advertise() {
   const [done, setDone] = useState(null) // { endDate }
 
   const formRef = useRef(null)
+  const pendingRef = useRef(null) // reference of the advert mid-checkout
+
+  // Confirm payment with the backend (which checks Dodo) and show the live
+  // state. Safe to call repeatedly — the webhook is the authoritative path.
+  function verifyAd(reference) {
+    return ads.verify(reference)
+      .then((v) => { if (v.status === 'live') setDone({ endDate: v.end_date }) })
+      .catch(() => {})
+  }
 
   useEffect(() => {
     ads.slots()
       .then(setSlots)
       .catch(() => setSlotsErr('Could not load advertising slots. Please try again later.'))
   }, [])
+
+  // Initialise the Dodo overlay checkout once.
+  useEffect(() => {
+    DodoPayments.Initialize({
+      mode: DODO_MODE,
+      displayType: 'overlay',
+      onEvent: (e) => {
+        // Dodo redirects to our return_url on success; if the overlay just
+        // closes, re-check in case payment completed without a redirect.
+        if (e.event_type === 'checkout.closed' && pendingRef.current) {
+          verifyAd(pendingRef.current).finally(() => setBusy(false))
+        }
+      },
+    })
+  }, [])
+
+  // Returning from Dodo's hosted checkout (?ad_ref=...) → place the advert live.
+  useEffect(() => {
+    const ref = params.get('ad_ref')
+    if (ref) verifyAd(ref)
+  }, [params])
 
   // When a category is chosen, bring its form into view (important on mobile).
   useEffect(() => {
@@ -66,10 +98,6 @@ export default function Advertise() {
     if (!slot) { setError('Please choose a category.'); return }
     if (!slot.available) { setError('That category is fully booked right now.'); return }
     if (!image) { setError('Please upload your banner image.'); return }
-    if (!window.PaystackPop) {
-      setError('Payment script is still loading — please wait a moment and try again.')
-      return
-    }
 
     setBusy(true)
     try {
@@ -83,22 +111,14 @@ export default function Advertise() {
       form.append('image', image)
 
       const res = await ads.submit(form)
+      if (!res.checkout_url) {
+        throw new Error('Could not start checkout. Please try again.')
+      }
 
-      const handler = window.PaystackPop.setup({
-        key: res.public_key,
-        email: res.email,
-        amount: Math.round(parseFloat(res.amount) * 100),
-        currency: CURRENCY,
-        ref: res.reference,
-        callback: (response) => {
-          ads.verify(response.reference)
-            .then((v) => setDone({ endDate: v.end_date }))
-            .catch(() => setError('Payment received but activation failed. Please contact support with your reference: ' + response.reference))
-            .finally(() => setBusy(false))
-        },
-        onClose: () => setBusy(false),
-      })
-      handler.openIframe()
+      // Remember which advert is being paid for, then open the Dodo overlay.
+      // Activation happens via the webhook and our return_url / close handler.
+      pendingRef.current = res.reference
+      DodoPayments.Checkout.open({ checkoutUrl: res.checkout_url })
     } catch (err) {
       setBusy(false)
       if (err.status === 409) {
@@ -249,7 +269,7 @@ export default function Advertise() {
                     {busy ? 'Processing…' : `Pay ${SYMBOL}${parseFloat(s.price_usd)} & go live for 1 week`}
                   </button>
                   <p className="text-xs text-zinc-400 text-center">
-                    Secure payment via Paystack. Your advert goes live automatically once payment is confirmed.
+                    Secure payment via Dodo Payments. Your advert goes live automatically once payment is confirmed.
                   </p>
                 </form>
               )}

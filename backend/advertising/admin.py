@@ -6,8 +6,8 @@ from .models import AdSlot, Advertisement
 
 @admin.register(AdSlot)
 class AdSlotAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'recommended_size', 'price_usd', 'duration_days', 'is_active')
-    list_editable = ('price_usd', 'duration_days', 'is_active')
+    list_display = ('name', 'code', 'recommended_size', 'price_usd', 'duration_days', 'dodo_product_id', 'is_active')
+    list_editable = ('price_usd', 'duration_days', 'dodo_product_id', 'is_active')
     prepopulated_fields = {'code': ('name',)}
     search_fields = ('name', 'code')
 
@@ -21,7 +21,7 @@ class AdvertisementAdmin(admin.ModelAdmin):
     list_filter = ('status', 'slot')
     search_fields = ('advertiser_name', 'advertiser_email', 'company', 'payment_reference')
     readonly_fields = (
-        'preview', 'payment_reference', 'amount_paid', 'impressions',
+        'preview', 'payment_reference', 'dodo_session_id', 'dodo_payment_id', 'amount_paid', 'impressions',
         'clicks', 'created_at', 'updated_at', 'is_live',
     )
     actions = ('reactivate_ads', 'take_down_ads')
@@ -34,7 +34,7 @@ class AdvertisementAdmin(admin.ModelAdmin):
             'fields': ('status', 'is_live', 'start_date', 'end_date'),
         }),
         ('Payment', {
-            'fields': ('payment_reference', 'amount_paid'),
+            'fields': ('payment_reference', 'dodo_session_id', 'dodo_payment_id', 'amount_paid'),
         }),
         ('Tracking & notes', {
             'fields': ('impressions', 'clicks', 'admin_notes', 'created_at', 'updated_at'),

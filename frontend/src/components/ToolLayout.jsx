@@ -4,7 +4,7 @@ import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
 import AdSlot from './AdSlot'
-import PaystackButton from './PaystackButton'
+import SupportButton from './SupportButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
 import { toolContent } from '../data/toolContent'
@@ -146,7 +146,7 @@ function CoffeeBox() {
       <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
         All 72 tools are free. If we saved you time, a small support keeps the lights on.
       </p>
-      <PaystackButton />
+      <SupportButton />
     </div>
   )
 }

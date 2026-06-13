@@ -9,7 +9,7 @@ urlpatterns = [
     path('api/email/', include('temp_email.urls')),
     path('api/bg/', include('bg_remover.urls')),
     path('api/ai/', include('ai_tools.urls')),
-    path('api/payments/', include('payments.urls')),
+    path('api/billing/', include('payments.urls')),
     path('api/contact/', include('contact.urls')),
     path('api/ads/', include('advertising.urls')),
     # Short-link redirect lives at the root so /s/<code> is clean

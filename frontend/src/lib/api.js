@@ -90,7 +90,8 @@ export const ads = {
   active: (category) => request(`/api/ads/active/?slot=${encodeURIComponent(category)}`),
 
   // Submit a new advert (multipart: slot, advertiser_name, company,
-  // advertiser_email, image, target_url, alt_text). Returns Paystack params.
+  // advertiser_email, image, target_url, alt_text). Returns { reference,
+  // checkout_url } for the Dodo Payments overlay checkout.
   submit: async (formData) => {
     const res = await fetch(`${BASE}/api/ads/submit/`, { method: 'POST', body: formData })
     const text = await res.text()
@@ -105,7 +106,7 @@ export const ads = {
     return data
   },
 
-  // Verify a Paystack payment and place the advert live.
+  // Confirm a Dodo payment and place the advert live.
   verify: (reference) =>
     request('/api/ads/verify/', {
       method: 'POST',

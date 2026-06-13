@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "diff": "^7.0.0",
+    "dodopayments-checkout": "^1.9.4",
     "framer-motion": "^11.3.30",
     "highlight.js": "^11.10.0",
     "jszip": "^3.10.1",

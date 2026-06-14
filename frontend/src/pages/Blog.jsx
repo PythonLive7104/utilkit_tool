@@ -40,7 +40,6 @@ export default function Blog() {
       <Helmet>
         <title>UtilKit Blog — Guides for Calculators, Developer & File Tools</title>
         <meta name="description" content="How-to guides and explainers for percentages, BMI, loans, hashes, timestamps, color formats, and more — from the UtilKit team." />
-        <link rel="canonical" href={`${SITE_URL}/blog`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="UtilKit Blog" />
         <meta property="og:description" content="Guides and how-tos for everyday calculations, developer utilities, and file tools." />

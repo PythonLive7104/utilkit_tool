@@ -42,37 +42,15 @@ export default function BlogPost() {
 
   if (!post) return <Navigate to="/blog" replace />
 
-  const url = `${SITE_URL}/blog/${post.slug}`
+  // Trailing slash to match the canonical the prerenderer and server use.
+  const url = `${SITE_URL}/blog/${post.slug}/`
   const related = blogPosts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2)
-
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    dateModified: post.date,
-    author: { '@type': 'Organization', name: 'UtilKit' },
-    publisher: { '@type': 'Organization', name: 'UtilKit', logo: { '@type': 'ImageObject', url: OG_IMAGE } },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: OG_IMAGE,
-  }
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
-      { '@type': 'ListItem', position: 3, name: post.title, item: url },
-    ],
-  }
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <Helmet>
         <title>{`${post.title} | UtilKit`}</title>
         <meta name="description" content={post.description} />
-        <link rel="canonical" href={url} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />
@@ -83,8 +61,6 @@ export default function BlogPost() {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.description} />
         <meta name="twitter:image" content={OG_IMAGE} />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
 
       {/* Breadcrumb */}

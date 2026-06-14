@@ -93,7 +93,7 @@ const WHY = [
   },
 ]
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://utilkit.io'
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://utilkit.us'
 const OG_IMAGE = `${SITE_URL}/og-image.png`
 
 const websiteSchema = {
@@ -144,7 +144,6 @@ export default function Home() {
       <Helmet>
         <title>UtilKit — 72 Free Online Tools. No Sign-Up Required.</title>
         <meta name="description" content="Free PDF converter, image compressor, AI writing tools, calculators, QR code generator, password generator, and 66 more utilities. All browser-based, all free, no account needed." />
-        <link rel="canonical" href={SITE_URL} />
         <meta property="og:type"         content="website" />
         <meta property="og:site_name"    content="UtilKit" />
         <meta property="og:url"          content={SITE_URL} />

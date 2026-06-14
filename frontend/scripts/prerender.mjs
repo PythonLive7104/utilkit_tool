@@ -28,6 +28,15 @@ const DIST = resolve(__dirname, '..', 'dist')
 const SITE = (process.env.VITE_SITE_URL || 'https://utilkit.us').replace(/\/$/, '')
 const OG_IMAGE = `${SITE}/og-image.png`
 
+// Canonical URL for a route. Pages are served directory-style (/advertise/),
+// so the server 301-redirects the no-slash form to the slash form. Canonicals,
+// og:url, JSON-LD URLs and the sitemap must all use the slash form to match —
+// otherwise Search Console reports the declared URL as "Page with redirect".
+const canon = (path) => {
+  const u = SITE + path
+  return u.endsWith('/') ? u : `${u}/`
+}
+
 // ── helpers ──────────────────────────────────────────────────────────────────
 const esc = (s = '') =>
   String(s)
@@ -139,7 +148,7 @@ function renderToolPage(tool) {
     operatingSystem: 'Any (web browser)',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
     description: tool.description,
-    url: SITE + tool.path,
+    url: canon(tool.path),
   })
 
   return {
@@ -189,7 +198,7 @@ function renderBlogPost(post) {
         datePublished: post.date,
         author: { '@type': 'Organization', name: 'UtilKit' },
         publisher: { '@type': 'Organization', name: 'UtilKit', logo: { '@type': 'ImageObject', url: OG_IMAGE } },
-        mainEntityOfPage: `${SITE}/blog/${post.slug}`,
+        mainEntityOfPage: canon(`/blog/${post.slug}`),
       },
       breadcrumbLd([['Home', '/'], ['Blog', '/blog'], [post.title, `/blog/${post.slug}`]]),
     ],
@@ -293,14 +302,14 @@ function breadcrumbLd(pairs) {
       '@type': 'ListItem',
       position: i + 1,
       name,
-      item: SITE + path,
+      item: canon(path),
     })),
   }
 }
 
 // ── HTML assembly ────────────────────────────────────────────────────────────
 function buildPage(template, page) {
-  const url = SITE + page.path
+  const url = canon(page.path)
   const head = [
     `<link rel="canonical" href="${esc(url)}" />`,
     `<meta property="og:title" content="${esc(page.title)}" />`,

@@ -51,6 +51,21 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Pre-React splash. The prerendered SEO HTML lives inside #root for
+         crawlers, but for human visitors it's a simplified static snapshot that
+         React discards on mount (createRoot, not hydrate). This branded overlay
+         covers that swap so it reads as a clean load instead of a page flash.
+         App removes it on mount; the timeout is a safety net if JS fails. -->
+    <div id="app-splash" aria-hidden="true" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#09090b;">
+      <div style="display:flex;align-items:center;gap:10px;color:#fff;font-family:Inter,system-ui,sans-serif;font-weight:700;font-size:20px;">
+        <span style="width:22px;height:22px;border:3px solid rgba(99,102,241,.3);border-top-color:#6366f1;border-radius:50%;display:inline-block;animation:utilkit-spin .7s linear infinite;"></span>
+        UtilKit
+      </div>
+    </div>
+    <style>@keyframes utilkit-spin{to{transform:rotate(360deg)}}</style>
+    <script>setTimeout(function(){var s=document.getElementById('app-splash');if(s)s.style.display='none'},8000)</script>
+
     <script type="module" src="/src/main.jsx"></script>
 
     <!-- Third-party scripts loaded after page to avoid blocking the tab spinner -->

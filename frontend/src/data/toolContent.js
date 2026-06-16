@@ -125,22 +125,28 @@ export const toolContent = {
   // ─── PDF Tools ────────────────────────────────────────────────────────────
 
   'pdf-to-word': {
-    why: 'PDFs lock content into a format that is hard to edit without expensive desktop software. This tool extracts all readable text from any PDF instantly — right in your browser — so you can copy, edit, and repurpose it without installing anything.',
+    why: 'PDF is built to be read, not edited. It freezes text, fonts, and layout into a fixed page so a document looks identical everywhere — which is exactly why you cannot easily change a word, fix a typo, or reuse a paragraph without the original source file or a paid converter like Adobe Acrobat. Most people just want the words back so they can paste them into Word, Google Docs, or an email and carry on.\n\nThis tool does that instantly and privately. It reads the selectable text layer of your PDF directly in your browser using PDF.js and gives you clean, editable text you can copy or download — no upload, no account, no watermark, and no software to install. Because nothing is sent to a server, even sensitive contracts, medical records, or financial statements stay entirely on your own device. It is text extraction rather than a pixel-perfect Word rebuild: you get every word, heading, and paragraph ready to edit, which is what the vast majority of "PDF to Word" searches are actually after.',
     howTo: [
-      { step: '1', title: 'Upload your PDF', body: 'Click the upload area or drag and drop your PDF file onto the page.' },
-      { step: '2', title: 'Preview the extracted text', body: 'The tool reads your PDF using PDF.js and shows a live preview of the content.' },
-      { step: '3', title: 'Download the text file', body: 'Click Download to save the extracted text as a .txt file to your device.' },
+      { step: '1', title: 'Upload your PDF', body: 'Click the upload area or drag and drop your PDF onto the page. The file is loaded into your browser only — it is never uploaded to any server.' },
+      { step: '2', title: 'Preview the extracted text', body: 'The tool parses every page with PDF.js and shows a live, scrollable preview of the recovered text so you can confirm it captured what you need before saving.' },
+      { step: '3', title: 'Copy or download', body: 'Copy the text straight to your clipboard, or click Download to save it as a .txt file. Paste it into Word or Google Docs, where you can re-apply headings, bold, and styles in seconds.' },
     ],
     useCases: [
-      { title: 'Students & researchers', body: 'Extract text from academic papers, textbooks, and research PDFs to quote, annotate, or analyse.' },
-      { title: 'Legal & compliance teams', body: 'Pull text from contracts and legal PDFs to search, edit, or reformat in a word processor.' },
-      { title: 'Content repurposing', body: 'Extract text from old PDF reports to repurpose into blog posts, slides, or updated documents.' },
+      { title: 'Students & researchers', body: 'Pull quotes, data, and references out of academic papers, textbooks, and journal PDFs without retyping — then cite and annotate them in your own document.' },
+      { title: 'Legal & compliance teams', body: 'Extract clauses from contracts and agreements to redline, compare versions, or reformat — without sending confidential documents to a third-party cloud service.' },
+      { title: 'Content & marketing', body: 'Recover copy from old brochures, whitepapers, and PDF reports to repurpose into blog posts, slides, or refreshed web pages.' },
+      { title: 'Administrators & HR', body: 'Lift text from forms, policy documents, and onboarding packs to update wording or paste into emails and templates.' },
+      { title: 'Translators', body: 'Get the raw source text out of a PDF so you can run it through a translation workflow without fighting the original layout.' },
     ],
     faq: [
-      { q: 'Does my PDF get uploaded to a server?', a: 'No. All processing happens locally in your browser using PDF.js. Your file never leaves your device.' },
-      { q: 'Will the formatting be preserved?', a: 'Paragraphs and line breaks are preserved. Complex multi-column layouts may be linearised into a single reading flow.' },
-      { q: 'What file size is supported?', a: 'PDFs up to 100MB work without issues.' },
-      { q: 'Does this work on scanned PDFs?', a: 'Scanned PDFs contain images, not selectable text. Use our OCR PDF tool for those.' },
+      { q: 'Does my PDF get uploaded to a server?', a: 'No. All processing happens locally in your browser using PDF.js. Your file never leaves your device, which makes this safe for confidential or sensitive documents.' },
+      { q: 'Will the formatting be preserved?', a: 'Paragraphs and line breaks are preserved. Complex multi-column layouts, tables, and exact fonts are linearised into a clean single reading flow — you re-apply styling in your word processor, which takes moments.' },
+      { q: 'Why does this give me text instead of a .docx file?', a: 'Most people searching for "PDF to Word" simply want editable text they can paste into Word or Docs. Extracting clean text avoids the broken, garbled .docx files that automated layout converters often produce, and keeps everything private in your browser.' },
+      { q: 'Does it work on scanned PDFs or images?', a: 'Scanned PDFs are pictures of text and contain no selectable text layer, so extraction returns nothing. Use our OCR PDF tool first to convert the scan into real text, then bring it here.' },
+      { q: 'What file size is supported?', a: 'PDFs up to about 100MB process comfortably. Very large files take a little longer because all the work happens on your own computer.' },
+      { q: 'Is there a limit on the number of pages?', a: 'No fixed page limit. The tool reads the whole document; longer PDFs simply take a few seconds more to parse.' },
+      { q: 'Can I edit the result on my phone?', a: 'Yes. The tool runs in any modern mobile browser. Copy the extracted text and paste it into the Google Docs or Word app on your device.' },
+      { q: 'Is it really free with no watermark?', a: 'Yes — completely free, no sign-up, no watermark, and no daily conversion cap. The output is plain text exactly as it appears in your PDF.' },
     ],
   },
 

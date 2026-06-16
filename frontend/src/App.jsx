@@ -1,114 +1,120 @@
+import { lazy } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
-import Home from './pages/Home'
-// Programmatic SEO landing pages are disabled for now — they were flagged by
-// AdSense as low-value/doorway content. Re-enable by restoring the import and
-// the catch-all route below (and re-adding their URLs to public/sitemap.xml).
-// import ProgrammaticPage from './pages/ProgrammaticPage'
-import Privacy from './pages/Privacy'
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
-import Advertise from './pages/Advertise'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import VerifyEmail from './pages/VerifyEmail'
-import Dashboard from './pages/Dashboard'
 import RequireAuth from './components/RequireAuth'
+import Home from './pages/Home'
+
+// Everything below the landing page is lazy-loaded: each route — and the heavy
+// libraries some tools pull in (pdf-lib, pdfjs, tesseract, qrcode, jszip,
+// framer-motion, marked, highlight.js) — only downloads when that route is
+// visited. This keeps the initial bundle small. Layout wraps <Outlet> in a
+// <Suspense> fallback, so the app shell stays put while a tool chunk loads.
+// Programmatic SEO landing pages stay disabled (AdSense flagged them as
+// doorway content); restore the import + catch-all route below to re-enable.
+// const ProgrammaticPage = lazy(() => import('./pages/ProgrammaticPage'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Blog = lazy(() => import('./pages/Blog'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const Advertise = lazy(() => import('./pages/Advertise'))
+const Login = lazy(() => import('./pages/Login'))
+const Register = lazy(() => import('./pages/Register'))
+const VerifyEmail = lazy(() => import('./pages/VerifyEmail'))
+const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 // Original tools
-import PdfToWord from './pages/tools/PdfToWord'
-import WordToPdf from './pages/tools/WordToPdf'
-import MergePdf from './pages/tools/MergePdf'
-import CompressPdf from './pages/tools/CompressPdf'
-import SplitPdf from './pages/tools/SplitPdf'
-import ImageConverter from './pages/tools/ImageConverter'
-import ImageCompressor from './pages/tools/ImageCompressor'
-import BackgroundRemover from './pages/tools/BackgroundRemover'
-import ImageResizer from './pages/tools/ImageResizer'
-import QrCodeGenerator from './pages/tools/QrCodeGenerator'
-import UrlShortener from './pages/tools/UrlShortener'
-import PasswordGenerator from './pages/tools/PasswordGenerator'
-import JsonFormatter from './pages/tools/JsonFormatter'
-import Base64Tool from './pages/tools/Base64Tool'
-import RegexTester from './pages/tools/RegexTester'
-import CodeDiff from './pages/tools/CodeDiff'
-import WordCounter from './pages/tools/WordCounter'
-import CaseConverter from './pages/tools/CaseConverter'
-import LoremIpsum from './pages/tools/LoremIpsum'
-import TempEmail from './pages/tools/TempEmail'
+const PdfToWord = lazy(() => import('./pages/tools/PdfToWord'))
+const WordToPdf = lazy(() => import('./pages/tools/WordToPdf'))
+const MergePdf = lazy(() => import('./pages/tools/MergePdf'))
+const CompressPdf = lazy(() => import('./pages/tools/CompressPdf'))
+const SplitPdf = lazy(() => import('./pages/tools/SplitPdf'))
+const ImageConverter = lazy(() => import('./pages/tools/ImageConverter'))
+const ImageCompressor = lazy(() => import('./pages/tools/ImageCompressor'))
+const BackgroundRemover = lazy(() => import('./pages/tools/BackgroundRemover'))
+const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'))
+const QrCodeGenerator = lazy(() => import('./pages/tools/QrCodeGenerator'))
+const UrlShortener = lazy(() => import('./pages/tools/UrlShortener'))
+const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator'))
+const JsonFormatter = lazy(() => import('./pages/tools/JsonFormatter'))
+const Base64Tool = lazy(() => import('./pages/tools/Base64Tool'))
+const RegexTester = lazy(() => import('./pages/tools/RegexTester'))
+const CodeDiff = lazy(() => import('./pages/tools/CodeDiff'))
+const WordCounter = lazy(() => import('./pages/tools/WordCounter'))
+const CaseConverter = lazy(() => import('./pages/tools/CaseConverter'))
+const LoremIpsum = lazy(() => import('./pages/tools/LoremIpsum'))
+const TempEmail = lazy(() => import('./pages/tools/TempEmail'))
 
 // AI Tools
-import AiHumanizer from './pages/tools/AiHumanizer'
-import AiParaphraser from './pages/tools/AiParaphraser'
-import AiGrammarFixer from './pages/tools/AiGrammarFixer'
-import AiSummarizer from './pages/tools/AiSummarizer'
-import AiTitleGenerator from './pages/tools/AiTitleGenerator'
-import AiEmailWriter from './pages/tools/AiEmailWriter'
+const AiHumanizer = lazy(() => import('./pages/tools/AiHumanizer'))
+const AiParaphraser = lazy(() => import('./pages/tools/AiParaphraser'))
+const AiGrammarFixer = lazy(() => import('./pages/tools/AiGrammarFixer'))
+const AiSummarizer = lazy(() => import('./pages/tools/AiSummarizer'))
+const AiTitleGenerator = lazy(() => import('./pages/tools/AiTitleGenerator'))
+const AiEmailWriter = lazy(() => import('./pages/tools/AiEmailWriter'))
 
 // New PDF Tools
-import PdfUnlocker from './pages/tools/PdfUnlocker'
-import PdfWatermark from './pages/tools/PdfWatermark'
-import RotatePdf from './pages/tools/RotatePdf'
-import OcrPdf from './pages/tools/OcrPdf'
-import EsignPdf from './pages/tools/EsignPdf'
+const PdfUnlocker = lazy(() => import('./pages/tools/PdfUnlocker'))
+const PdfWatermark = lazy(() => import('./pages/tools/PdfWatermark'))
+const RotatePdf = lazy(() => import('./pages/tools/RotatePdf'))
+const OcrPdf = lazy(() => import('./pages/tools/OcrPdf'))
+const EsignPdf = lazy(() => import('./pages/tools/EsignPdf'))
 
 // New Image Tools
-import MemeGenerator from './pages/tools/MemeGenerator'
-import AiImageUpscaler from './pages/tools/AiImageUpscaler'
-import PngToJpg from './pages/tools/PngToJpg'
-import JpgToPng from './pages/tools/JpgToPng'
-import WebpConverter from './pages/tools/WebpConverter'
+const MemeGenerator = lazy(() => import('./pages/tools/MemeGenerator'))
+const AiImageUpscaler = lazy(() => import('./pages/tools/AiImageUpscaler'))
+const PngToJpg = lazy(() => import('./pages/tools/PngToJpg'))
+const JpgToPng = lazy(() => import('./pages/tools/JpgToPng'))
+const WebpConverter = lazy(() => import('./pages/tools/WebpConverter'))
 
 // New Developer Tools
-import JwtDecoder from './pages/tools/JwtDecoder'
-import SqlFormatter from './pages/tools/SqlFormatter'
-import HtmlMinifier from './pages/tools/HtmlMinifier'
-import CssMinifier from './pages/tools/CssMinifier'
-import UuidGenerator from './pages/tools/UuidGenerator'
-import MarkdownPreviewer from './pages/tools/MarkdownPreviewer'
+const JwtDecoder = lazy(() => import('./pages/tools/JwtDecoder'))
+const SqlFormatter = lazy(() => import('./pages/tools/SqlFormatter'))
+const HtmlMinifier = lazy(() => import('./pages/tools/HtmlMinifier'))
+const CssMinifier = lazy(() => import('./pages/tools/CssMinifier'))
+const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator'))
+const MarkdownPreviewer = lazy(() => import('./pages/tools/MarkdownPreviewer'))
 
 // Viral Tools
-import FakeChatGenerator from './pages/tools/FakeChatGenerator'
-import InvoiceGenerator from './pages/tools/InvoiceGenerator'
-import ResumeBuilder from './pages/tools/ResumeBuilder'
-import BioLinkGenerator from './pages/tools/BioLinkGenerator'
-import TypingSpeedTest from './pages/tools/TypingSpeedTest'
+const FakeChatGenerator = lazy(() => import('./pages/tools/FakeChatGenerator'))
+const InvoiceGenerator = lazy(() => import('./pages/tools/InvoiceGenerator'))
+const ResumeBuilder = lazy(() => import('./pages/tools/ResumeBuilder'))
+const BioLinkGenerator = lazy(() => import('./pages/tools/BioLinkGenerator'))
+const TypingSpeedTest = lazy(() => import('./pages/tools/TypingSpeedTest'))
 
 // Calculators
-import PercentageCalculator from './pages/tools/PercentageCalculator'
-import AgeCalculator from './pages/tools/AgeCalculator'
-import BmiCalculator from './pages/tools/BmiCalculator'
-import LoanCalculator from './pages/tools/LoanCalculator'
-import DiscountCalculator from './pages/tools/DiscountCalculator'
-import UnitConverter from './pages/tools/UnitConverter'
+const PercentageCalculator = lazy(() => import('./pages/tools/PercentageCalculator'))
+const AgeCalculator = lazy(() => import('./pages/tools/AgeCalculator'))
+const BmiCalculator = lazy(() => import('./pages/tools/BmiCalculator'))
+const LoanCalculator = lazy(() => import('./pages/tools/LoanCalculator'))
+const DiscountCalculator = lazy(() => import('./pages/tools/DiscountCalculator'))
+const UnitConverter = lazy(() => import('./pages/tools/UnitConverter'))
 
 // More Developer Tools
-import HashGenerator from './pages/tools/HashGenerator'
-import TimestampConverter from './pages/tools/TimestampConverter'
-import UrlEncoder from './pages/tools/UrlEncoder'
-import CsvToJson from './pages/tools/CsvToJson'
-import ColorConverter from './pages/tools/ColorConverter'
-import NumberBaseConverter from './pages/tools/NumberBaseConverter'
+const HashGenerator = lazy(() => import('./pages/tools/HashGenerator'))
+const TimestampConverter = lazy(() => import('./pages/tools/TimestampConverter'))
+const UrlEncoder = lazy(() => import('./pages/tools/UrlEncoder'))
+const CsvToJson = lazy(() => import('./pages/tools/CsvToJson'))
+const ColorConverter = lazy(() => import('./pages/tools/ColorConverter'))
+const NumberBaseConverter = lazy(() => import('./pages/tools/NumberBaseConverter'))
 
 // More Image Tools
-import ImageToPdf from './pages/tools/ImageToPdf'
-import ImageCropper from './pages/tools/ImageCropper'
+const ImageToPdf = lazy(() => import('./pages/tools/ImageToPdf'))
+const ImageCropper = lazy(() => import('./pages/tools/ImageCropper'))
 
 // More Text Tools
-import TextCleaner from './pages/tools/TextCleaner'
-import SlugGenerator from './pages/tools/SlugGenerator'
+const TextCleaner = lazy(() => import('./pages/tools/TextCleaner'))
+const SlugGenerator = lazy(() => import('./pages/tools/SlugGenerator'))
 
 // Newest additions
-import TipCalculator from './pages/tools/TipCalculator'
-import CompoundInterestCalculator from './pages/tools/CompoundInterestCalculator'
-import DateDurationCalculator from './pages/tools/DateDurationCalculator'
-import CssGradientGenerator from './pages/tools/CssGradientGenerator'
-import BoxShadowGenerator from './pages/tools/BoxShadowGenerator'
-import FindAndReplace from './pages/tools/FindAndReplace'
-import RemoveDuplicateLines from './pages/tools/RemoveDuplicateLines'
-import SortTextLines from './pages/tools/SortTextLines'
-import BackgroundChanger from './pages/tools/BackgroundChanger'
+const TipCalculator = lazy(() => import('./pages/tools/TipCalculator'))
+const CompoundInterestCalculator = lazy(() => import('./pages/tools/CompoundInterestCalculator'))
+const DateDurationCalculator = lazy(() => import('./pages/tools/DateDurationCalculator'))
+const CssGradientGenerator = lazy(() => import('./pages/tools/CssGradientGenerator'))
+const BoxShadowGenerator = lazy(() => import('./pages/tools/BoxShadowGenerator'))
+const FindAndReplace = lazy(() => import('./pages/tools/FindAndReplace'))
+const RemoveDuplicateLines = lazy(() => import('./pages/tools/RemoveDuplicateLines'))
+const SortTextLines = lazy(() => import('./pages/tools/SortTextLines'))
+const BackgroundChanger = lazy(() => import('./pages/tools/BackgroundChanger'))
 
 export default function App() {
   return (

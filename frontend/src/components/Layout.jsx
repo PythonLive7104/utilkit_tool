@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import SupportButton from './SupportButton'
@@ -92,12 +92,24 @@ export default function Layout() {
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto bg-zinc-50 dark:bg-zinc-950 transition-colors duration-150">
-          <Outlet />
+          <Suspense fallback={<RouteFallback />}>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
 
       <SupportButton variant="floating" label="☕ Support our Team" />
       <ContactWidget />
+    </div>
+  )
+}
+
+// Shown while a lazy-loaded route chunk downloads. Lightweight and centered so
+// the app shell (sidebar + top bar) stays visible during the brief load.
+function RouteFallback() {
+  return (
+    <div className="flex items-center justify-center py-24" aria-label="Loading">
+      <span className="w-7 h-7 rounded-full border-[3px] border-indigo-500/30 border-t-indigo-500 animate-spin" />
     </div>
   )
 }

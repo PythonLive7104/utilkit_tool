@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
-import AdSlot from './AdSlot'
+import { AdBannerRow, useCategoryAds } from './AdSlot'
 import SupportButton from './SupportButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
@@ -161,6 +161,10 @@ export default function ToolLayout({ title, description, about, toolId, children
   const clientSide = tool?.clientSide ?? true
   const content = toolId ? toolContent[toolId] : null
 
+  // Fetch this category's banners once and share them between the top and
+  // bottom rows so impressions aren't double-counted.
+  const adData = useCategoryAds(tool?.category)
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {!programmatic && (
@@ -170,18 +174,21 @@ export default function ToolLayout({ title, description, about, toolId, children
         </div>
       )}
 
+      {/* Top banner row (below the hero). */}
+      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={0} />}
+
       {toolId && <TrustBadges clientSide={clientSide} />}
 
       {children}
-
-      {/* Category-targeted advert (or "Advertise here" when the slot is empty) */}
-      {tool?.category && <AdSlot category={tool.category} />}
 
       {content?.howTo    && <HowTo steps={content.howTo} toolName={title} />}
       {content?.why      && <Why text={content.why} />}
       {content?.useCases && <UseCases cases={content.useCases} />}
       {content?.faq      && <FAQ items={content.faq} />}
       {toolId            && <RelatedTools toolId={toolId} />}
+
+      {/* Bottom banner row (above the footer) — different advertisers from the top. */}
+      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={3} />}
 
       {about && (
         <div className="mt-10 border-t border-zinc-200 dark:border-zinc-800 pt-6">

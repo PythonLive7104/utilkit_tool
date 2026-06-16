@@ -16,8 +16,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third-party
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     # Local apps
+    'accounts',
     'url_shortener',
     'temp_email',
     'bg_remover',
@@ -98,11 +100,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer'],
     'DEFAULT_PARSER_CLASSES': ['rest_framework.parsers.JSONParser', 'rest_framework.parsers.MultiPartParser'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '100/min',
+        'user': '300/min',
     },
 }
 
@@ -123,11 +129,14 @@ OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
 # Dodo Payments (Merchant of Record). DODO_URL is the API host — use
 # https://test.dodopayments.com while developing and the live host in prod.
 # DODO_WEBHOOK_SECRET is the 'whsec_...' value shown when you add the webhook
-# endpoint. DODO_ADVERT_ID is the product that backs every advert booking.
+# endpoint. DODO_ADVERT_ID backs a weekly advert booking; DODO_MONTHLY_ADVERT
+# backs the $50 monthly (30-day) booking. A slot may override either with its
+# own product id (AdSlot.dodo_product_id / dodo_monthly_product_id).
 DODO_API_KEY         = config('DODO_API_KEY', default='')
 DODO_WEBHOOK_KEY     = config('DODO_WEBHOOK_SECRET', default='')
 DODO_API_BASE        = config('DODO_URL', default='https://live.dodopayments.com').rstrip('/')
 DODO_ADVERT_PRODUCT_ID = config('DODO_ADVERT_ID', default='')
+DODO_ADVERT_MONTHLY_ID = config('DODO_MONTHLY_ADVERT', default='')
 # Public site origin Dodo redirects the advertiser back to after checkout.
 SITE_URL             = config('SITE_URL', default='https://utilkit.us')
 RESEND_API_KEY       = config('RESEND_API_KEY', default='')

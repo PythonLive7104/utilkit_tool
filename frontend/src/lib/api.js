@@ -2,8 +2,25 @@
 // In prod, VITE_API_URL is the backend origin (e.g. https://api.utilkit.io).
 const BASE = import.meta.env.VITE_API_URL ?? ''
 
+// ── Auth token storage ───────────────────────────────────────
+// The DRF auth token is kept in localStorage and attached to every request.
+const TOKEN_KEY = 'utilkit_token'
+export const tokenStore = {
+  get: () => { try { return localStorage.getItem(TOKEN_KEY) } catch { return null } },
+  set: (t) => { try { localStorage.setItem(TOKEN_KEY, t) } catch {} },
+  clear: () => { try { localStorage.removeItem(TOKEN_KEY) } catch {} },
+}
+
+function authHeaders(extra = {}) {
+  const token = tokenStore.get()
+  return token ? { ...extra, Authorization: `Token ${token}` } : extra
+}
+
 async function request(path, options = {}) {
-  const res = await fetch(`${BASE}${path}`, options)
+  const res = await fetch(`${BASE}${path}`, {
+    ...options,
+    headers: authHeaders(options.headers || {}),
+  })
   if (res.status === 204) return null
   const text = await res.text()
   let data
@@ -11,9 +28,47 @@ async function request(path, options = {}) {
   if (!res.ok) {
     const isHtml = typeof data === 'string' && data.trimStart().startsWith('<')
     const msg = data?.detail || (isHtml ? `Server error (${res.status})` : (typeof data === 'string' ? data : `HTTP ${res.status}`))
-    throw new Error(msg)
+    const err = new Error(msg)
+    err.status = res.status
+    err.data = data
+    throw err
   }
   return data
+}
+
+// ── Auth ─────────────────────────────────────────────────────
+export const auth = {
+  register: (email, password) =>
+    request('/api/auth/register/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    }),
+
+  verifyEmail: (token) =>
+    request('/api/auth/verify-email/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    }),
+
+  resendVerification: (email) =>
+    request('/api/auth/resend-verification/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    }),
+
+  login: (email, password) =>
+    request('/api/auth/login/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    }),
+
+  logout: () => request('/api/auth/logout/', { method: 'POST' }),
+
+  me: () => request('/api/auth/me/'),
 }
 
 // ── URL Shortener ────────────────────────────────────────────
@@ -89,11 +144,18 @@ export const ads = {
   // Currently-live ad for a tool category (or null).
   active: (category) => request(`/api/ads/active/?slot=${encodeURIComponent(category)}`),
 
-  // Submit a new advert (multipart: slot, advertiser_name, company,
-  // advertiser_email, image, target_url, alt_text). Returns { reference,
+  // The logged-in advertiser's own adverts (requires auth).
+  mine: () => request('/api/ads/mine/'),
+
+  // Submit a new advert (multipart: slot, billing_period, advertiser_name,
+  // company, image, target_url, alt_text). Requires auth. Returns { reference,
   // checkout_url } for the Dodo Payments overlay checkout.
   submit: async (formData) => {
-    const res = await fetch(`${BASE}/api/ads/submit/`, { method: 'POST', body: formData })
+    const res = await fetch(`${BASE}/api/ads/submit/`, {
+      method: 'POST',
+      headers: authHeaders(),
+      body: formData,
+    })
     const text = await res.text()
     let data
     try { data = JSON.parse(text) } catch { data = text }

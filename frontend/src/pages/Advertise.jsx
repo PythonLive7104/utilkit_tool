@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Navigate, useLocation } from 'react-router-dom'
 import { Megaphone, CheckCircle2, AlertCircle, Upload, ChevronDown } from 'lucide-react'
 import { ads } from '../lib/api'
+import { useAuth } from '../lib/auth'
 import { DodoPayments } from 'dodopayments-checkout'
 
 const SYMBOL = '$'
@@ -19,16 +20,17 @@ function formatDate(d) {
 }
 
 export default function Advertise() {
+  const { isAuthenticated, loading: authLoading } = useAuth()
+  const location = useLocation()
   const [params] = useSearchParams()
   const [slots, setSlots] = useState([])
   const [slotsErr, setSlotsErr] = useState('')
   const [selected, setSelected] = useState(params.get('category') || '')
 
-  const [name, setName] = useState('')
   const [company, setCompany] = useState('')
-  const [email, setEmail] = useState('')
   const [targetUrl, setTargetUrl] = useState('')
   const [altText, setAltText] = useState('')
+  const [period, setPeriod] = useState('weekly') // 'weekly' | 'monthly'
   const [image, setImage] = useState(null)
 
   const [busy, setBusy] = useState(false)
@@ -103,9 +105,8 @@ export default function Advertise() {
     try {
       const form = new FormData()
       form.append('slot', slot.code)
-      form.append('advertiser_name', name)
+      form.append('billing_period', period)
       form.append('company', company)
-      form.append('advertiser_email', email)
       form.append('target_url', targetUrl)
       form.append('alt_text', altText)
       form.append('image', image)
@@ -132,6 +133,13 @@ export default function Advertise() {
     }
   }
 
+  // Advertising requires an account. Wait for the stored-token check, then send
+  // logged-out visitors to log in, preserving where they were headed.
+  if (!authLoading && !isAuthenticated) {
+    const next = encodeURIComponent(location.pathname + location.search)
+    return <Navigate to={`/login?next=${next}`} replace />
+  }
+
   if (done) {
     return (
       <div className="max-w-xl mx-auto px-4 py-16 text-center">
@@ -143,7 +151,10 @@ export default function Advertise() {
           <strong>{slot?.name}</strong> pages
           {done.endDate && <> until <strong>{formatDate(done.endDate)}</strong></>}.
         </p>
-        <p className="text-sm text-zinc-400 mt-4">A confirmation has been sent to {email}.</p>
+        <p className="text-sm text-zinc-400 mt-4">
+          You can track impressions and clicks any time from your{' '}
+          <a href="/dashboard" className="text-indigo-600 dark:text-indigo-400 hover:underline">dashboard</a>.
+        </p>
       </div>
     )
   }
@@ -209,6 +220,7 @@ export default function Advertise() {
                   <span className="flex items-center gap-2">
                     <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">
                       {SYMBOL}{parseFloat(s.price_usd)}<span className="text-xs font-normal text-zinc-400">/wk</span>
+                      <span className="text-xs font-normal text-zinc-400"> · {SYMBOL}{parseFloat(s.price_monthly_usd)}/mo</span>
                     </span>
                     {!disabled && (
                       <ChevronDown
@@ -247,10 +259,29 @@ export default function Advertise() {
                     </label>
                   </div>
 
+                  {/* Billing period */}
+                  <div>
+                    <label className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1">Plan</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <PlanOption
+                        active={period === 'weekly'}
+                        onClick={() => setPeriod('weekly')}
+                        title="Weekly"
+                        price={`${SYMBOL}${parseFloat(s.price_usd)}`}
+                        note="runs 7 days"
+                      />
+                      <PlanOption
+                        active={period === 'monthly'}
+                        onClick={() => setPeriod('monthly')}
+                        title="Monthly"
+                        price={`${SYMBOL}${parseFloat(s.price_monthly_usd)}`}
+                        note="runs 30 days"
+                      />
+                    </div>
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <Field label="Your name" value={name} onChange={setName} required placeholder="Jane Doe" />
                     <Field label="Company (optional)" value={company} onChange={setCompany} placeholder="Acme Inc." />
-                    <Field label="Email" type="email" value={email} onChange={setEmail} required placeholder="you@company.com" />
                     <Field label="Link URL" type="url" value={targetUrl} onChange={setTargetUrl} required placeholder="https://your-site.com" />
                   </div>
                   <Field label="Banner alt text (optional)" value={altText} onChange={setAltText} placeholder="Describe your banner for accessibility" />
@@ -266,7 +297,11 @@ export default function Advertise() {
                     disabled={busy}
                     className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold transition-colors"
                   >
-                    {busy ? 'Processing…' : `Pay ${SYMBOL}${parseFloat(s.price_usd)} & go live for 1 week`}
+                    {busy
+                      ? 'Processing…'
+                      : period === 'monthly'
+                        ? `Pay ${SYMBOL}${parseFloat(s.price_monthly_usd)} & go live for 30 days`
+                        : `Pay ${SYMBOL}${parseFloat(s.price_usd)} & go live for 1 week`}
                   </button>
                   <p className="text-xs text-zinc-400 text-center">
                     Secure payment via Dodo Payments. Your advert goes live automatically once payment is confirmed.
@@ -278,6 +313,26 @@ export default function Advertise() {
         })}
       </div>
     </div>
+  )
+}
+
+function PlanOption({ active, onClick, title, price, note }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`text-left px-3 py-2.5 rounded-lg border transition-colors ${
+        active
+          ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-950/30 ring-1 ring-indigo-500'
+          : 'border-zinc-200 dark:border-zinc-700 hover:border-indigo-300'
+      }`}
+    >
+      <div className="flex items-baseline justify-between gap-1">
+        <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">{title}</span>
+        <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{price}</span>
+      </div>
+      <span className="text-xs text-zinc-400">{note}</span>
+    </button>
   )
 }
 

@@ -5,12 +5,17 @@ import requests
 from django.conf import settings
 from django.db.models import F
 from django.shortcuts import get_object_or_404, redirect
-from rest_framework.decorators import api_view, throttle_classes
+from rest_framework.decorators import (
+    api_view, permission_classes, throttle_classes,
+)
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
 
 from .models import AdSlot, Advertisement
-from .serializers import AdSubmitSerializer, AdvertisementPublicSerializer
+from .serializers import (
+    AdSubmitSerializer, AdvertisementPublicSerializer, MyAdSerializer,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +32,7 @@ def _slot_payload(slot):
         'description': slot.description,
         'recommended_size': slot.recommended_size,
         'price_usd': str(slot.price_usd),
+        'price_monthly_usd': str(slot.price_monthly_usd),
         'duration_days': slot.duration_days,
         'capacity': slot.capacity,
         'spots_left': max(slot.capacity - slot.taken, 0),
@@ -80,18 +86,22 @@ def _dodo_headers():
 
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 @throttle_classes([SubmitThrottle])
 def submit(request):
     """Create an advert in 'pending_payment' state and open a Dodo checkout.
 
-    Creates a Dodo Payments checkout session for the slot's weekly product and
-    returns its ``checkout_url`` for the overlay SDK. Refuses if the chosen slot
-    is already full, telling the advertiser when to check back (the date the
-    earliest current advert in that slot expires).
+    The advert is tied to the logged-in advertiser's account. ``billing_period``
+    ('weekly' or 'monthly') picks the price, Dodo product, and run length.
+    Creates a Dodo Payments checkout session and returns its ``checkout_url``
+    for the overlay SDK. Refuses if the chosen slot is already full, telling the
+    advertiser when to check back (the date the earliest current advert in that
+    slot expires).
     """
     serializer = AdSubmitSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     slot = serializer.validated_data['slot']
+    period = serializer.validated_data.get('billing_period', Advertisement.BillingPeriod.WEEKLY)
 
     if not slot.is_available:
         return Response(
@@ -102,17 +112,25 @@ def submit(request):
             status=409,
         )
 
-    # Every advert is billed through the shared advert product, unless a slot
-    # overrides it with its own Dodo product id.
-    product_id = slot.dodo_product_id or settings.DODO_ADVERT_PRODUCT_ID
+    # Pick the Dodo product + price for the chosen period. Each falls back to the
+    # shared advert product when the slot doesn't override it.
+    if period == Advertisement.BillingPeriod.MONTHLY:
+        product_id = slot.dodo_monthly_product_id or settings.DODO_ADVERT_MONTHLY_ID
+        amount = slot.price_monthly_usd
+    else:
+        product_id = slot.dodo_product_id or settings.DODO_ADVERT_PRODUCT_ID
+        amount = slot.price_usd
     if not product_id:
-        logger.error('No Dodo product configured for slot %s (DODO_ADVERT_ID unset)', slot.code)
-        return Response({'detail': 'This slot is not available for booking yet.'}, status=503)
+        logger.error('No Dodo product configured for slot %s period %s', slot.code, period)
+        return Response({'detail': 'This plan is not available for booking yet.'}, status=503)
 
     reference = f'ad_{secrets.token_hex(8)}'
     ad = serializer.save(
+        owner=request.user,
+        advertiser_email=request.user.email,
+        advertiser_name=serializer.validated_data.get('advertiser_name') or request.user.email,
         payment_reference=reference,
-        amount_paid=slot.price_usd,
+        amount_paid=amount,
         status=Advertisement.Status.PENDING_PAYMENT,
     )
 
@@ -198,3 +216,14 @@ def verify(request):
         ad.save(update_fields=['dodo_payment_id'])
     ad.activate()
     return Response({'status': ad.status, 'end_date': ad.end_date})
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def mine(request):
+    """The logged-in advertiser's own adverts, newest first, for the dashboard."""
+    qs = (Advertisement.objects
+          .filter(owner=request.user)
+          .select_related('slot'))
+    data = MyAdSerializer(qs, many=True, context={'request': request}).data
+    return Response(data)

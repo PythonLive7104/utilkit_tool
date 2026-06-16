@@ -1,11 +1,16 @@
 from datetime import timedelta
 
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
 # How long a 'pending_payment' advert reserves a slot while the advertiser is
 # at the Dodo Payments checkout. After this it no longer counts toward capacity.
 HOLD_MINUTES = 30
+
+# A monthly booking always runs for 30 days, regardless of the slot's weekly
+# duration_days. Weekly bookings use the slot's own duration_days.
+MONTHLY_DURATION_DAYS = 30
 
 
 class AdSlot(models.Model):
@@ -31,10 +36,14 @@ class AdSlot(models.Model):
     )
     price_usd = models.DecimalField(
         max_digits=8, decimal_places=2, default=0,
-        help_text="Price for one booking period (USD).",
+        help_text="Weekly price for one booking period (USD).",
+    )
+    price_monthly_usd = models.DecimalField(
+        max_digits=8, decimal_places=2, default=50,
+        help_text="Monthly (30-day) price for one booking period (USD).",
     )
     duration_days = models.PositiveIntegerField(
-        default=7, help_text="Length of one booking, in days (7 = weekly)."
+        default=7, help_text="Length of one weekly booking, in days (7 = weekly)."
     )
     capacity = models.PositiveIntegerField(
         default=1, help_text="How many adverts can run in this slot at once."
@@ -42,6 +51,11 @@ class AdSlot(models.Model):
     dodo_product_id = models.CharField(
         max_length=100, blank=True,
         help_text="Dodo Payments product id for this slot's weekly booking, e.g. 'pdt_...'.",
+    )
+    dodo_monthly_product_id = models.CharField(
+        max_length=100, blank=True,
+        help_text="Dodo Payments product id for this slot's monthly booking. "
+                  "Falls back to DODO_ADVERT_MONTHLY_ID if blank.",
     )
     is_active = models.BooleanField(
         default=True, help_text="Uncheck to stop selling this slot."
@@ -92,7 +106,21 @@ class Advertisement(models.Model):
         REJECTED = 'rejected', 'Taken down / rejected'
         EXPIRED = 'expired', 'Expired'
 
+    class BillingPeriod(models.TextChoices):
+        WEEKLY = 'weekly', 'Weekly'
+        MONTHLY = 'monthly', 'Monthly'
+
     slot = models.ForeignKey(AdSlot, on_delete=models.PROTECT, related_name='ads')
+
+    # The advertiser's account. Nullable so adverts booked before accounts
+    # existed (and any future admin-created ones) still validate.
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='ads',
+    )
+    billing_period = models.CharField(
+        max_length=10, choices=BillingPeriod.choices, default=BillingPeriod.WEEKLY,
+    )
 
     # Advertiser-supplied creative
     advertiser_name = models.CharField(max_length=120)
@@ -147,7 +175,10 @@ class Advertisement(models.Model):
         automatically without manual approval.
         """
         today = timezone.localdate()
+        days = (MONTHLY_DURATION_DAYS
+                if self.billing_period == self.BillingPeriod.MONTHLY
+                else self.slot.duration_days)
         self.status = self.Status.LIVE
         self.start_date = today
-        self.end_date = today + timedelta(days=self.slot.duration_days)
+        self.end_date = today + timedelta(days=days)
         self.save(update_fields=['status', 'start_date', 'end_date', 'updated_at'])

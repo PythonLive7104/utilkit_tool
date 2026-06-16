@@ -10,6 +10,11 @@ import Privacy from './pages/Privacy'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Advertise from './pages/Advertise'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import VerifyEmail from './pages/VerifyEmail'
+import Dashboard from './pages/Dashboard'
+import RequireAuth from './components/RequireAuth'
 
 // Original tools
 import PdfToWord from './pages/tools/PdfToWord'
@@ -216,6 +221,12 @@ export default function App() {
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />
           <Route path="advertise" element={<Advertise />} />
+
+          {/* Advertiser accounts (client-only, noindex) */}
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="verify-email" element={<VerifyEmail />} />
+          <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
 
           {/* Blog */}
           <Route path="blog" element={<Blog />} />

@@ -2,15 +2,19 @@ import { useState, useEffect } from 'react'
 import { ads } from '../lib/api'
 import AdvertiseHere from './AdvertiseHere'
 
-// Renders a category's ad boxes side by side (one per slot capacity). Each box
-// shows a live advert, or an "Advertise here" placeholder when it's unsold.
-// Used on tool pages, targeted to the page's category.
-export default function AdSlot({ category }) {
+// Banners per horizontal row.
+const ROW_SIZE = 3
+
+// Fetch a category's live ads once. The server counts one impression per ad it
+// returns, so call this a single time per page and share the result between the
+// top and bottom rows (see ToolLayout) — don't fetch separately per row, or
+// impressions double-count and the two rows randomise differently.
+export function useCategoryAds(category) {
   const [data, setData] = useState({ ads: [], capacity: 0 })
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (!category) return
+    if (!category) { setLoaded(true); return }
     let active = true
     ads
       .active(category)
@@ -20,16 +24,25 @@ export default function AdSlot({ category }) {
     return () => { active = false }
   }, [category])
 
-  // Avoid flicker before the first fetch resolves.
-  if (!loaded || data.capacity === 0) return null
+  return { ...data, loaded }
+}
 
-  const boxes = Array.from({ length: data.capacity }, (_, i) => data.ads[i] || null)
-  const hasRealAd = data.ads.length > 0
+// One horizontal row of up to ROW_SIZE banners for a category. `start` selects
+// which slice of the fetched ads this row shows: 0 for the top row, ROW_SIZE
+// for the bottom row, so the two rows display different advertisers. Unsold
+// boxes fall back to the "Advertise Here" placeholder.
+export function AdBannerRow({ category, data, start = 0 }) {
+  // Wait for the first fetch; render nothing if this category has no slot.
+  if (!data.loaded || data.capacity === 0) return null
+
+  const slice = data.ads.slice(start, start + ROW_SIZE)
+  const boxes = Array.from({ length: ROW_SIZE }, (_, i) => slice[i] || null)
+  const hasRealAd = slice.some(Boolean)
 
   return (
-    <div className="my-8 mx-auto max-w-2xl">
-      {/* Two 636×212 (3:1) banners side by side; one box per slot capacity. */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div className="my-8 mx-auto max-w-4xl">
+      {/* Three 3:1 banners across (stacked on mobile). */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {boxes.map((ad, i) =>
           ad ? (
             <a
@@ -47,7 +60,7 @@ export default function AdSlot({ category }) {
               />
             </a>
           ) : (
-            <AdvertiseHere key={`empty-${i}`} category={category} boxed />
+            <AdvertiseHere key={`empty-${start}-${i}`} category={category} boxed />
           ),
         )}
       </div>
@@ -56,4 +69,10 @@ export default function AdSlot({ category }) {
       )}
     </div>
   )
+}
+
+// Backward-compatible single row (fetches its own data).
+export default function AdSlot({ category }) {
+  const data = useCategoryAds(category)
+  return <AdBannerRow category={category} data={data} start={0} />
 }

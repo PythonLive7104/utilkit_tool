@@ -6,8 +6,10 @@ from .models import AdSlot, Advertisement
 
 @admin.register(AdSlot)
 class AdSlotAdmin(admin.ModelAdmin):
-    list_display = ('name', 'code', 'recommended_size', 'price_usd', 'duration_days', 'dodo_product_id', 'is_active')
-    list_editable = ('price_usd', 'duration_days', 'dodo_product_id', 'is_active')
+    list_display = ('name', 'code', 'recommended_size', 'price_usd', 'price_monthly_usd',
+                    'duration_days', 'dodo_product_id', 'dodo_monthly_product_id', 'is_active')
+    list_editable = ('price_usd', 'price_monthly_usd', 'duration_days',
+                     'dodo_product_id', 'dodo_monthly_product_id', 'is_active')
     prepopulated_fields = {'code': ('name',)}
     search_fields = ('name', 'code')
 
@@ -15,11 +17,11 @@ class AdSlotAdmin(admin.ModelAdmin):
 @admin.register(Advertisement)
 class AdvertisementAdmin(admin.ModelAdmin):
     list_display = (
-        'advertiser_name', 'slot', 'status', 'is_live',
+        'advertiser_name', 'slot', 'billing_period', 'status', 'is_live',
         'start_date', 'end_date', 'impressions', 'clicks', 'created_at',
     )
-    list_filter = ('status', 'slot')
-    search_fields = ('advertiser_name', 'advertiser_email', 'company', 'payment_reference')
+    list_filter = ('status', 'billing_period', 'slot')
+    search_fields = ('advertiser_name', 'advertiser_email', 'company', 'payment_reference', 'owner__email')
     readonly_fields = (
         'preview', 'payment_reference', 'dodo_session_id', 'dodo_payment_id', 'amount_paid', 'impressions',
         'clicks', 'created_at', 'updated_at', 'is_live',
@@ -27,11 +29,11 @@ class AdvertisementAdmin(admin.ModelAdmin):
     actions = ('reactivate_ads', 'take_down_ads')
     fieldsets = (
         ('Creative', {
-            'fields': ('slot', 'advertiser_name', 'company', 'advertiser_email',
+            'fields': ('slot', 'owner', 'advertiser_name', 'company', 'advertiser_email',
                        'image', 'preview', 'target_url', 'alt_text'),
         }),
         ('Booking', {
-            'fields': ('status', 'is_live', 'start_date', 'end_date'),
+            'fields': ('billing_period', 'status', 'is_live', 'start_date', 'end_date'),
         }),
         ('Payment', {
             'fields': ('payment_reference', 'dodo_session_id', 'dodo_payment_id', 'amount_paid'),

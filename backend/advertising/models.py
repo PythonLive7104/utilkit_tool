@@ -35,11 +35,11 @@ class AdSlot(models.Model):
         max_length=40, blank=True, help_text="e.g. 728×90 or 970×250"
     )
     price_usd = models.DecimalField(
-        max_digits=8, decimal_places=2, default=0,
+        max_digits=8, decimal_places=2, default=10,
         help_text="Weekly price for one booking period (USD).",
     )
     price_monthly_usd = models.DecimalField(
-        max_digits=8, decimal_places=2, default=50,
+        max_digits=8, decimal_places=2, default=30,
         help_text="Monthly (30-day) price for one booking period (USD).",
     )
     duration_days = models.PositiveIntegerField(

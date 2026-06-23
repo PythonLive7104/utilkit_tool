@@ -10,13 +10,15 @@ const PRODUCT_ID    = import.meta.env.VITE_DODO_SUPPORT_PRODUCT || ''
 const SYMBOL  = '$'
 const PRESETS = [2, 5, 10, 20]
 
-// Build a static "Pay What You Want" checkout link. paymentAmount is in cents.
+// Build a static "Pay What You Want" checkout link. Despite Dodo's docs saying
+// paymentAmount is in cents, the hosted /buy/ link treats it as whole dollars
+// (passing 500 renders as $500.00), so we pass the dollar amount directly.
 function supportLink(amount) {
   const params = new URLSearchParams({
     quantity: '1',
     redirect_url: window.location.href,
   })
-  if (amount > 0) params.set('paymentAmount', String(Math.round(amount * 100)))
+  if (amount > 0) params.set('paymentAmount', String(Math.round(amount)))
   return `${CHECKOUT_BASE}/buy/${PRODUCT_ID}?${params.toString()}`
 }
 

@@ -65,7 +65,10 @@ DATABASE_URL = config('DATABASE_URL', default='')
 
 if DATABASE_URL:
     import dj_database_url
-    _db = dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+    # SSL is needed for managed hosts (e.g. Supabase) but not for an internal
+    # Postgres container on the same Docker network. Toggle via DB_SSL_REQUIRE.
+    _ssl_require = config('DB_SSL_REQUIRE', default=False, cast=bool)
+    _db = dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=_ssl_require)
     DATABASES = {'default': _db}
 else:
     DATABASES = {

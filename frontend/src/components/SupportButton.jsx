@@ -25,7 +25,7 @@ function Modal({ onClose }) {
   const [custom, setCustom] = useState('')
   const [opened, setOpened] = useState(false)
 
-  const amount = custom ? parseInt(custom, 10) || 0 : preset
+  const amount = custom ? Math.min(parseInt(custom, 10) || 0, 999) : preset
 
   function pay(e) {
     e.preventDefault()
@@ -93,7 +93,8 @@ function Modal({ onClose }) {
                 <input
                   type="number"
                   min="1"
-                  placeholder="Custom amount"
+                  max="999"
+                  placeholder="Custom amount (USD)"
                   value={custom}
                   onChange={e => { setCustom(e.target.value); setPreset(0) }}
                   className="w-full px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"

@@ -47,4 +47,11 @@ echo "==> Rebuilding and restarting services..."
 # won't remount. db starts first; backend waits for it via depends_on.
 docker compose up -d --build db backend nginx
 
+# Reload nginx so it (a) picks up the regenerated nginx.conf and (b) re-resolves
+# the backend container's IP after the rebuild. Without this, nginx can keep
+# proxying to the old backend IP and return 502. Falls back to a restart if the
+# running config can't be reloaded.
+echo "==> Reloading nginx..."
+docker compose exec -T nginx nginx -s reload || docker compose restart nginx
+
 echo "==> Done! Running: https://$DOMAIN"

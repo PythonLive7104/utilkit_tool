@@ -108,10 +108,14 @@ def verify_email(request):
         return Response({'detail': 'This verification link has expired. Please register again.'}, status=400)
 
     user = ev.user
-    user.is_active = True
-    user.save(update_fields=['is_active'])
-    ev.delete()
+    if not user.is_active:
+        user.is_active = True
+        user.save(update_fields=['is_active'])
 
+    # Don't delete the token here. Email providers/security scanners often
+    # pre-fetch links, which would consume a single-use token before the user
+    # clicks it — making their real click fail. Keeping the token lets both the
+    # scan and the click succeed; it stops working once is_expired (TTL) passes.
     auth_token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': auth_token.key, 'email': user.email})
 

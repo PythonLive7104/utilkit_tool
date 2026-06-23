@@ -42,8 +42,9 @@ VITE_SITE_URL="https://$DOMAIN" npm run build
 cd ..
 
 echo "==> Rebuilding and restarting services..."
-# Recreate backend (runs migrations on start) AND nginx, so compose changes
-# such as the shared media volume take effect — a reload alone won't remount.
-docker compose up -d --build backend nginx
+# Recreate the Postgres db, backend (runs migrations on start) AND nginx, so
+# compose changes such as the shared media volume take effect — a reload alone
+# won't remount. db starts first; backend waits for it via depends_on.
+docker compose up -d --build db backend nginx
 
 echo "==> Done! Running: https://$DOMAIN"

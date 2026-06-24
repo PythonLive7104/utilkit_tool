@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import { ads } from '../lib/api'
 import AdvertiseHere from './AdvertiseHere'
 
-// Banners per horizontal row.
-const ROW_SIZE = 3
+// Max banners per horizontal row. Slots sell only 1–2 spots, so capping the row
+// keeps every banner large enough to read — a 3:1 banner crammed into a third of
+// the page is unreadable. One sold spot fills the row width; two sit side by side.
+export const ROW_SIZE = 2
 
 // Fetch a category's live ads once. The server counts one impression per ad it
 // returns, so call this a single time per page and share the result between the
@@ -27,22 +29,27 @@ export function useCategoryAds(category) {
   return { ...data, loaded }
 }
 
-// One horizontal row of up to ROW_SIZE banners for a category. `start` selects
-// which slice of the fetched ads this row shows: 0 for the top row, ROW_SIZE
-// for the bottom row, so the two rows display different advertisers. Unsold
-// boxes fall back to the "Advertise Here" placeholder.
+// One horizontal row of banners for a category, sized to the slot's capacity
+// (capped at ROW_SIZE). `start` selects which slice of the fetched ads this row
+// shows: 0 for the top row, ROW_SIZE for the bottom row, so the bottom row shows
+// any further advertisers (or, when there are none, the "Advertise Here"
+// placeholder). Unsold boxes fall back to that placeholder.
 export function AdBannerRow({ category, data, start = 0 }) {
   // Wait for the first fetch; render nothing if this category has no slot.
   if (!data.loaded || data.capacity === 0) return null
 
-  const slice = data.ads.slice(start, start + ROW_SIZE)
-  const boxes = Array.from({ length: ROW_SIZE }, (_, i) => slice[i] || null)
+  // Show as many boxes as the slot sells (capped at ROW_SIZE). With capacity 1
+  // the single banner spans the full width, so the 3:1 image renders large and
+  // sharp instead of being shrunk into a narrow column.
+  const cols = Math.min(data.capacity, ROW_SIZE)
+  const slice = data.ads.slice(start, start + cols)
+  const boxes = Array.from({ length: cols }, (_, i) => slice[i] || null)
   const hasRealAd = slice.some(Boolean)
 
   return (
     <div className="my-8 mx-auto max-w-4xl">
-      {/* Three 3:1 banners across (stacked on mobile). */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {/* 3:1 banners sized to capacity: full-width for one, side by side for two. */}
+      <div className={`grid gap-3 ${cols >= 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
         {boxes.map((ad, i) =>
           ad ? (
             <a

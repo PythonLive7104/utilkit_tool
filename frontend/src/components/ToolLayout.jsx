@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
-import { AdBannerRow, useCategoryAds } from './AdSlot'
+import { AdBannerRow, useCategoryAds, ROW_SIZE } from './AdSlot'
 import SupportButton from './SupportButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
@@ -188,7 +188,7 @@ export default function ToolLayout({ title, description, about, toolId, children
       {toolId            && <RelatedTools toolId={toolId} />}
 
       {/* Bottom banner row (above the footer) — different advertisers from the top. */}
-      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={3} />}
+      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={ROW_SIZE} />}
 
       {about && (
         <div className="mt-10 border-t border-zinc-200 dark:border-zinc-800 pt-6">

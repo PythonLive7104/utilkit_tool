@@ -153,8 +153,11 @@ def submit(request):
         )
         resp.raise_for_status()
         data = resp.json()
-    except (requests.RequestException, ValueError):
-        logger.exception('Dodo checkout creation failed for %s', reference)
+    except (requests.RequestException, ValueError) as exc:
+        # Surface Dodo's own error body (e.g. bad API key, unknown product,
+        # amount below the product's minimum) so failures are diagnosable.
+        body = getattr(getattr(exc, 'response', None), 'text', None) or str(exc)
+        logger.error('Dodo checkout creation failed for %s: %s', reference, body)
         # Don't keep the slot reserved for a checkout we couldn't create.
         ad.delete()
         return Response({'detail': 'Could not start checkout. Please try again.'}, status=502)

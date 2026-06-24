@@ -8,14 +8,14 @@ const SHELL =
 
 // Eye-catching "Advertise Here" placeholder. Shown on the homepage and in any
 // empty category ad box on tool pages. Links to the advertise form.
-// `boxed` makes it fill a 636×212 (3:1) ad box with a compact, short layout;
+// `boxed` makes it fill a 600×300 (2:1) ad box with a compact, short layout;
 // otherwise it sizes to content with the taller stacked layout.
 export default function AdvertiseHere({ category = '', boxed = false }) {
   const to = category ? `/advertise?category=${encodeURIComponent(category)}` : '/advertise'
 
   if (boxed) {
     return (
-      <Link to={to} className={`${SHELL} aspect-[3/1] h-full flex items-center justify-center gap-3 px-4`}>
+      <Link to={to} className={`${SHELL} aspect-[2/1] h-full flex items-center justify-center gap-3 px-4`}>
         <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 group-hover:scale-110 transition-transform shrink-0">
           <Megaphone size={18} />
         </span>

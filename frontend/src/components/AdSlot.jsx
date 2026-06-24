@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { ads } from '../lib/api'
 import AdvertiseHere from './AdvertiseHere'
 
-// One banner per row, full container width, so the 3:1 banner renders as large
-// and readable as possible (sharing a row shrinks a detail-dense banner past the
-// point of legibility). Slots that sell two spots place the second banner in the
-// bottom row (see ToolLayout: top row start=0, bottom row start=ROW_SIZE).
-export const ROW_SIZE = 1
+// Banners per horizontal row — three across (Nairaland-style), stacked on
+// mobile. Unsold boxes show the "Advertise Here" promo so the row always reads
+// as a clean strip of three. Boxes are ~2:1 (taller than a leaderboard strip)
+// so compact, bold creatives stay legible at this width.
+export const ROW_SIZE = 3
 
 // Fetch a category's live ads once. The server counts one impression per ad it
 // returns, so call this a single time per page and share the result between the
@@ -39,17 +39,14 @@ export function AdBannerRow({ category, data, start = 0 }) {
   // Wait for the first fetch; render nothing if this category has no slot.
   if (!data.loaded || data.capacity === 0) return null
 
-  // One full-width banner per row (capped at ROW_SIZE), so the 3:1 image renders
-  // large and sharp instead of being shrunk into a narrow shared column.
-  const cols = Math.min(data.capacity, ROW_SIZE)
-  const slice = data.ads.slice(start, start + cols)
-  const boxes = Array.from({ length: cols }, (_, i) => slice[i] || null)
+  const slice = data.ads.slice(start, start + ROW_SIZE)
+  const boxes = Array.from({ length: ROW_SIZE }, (_, i) => slice[i] || null)
   const hasRealAd = slice.some(Boolean)
 
   return (
     <div className="my-8 mx-auto max-w-4xl">
-      {/* Full-width 3:1 banner(s). */}
-      <div className="grid grid-cols-1 gap-3">
+      {/* Three ~2:1 banners across (stacked on mobile). */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {boxes.map((ad, i) =>
           ad ? (
             <a
@@ -57,7 +54,7 @@ export function AdBannerRow({ category, data, start = 0 }) {
               href={ad.click_url}
               target="_blank"
               rel="sponsored noopener noreferrer"
-              className="block aspect-[3/1] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900"
+              className="block aspect-[2/1] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900"
             >
               <img
                 src={ad.image_url}

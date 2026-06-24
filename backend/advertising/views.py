@@ -92,11 +92,12 @@ def submit(request):
     """Create an advert in 'pending_payment' state and open a Dodo checkout.
 
     The advert is tied to the logged-in advertiser's account. ``billing_period``
-    ('weekly' or 'monthly') picks the price, Dodo product, and run length.
-    Creates a Dodo Payments checkout session and returns its ``checkout_url``
-    for the overlay SDK. Refuses if the chosen slot is already full, telling the
-    advertiser when to check back (the date the earliest current advert in that
-    slot expires).
+    ('weekly' or 'monthly') picks the price and run length. Every booking — any
+    slot, weekly or monthly — checks out through the single "Pay What You Want"
+    product (``settings.DODO_PRODUCT_ID``); the chosen price is sent as the
+    checkout amount, so one product id covers every amount. Refuses if the
+    chosen slot is already full, telling the advertiser when to check back (the
+    date the earliest current advert in that slot expires).
     """
     serializer = AdSubmitSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
@@ -112,17 +113,15 @@ def submit(request):
             status=409,
         )
 
-    # Pick the Dodo product + price for the chosen period. Each falls back to the
-    # shared advert product when the slot doesn't override it.
-    if period == Advertisement.BillingPeriod.MONTHLY:
-        product_id = slot.dodo_monthly_product_id or settings.DODO_ADVERT_MONTHLY_ID
-        amount = slot.price_monthly_usd
-    else:
-        product_id = slot.dodo_product_id or settings.DODO_ADVERT_PRODUCT_ID
-        amount = slot.price_usd
+    # One product handles every booking; the price the advertiser picked is sent
+    # as the checkout amount (the chosen period just selects which price).
+    product_id = settings.DODO_PRODUCT_ID
+    amount = (slot.price_monthly_usd
+              if period == Advertisement.BillingPeriod.MONTHLY
+              else slot.price_usd)
     if not product_id:
-        logger.error('No Dodo product configured for slot %s period %s', slot.code, period)
-        return Response({'detail': 'This plan is not available for booking yet.'}, status=503)
+        logger.error('DODO_PAY_WHAT_YOU_WANT is not configured')
+        return Response({'detail': 'Payments are not available right now.'}, status=503)
 
     reference = f'ad_{secrets.token_hex(8)}'
     ad = serializer.save(
@@ -139,7 +138,13 @@ def submit(request):
             f'{settings.DODO_API_BASE}/checkouts',
             headers=_dodo_headers(),
             json={
-                'product_cart': [{'product_id': product_id, 'quantity': 1}],
+                # 'amount' is in the currency's lowest unit (USD cents). Sending
+                # it overrides the Pay-What-You-Want input with the exact price.
+                'product_cart': [{
+                    'product_id': product_id,
+                    'quantity': 1,
+                    'amount': int(round(float(amount) * 100)),
+                }],
                 'customer': {'email': ad.advertiser_email, 'name': ad.advertiser_name},
                 'metadata': {'ad_reference': reference},
                 'return_url': f'{settings.SITE_URL}/advertise?ad_ref={reference}',

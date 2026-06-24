@@ -48,15 +48,6 @@ class AdSlot(models.Model):
     capacity = models.PositiveIntegerField(
         default=1, help_text="How many adverts can run in this slot at once."
     )
-    dodo_product_id = models.CharField(
-        max_length=100, blank=True,
-        help_text="Dodo Payments product id for this slot's weekly booking, e.g. 'pdt_...'.",
-    )
-    dodo_monthly_product_id = models.CharField(
-        max_length=100, blank=True,
-        help_text="Dodo Payments product id for this slot's monthly booking. "
-                  "Falls back to DODO_ADVERT_MONTHLY_ID if blank.",
-    )
     is_active = models.BooleanField(
         default=True, help_text="Uncheck to stop selling this slot."
     )

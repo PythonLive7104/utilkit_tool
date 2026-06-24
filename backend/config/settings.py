@@ -132,14 +132,14 @@ OPENAI_API_KEY       = config('OPENAI_API_KEY', default='')
 # Dodo Payments (Merchant of Record). DODO_URL is the API host — use
 # https://test.dodopayments.com while developing and the live host in prod.
 # DODO_WEBHOOK_SECRET is the 'whsec_...' value shown when you add the webhook
-# endpoint. DODO_ADVERT_ID backs a weekly advert booking; DODO_MONTHLY_ADVERT
-# backs the $50 monthly (30-day) booking. A slot may override either with its
-# own product id (AdSlot.dodo_product_id / dodo_monthly_product_id).
+# endpoint. Everything — advert bookings (weekly/monthly, any slot) and the
+# "Support our team" donations — runs through a single "Pay What You Want"
+# product (DODO_PAY_WHAT_YOU_WANT). The exact price the user picks is sent as
+# the checkout amount, so one product id covers every amount.
 DODO_API_KEY         = config('DODO_API_KEY', default='')
 DODO_WEBHOOK_KEY     = config('DODO_WEBHOOK_SECRET', default='')
 DODO_API_BASE        = config('DODO_URL', default='https://live.dodopayments.com').rstrip('/')
-DODO_ADVERT_PRODUCT_ID = config('DODO_ADVERT_ID', default='')
-DODO_ADVERT_MONTHLY_ID = config('DODO_MONTHLY_ADVERT', default='')
+DODO_PRODUCT_ID      = config('DODO_PAY_WHAT_YOU_WANT', default='')
 # Public site origin Dodo redirects the advertiser back to after checkout.
 SITE_URL             = config('SITE_URL', default='https://utilkit.us')
 RESEND_API_KEY       = config('RESEND_API_KEY', default='')

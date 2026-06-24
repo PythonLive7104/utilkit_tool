@@ -7,9 +7,8 @@ from .models import AdSlot, Advertisement
 @admin.register(AdSlot)
 class AdSlotAdmin(admin.ModelAdmin):
     list_display = ('name', 'code', 'recommended_size', 'price_usd', 'price_monthly_usd',
-                    'duration_days', 'dodo_product_id', 'dodo_monthly_product_id', 'is_active')
-    list_editable = ('price_usd', 'price_monthly_usd', 'duration_days',
-                     'dodo_product_id', 'dodo_monthly_product_id', 'is_active')
+                    'duration_days', 'is_active')
+    list_editable = ('price_usd', 'price_monthly_usd', 'duration_days', 'is_active')
     prepopulated_fields = {'code': ('name',)}
     search_fields = ('name', 'code')
 

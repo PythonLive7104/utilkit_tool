@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import { X, Coffee } from 'lucide-react'
 
-// "Support our team" runs on a Dodo Payments "Pay What You Want" product.
-// Set these from your Dodo dashboard (see frontend/.env.example):
-//   VITE_DODO_CHECKOUT_BASE   — checkout host (test vs live)
+// "Support our team" runs on the same Dodo "Pay What You Want" product as the
+// adverts. The checkout host follows VITE_DODO_MODE — the one switch that also
+// drives the Advertise overlay — so a test build never points at the live host
+// (which would reject test cards / charge real ones). Env (frontend/.env):
+//   VITE_DODO_MODE             — 'test' or 'live'
 //   VITE_DODO_SUPPORT_PRODUCT  — the PWYW product id, e.g. 'pdt_...'
-const CHECKOUT_BASE = import.meta.env.VITE_DODO_CHECKOUT_BASE || 'https://checkout.dodopayments.com'
+const MODE = import.meta.env.VITE_DODO_MODE || 'test'
+const CHECKOUT_BASE = MODE === 'live'
+  ? 'https://checkout.dodopayments.com'
+  : 'https://test.checkout.dodopayments.com'
 const PRODUCT_ID    = import.meta.env.VITE_DODO_SUPPORT_PRODUCT || ''
 const SYMBOL  = '$'
 const PRESETS = [2, 5, 10, 20]

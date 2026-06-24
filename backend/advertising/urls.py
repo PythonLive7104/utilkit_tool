@@ -6,6 +6,7 @@ urlpatterns = [
     path('slots/', views.slots, name='ad-slots'),
     path('active/', views.active, name='ad-active'),
     path('mine/', views.mine, name='ad-mine'),
+    path('<int:pk>/image/', views.update_image, name='ad-image'),
     path('submit/', views.submit, name='ad-submit'),
     path('verify/', views.verify, name='ad-verify'),
     path('click/<int:pk>/', views.click, name='ad-click'),

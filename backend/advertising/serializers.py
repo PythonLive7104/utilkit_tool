@@ -3,6 +3,13 @@ from rest_framework import serializers
 from .models import AdSlot, Advertisement
 
 
+def validate_ad_image(image):
+    """Shared rule for advertiser-uploaded creatives."""
+    if image.size > 3 * 1024 * 1024:
+        raise serializers.ValidationError('Image must be 3 MB or smaller.')
+    return image
+
+
 class AdSlotSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdSlot
@@ -47,9 +54,18 @@ class AdSubmitSerializer(serializers.ModelSerializer):
         )
 
     def validate_image(self, image):
-        if image.size > 3 * 1024 * 1024:
-            raise serializers.ValidationError('Image must be 3 MB or smaller.')
-        return image
+        return validate_ad_image(image)
+
+
+class AdImageUpdateSerializer(serializers.ModelSerializer):
+    """Swap just the creative image on an existing advert."""
+
+    class Meta:
+        model = Advertisement
+        fields = ('image',)
+
+    def validate_image(self, image):
+        return validate_ad_image(image)
 
 
 class MyAdSerializer(serializers.ModelSerializer):

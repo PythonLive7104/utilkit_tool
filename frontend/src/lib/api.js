@@ -168,6 +168,28 @@ export const ads = {
     return data
   },
 
+  // Replace the creative image on one of your own live adverts. Returns the
+  // updated advert (same shape as `mine`). Requires auth.
+  updateImage: async (id, file) => {
+    const form = new FormData()
+    form.append('image', file)
+    const res = await fetch(`${BASE}/api/ads/${id}/image/`, {
+      method: 'POST',
+      headers: authHeaders(),
+      body: form,
+    })
+    const text = await res.text()
+    let data
+    try { data = JSON.parse(text) } catch { data = text }
+    if (!res.ok) {
+      const err = new Error(data?.detail || data?.image?.[0] || `HTTP ${res.status}`)
+      err.status = res.status
+      err.data = data
+      throw err
+    }
+    return data
+  },
+
   // Confirm a Dodo payment and place the advert live.
   verify: (reference) =>
     request('/api/ads/verify/', {

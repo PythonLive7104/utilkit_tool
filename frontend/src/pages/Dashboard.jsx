@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { Megaphone, Eye, MousePointerClick, Plus, AlertCircle, LogOut } from 'lucide-react'
+import { Megaphone, Eye, MousePointerClick, Plus, AlertCircle, LogOut, ImageUp } from 'lucide-react'
 import { ads } from '../lib/api'
 import { useAuth } from '../lib/auth'
 
@@ -103,10 +103,32 @@ function Stat({ label, value, icon }) {
 
 function AdRow({ ad }) {
   const expired = ad.status === 'expired' || (ad.status === 'live' && !ad.is_live)
+  const [imageUrl, setImageUrl] = useState(ad.image_url)
+  const [uploading, setUploading] = useState(false)
+  const [imgError, setImgError] = useState('')
+  const fileRef = useRef(null)
+
+  async function onPickImage(e) {
+    const file = e.target.files?.[0]
+    e.target.value = '' // allow re-picking the same file later
+    if (!file) return
+    if (file.size > 3 * 1024 * 1024) { setImgError('Image must be 3 MB or smaller.'); return }
+    setImgError('')
+    setUploading(true)
+    try {
+      const updated = await ads.updateImage(ad.id, file)
+      setImageUrl(updated.image_url)
+    } catch (err) {
+      setImgError(err.message || 'Could not update the image.')
+    } finally {
+      setUploading(false)
+    }
+  }
+
   return (
     <div className="flex gap-4 items-center rounded-xl border border-zinc-200 dark:border-zinc-800 p-3.5">
-      {ad.image_url
-        ? <img src={ad.image_url} alt={ad.alt_text || ''} className="w-24 h-14 object-cover rounded-lg border border-zinc-200 dark:border-zinc-700 flex-shrink-0" />
+      {imageUrl
+        ? <img src={imageUrl} alt={ad.alt_text || ''} className="w-24 h-14 object-cover rounded-lg border border-zinc-200 dark:border-zinc-700 flex-shrink-0" />
         : <div className="w-24 h-14 rounded-lg bg-zinc-100 dark:bg-zinc-800 flex-shrink-0" />}
 
       <div className="min-w-0 flex-1">
@@ -122,6 +144,19 @@ function AdRow({ ad }) {
           <span className="mx-2">·</span>
           {ad.impressions.toLocaleString()} views · {ad.clicks.toLocaleString()} clicks
         </p>
+        {ad.is_live && (
+          <div className="mt-1.5">
+            <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={onPickImage} />
+            <button
+              type="button"
+              onClick={() => fileRef.current?.click()}
+              disabled={uploading}
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:underline disabled:opacity-60 disabled:no-underline">
+              <ImageUp size={13} /> {uploading ? 'Uploading…' : 'Change image'}
+            </button>
+            {imgError && <span className="ml-2 text-xs text-rose-600 dark:text-rose-400">{imgError}</span>}
+          </div>
+        )}
       </div>
 
       {expired && (

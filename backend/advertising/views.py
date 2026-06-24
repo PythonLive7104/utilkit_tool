@@ -14,7 +14,8 @@ from rest_framework.throttling import AnonRateThrottle
 
 from .models import AdSlot, Advertisement
 from .serializers import (
-    AdSubmitSerializer, AdvertisementPublicSerializer, MyAdSerializer,
+    AdImageUpdateSerializer, AdSubmitSerializer,
+    AdvertisementPublicSerializer, MyAdSerializer,
 )
 
 logger = logging.getLogger(__name__)
@@ -224,6 +225,30 @@ def verify(request):
         ad.save(update_fields=['dodo_payment_id'])
     ad.activate()
     return Response({'status': ad.status, 'end_date': ad.end_date})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def update_image(request, pk):
+    """Replace the creative image on the advertiser's own live advert.
+
+    Advertisers can swap the banner image as long as the advert is currently
+    on — i.e. status ``live`` and inside its booking window. Nothing else about
+    the booking (slot, dates, payment) changes.
+    """
+    ad = get_object_or_404(Advertisement, pk=pk, owner=request.user)
+    if not ad.is_live:
+        return Response(
+            {'detail': 'You can only change the image while the advert is live.'},
+            status=400,
+        )
+
+    serializer = AdImageUpdateSerializer(ad, data=request.data, partial=True)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+
+    data = MyAdSerializer(ad, context={'request': request}).data
+    return Response(data)
 
 
 @api_view(['GET'])

@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import { ads } from '../lib/api'
 import AdvertiseHere from './AdvertiseHere'
 
-// Max banners per horizontal row. Slots sell only 1–2 spots, so capping the row
-// keeps every banner large enough to read — a 3:1 banner crammed into a third of
-// the page is unreadable. One sold spot fills the row width; two sit side by side.
-export const ROW_SIZE = 2
+// One banner per row, full container width, so the 3:1 banner renders as large
+// and readable as possible (sharing a row shrinks a detail-dense banner past the
+// point of legibility). Slots that sell two spots place the second banner in the
+// bottom row (see ToolLayout: top row start=0, bottom row start=ROW_SIZE).
+export const ROW_SIZE = 1
 
 // Fetch a category's live ads once. The server counts one impression per ad it
 // returns, so call this a single time per page and share the result between the
@@ -38,9 +39,8 @@ export function AdBannerRow({ category, data, start = 0 }) {
   // Wait for the first fetch; render nothing if this category has no slot.
   if (!data.loaded || data.capacity === 0) return null
 
-  // Show as many boxes as the slot sells (capped at ROW_SIZE). With capacity 1
-  // the single banner spans the full width, so the 3:1 image renders large and
-  // sharp instead of being shrunk into a narrow column.
+  // One full-width banner per row (capped at ROW_SIZE), so the 3:1 image renders
+  // large and sharp instead of being shrunk into a narrow shared column.
   const cols = Math.min(data.capacity, ROW_SIZE)
   const slice = data.ads.slice(start, start + cols)
   const boxes = Array.from({ length: cols }, (_, i) => slice[i] || null)
@@ -48,8 +48,8 @@ export function AdBannerRow({ category, data, start = 0 }) {
 
   return (
     <div className="my-8 mx-auto max-w-4xl">
-      {/* 3:1 banners sized to capacity: full-width for one, side by side for two. */}
-      <div className={`grid gap-3 ${cols >= 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+      {/* Full-width 3:1 banner(s). */}
+      <div className="grid grid-cols-1 gap-3">
         {boxes.map((ad, i) =>
           ad ? (
             <a

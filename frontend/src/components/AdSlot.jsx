@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react'
 import { ads } from '../lib/api'
 import AdvertiseHere from './AdvertiseHere'
 
-// Banners per horizontal row — three across (Nairaland-style), stacked on
-// mobile. Unsold boxes show the "Advertise Here" promo so the row always reads
-// as a clean strip of three. Boxes are ~2:1 (taller than a leaderboard strip)
-// so compact, bold creatives stay legible at this width.
-export const ROW_SIZE = 3
+// One full-width banner per row, so even a detail-dense 3:1 creative renders
+// large and fully legible (sharing a row shrinks it past readability). A slot's
+// second spot fills the bottom row (ToolLayout: top start=0, bottom start=1).
+export const ROW_SIZE = 1
 
 // Fetch a category's live ads once. The server counts one impression per ad it
 // returns, so call this a single time per page and share the result between the
@@ -30,11 +29,10 @@ export function useCategoryAds(category) {
   return { ...data, loaded }
 }
 
-// One horizontal row of banners for a category, sized to the slot's capacity
-// (capped at ROW_SIZE). `start` selects which slice of the fetched ads this row
-// shows: 0 for the top row, ROW_SIZE for the bottom row, so the bottom row shows
-// any further advertisers (or, when there are none, the "Advertise Here"
-// placeholder). Unsold boxes fall back to that placeholder.
+// One full-width banner row for a category. `start` selects which fetched ad
+// this row shows: 0 for the top row, ROW_SIZE (1) for the bottom row, so a slot
+// with two spots places its second advert in the bottom row. An unsold box
+// falls back to the "Advertise Here" placeholder.
 export function AdBannerRow({ category, data, start = 0 }) {
   // Wait for the first fetch; render nothing if this category has no slot.
   if (!data.loaded || data.capacity === 0) return null
@@ -45,8 +43,8 @@ export function AdBannerRow({ category, data, start = 0 }) {
 
   return (
     <div className="my-8 mx-auto max-w-4xl">
-      {/* Three ~2:1 banners across (stacked on mobile). */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      {/* Full-width 3:1 banner. */}
+      <div className="grid grid-cols-1 gap-3">
         {boxes.map((ad, i) =>
           ad ? (
             <a
@@ -54,7 +52,7 @@ export function AdBannerRow({ category, data, start = 0 }) {
               href={ad.click_url}
               target="_blank"
               rel="sponsored noopener noreferrer"
-              className="block aspect-[2/1] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900"
+              className="block aspect-[3/1] rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900"
             >
               <img
                 src={ad.image_url}

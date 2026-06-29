@@ -24,7 +24,7 @@ export const toolContent = {
       { q: 'Can I get more than one version?', a: 'Run it again on the same input to get a fresh alternative, then pick the phrasing you prefer.' },
       { q: 'Will it keep technical terms correct?', a: 'It generally preserves terminology, but review specialised or legal text to confirm meaning is intact.' },
       { q: 'How is this different from the humanizer?', a: 'The paraphraser focuses on rewording for clarity and originality; the AI Humanizer specifically targets AI-detection patterns.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — paraphrase as much text as you need for free, with no account and no daily rewrite limit.' },
     ],
   },
 
@@ -50,7 +50,7 @@ export const toolContent = {
       { q: 'Will it fix British or American English?', a: 'It works with both. It generally follows the spelling and conventions present in your input.' },
       { q: 'Should I still proofread the result?', a: 'Yes — for important documents, review the changes. It is a strong assistant, not a replacement for a final human check.' },
       { q: 'Can it improve clarity, not just grammar?', a: 'It focuses on correctness while keeping your style; for heavier rewording, use the AI Paraphraser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — it is free with no sign-up; check as many documents as you like without a word cap.' },
     ],
   },
 
@@ -76,7 +76,7 @@ export const toolContent = {
       { q: 'Can I control how short the summary is?', a: 'The tool aims for a concise overview of the key points; for a shorter result, summarise the output again or trim it yourself.' },
       { q: 'Does it work on any subject?', a: 'Yes — articles, reports, research, and general prose all work. Highly technical text still benefits from a human check.' },
       { q: 'Will it keep the original’s tone?', a: 'Summaries are written in a neutral, informative tone focused on the key ideas rather than mirroring the source style.' },
-      { q: 'Is it free?', a: 'Yes — free to use, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — summarise as many documents as you need for free, with no account beyond the per-request length limit.' },
     ],
   },
 
@@ -102,7 +102,7 @@ export const toolContent = {
       { q: 'Will it write clickbait?', a: 'It aims for compelling but honest headlines; avoid promising more than your content delivers, which hurts trust and bounce rate.' },
       { q: 'Is my input stored?', a: 'No. Your topic description is sent over HTTPS, processed, and immediately discarded.' },
       { q: 'Does it work for any niche?', a: 'Yes — give it a clear topic and it adapts to the subject and audience you describe.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate unlimited batches of headlines for free, with no account required.' },
     ],
   },
 
@@ -128,7 +128,7 @@ export const toolContent = {
       { q: 'Should I review before sending?', a: 'Always. Check facts, names, and tone for your specific recipient — treat it as a strong first draft, not a final send.' },
       { q: 'Is my input stored?', a: 'No. Your description is sent over HTTPS, processed, and immediately discarded.' },
       { q: 'How detailed should my description be?', a: 'A sentence works, but adding the recipient, context, and goal produces a sharper, more usable draft.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — draft as many emails as you want for free, with no sign-up.' },
     ],
   },
 
@@ -182,7 +182,7 @@ export const toolContent = {
       { q: 'Is there a length limit?', a: 'No. Paste as much text as you need; it spans multiple pages automatically.' },
       { q: 'Can I do this on my phone?', a: 'Yes. Any modern mobile browser can print to PDF, so you can create and save the file on your phone.' },
       { q: 'Why use this instead of printing on paper?', a: 'Choosing "Save as PDF" in the print dialog creates a digital file instead of a paper copy — this tool sets up clean formatting for exactly that.' },
-      { q: 'Is it free?', a: 'Yes — completely free, no sign-up, and no watermark.' },
+      { q: 'Is it free?', a: 'Yes — create as many PDFs as you need for free, with no sign-up and no watermark on the document.' },
     ],
   },
 
@@ -215,7 +215,7 @@ export const toolContent = {
   'compress-pdf': {
     why: 'A PDF that is too big is a daily frustration: email bounces back because it exceeds the 25MB Gmail limit, a government or university portal refuses the upload, or a scanned document eats far more storage than it should. The bulk almost always comes from high-resolution scanned images embedded in the file, not the text. Shrinking those images down to a sensible screen resolution can cut the file size by half or more while the document still looks perfectly clean on screen and in print.\n\nThis compressor does that locally in your browser using Canvas, so your file is never uploaded — important when the document is a contract, medical record, or ID scan. You pick how aggressive to be with a simple Low / Medium / High quality preset, see the before-and-after size side by side, and download the smaller version. There is no account, no watermark, and no daily limit, and your original file is left untouched so you can always re-try at a different quality if you need a different balance of size versus sharpness.',
     howTo: [
-      { step: '1', title: 'Upload your PDF', body: 'Click the upload area or drag and drop the large PDF you want to shrink. It is processed entirely on your device.' },
+      { step: '1', title: 'Upload your PDF', body: 'Click the upload area or drag and drop the large PDF you want to shrink. The entire compression happens on your device.' },
       { step: '2', title: 'Choose a quality preset', body: 'Pick Low for the smallest possible file, Medium for a balanced result, or High to keep maximum sharpness while still saving space.' },
       { step: '3', title: 'Compare and download', body: 'Review the before/after size comparison, then download the compressed PDF. Not small enough? Re-run it on a lower preset.' },
     ],
@@ -286,7 +286,7 @@ export const toolContent = {
       { q: 'Can I watermark only some pages?', a: 'Currently the watermark is applied to every page at once.' },
       { q: 'Can I use an image or logo as the watermark?', a: 'The tool applies text watermarks; for a logo, add it to your text-based mark or use a dedicated image overlay workflow.' },
       { q: 'Will it change the original file?', a: 'No. It produces a new watermarked copy and leaves your original untouched.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — watermark as many PDFs as you like for free, with no account and no UtilKit branding added to your file.' },
     ],
   },
 
@@ -312,7 +312,7 @@ export const toolContent = {
       { q: 'Does rotating reduce quality?', a: 'No. It only updates page orientation; nothing is re-rendered or recompressed, so quality is identical.' },
       { q: 'Can different pages have different rotations?', a: 'Yes — rotate one set of pages, then run it again for others that need a different angle.' },
       { q: 'Does it work on scanned image PDFs?', a: 'Yes. It rotates the page regardless of whether the content is text or a scanned image.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Is it free?', a: 'Yes — rotate as many PDFs as you like for free, with no sign-up and nothing added to the file.' },
     ],
   },
 
@@ -338,7 +338,7 @@ export const toolContent = {
       { q: 'Which languages are supported?', a: 'English in the current version, via the default Tesseract.js language pack.' },
       { q: 'Will it work on a normal (non-scanned) PDF?', a: 'If the PDF already has selectable text, use PDF → Word to extract it directly — OCR is for image-only pages.' },
       { q: 'Can I improve results on a bad scan?', a: 'Rotate it upright first (try the Rotate PDF tool) and use the highest-resolution, most evenly lit scan available.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — run OCR on as many PDFs as you need for free, with no sign-up or page limit.' },
     ],
   },
 
@@ -364,7 +364,7 @@ export const toolContent = {
       { q: 'Can I type my signature instead of drawing it?', a: 'This tool captures a hand-drawn signature, which looks more authentic than typed text.' },
       { q: 'Will the rest of the document change?', a: 'No. Only your signature is added; the original content is untouched.' },
       { q: 'Does it work on touchscreens?', a: 'Yes — draw with your finger or a stylus on a phone or tablet.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Is it free?', a: 'Yes — sign as many documents as you need for free, with no account and no watermark on the PDF.' },
     ],
   },
 
@@ -444,14 +444,14 @@ export const toolContent = {
       { q: 'Why is the output a PNG and not a JPG?', a: 'JPG cannot store transparency. PNG preserves the see-through background so you can place the subject anywhere; convert to JPG afterwards if you need a solid background.' },
       { q: 'Is there a file size limit?', a: 'Images up to about 10MB are supported.' },
       { q: 'Will it work on complex or low-contrast images?', a: 'Most images work well. Very busy backgrounds or subjects that blend into the background are the main cases that may need light cleanup.' },
-      { q: 'Is it free?', a: 'Yes — free to use with no sign-up required.' },
+      { q: 'Is it free?', a: 'Yes — remove backgrounds from as many photos as you like for free, with no account and no watermark.' },
     ],
   },
 
   'image-resizer': {
     why: 'Almost every place you upload an image expects a specific size. Instagram wants a square, a YouTube thumbnail is 1280×720, a profile photo has a minimum, and a website hero needs exact pixels to look crisp. Upload the wrong dimensions and the platform crops off the important part, stretches the picture, or rejects it outright. The straight-from-camera photo is also usually far bigger than needed, which wastes bandwidth and slows pages.\n\nThis resizer lets you set exact width and height, with an aspect-ratio lock so changing one dimension adjusts the other automatically and your image never comes out squashed. Built-in presets cover the common social and web sizes so you do not have to look them up. Everything runs in your browser using the Canvas API, so your image is never uploaded — and your original is untouched, so you can re-export at another size in seconds. No account, no watermark, no limit.',
     howTo: [
-      { step: '1', title: 'Upload your image', body: 'Click to upload or drop in the image you want to resize. It is processed entirely on your device.' },
+      { step: '1', title: 'Upload your image', body: 'Click to upload or drop in the image you want to resize. Resizing runs entirely on your device.' },
       { step: '2', title: 'Set dimensions or pick a preset', body: 'Type a custom width and height, or choose a built-in social/web preset. Keep aspect-ratio lock on to avoid distortion.' },
       { step: '3', title: 'Download', body: 'Click Resize and download the image at the exact new dimensions, ready to upload anywhere.' },
     ],
@@ -469,7 +469,7 @@ export const toolContent = {
       { q: 'Which social presets are included?', a: 'Common ones like Instagram post (1080×1080), YouTube thumbnail (1280×720), X post (1200×675), and Facebook cover (1200×628).' },
       { q: 'Will resizing reduce quality?', a: 'Making an image smaller keeps it crisp. Enlarging it beyond its original size can look soft — for that, use the AI Image Upscaler.' },
       { q: 'Can I resize without keeping the ratio?', a: 'Yes. Turn off the aspect-ratio lock to set width and height independently, though this can distort the image.' },
-      { q: 'Can I resize on mobile?', a: 'Yes — it works in any modern mobile browser.' },
+      { q: 'Can I resize on mobile?', a: 'Yes — resize on phone or desktop in any modern browser.' },
       { q: 'Is it free?', a: 'Yes — free, no sign-up, and no watermark.' },
     ],
   },
@@ -496,7 +496,7 @@ export const toolContent = {
       { q: 'What resolution is the meme?', a: 'The output PNG matches your original image’s dimensions, so quality is preserved.' },
       { q: 'Can I make a meme on my phone?', a: 'Yes — it works in any modern mobile browser; upload a photo and download the result back to your device.' },
       { q: 'Can I add text in the middle, not just top and bottom?', a: 'The tool focuses on the classic top/bottom caption layout; for free placement you would need a full image editor.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — make and download as many memes as you want for free, with no watermark on the image.' },
     ],
   },
 
@@ -522,12 +522,12 @@ export const toolContent = {
       { q: 'Why does my upscaled image look soft?', a: 'Enlarging spreads the existing detail over more pixels, which can look soft — that is expected behaviour, not a fault.' },
       { q: 'Can it fix a blurry photo?', a: 'No. It changes size, not focus; a blurry source stays blurry when enlarged.' },
       { q: 'Is there a size limit?', a: 'Very large source images plus a high scale factor produce big outputs and take longer to process on your device.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Is it free?', a: 'Yes — upscale as many images as you like for free, with no sign-up and no watermark.' },
     ],
   },
 
   'png-to-jpg': {
-    why: 'PNG is a lossless format, which is great for screenshots and graphics but terrible for file size when the image is a photograph — a PNG photo can be five to ten times larger than the same picture saved as JPG. Those bloated files slow down web pages, bounce off email limits, and eat storage. Whenever an image does not actually need transparency, converting PNG to JPG usually cuts the size by 50–80% with almost no visible difference.\n\nThis converter makes that swap in one step, with a quality slider so you control the size-versus-sharpness trade-off, and batch support so you can do many files at once. It runs entirely in your browser using the Canvas API, so your images are never uploaded. The one thing to know is that JPG has no transparency: any transparent areas in the PNG are filled with white during conversion. No account, no watermark, no limit.',
+    why: 'PNG is a lossless format, which is great for screenshots and graphics but terrible for file size when the image is a photograph — a PNG photo can be five to ten times larger than the same picture saved as JPG. Those bloated files slow down web pages, bounce off email limits, and eat storage. Whenever an image does not actually need transparency, converting PNG to JPG usually cuts the size by 50–80% with almost no visible difference.\n\nThis converter makes that swap in one step, with a quality slider so you control the size-versus-sharpness trade-off, and batch support so you can do many files at once. It runs entirely in your browser using the Canvas API, so your images are never uploaded. The one thing to know is that JPG has no transparency: any transparent areas in the PNG are filled with white during conversion.',
     howTo: [
       { step: '1', title: 'Upload your PNG(s)', body: 'Click to upload one or several PNG files at once — all processed locally on your device.' },
       { step: '2', title: 'Set the JPEG quality', body: 'Drag the quality slider; 85–95% gives near-lossless results while still saving a lot of space.' },
@@ -548,7 +548,7 @@ export const toolContent = {
       { q: 'How much smaller will the file get?', a: 'For photos and detailed images, expect 50–80% smaller. Simple flat graphics save less.' },
       { q: 'Should I ever keep the PNG?', a: 'Yes — keep PNG for logos, icons, screenshots with text, or anything needing transparency or perfectly crisp edges.' },
       { q: 'Does it work on my phone?', a: 'Yes — upload from your device in any modern mobile browser and download the JPG back.' },
-      { q: 'Is it free?', a: 'Yes — free, no sign-up, and no watermark.' },
+      { q: 'Is it free?', a: 'Completely free, with no sign-up and no file-count limit — convert a whole folder of PNGs in one go, and none of the JPGs are watermarked.' },
     ],
   },
 
@@ -569,17 +569,17 @@ export const toolContent = {
     faq: [
       { q: 'Will converting JPG to PNG improve quality?', a: 'It stops further loss from re-saving, but it cannot recover detail or remove artifacts already baked into the original JPEG.' },
       { q: 'Does this add transparency to my JPG?', a: 'It produces a PNG that can hold transparency, but a JPG has none to recover. To make the background transparent, use the Background Remover.' },
-      { q: 'Does my image get uploaded to a server?', a: 'No. Conversion happens in your browser with the Canvas API, so your images never leave your device.' },
+      { q: 'Does my image get uploaded to a server?', a: 'No — the conversion is done locally by your browser, so the original JPEGs never leave your computer or phone.' },
       { q: 'Will the PNG be larger than the JPG?', a: 'Usually yes. PNG is lossless, so for photographic content it typically produces a bigger file than JPEG.' },
       { q: 'When should I use JPG instead?', a: 'For photographs where small file size matters and you do not need transparency, JPG is the better choice.' },
       { q: 'Can I batch convert?', a: 'Yes — upload multiple JPGs and they are all converted at once.' },
       { q: 'Does it work on mobile?', a: 'Yes, in any modern mobile browser.' },
-      { q: 'Is it free?', a: 'Yes — free, no sign-up, and no watermark.' },
+      { q: 'Is it free?', a: 'Yes — there is no charge and no account step. Convert as many JPGs to PNG as you need, and the output is never stamped with a watermark.' },
     ],
   },
 
   'webp-converter': {
-    why: 'WebP is the format the modern web is built for: it produces files 25–35% smaller than JPEG and far smaller than PNG at the same visual quality, while still supporting transparency. Since images are usually the heaviest thing on a page, switching them to WebP is one of the single most effective ways to speed up load times — which directly improves Core Web Vitals and, in turn, your search ranking.\n\nThis converter turns JPG, PNG, GIF, or BMP files into WebP right in your browser, with a quality slider so you control the size-versus-sharpness balance and batch support for multiple files. Nothing is uploaded — the Canvas API does the work on your device — and transparency from PNGs is preserved in the WebP output. WebP is supported by every modern browser, so for almost any website it is a safe, high-impact upgrade. No account, no watermark, no limit.',
+    why: 'WebP is the format the modern web is built for: it produces files 25–35% smaller than JPEG and far smaller than PNG at the same visual quality, while still supporting transparency. Since images are usually the heaviest thing on a page, switching them to WebP is one of the single most effective ways to speed up load times — which directly improves Core Web Vitals and, in turn, your search ranking.\n\nThis converter turns JPG, PNG, GIF, or BMP files into WebP right in your browser, with a quality slider so you control the size-versus-sharpness balance and batch support for multiple files. Nothing is uploaded — the Canvas API does the work on your device — and transparency from PNGs is preserved in the WebP output. WebP is supported by every modern browser, so for almost any website it is a safe, high-impact upgrade.',
     howTo: [
       { step: '1', title: 'Upload your images', body: 'Add JPG, PNG, GIF, or BMP files — one or several at once.' },
       { step: '2', title: 'Set the quality', body: 'Drag the slider; 80–90% gives excellent results with big size savings.' },
@@ -594,13 +594,13 @@ export const toolContent = {
     ],
     faq: [
       { q: 'Do all browsers support WebP?', a: 'Yes — every modern browser, including Chrome, Firefox, Safari 14+, and Edge, supports WebP.' },
-      { q: 'Does my image get uploaded to a server?', a: 'No. Conversion runs in your browser with the Canvas API, so your images never leave your device.' },
+      { q: 'Does my image get uploaded to a server?', a: 'No. The WebP encoding happens entirely on your device, so none of your source images are ever transmitted or stored.' },
       { q: 'How much smaller will WebP files be?', a: 'Typically 25–35% smaller than JPEG and 50–70% smaller than PNG at similar visual quality.' },
       { q: 'Does WebP keep transparency?', a: 'Yes. Transparent PNGs converted to WebP preserve the alpha channel.' },
       { q: 'Should I keep fallback JPG/PNG versions?', a: 'For very old browsers you can, but modern browser support is universal, so most sites no longer need fallbacks.' },
       { q: 'Will it convert animated GIFs?', a: 'It converts the static frame to WebP; animation is not preserved in the output.' },
       { q: 'Can I convert many images at once?', a: 'Yes — batch-upload multiple files and convert them in one pass.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Is it free?', a: 'Yes, and there is no batch cap — convert as many images to WebP as your site needs, free, with no account and no watermark.' },
     ],
   },
 
@@ -654,7 +654,7 @@ export const toolContent = {
       { q: 'What happens if my custom slug is taken?', a: 'Slugs are unique, so if one is already in use you’ll be asked to pick another.' },
       { q: 'Can I use my own domain?', a: 'Not currently — all links use the default short domain.' },
       { q: 'Do the links work with tracking parameters?', a: 'Yes. The full destination, including UTM and other query parameters, is preserved on redirect.' },
-      { q: 'Is it free?', a: 'Yes — free to use with no sign-up required.' },
+      { q: 'Is it free?', a: 'Yes — shorten and track as many links as you need for free, with no sign-up.' },
     ],
   },
 
@@ -760,7 +760,7 @@ export const toolContent = {
       { q: 'What preset patterns are included?', a: 'One-click presets for email, URL, phone number, IPv4 address, and common date formats to use as a starting point.' },
       { q: 'How do I match across multiple lines?', a: 'Use the m flag so ^ and $ match at line breaks, and the s flag if you need . to match newline characters too.' },
       { q: 'Why does my pattern match nothing?', a: 'Common causes are forgetting the g flag, not escaping special characters like . or ?, or a case mismatch — add the i flag to test.' },
-      { q: 'Is it free?', a: 'Yes — free, no sign-up, and no limits.' },
+      { q: 'Is it free?', a: 'Yes — test as many patterns as you like for free, with no account or usage limit.' },
     ],
   },
 
@@ -786,7 +786,7 @@ export const toolContent = {
       { q: 'What does "Download patch" produce?', a: 'A standard unified diff (.patch) that can be applied with `git apply` or the `patch` command.' },
       { q: 'Does whitespace count as a change?', a: 'Yes — differing whitespace or indentation registers as a change, since it can be meaningful in some files.' },
       { q: 'Is there a size limit?', a: 'No fixed limit, though very large inputs take longer to compare on your device.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — compare as many files as you like for free, with no sign-up.' },
     ],
   },
 
@@ -812,7 +812,7 @@ export const toolContent = {
       { q: 'Why is the signature shown as unreadable?', a: 'The signature is a cryptographic hash, not encoded JSON, so it is not human-readable by design — only the header and payload decode to text.' },
       { q: 'How do I read the expiry?', a: 'The exp claim is a Unix timestamp; the tool converts it and tells you whether the token has already expired.' },
       { q: 'Can it decode an encrypted (JWE) token?', a: 'No. This handles signed JWTs (JWS). Encrypted JWE tokens cannot be read without the decryption key.' },
-      { q: 'Is it free?', a: 'Yes — free, no sign-up, and no limits.' },
+      { q: 'Is it free?', a: 'Yes — decode as many tokens as you need for free, with no sign-up.' },
     ],
   },
 
@@ -838,7 +838,7 @@ export const toolContent = {
       { q: 'Will it uppercase my table and column names?', a: 'No — it uppercases SQL keywords (SELECT, FROM, WHERE) while leaving your identifiers as written.' },
       { q: 'Can I minify as well as prettify?', a: 'Yes. Minify collapses the query to a single compact line for embedding in code or config.' },
       { q: 'Does it validate or run the query?', a: 'No. It only formats text; it does not check syntax against a database or execute anything.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — format unlimited queries for free, with no account needed.' },
     ],
   },
 
@@ -864,7 +864,7 @@ export const toolContent = {
       { q: 'Will minifying change how my page looks?', a: 'No. Rendered output is identical — be aware that whitespace between some inline elements is meaningful, so review spacing-sensitive layouts.' },
       { q: 'Should I keep an unminified copy?', a: 'Yes. Edit the readable source and minify as a final step; minified HTML is hard to maintain by hand.' },
       { q: 'Can I do CSS and JS too?', a: 'Use the CSS Minifier for stylesheets. This tool focuses on HTML markup.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — minify as much HTML as you want for free, with no sign-up.' },
     ],
   },
 
@@ -876,21 +876,21 @@ export const toolContent = {
       { step: '3', title: 'Copy the minified CSS', body: 'Copy the output into your production stylesheet or build.' },
     ],
     useCases: [
-      { title: 'Web performance', body: 'Shrink the render-blocking stylesheet to speed up first paint and improve load times.' },
+      { title: 'Faster first paint', body: 'Because CSS blocks rendering, a smaller stylesheet lets the browser paint the page sooner.' },
       { title: 'CDN deployment', body: 'Minify before uploading for smaller transfers and lower bandwidth costs.' },
       { title: 'WordPress & CMS themes', body: 'Compact theme CSS to lift PageSpeed scores without installing a plugin.' },
       { title: 'Embeds & widgets', body: 'Keep injected styles as light as possible on pages you do not control.' },
       { title: 'Quick one-offs', body: 'Minify a stylesheet without setting up a full build pipeline.' },
     ],
     faq: [
-      { q: 'Is my CSS sent to a server?', a: 'No. Minification runs entirely in your browser, so your stylesheet never leaves your device.' },
-      { q: 'How much smaller will it get?', a: 'Typically 20–40% for well-formatted stylesheets that include comments and generous whitespace.' },
+      { q: 'Is my CSS sent to a server?', a: 'No — the stylesheet is minified locally by your browser and is never uploaded anywhere.' },
+      { q: 'How much smaller will it get?', a: 'A well-formatted stylesheet usually drops 20–40%, and more when it carries lots of comments or deep indentation.' },
       { q: 'Are custom properties and calc() preserved?', a: 'Yes. All CSS — including variables, calc(), media queries, and modern syntax — is preserved correctly.' },
       { q: 'Does minifying change specificity or behaviour?', a: 'No. Only whitespace and comments are removed; selectors, properties, and values are untouched, so the rendered result is identical.' },
-      { q: 'Should I keep the original stylesheet?', a: 'Yes. Maintain the readable version and minify as a final step — minified CSS is impractical to edit by hand.' },
+      { q: 'Should I keep the original stylesheet?', a: 'Yes. Keep editing the readable .css file and run this only as the final build step; minified CSS is impractical to hand-edit.' },
       { q: 'Does it combine multiple files?', a: 'It minifies what you paste. To bundle files, concatenate them first, then minify the combined CSS.' },
       { q: 'Can I minify HTML and JS too?', a: 'Use the HTML Minifier for markup. This tool is focused on CSS.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — minify any number of stylesheets for free, with no account required.' },
     ],
   },
 
@@ -916,7 +916,7 @@ export const toolContent = {
       { q: 'Can I get sortable, sequential IDs?', a: 'v4 is random, not sortable. If you need time-ordered IDs, consider ULIDs or UUID v7 instead.' },
       { q: 'Are they cryptographically secure?', a: 'They use a cryptographically secure random source, but a UUID is an identifier, not a secret — do not use one as a password or token.' },
       { q: 'Why do all my UUIDs have a 4 in the same spot?', a: 'That fixed digit marks the version (4). It is part of the spec, not a sign of low randomness.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate as many UUIDs as you need for free, with no limit or sign-up.' },
     ],
   },
 
@@ -942,7 +942,7 @@ export const toolContent = {
       { q: 'Is syntax highlighting applied in code blocks?', a: 'Code blocks are formatted with correct structure; coloured syntax highlighting is not currently applied.' },
       { q: 'Does it support raw HTML inside Markdown?', a: 'Standard inline HTML in Markdown renders in the preview as it normally would.' },
       { q: 'Is there a length limit?', a: 'No — write as much as you need; it all renders locally.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — preview unlimited Markdown for free, with no account.' },
     ],
   },
 
@@ -995,7 +995,7 @@ export const toolContent = {
       { q: 'When should I use snake_case vs kebab-case?', a: 'snake_case (with underscores) is common in Python and databases; kebab-case (with hyphens) is used for URLs, CSS classes, and file names.' },
       { q: 'Can I chain conversions?', a: 'Yes. Click "Use as input" beside any result to feed it back in for further conversion.' },
       { q: 'Does Title Case handle small words?', a: 'It capitalises the main words; always glance over names and acronyms, as no automatic Title Case handles every edge case perfectly.' },
-      { q: 'Is there a character limit?', a: 'No — paste as much text as you need.' },
+      { q: 'Is there a character limit?', a: 'No limit — convert as much text as you want at once.' },
       { q: 'Is it free?', a: 'Yes — free, no sign-up.' },
     ],
   },
@@ -1022,7 +1022,7 @@ export const toolContent = {
       { q: 'Can I generate an exact word count?', a: 'Yes. Choose the "words" unit and enter the exact number you need.' },
       { q: 'Should I ship Lorem Ipsum to production?', a: 'No — it is placeholder only. Always replace it with real copy before launching, or search engines may index meaningless text.' },
       { q: 'Is there a generation limit?', a: 'No limit — generate as much as you need.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate as much placeholder text as you need for free, with no sign-up.' },
     ],
   },
 
@@ -1076,7 +1076,7 @@ export const toolContent = {
       { q: 'Will it pass applicant tracking systems (ATS)?', a: 'The template uses a simple, text-based single-column layout that ATS software reads well; avoid adding images or unusual fonts.' },
       { q: 'Are there multiple templates?', a: 'Currently one clean professional template, with more planned.' },
       { q: 'Can I build it on my phone?', a: 'Yes — it works in any modern mobile browser and saves to PDF.' },
-      { q: 'Is it really free?', a: 'Yes — completely free, no sign-up, and no watermark.' },
+      { q: 'Is it really free?', a: 'Yes — build and print your resume for free, with no account and no watermark on the page.' },
     ],
   },
 
@@ -1128,7 +1128,7 @@ export const toolContent = {
       { q: 'Can I choose the passage?', a: 'A random passage loads each time; click "New Passage" for a different one.' },
       { q: 'How can I get faster?', a: 'Practise regularly, keep your fingers on the home row, and prioritise accuracy first — speed follows once errors drop.' },
       { q: 'Does it work on mobile?', a: 'It works best with a physical keyboard, but you can run it in any modern browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — take the test as many times as you like for free, with no account.' },
     ],
   },
 
@@ -1156,7 +1156,7 @@ export const toolContent = {
       { q: 'What’s the difference between percent change and percentage points?', a: 'Going from 10% to 12% is a 2 percentage-point rise but a 20% increase. This tool reports the percentage change of the values you enter.' },
       { q: 'Can I work backwards from a final price?', a: 'Yes — use the "percent of" and "change" boxes together, or the dedicated Discount Calculator for sale-price problems.' },
       { q: 'Is anything sent to a server?', a: 'No. All the maths runs in your browser; nothing you type is uploaded.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — run unlimited percentage calculations for free, with no sign-up.' },
     ],
   },
 
@@ -1181,8 +1181,8 @@ export const toolContent = {
       { q: 'Does it show a countdown to the next birthday?', a: 'Yes — it tells you how long until the next birthday from the target date.' },
       { q: 'Can it calculate the gap between any two dates?', a: 'Yes; treat the first date as the "birth" date and the second as the target to measure any duration. For pure date gaps, the Date Duration Calculator is also available.' },
       { q: 'What date format does it use?', a: 'You select dates from a calendar picker, so there is no ambiguity between day-first and month-first formats.' },
-      { q: 'Are my dates uploaded?', a: 'No. Everything is calculated locally in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Are my dates uploaded?', a: 'No. All the date math runs locally in your browser.' },
+      { q: 'Is it free?', a: 'Yes — calculate as many ages and dates as you like for free, with no account needed.' },
     ],
   },
 
@@ -1208,7 +1208,7 @@ export const toolContent = {
       { q: 'Should I use metric or imperial?', a: 'Either — pick whichever matches your measurements. The result is the same once converted correctly.' },
       { q: 'What should I do with the result?', a: 'Treat it as a starting point. For personalised advice, discuss it with a healthcare professional who can consider your full picture.' },
       { q: 'Is my data stored?', a: 'No. The calculation runs entirely in your browser; nothing is saved or uploaded.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — it is completely free with no sign-up, in both metric and imperial units.' },
     ],
   },
 
@@ -1260,7 +1260,7 @@ export const toolContent = {
       { q: 'Does it tell me the amount saved?', a: 'Yes — it shows the savings in money, not just the percentage, so you can see the real benefit.' },
       { q: 'Does it work in any currency?', a: 'Yes. The maths is currency-agnostic; just read the figures in your own currency.' },
       { q: 'Is my data stored?', a: 'No. Everything is calculated in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — work out as many discounts as you need for free, with no account.' },
     ],
   },
 
@@ -1314,7 +1314,7 @@ export const toolContent = {
       { q: 'Should I use this to hash passwords?', a: 'No. Plain SHA hashing is unsuitable for passwords — use a purpose-built algorithm like bcrypt, scrypt, or Argon2 with a salt on the server.' },
       { q: 'Why does a tiny change rewrite the whole hash?', a: 'That is the avalanche effect: a good hash spreads any change across the entire output, which is what makes tampering detectable.' },
       { q: 'Can I hash a file?', a: 'This tool hashes text input. For file checksums, use a file-hashing utility or your OS command line.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate unlimited hashes for free, with no sign-up.' },
     ],
   },
 
@@ -1340,7 +1340,7 @@ export const toolContent = {
       { q: 'What is ISO 8601?', a: 'A standard date-time format like 2024-06-16T12:00:00Z that is unambiguous and widely used in APIs and config.' },
       { q: 'Is the conversion done online?', a: 'No. Everything runs in your browser; nothing is uploaded.' },
       { q: 'Does it handle dates before 1970?', a: 'Yes — those are represented as negative Unix timestamps and convert correctly.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — convert as many timestamps as you like for free, with no account required.' },
     ],
   },
 
@@ -1366,7 +1366,7 @@ export const toolContent = {
       { q: 'How does this differ from Base64?', a: 'Percent-encoding makes text URL-safe; Base64 encodes binary data as text. They solve different problems — see the Base64 tool for the latter.' },
       { q: 'Does it handle emoji and non-English text?', a: 'Yes. They are encoded as UTF-8 byte sequences and round-trip correctly when decoded.' },
       { q: 'Is it private?', a: 'Yes. All encoding and decoding happens in your browser; nothing is uploaded.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — encode and decode as much as you need for free, with no sign-up.' },
     ],
   },
 
@@ -1392,7 +1392,7 @@ export const toolContent = {
       { q: 'What if a row has missing or extra columns?', a: 'Rows are mapped against the headers; keep columns consistent for clean output, as ragged rows can produce missing or unexpected keys.' },
       { q: 'Is my data uploaded?', a: 'No. Parsing happens entirely in your browser, so the data never leaves your device.' },
       { q: 'Is there a size limit?', a: 'No fixed limit, though very large CSVs take longer to parse on your device.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — convert any number of CSV files to JSON for free, with no account.' },
     ],
   },
 
@@ -1444,7 +1444,7 @@ export const toolContent = {
       { q: 'Is hex case-sensitive?', a: 'No. You can enter hex digits in upper or lower case; a–f and A–F are treated the same.' },
       { q: 'Why use hex for bytes and colours?', a: 'Two hex digits map exactly to one byte (0–255), so hex is a tidy, readable shorthand for binary data and colour channels.' },
       { q: 'Is the conversion done online?', a: 'No. It runs entirely in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — convert as many values as you like for free, with no sign-up.' },
     ],
   },
 
@@ -1472,7 +1472,7 @@ export const toolContent = {
       { q: 'How many images can I combine?', a: 'There is no fixed limit; large batches of high-resolution images simply take a little longer to process.' },
       { q: 'Will it reduce the image quality?', a: 'Images are embedded as-is; to shrink the final file, compress the images first or run the PDF through the Compress PDF tool.' },
       { q: 'Does it work on mobile?', a: 'Yes — add photos from your phone in any modern mobile browser and download the PDF back.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Is it free?', a: 'Yes — combine any number of images into PDFs for free, with no account and no watermark.' },
     ],
   },
 
@@ -1497,8 +1497,8 @@ export const toolContent = {
       { q: 'Can I export as PNG or JPG?', a: 'Yes — choose either on download; pick PNG to preserve transparency, JPG for a smaller photo file.' },
       { q: 'Does it change the file size?', a: 'Cropping removes pixels outside the selection, so the output is usually smaller than the original.' },
       { q: 'Can I crop to an exact pixel size?', a: 'Use a locked ratio to control the shape; the export resolution follows the selected region of the source image.' },
-      { q: 'Does it work on mobile?', a: 'Yes — it works in any modern mobile browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
+      { q: 'Does it work on mobile?', a: 'Yes — crop on mobile or desktop in any modern browser.' },
+      { q: 'Is it free?', a: 'Yes — crop as many images as you want for free, with no sign-up and no watermark.' },
     ],
   },
 
@@ -1525,8 +1525,8 @@ export const toolContent = {
       { q: 'Can I collapse multiple spaces into one?', a: 'Yes. Toggle the collapse-spaces option to reduce runs of spaces (and often tabs) to a single space.' },
       { q: 'Does it remove blank lines?', a: 'Yes, optionally. You can strip empty lines to tighten up spacing between paragraphs.' },
       { q: 'Is my text uploaded?', a: 'No. All cleaning runs in your browser, so the text never leaves your device.' },
-      { q: 'Is there a length limit?', a: 'No — paste as much text as you need.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is there a length limit?', a: 'No cap — clean any amount of text in one go.' },
+      { q: 'Is it free?', a: 'Yes — clean as much text as you need for free, with no account.' },
     ],
   },
 
@@ -1552,7 +1552,7 @@ export const toolContent = {
       { q: 'Does it shorten long titles?', a: 'It converts whatever you give it; trim very long titles to the key words yourself for the tidiest URL.' },
       { q: 'Is my text uploaded?', a: 'No. The slug is generated in your browser; nothing leaves your device.' },
       { q: 'Can I change a slug after publishing?', a: 'You can, but set up a redirect from the old URL to avoid broken links and lost SEO.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate unlimited slugs for free, with no sign-up.' },
     ],
   },
 
@@ -1577,8 +1577,8 @@ export const toolContent = {
       { q: 'Can everyone pay a different share?', a: 'It splits the total evenly between the number of people you set; for uneven shares, calculate each portion separately.' },
       { q: 'Can I split between any number of people?', a: 'Yes — set any group size and it divides the total, handling awkward splits cleanly.' },
       { q: 'Does it round the per-person amount?', a: 'It shows the exact split; round up manually if you want to leave a little extra.' },
-      { q: 'Is my data saved?', a: 'No. Everything is calculated locally in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is my data saved?', a: 'No. The bill split is worked out on your device, instantly.' },
+      { q: 'Is it free?', a: 'Yes — split as many bills as you like for free, with no account needed.' },
     ],
   },
 
@@ -1629,8 +1629,8 @@ export const toolContent = {
       { q: 'Why might the standalone “months” total look approximate?', a: 'The total-months figure is based on average month length for convenience; the years/months/days breakdown is the precise calendar value.' },
       { q: 'Can I measure to a future date?', a: 'Yes. Set a future end date to count down the days, weeks, and months remaining.' },
       { q: 'How is this different from the Age Calculator?', a: 'They share the same maths; the Age Calculator is framed around a birth date and next birthday, while this one measures any two dates.' },
-      { q: 'Are my dates uploaded?', a: 'No. Everything is calculated locally in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Are my dates uploaded?', a: 'No. The day, week, and month counts are computed right in your browser.' },
+      { q: 'Is it free?', a: 'Yes — calculate any number of date ranges for free, with no sign-up.' },
     ],
   },
 
@@ -1656,7 +1656,7 @@ export const toolContent = {
       { q: 'Can I add transparency?', a: 'Yes — use an rgba() or alpha-hex colour as a stop to fade a gradient to transparent, handy for overlays.' },
       { q: 'Will it slow down my page?', a: 'No. CSS gradients are rendered by the browser and are far lighter than using a background image.' },
       { q: 'Is my data uploaded?', a: 'No. Everything runs in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — build and copy as many gradients as you want for free, with no account.' },
     ],
   },
 
@@ -1682,7 +1682,7 @@ export const toolContent = {
       { q: 'Can I stack multiple shadows?', a: 'Yes. box-shadow accepts comma-separated values, so layer several (e.g. a tight one plus a soft wide one) for more realistic depth.' },
       { q: 'Does box-shadow affect layout?', a: 'No. Shadows are painted outside the box model and do not take up space or push other elements.' },
       { q: 'Is my data uploaded?', a: 'No. Everything runs in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — generate unlimited box-shadow code for free, with no sign-up.' },
     ],
   },
 
@@ -1708,7 +1708,7 @@ export const toolContent = {
       { q: 'Will it change my original until I copy?', a: 'Your input stays as you typed it; the result is shown separately, so you can adjust the terms and re-run.' },
       { q: 'How do I delete a phrase entirely?', a: 'Put the phrase in "find" and leave "replace" empty to remove every occurrence.' },
       { q: 'Is my text uploaded?', a: 'No. All find-and-replace happens locally in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — run as many find-and-replace passes as you need for free, with no account.' },
     ],
   },
 
@@ -1734,7 +1734,7 @@ export const toolContent = {
       { q: 'Can it also remove blank lines?', a: 'Yes — toggle the remove-blank-lines option to drop empty lines as well.' },
       { q: 'Is there a size limit?', a: 'It handles large lists comfortably since everything runs locally in your browser.' },
       { q: 'Is my data uploaded?', a: 'No. The whole process happens in your browser, so nothing leaves your device.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — de-duplicate lists of any length for free, with no sign-up.' },
     ],
   },
 
@@ -1760,7 +1760,7 @@ export const toolContent = {
       { q: 'Does it keep blank lines?', a: 'Blank lines are grouped during sorting; pair this with the Remove Duplicate Lines tool if you want them stripped.' },
       { q: 'What about lines mixing text and numbers?', a: 'Use alphabetical for general text; numerical works best when every line is a number.' },
       { q: 'Is my data uploaded?', a: 'No. Sorting runs entirely in your browser.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — sort as many lines as you like for free, with no account.' },
     ],
   },
 
@@ -1786,7 +1786,7 @@ export const toolContent = {
       { q: 'What format do I download?', a: 'A PNG, which keeps the edges of the subject crisp against the new background.' },
       { q: 'What formats can I upload?', a: 'Standard JPG and PNG photos work best.' },
       { q: 'How is this different from the Background Remover?', a: 'The Background Remover gives you a transparent cutout; this tool goes a step further and drops the subject onto a new colour or image.' },
-      { q: 'Is it free?', a: 'Yes — free to use, with no sign-up.' },
+      { q: 'Is it free?', a: 'Yes — change as many photo backgrounds as you like for free, with no watermark on the result.' },
     ],
   },
 }

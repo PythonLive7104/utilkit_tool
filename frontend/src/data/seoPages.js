@@ -817,49 +817,6 @@ export const seoPages = {
     features: ['Custom slug support', 'Letters, numbers, hyphens', 'Click count tracking'],
   },
 
-  // ── Temp Email ────────────────────────────────────────────────────────────
-
-  'temporary-email-address': {
-    toolId: 'temp-email',
-    toolPath: '/tools/temp-email',
-    toolName: 'Temp Email',
-    title: 'Temporary Email Address — Free Disposable Inbox | UtilKit',
-    description: 'Get a free temporary email address with a live inbox. Auto-expires in 30 minutes. No signup required.',
-    h1: 'Temporary Email Address',
-    tagline: 'Get a disposable email address instantly — live inbox, auto-expires in 30 minutes, no signup.',
-    features: ['Live auto-polling inbox', 'Extends in 15-min blocks', 'Multiple domains'],
-  },
-  'disposable-email-generator': {
-    toolId: 'temp-email',
-    toolPath: '/tools/temp-email',
-    toolName: 'Temp Email',
-    title: 'Disposable Email Generator — Free Throwaway Email | UtilKit',
-    description: 'Generate a disposable email address for signups, verifications, and spam-free testing. Expires automatically.',
-    h1: 'Disposable Email Generator',
-    tagline: 'Generate a throwaway email for sign-ups and verifications — keeps your real inbox spam-free.',
-    features: ['Multiple domains', 'Auto-refresh inbox', 'No personal info needed'],
-  },
-  'fake-email-address': {
-    toolId: 'temp-email',
-    toolPath: '/tools/temp-email',
-    toolName: 'Temp Email',
-    title: 'Fake Email Address Generator — Temporary Inbox | UtilKit',
-    description: 'Generate a fake (disposable) email address with a real working inbox. Receive verification emails without exposing your real address.',
-    h1: 'Fake Email Address Generator',
-    tagline: 'Generate a working temporary email address — receive real emails without giving out your actual inbox.',
-    features: ['Real working inbox', 'Receive verification codes', 'Auto-expires safely'],
-  },
-  'temp-mail-inbox': {
-    toolId: 'temp-email',
-    toolPath: '/tools/temp-email',
-    toolName: 'Temp Email',
-    title: 'Temp Mail Inbox — Free Temporary Email Service | UtilKit',
-    description: 'Free temp mail service with a live inbox that polls every 10 seconds. Use for signups, newsletters, and email testing.',
-    h1: 'Temp Mail Inbox',
-    tagline: 'A free temp mail inbox that checks for new messages every 10 seconds automatically.',
-    features: ['10-second auto-poll', 'Manual refresh button', 'Unread message counter'],
-  },
-
   // ── Percentage Calculator ────────────────────────────────────────────────
   'percentage-increase-calculator': {
     toolId: 'percentage-calculator', toolPath: '/tools/percentage-calculator', toolName: 'Percentage Calculator',

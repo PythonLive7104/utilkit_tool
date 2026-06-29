@@ -7,7 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('accounts.urls')),
     path('api/urls/', include('url_shortener.urls')),
-    path('api/email/', include('temp_email.urls')),
+    # temp_email app fully removed for AdSense approval (disposable email is
+    # abuse-associated). Its tables are dropped by accounts/migrations/0002.
     path('api/bg/', include('bg_remover.urls')),
     path('api/ai/', include('ai_tools.urls')),
     path('api/billing/', include('payments.urls')),

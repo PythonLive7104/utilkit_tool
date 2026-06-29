@@ -359,7 +359,7 @@ export const toolSeo = {
       { q: 'Can I edit a short link after creating it?', a: 'Currently links cannot be edited after creation. Delete the link from your history and create a new one if you need to change the destination.' },
       { q: 'Are short links public?', a: 'The redirect is public — anyone with the short link can use it. The link is not listed or discoverable; only people you share it with can access it.' },
     ],
-    related: ['qr-code-generator', 'temp-email'],
+    related: ['qr-code-generator', 'password-generator'],
   },
 
   'password-generator': {
@@ -392,7 +392,7 @@ export const toolSeo = {
       { q: 'What is a passphrase and is it as secure as a random password?', a: 'A passphrase is multiple random words joined together. A 5-word passphrase from a 100-word list provides about 83 bits of entropy — equivalent to a 13-character random password, but far easier to remember.' },
       { q: 'Should I exclude ambiguous characters?', a: 'Use the "Exclude ambiguous" option when a password will be typed manually — characters like 0, O, l, and 1 are easy to mistake. If you\'re pasting the password, ambiguous characters are fine.' },
     ],
-    related: ['temp-email', 'url-shortener', 'base64'],
+    related: ['uuid-generator', 'url-shortener', 'base64'],
   },
 
   'json-formatter': {
@@ -624,38 +624,5 @@ export const toolSeo = {
       { q: 'What does the "Start with Lorem ipsum" option do?', a: 'It forces the first sentence to be the classic opening "Lorem ipsum dolor sit amet, consectetur adipiscing elit..." — useful when clients or reviewers expect the traditional text.' },
     ],
     related: ['word-counter', 'case-converter', 'word-to-pdf'],
-  },
-
-  'temp-email': {
-    title: 'Temporary Email — Free Disposable Email Address | UtilKit',
-    description: 'Get a disposable email address instantly with a live inbox. Protect your real email from spam. Auto-expires in 30 minutes — no sign-up required.',
-    benefits: [
-      { title: 'Instant generation', description: 'A working email address is created in under a second — no form filling, no CAPTCHA, no wait.' },
-      { title: 'Live inbox', description: 'Emails arrive in the inbox in real time. The inbox polls every 10 seconds and a manual refresh button lets you check immediately.' },
-      { title: 'Extend lifetime', description: 'Need more time? Click "+15 min" to extend the inbox lifetime without losing received messages.' },
-      { title: 'Multiple domains', description: 'Choose from multiple available email domains for the address, giving you variety if one domain is blocked by a sign-up form.' },
-    ],
-    howTo: {
-      title: 'How to use a temporary email address',
-      steps: [
-        'Select a domain from the dropdown and click "Get Address".',
-        'Copy the generated email address using the copy button.',
-        'Use the address on a website sign-up form or anywhere you need an email.',
-        'Return here to see the inbox — verification emails and messages will appear within seconds.',
-      ],
-    },
-    examples: [
-      { title: 'Free trial sign-ups', description: 'Use a temp email to sign up for a free trial without risking your real inbox receiving promotional emails afterwards.' },
-      { title: 'One-time verification codes', description: 'Sign up for a service that requires email verification — receive the code here without creating a real account.' },
-      { title: 'Testing email workflows', description: 'Developers can use a temp address to test registration and password reset flows without using real email addresses during development.' },
-    ],
-    faq: [
-      { q: 'How long does the email address last?', a: 'By default, 30 minutes from creation. Click the "+15 min" button to add more time. The maximum single extension is 60 minutes.' },
-      { q: 'Can I receive attachments?', a: 'Attachment metadata is captured, but downloading attachments is not currently supported. Text and HTML message bodies are displayed in full.' },
-      { q: 'Can I reply to messages?', a: 'No. Temporary email is receive-only. You cannot send emails from the generated address.' },
-      { q: 'What happens when the inbox expires?', a: 'All messages are permanently deleted and the address becomes inactive. Any mail sent after expiry will bounce or be discarded.' },
-      { q: 'Will websites block temp email domains?', a: 'Some websites check against lists of known disposable email domains and may reject them. If one domain is blocked, try selecting a different domain from the dropdown.' },
-    ],
-    related: ['password-generator', 'url-shortener'],
   },
 }

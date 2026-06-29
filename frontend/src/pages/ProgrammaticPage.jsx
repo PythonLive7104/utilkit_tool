@@ -20,7 +20,6 @@ import PdfToWord from './tools/PdfToWord'
 import QrCodeGenerator from './tools/QrCodeGenerator'
 import RegexTester from './tools/RegexTester'
 import SplitPdf from './tools/SplitPdf'
-import TempEmail from './tools/TempEmail'
 import UrlShortener from './tools/UrlShortener'
 import WordCounter from './tools/WordCounter'
 import WordToPdf from './tools/WordToPdf'
@@ -61,7 +60,6 @@ const TOOL_COMPONENTS = {
   'qr-code-generator': QrCodeGenerator,
   'regex-tester': RegexTester,
   'split-pdf': SplitPdf,
-  'temp-email': TempEmail,
   'url-shortener': UrlShortener,
   'word-counter': WordCounter,
   'word-to-pdf': WordToPdf,

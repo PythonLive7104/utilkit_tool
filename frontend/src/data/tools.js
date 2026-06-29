@@ -76,18 +76,6 @@ export const categories = [
 export const tools = [
   // ─── AI Tools ─────────────────────────────────────────────
   {
-    id: 'ai-humanizer',
-    name: 'AI Text Humanizer',
-    description: 'Rewrite AI-generated text to sound naturally human, bypassing AI detectors like GPTZero and Originality.ai.',
-    features: ['Rewrites ChatGPT, Claude, and Gemini output', 'Re-humanize result multiple times', 'Preserves original meaning and intent'],
-    useCase: 'Students and professionals making AI-assisted writing sound genuine and undetectable.',
-    path: '/tools/ai-humanizer',
-    category: 'ai',
-    clientSide: false,
-    icon: 'Bot',
-    related: ['ai-paraphraser', 'ai-grammar-fixer', 'ai-summarizer'],
-  },
-  {
     id: 'ai-paraphraser',
     name: 'AI Paraphraser',
     description: 'Rewrite any text using different words and sentence structures while preserving the original meaning.',
@@ -97,7 +85,7 @@ export const tools = [
     category: 'ai',
     clientSide: false,
     icon: 'RefreshCw',
-    related: ['ai-humanizer', 'ai-grammar-fixer', 'ai-email-writer'],
+    related: ['ai-grammar-fixer', 'ai-summarizer', 'ai-email-writer'],
   },
   {
     id: 'ai-grammar-fixer',
@@ -109,7 +97,7 @@ export const tools = [
     category: 'ai',
     clientSide: false,
     icon: 'SpellCheck',
-    related: ['ai-humanizer', 'ai-paraphraser', 'word-counter'],
+    related: ['ai-paraphraser', 'ai-summarizer', 'word-counter'],
   },
   {
     id: 'ai-summarizer',
@@ -121,7 +109,7 @@ export const tools = [
     category: 'ai',
     clientSide: false,
     icon: 'FileText',
-    related: ['ai-humanizer', 'ai-title-generator', 'word-counter'],
+    related: ['ai-paraphraser', 'ai-title-generator', 'word-counter'],
   },
   {
     id: 'ai-title-generator',
@@ -231,18 +219,6 @@ export const tools = [
   },
 
   {
-    id: 'pdf-unlocker',
-    name: 'PDF Unlocker',
-    description: 'Remove the open password from a password-protected PDF so you can view it freely without re-entering credentials.',
-    features: ['Enter password to decrypt and re-save without it', 'Password visibility toggle for easy entry', 'All processing done locally in your browser'],
-    useCase: 'Anyone who owns a PDF but finds it inconvenient to enter the password every time they open it.',
-    path: '/tools/pdf-unlocker',
-    category: 'pdf',
-    clientSide: true,
-    icon: 'Unlock',
-    related: ['esign-pdf', 'pdf-watermark', 'compress-pdf'],
-  },
-  {
     id: 'pdf-watermark',
     name: 'PDF Watermark',
     description: 'Add a diagonal text watermark (e.g. CONFIDENTIAL, DRAFT) to every page of your PDF.',
@@ -288,7 +264,7 @@ export const tools = [
     category: 'pdf',
     clientSide: true,
     icon: 'Pen',
-    related: ['pdf-watermark', 'pdf-unlocker', 'compress-pdf'],
+    related: ['pdf-watermark', 'split-pdf', 'compress-pdf'],
   },
 
   // ─── Image Tools ──────────────────────────────────────────
@@ -367,7 +343,7 @@ export const tools = [
     category: 'image',
     clientSide: true,
     icon: 'ImageIcon',
-    related: ['image-converter', 'image-compressor', 'fake-chat-generator'],
+    related: ['image-converter', 'image-compressor', 'image-resizer'],
   },
   {
     id: 'ai-image-upscaler',
@@ -656,36 +632,8 @@ export const tools = [
     icon: 'FileType',
     related: ['word-counter', 'case-converter', 'markdown-previewer'],
   },
-  {
-    id: 'temp-email',
-    name: 'Temp Email',
-    description: 'Get a disposable email address with a live inbox — auto-expires in 30 minutes to protect your real address.',
-    features: [
-      'Live inbox polls for new messages every 10 s',
-      'Extend expiry by 15 minutes anytime',
-      'Choose from multiple disposable domains',
-    ],
-    useCase: 'Privacy-conscious users signing up for services without exposing their real inbox.',
-    path: '/tools/temp-email',
-    category: 'text',
-    clientSide: false,
-    icon: 'Mail',
-    related: ['password-generator', 'url-shortener', 'qr-code-generator'],
-  },
 
   // ─── Viral Tools ──────────────────────────────────────────
-  {
-    id: 'fake-chat-generator',
-    name: 'Fake Chat Generator',
-    description: 'Create a realistic WhatsApp-style conversation screenshot with custom messages, names, and timestamps.',
-    features: ['Add messages from either party with custom times', 'Dark and light WhatsApp themes', 'Export chat as a PNG screenshot'],
-    useCase: 'Content creators producing memes, joke screenshots, and social media content.',
-    path: '/tools/fake-chat-generator',
-    category: 'viral',
-    clientSide: true,
-    icon: 'MessageSquare',
-    related: ['meme-generator', 'invoice-generator', 'resume-builder'],
-  },
   {
     id: 'invoice-generator',
     name: 'Invoice Generator',

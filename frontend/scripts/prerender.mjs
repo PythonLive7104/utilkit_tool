@@ -49,6 +49,23 @@ const esc = (s = '') =>
 const catById = Object.fromEntries(categories.map((c) => [c.id, c]))
 const toolById = Object.fromEntries(tools.map((t) => [t.id, t]))
 
+// Tools we deliberately keep OUT of Google's index while seeking AdSense
+// approval. These are the thin, scaled, auto-generated AI-text pages: they're
+// not policy violations (the outright-risky tools — ai-humanizer, pdf-unlocker,
+// fake-chat-generator, temp-email — were removed from the catalogue entirely),
+// just low-value "scaled content" signals. They still render, still get
+// internal links, and stay usable — they just carry a
+// `<meta name="robots" content="noindex, follow">` tag AND are stripped from the
+// generated sitemap below, so this Set is the single source of truth. Revisit
+// (and shrink) this list once the site is approved.
+const NOINDEX_TOOLS = new Set([
+  'ai-paraphraser',
+  'ai-grammar-fixer',
+  'ai-summarizer',
+  'ai-title-generator',
+  'ai-email-writer',
+])
+
 function breadcrumb(parts) {
   // parts: [{ name, href? }]
   const items = parts
@@ -157,6 +174,7 @@ function renderToolPage(tool) {
     description: tool.description,
     body,
     jsonLd: ld,
+    noindex: NOINDEX_TOOLS.has(tool.id),
   }
 }
 
@@ -226,7 +244,7 @@ function renderBlogIndex() {
 function renderHome() {
   let body = '<div class="max-w-6xl mx-auto px-4 py-10">'
   body += '<h1 class="text-3xl sm:text-4xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">Free Online Utility Tools</h1>'
-  body += `<p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mb-10">${esc('72 free, browser-based tools — PDF conversion, image editing, AI writing, calculators, developer utilities, and text processing. No sign-up, nothing leaves your device.')}</p>`
+  body += `<p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mb-10">${esc('68 free, browser-based tools — PDF conversion, image editing, AI writing, calculators, developer utilities, and text processing. No sign-up, nothing leaves your device.')}</p>`
 
   for (const cat of categories) {
     const catTools = tools.filter((t) => t.category === cat.id)
@@ -242,8 +260,8 @@ function renderHome() {
   body += '</div>'
   return {
     path: '/',
-    title: 'UtilKit — 72 Free Online Utility Tools',
-    description: 'Free PDF converter, image compressor, AI writing tools, QR code generator, password generator, and 66 more utilities. All browser-based, all free, no account needed.',
+    title: 'UtilKit — 68 Free Online Utility Tools',
+    description: 'Free PDF converter, image compressor, AI writing tools, QR code generator, password generator, and 62 more utilities. All browser-based, all free, no account needed.',
     body,
     jsonLd: [],
   }
@@ -311,6 +329,7 @@ function breadcrumbLd(pairs) {
 function buildPage(template, page) {
   const url = canon(page.path)
   const head = [
+    ...(page.noindex ? ['<meta name="robots" content="noindex, follow" />'] : []),
     `<link rel="canonical" href="${esc(url)}" />`,
     `<meta property="og:title" content="${esc(page.title)}" />`,
     `<meta property="og:description" content="${esc(page.description)}" />`,
@@ -366,6 +385,45 @@ function main() {
   }
 
   console.log(`✓ prerendered ${pages.length} pages into dist/`)
+
+  stripNoindexFromSitemap()
+}
+
+// Remove the noindexed tool URLs from the built sitemap. Vite copies the
+// hand-maintained public/sitemap.xml into dist/ during the build (which runs
+// before this script), so we rewrite that copy in place — the source file is
+// left untouched. NOINDEX_TOOLS stays the single source of truth: a tool listed
+// there is both noindexed AND absent from the sitemap, with no second list to
+// keep in sync.
+function stripNoindexFromSitemap() {
+  const sitemapPath = join(DIST, 'sitemap.xml')
+  let xml
+  try {
+    xml = readFileSync(sitemapPath, 'utf8')
+  } catch {
+    console.warn('⚠ prerender: dist/sitemap.xml not found — skipping noindex strip')
+    return
+  }
+
+  const blocked = new Set(
+    [...NOINDEX_TOOLS]
+      .map((id) => toolById[id])
+      .filter(Boolean)
+      .map((t) => canon(t.path)),
+  )
+
+  let removed = 0
+  const next = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
+    const m = block.match(/<loc>([^<]+)<\/loc>/)
+    if (m && blocked.has(m[1].trim())) {
+      removed++
+      return ''
+    }
+    return block
+  })
+
+  writeFileSync(sitemapPath, next)
+  console.log(`✓ stripped ${removed} noindexed URL(s) from dist/sitemap.xml`)
 }
 
 main()

@@ -90,36 +90,6 @@ export const urlShortener = {
     request(`/api/urls/${code}/`, { method: 'DELETE' }),
 }
 
-// ── Temp Email ───────────────────────────────────────────────
-export const tempEmail = {
-  domains: () => request('/api/email/domains/'),
-
-  create: (domain = '', username = '') =>
-    request('/api/email/create/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ domain, username }),
-    }),
-
-  info: (address) => request(`/api/email/${encodeURIComponent(address)}/`),
-
-  extend: (address, minutes = 15) =>
-    request(`/api/email/${encodeURIComponent(address)}/extend/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ minutes }),
-    }),
-
-  messages: (address) =>
-    request(`/api/email/${encodeURIComponent(address)}/messages/`),
-
-  getMessage: (address, id) =>
-    request(`/api/email/${encodeURIComponent(address)}/messages/${id}/`),
-
-  delete: (address) =>
-    request(`/api/email/${encodeURIComponent(address)}/`, { method: 'DELETE' }),
-}
-
 // ── AI Tools ─────────────────────────────────────────────────
 export const aiTool = (action, text) =>
   request('/api/ai/', {

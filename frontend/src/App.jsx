@@ -42,10 +42,8 @@ const CodeDiff = lazy(() => import('./pages/tools/CodeDiff'))
 const WordCounter = lazy(() => import('./pages/tools/WordCounter'))
 const CaseConverter = lazy(() => import('./pages/tools/CaseConverter'))
 const LoremIpsum = lazy(() => import('./pages/tools/LoremIpsum'))
-const TempEmail = lazy(() => import('./pages/tools/TempEmail'))
 
 // AI Tools
-const AiHumanizer = lazy(() => import('./pages/tools/AiHumanizer'))
 const AiParaphraser = lazy(() => import('./pages/tools/AiParaphraser'))
 const AiGrammarFixer = lazy(() => import('./pages/tools/AiGrammarFixer'))
 const AiSummarizer = lazy(() => import('./pages/tools/AiSummarizer'))
@@ -53,7 +51,6 @@ const AiTitleGenerator = lazy(() => import('./pages/tools/AiTitleGenerator'))
 const AiEmailWriter = lazy(() => import('./pages/tools/AiEmailWriter'))
 
 // New PDF Tools
-const PdfUnlocker = lazy(() => import('./pages/tools/PdfUnlocker'))
 const PdfWatermark = lazy(() => import('./pages/tools/PdfWatermark'))
 const RotatePdf = lazy(() => import('./pages/tools/RotatePdf'))
 const OcrPdf = lazy(() => import('./pages/tools/OcrPdf'))
@@ -75,7 +72,6 @@ const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator'))
 const MarkdownPreviewer = lazy(() => import('./pages/tools/MarkdownPreviewer'))
 
 // Viral Tools
-const FakeChatGenerator = lazy(() => import('./pages/tools/FakeChatGenerator'))
 const InvoiceGenerator = lazy(() => import('./pages/tools/InvoiceGenerator'))
 const ResumeBuilder = lazy(() => import('./pages/tools/ResumeBuilder'))
 const BioLinkGenerator = lazy(() => import('./pages/tools/BioLinkGenerator'))
@@ -132,7 +128,6 @@ export default function App() {
           <Route path="tools/split-pdf" element={<SplitPdf />} />
 
           {/* New PDF Tools */}
-          <Route path="tools/pdf-unlocker" element={<PdfUnlocker />} />
           <Route path="tools/pdf-watermark" element={<PdfWatermark />} />
           <Route path="tools/rotate-pdf" element={<RotatePdf />} />
           <Route path="tools/ocr-pdf" element={<OcrPdf />} />
@@ -172,10 +167,8 @@ export default function App() {
           <Route path="tools/word-counter" element={<WordCounter />} />
           <Route path="tools/case-converter" element={<CaseConverter />} />
           <Route path="tools/lorem-ipsum" element={<LoremIpsum />} />
-          <Route path="tools/temp-email" element={<TempEmail />} />
 
           {/* AI Tools */}
-          <Route path="tools/ai-humanizer" element={<AiHumanizer />} />
           <Route path="tools/ai-paraphraser" element={<AiParaphraser />} />
           <Route path="tools/ai-grammar-fixer" element={<AiGrammarFixer />} />
           <Route path="tools/ai-summarizer" element={<AiSummarizer />} />
@@ -183,7 +176,6 @@ export default function App() {
           <Route path="tools/ai-email-writer" element={<AiEmailWriter />} />
 
           {/* Viral Tools */}
-          <Route path="tools/fake-chat-generator" element={<FakeChatGenerator />} />
           <Route path="tools/invoice-generator" element={<InvoiceGenerator />} />
           <Route path="tools/resume-builder" element={<ResumeBuilder />} />
           <Route path="tools/bio-link-generator" element={<BioLinkGenerator />} />

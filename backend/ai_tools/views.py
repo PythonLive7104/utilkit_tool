@@ -4,12 +4,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 SYSTEM_PROMPTS = {
-    'humanize': (
-        'You are an expert editor. Rewrite the following AI-generated text to sound '
-        'natural, human, and engaging. Vary sentence length, use contractions, add '
-        'personality, and remove robotic or overly formal phrasing. Preserve the '
-        'original meaning. Return only the rewritten text.'
-    ),
     'paraphrase': (
         'Paraphrase the following text. Keep the same meaning but use entirely '
         'different words and sentence structures. Return only the paraphrased text.'
@@ -39,7 +33,7 @@ SYSTEM_PROMPTS = {
 class AiToolView(APIView):
     """
     POST /api/ai/
-    Body: { "action": "humanize|paraphrase|grammar|summarize|title|email", "text": "..." }
+    Body: { "action": "paraphrase|grammar|summarize|title|email", "text": "..." }
     Returns: { "result": "..." }
     """
 

@@ -144,7 +144,7 @@ function CoffeeBox() {
     <div className="mt-10 rounded-2xl border border-indigo-400/20 bg-indigo-50/50 dark:bg-indigo-950/20 p-5 text-center">
       <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-1">Enjoying UtilKit?</p>
       <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
-        All 72 tools are free. If we saved you time, a small support keeps the lights on.
+        All 68 tools are free. If we saved you time, a small support keeps the lights on.
       </p>
       <SupportButton />
     </div>

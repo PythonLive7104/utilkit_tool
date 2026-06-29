@@ -2,32 +2,6 @@ export const toolContent = {
 
   // ─── AI Tools ─────────────────────────────────────────────────────────────
 
-  'ai-humanizer': {
-    why: 'AI writing tools have a recognisable fingerprint: uniform sentence length, predictable transitions like "moreover" and "in conclusion", and a flat, over-polished tone. Detectors such as GPTZero, Originality.ai, Copyleaks, and Turnitin look for exactly that statistical regularity, and human readers feel it too — text that is technically correct but lifeless. Whether you are trying to pass an academic AI check or simply want copy that does not read like a robot wrote it, the raw AI output usually needs a rewrite.\n\nThis humanizer uses GPT-4o to rework that text the way a thoughtful editor would: varying sentence length and rhythm, swapping mechanical phrasing for natural word choices, and breaking the uniform patterns detectors key on — all while preserving your original meaning and key facts. You paste in the AI draft, click once, and get back a version that reads as genuinely human. Your text is sent to our API over HTTPS only to be processed and is not stored afterward. Results depend on the content and the detector version, so it is a strong rewrite aid rather than a guarantee against every checker.',
-    howTo: [
-      { step: '1', title: 'Paste your AI-generated text', body: 'Copy the output from ChatGPT, Claude, Gemini, or any AI tool and paste it into the input box.' },
-      { step: '2', title: 'Click Humanize', body: 'GPT-4o rewrites the content with natural variation in sentence structure, rhythm, and word choice while keeping the meaning intact.' },
-      { step: '3', title: 'Review and copy', body: 'Read the humanized output, make any tweaks you like, and copy it into your document, email, or submission.' },
-    ],
-    useCases: [
-      { title: 'Students & academics', body: 'Rework AI-assisted drafts so they read naturally and align with university policies, without altering the underlying argument.' },
-      { title: 'Content marketers', body: 'Turn AI-drafted blog posts into copy that reads human and passes editorial AI-detector checks before publishing.' },
-      { title: 'Copywriters & agencies', body: 'Draft fast with AI, then humanize before delivering to clients who require original-sounding, on-brand writing.' },
-      { title: 'Non-native English writers', body: 'Smooth stilted or overly formal phrasing into fluent, natural-sounding English.' },
-      { title: 'Email & outreach', body: 'Make templated or AI-written messages feel personal and warm rather than generic.' },
-    ],
-    faq: [
-      { q: 'Which AI detectors is this designed for?', a: 'It targets the patterns flagged by GPTZero, Originality.ai, Copyleaks, and Turnitin. Results vary with the content and the detector’s current version, so treat it as a strong aid, not a guarantee.' },
-      { q: 'Does humanizing change the meaning?', a: 'No. It preserves your meaning and key information while restructuring phrasing, sentence length, and word choice.' },
-      { q: 'Is my text stored anywhere?', a: 'No. Your text is sent to our API over HTTPS, processed, and returned — nothing is stored afterward.' },
-      { q: 'Is there a character limit?', a: 'Up to 8,000 characters per request. For longer pieces, run it section by section.' },
-      { q: 'Should I still proofread the result?', a: 'Yes. Always read it through — the humanizer improves flow and naturalness, but you should confirm tone and accuracy for your context.' },
-      { q: 'Will it work on any language?', a: 'It works best on English. Other languages may produce more variable results.' },
-      { q: 'Does it add new facts?', a: 'It is designed to rephrase, not invent. Still, verify any figures or claims against your source.' },
-      { q: 'Is it free to use?', a: 'Yes — free, with no sign-up required.' },
-    ],
-  },
-
   'ai-paraphraser': {
     why: 'Rewording something in your own words sounds simple, but doing it well by hand is slow, and swapping words for synonyms one at a time produces clunky, thesaurus-stuffed sentences that read worse than the original. Yet there are countless moments you need exactly this: restating a source so it is not copied verbatim, finding a clearer way to phrase a stubborn sentence, adapting copy for a different audience, or smoothing writing that feels awkward.\n\nThis paraphraser uses GPT-4o to restructure sentences intelligently — changing the wording and the structure together while keeping your original meaning intact — so the result reads naturally rather than mechanically reworded. Paste a passage, click once, and get a fresh version you can use in an essay, article, or post. Your text is sent over HTTPS only for processing and is not stored. Used responsibly, it is a writing aid: when rephrasing a source for academic work, you should still cite the original.',
     howTo: [
@@ -287,32 +261,6 @@ export const toolContent = {
       { q: 'Is there a limit on the source PDF size?', a: 'There is no fixed page limit; very large files simply take a little longer to process on your device.' },
       { q: 'Can I split a PDF on mobile?', a: 'Yes. It works in any modern mobile browser — upload, enter your pages, and download the result to your phone.' },
       { q: 'Is it free and watermark-free?', a: 'Completely free, with no sign-up, no watermark, and no usage cap.' },
-    ],
-  },
-
-  'pdf-unlocker': {
-    why: 'A password on a PDF is handy when it is first sent, but it becomes a daily nuisance once the document is yours to keep — every time you open that bank statement, payslip, or invoice you have to dig out and re-type the password. For files you legitimately own and can already open, removing that prompt once saves repeated hassle and lets the PDF open in any reader or be processed by other tools.\n\nThis unlocker takes a PDF you can open, the password you already know, and produces a new copy with the password requirement removed — the content is identical, only the protection is gone. Crucially, it decrypts entirely in your browser, so your file and your password never leave your device. It only works on PDFs you can already unlock with the correct password; it is not a tool for breaking into documents you do not have access to.',
-    howTo: [
-      { step: '1', title: 'Upload your protected PDF', body: 'Add the password-protected PDF file you want to unlock.' },
-      { step: '2', title: 'Enter the password', body: 'Type the PDF password (use the show toggle to check it), the same one you use to open the file.' },
-      { step: '3', title: 'Download the unlocked PDF', body: 'Click Unlock PDF to download a new copy that opens with no password required.' },
-    ],
-    useCases: [
-      { title: 'Personal documents', body: 'Remove the password from your own statements and payslips so they open without re-typing it.' },
-      { title: 'Invoices & receipts', body: 'Unlock password-protected vendor invoices so they open in any reader and can be filed.' },
-      { title: 'Archived reports', body: 'Unlock your own old reports to keep a freely accessible copy.' },
-      { title: 'Preparing for other tools', body: 'Strip the password so the PDF can be merged, compressed, or have text extracted.' },
-      { title: 'Accessibility', body: 'Remove a barrier so assistive software and other apps can open the document.' },
-    ],
-    faq: [
-      { q: 'Can this unlock PDFs I don’t own?', a: 'No. You must already know the password — it only removes the prompt from PDFs you can already open, not ones you cannot access.' },
-      { q: 'Does my file or password go to a server?', a: 'No. Decryption happens entirely in your browser, so neither your file nor your password leaves your device.' },
-      { q: 'Is the unlocked PDF different from the original?', a: 'The content is identical; only the password-protection is removed.' },
-      { q: 'What if I enter the wrong password?', a: 'The tool shows an error and cannot unlock the file — double-check the password and try again.' },
-      { q: 'Does it remove owner/permission restrictions too?', a: 'It removes the open password so the file opens freely; the resulting copy is no longer password-locked.' },
-      { q: 'Is it legal to remove a PDF password?', a: 'Yes, for documents you own or are authorised to access. Do not remove protection from files you have no right to.' },
-      { q: 'Does it work on scanned PDFs?', a: 'Yes — it removes the password regardless of whether the pages are text or scanned images.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up or watermark.' },
     ],
   },
 
@@ -1078,59 +1026,7 @@ export const toolContent = {
     ],
   },
 
-  'temp-email': {
-    why: 'Handing over your real email address just to grab a free trial, download a whitepaper, or read some gated content is a bad trade — that one form often signs you up for months of marketing emails and sells your address onward, cluttering your inbox forever. A disposable email address lets you get through the gate, receive the confirmation link or download, and then walk away without any of that following you home.\n\nThis tool gives you a working throwaway inbox instantly — an address is generated the moment you open the page. Copy it into any signup form and watch messages, including attachments, arrive in the live inbox; the address expires automatically (with the option to extend) so there is nothing to clean up. Because it is genuinely disposable and public, it is perfect for low-stakes signups and testing, and exactly the wrong place for anything private or important.',
-    howTo: [
-      { step: '1', title: 'Get your temp address', body: 'A disposable email address is generated automatically when you open the page.' },
-      { step: '2', title: 'Use it to sign up', body: 'Copy the address and paste it into any signup form or gated-content page.' },
-      { step: '3', title: 'Check your inbox', body: 'Incoming messages appear in the live inbox automatically; the address expires after 30 minutes (extendable).' },
-    ],
-    useCases: [
-      { title: 'Free-trial signups', body: 'Try software and services without adding your real email to their marketing lists.' },
-      { title: 'Gated downloads', body: 'Grab a whitepaper, report, or coupon without the spam that usually follows.' },
-      { title: 'Testing & development', body: 'Verify signup and email-confirmation flows in your own app with throwaway inboxes.' },
-      { title: 'One-off verifications', body: 'Receive a single confirmation code or link you never need again.' },
-      { title: 'Protecting your main inbox', body: 'Keep your real address out of forms you don’t fully trust.' },
-    ],
-    faq: [
-      { q: 'How long does the inbox last?', a: 'About 30 minutes by default, and you can extend it by 15 minutes as many times as you need.' },
-      { q: 'Can I receive attachments?', a: 'Yes — attachments are viewable in the inbox during the active session.' },
-      { q: 'Is the inbox private?', a: 'No. Anyone who knows the address can view it, so never use it for sensitive or important messages.' },
-      { q: 'Can I reply or send email from it?', a: 'No. It is a receive-only inbox meant for confirmations and verifications, not conversations.' },
-      { q: 'Can I choose my own address?', a: 'The local part is randomly generated, but you can usually pick from several available domains.' },
-      { q: 'Will sites block disposable addresses?', a: 'Some services deliberately block known temp-mail domains; if a signup is rejected, you may need a permanent address there.' },
-      { q: 'What happens to messages when it expires?', a: 'They are discarded when the address expires — copy anything you need before then.' },
-      { q: 'Is it free?', a: 'Yes — free, with no sign-up (that’s rather the point).' },
-    ],
-  },
-
   // ─── Viral Tools ──────────────────────────────────────────────────────────
-
-  'fake-chat-generator': {
-    why: 'Chat-screenshot content is one of the most engaging formats on social media — the familiar green-bubble WhatsApp look instantly pulls people in, which is why memes, skits, brand campaigns, and storytelling posts lean on it so heavily. But you cannot stage a real conversation on demand, and editing a screenshot by hand in Photoshop is slow and looks fake. A purpose-built generator lets you script exactly the exchange you want and render it convincingly in seconds.\n\nThis tool builds a realistic chat screenshot from messages you type: set the names for each side, add messages and assign them left or right, choose timestamps, and export a clean PNG that looks like a genuine conversation. Everything is drawn in your browser with Canvas, so nothing is uploaded. It is made for creative and entertainment use — memes, scripts, mockups, and storytelling — and that comes with a clear responsibility: using fabricated screenshots to deceive, harass, or defraud real people is unethical and, in many places, illegal.',
-    howTo: [
-      { step: '1', title: 'Set participant names', body: 'Enter the display names that should appear for each side of the conversation.' },
-      { step: '2', title: 'Add messages', body: 'Type each message, assign it to a participant (left or right), and set a timestamp for realism.' },
-      { step: '3', title: 'Export as PNG', body: 'Click Export to download the finished chat as a PNG image, ready to post or drop into a video.' },
-    ],
-    useCases: [
-      { title: 'Meme creation', body: 'Stage funny fictional exchanges for X, Instagram, TikTok, and Reddit in the format people already love.' },
-      { title: 'Content creators', body: 'Build "conversation format" posts and eye-catching YouTube thumbnails that stop the scroll.' },
-      { title: 'Storytelling & scripts', body: 'Illustrate a fictional text exchange in a blog post, comic, or short video narrative.' },
-      { title: 'Mockups & demos', body: 'Show how a messaging UI or a feature might look without building the real thing.' },
-      { title: 'Education & training', body: 'Create example conversations for communication, language, or customer-service training.' },
-    ],
-    faq: [
-      { q: 'Is this for creating deceptive content?', a: 'No. It is for entertainment, creative, and mockup use only. Using fabricated screenshots to deceive, defraud, or harass anyone is unethical and often illegal.' },
-      { q: 'Is my content uploaded to a server?', a: 'No. The chat is rendered in your browser with Canvas, so nothing you type is uploaded.' },
-      { q: 'Can I control who sent each message?', a: 'Yes. Assign each message to either participant so it appears on the correct side, just like a real chat.' },
-      { q: 'Can I set timestamps?', a: 'Yes. Add a time to each message to make the conversation look authentic.' },
-      { q: 'Can I use custom profile photos?', a: 'Currently participants are shown by name/initials; profile photo support may be added later.' },
-      { q: 'What export format do I get?', a: 'A PNG image matching the chat preview, which works everywhere images are accepted.' },
-      { q: 'Does it work on mobile?', a: 'Yes — you can build and export a chat in any modern mobile browser.' },
-      { q: 'Is it free?', a: 'Yes — free, no sign-up, and no watermark.' },
-    ],
-  },
 
   'invoice-generator': {
     why: 'When you freelance or run a small business, getting paid starts with a clear, professional invoice — it sets the amount, the due date, and the payment terms, and it makes you look organised and trustworthy. But dedicated invoicing apps charge a monthly subscription for what is, at heart, a simple document, and cobbling one together in Word never quite looks right or adds up the totals reliably.\n\nThis generator gives you a clean, correct invoice in a couple of minutes with no software or account. Enter your business and client details, an invoice number and dates, then add line items with quantities and prices — the subtotal, tax, and total are calculated for you, in the currency you choose. You download it as a PDF through your browser’s print-to-PDF, so everything stays on your device and nothing is uploaded. Because the data only lives in your current session, download the finished PDF before you close the tab.',

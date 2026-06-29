@@ -21,7 +21,6 @@ INSTALLED_APPS = [
     # Local apps
     'accounts',
     'url_shortener',
-    'temp_email',
     'bg_remover',
     'ai_tools',
     'payments',
@@ -145,8 +144,6 @@ SITE_URL             = config('SITE_URL', default='https://utilkit.us')
 RESEND_API_KEY       = config('RESEND_API_KEY', default='')
 RESEND_FROM_EMAIL    = config('RESEND_FROM_EMAIL', default='noreply@utilkit.io')
 CONTACT_EMAIL        = config('CONTACT_EMAIL', default='')
-TEMP_EMAIL_DOMAINS = config('TEMP_EMAIL_DOMAINS', default='tempmail.dev,mailnull.io,throwaway.email', cast=Csv())
-TEMP_EMAIL_EXPIRY_MINUTES = config('TEMP_EMAIL_EXPIRY_MINUTES', default=30, cast=int)
 
 # Max upload size: 25 MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 25 * 1024 * 1024

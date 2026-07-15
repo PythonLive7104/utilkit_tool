@@ -313,6 +313,51 @@ export default function Home() {
       )}
 
 
+      {/* ── About this collection (editorial content) ──────── */}
+      {!filtered && (
+        <section className="px-4 py-14 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="max-w-3xl mx-auto prose-sm">
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+              Free online tools, without the runaround
+            </h2>
+            <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <p>
+                Most everyday digital tasks — converting a PDF to Word, compressing a photo so it fits an
+                upload limit, generating a QR code for a poster, formatting a messy block of JSON, or working
+                out a percentage — are simple in theory but scattered across dozens of different websites in
+                practice. Each one has its own layout, its own sign-up wall, and its own pile of pop-ups.
+                UtilKit exists to gather the tools you reach for most into a single, consistent place that
+                loads fast and gets out of your way.
+              </p>
+              <p>
+                There are currently <strong className="text-zinc-700 dark:text-zinc-300">68 tools</strong> spread
+                across PDF, image, developer, generator, calculator, and text categories. You never need an
+                account to use them, and there are no watermarks, trial timers, or file-size paywalls on the
+                core tools. Type what you're looking for into the search box above, or browse by category —
+                every tool is one click away and opens instantly.
+              </p>
+              <p>
+                Privacy is built in rather than bolted on. Wherever it's technically possible, tools run{' '}
+                <strong className="text-zinc-700 dark:text-zinc-300">entirely inside your browser</strong>: when
+                you merge PDFs or resize an image, the file is processed on your own device and never uploaded
+                to a server. A handful of tools that genuinely need one — such as the AI writing helpers and the
+                background remover — send data over an encrypted connection, process it, and return the result
+                without storing it. You can read exactly how each tool handles data in our{' '}
+                <NavLink to="/privacy" className="text-indigo-500 dark:text-indigo-400 underline">Privacy Policy</NavLink>.
+              </p>
+              <p>
+                UtilKit is designed for anyone who works with files and text online — students preparing
+                assignments, professionals cleaning up documents, developers wrangling data formats, and
+                creators putting together posts and links. New tools are added regularly, and each one comes
+                with a short guide and FAQ so you're never left guessing. Want a tool we don't have yet, or
+                spotted something broken? Tell us on the{' '}
+                <NavLink to="/contact" className="text-indigo-500 dark:text-indigo-400 underline">Contact page</NavLink>.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Footer ─────────────────────────────────────────── */}
       <footer className="px-4 py-8 border-t border-zinc-200 dark:border-zinc-800 text-center">
         <div className="flex items-center justify-center gap-2 mb-2">
@@ -321,12 +366,24 @@ export default function Home() {
         </div>
         <p className="text-xs text-zinc-400">
           68 free utility tools · No account required ·{' '}
+          <NavLink to="/about" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
+            About
+          </NavLink>
+          {' '}·{' '}
           <NavLink to="/blog" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
             Blog
           </NavLink>
           {' '}·{' '}
+          <NavLink to="/contact" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
+            Contact
+          </NavLink>
+          {' '}·{' '}
           <NavLink to="/privacy" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
-            Privacy policy
+            Privacy
+          </NavLink>
+          {' '}·{' '}
+          <NavLink to="/terms" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
+            Terms
           </NavLink>
         </p>
       </footer>

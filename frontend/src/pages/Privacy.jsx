@@ -1,4 +1,4 @@
-import { Shield, Lock, Server, Eye, Clock, Trash2, Mail, Zap } from 'lucide-react'
+import { Shield, Lock, Server, Eye, Clock, Megaphone, Mail, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 function Section({ icon: Icon, color, title, children }) {
@@ -27,13 +27,15 @@ export default function Privacy() {
           Privacy Policy
         </div>
         <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">
-          Your privacy is not a trade-off
+          Your files stay yours
         </h1>
         <p className="text-zinc-500 dark:text-zinc-400">
-          UtilKit is built on a simple principle: process your data, return the result, forget it ever happened.
-          No accounts. No tracking. No selling data.
+          UtilKit is built on a simple principle: process your data, return the result, keep as little as
+          possible. Most tools run entirely in your browser, so your files never reach our servers. This
+          policy explains exactly what we collect, the third-party services we use — including advertising —
+          and the choices you have.
         </p>
-        <p className="text-xs text-zinc-400 mt-3">Last updated: May 2026</p>
+        <p className="text-xs text-zinc-400 mt-3">Last updated: July 2026</p>
       </div>
 
       {/* TL;DR */}
@@ -42,9 +44,9 @@ export default function Privacy() {
         <ul className="space-y-2">
           {[
             'Most tools run entirely in your browser — your files never touch our servers.',
-            'For the few tools that use our server (AI tools, Background Remover), your data is processed and immediately discarded.',
-            'We collect no analytics, use no tracking cookies, and have no ad network.',
-            'We will never sell, share, or monetise your data.',
+            'A few tools (AI tools, Background Remover) send data to our server for processing, then discard it.',
+            'We show ads through Google AdSense, which may use cookies to make ads more relevant.',
+            'We never sell your personal data, and you can opt out of personalised ads at any time.',
           ].map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-indigo-700 dark:text-indigo-300">
               <span className="mt-1 text-indigo-400">✓</span>
@@ -65,8 +67,8 @@ export default function Privacy() {
           memory your browser already has access to.
         </p>
         <p className="font-medium text-zinc-700 dark:text-zinc-300">
-          Browser-only tools: all PDF tools, image converter/compressor/resizer/upscaler/converters,
-          all developer tools, word counter, case converter, lorem ipsum, and all viral tools.
+          Browser-only tools include: all PDF tools, image converter/compressor/resizer/upscaler,
+          all developer tools, word counter, case converter, lorem ipsum, and the generators.
         </p>
       </Section>
 
@@ -75,13 +77,12 @@ export default function Privacy() {
           A small number of tools require our server to process your request. These are:
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong className="text-zinc-700 dark:text-zinc-300">AI Tools</strong> (AI Humanizer, Paraphraser, Grammar Fixer, Summarizer, Title Generator, Email Writer) — your text is sent over HTTPS to our API, which forwards it to OpenAI's GPT-4o model. The text is processed and the result is returned. We do not store the text you submit.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">AI Tools</strong> (Paraphraser, Grammar Fixer, Summarizer, Title Generator, Email Writer) — your text is sent over HTTPS to our API, which forwards it to OpenAI's GPT-4o mini model. The text is processed and the result is returned. We do not store the text you submit.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Background Remover</strong> — your image is sent over HTTPS to the remove.bg API for AI background removal, then returned to you. We do not store the image.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">URL Shortener</strong> — the URL you shorten is stored in our database to enable redirects. Only the URL is stored, along with a click count. No IP addresses or personal identifiers are stored.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">Temp Email</strong> — a temporary email address and incoming message content is stored for up to 30 minutes, then permanently deleted.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">URL Shortener</strong> — the URL you shorten is stored in our database to enable redirects, along with a click count. No IP addresses or personal identifiers are stored.</li>
         </ul>
         <p>
-          All server-to-server communication uses HTTPS/TLS encryption. Data in transit is encrypted.
+          All server communication uses HTTPS/TLS encryption. Data in transit is encrypted.
         </p>
       </Section>
 
@@ -103,7 +104,7 @@ export default function Privacy() {
                 ['AI Tools', 'Text input', 'Not stored'],
                 ['Background Remover', 'Uploaded image', 'Not stored'],
                 ['URL Shortener', 'Shortened URL', 'Until deleted by user'],
-                ['Temp Email', 'Inbox messages', '30 minutes'],
+                ['Contact form', 'Name, email, message', 'Kept only to reply'],
               ].map(([tool, data, retention]) => (
                 <tr key={tool} className="bg-white dark:bg-zinc-900">
                   <td className="px-4 py-2.5 text-zinc-700 dark:text-zinc-300 font-medium">{tool}</td>
@@ -116,36 +117,63 @@ export default function Privacy() {
         </div>
       </Section>
 
-      <Section icon={Eye} color={{ bg: 'bg-violet-500/10', text: 'text-violet-500' }} title="Cookies & analytics">
+      <Section icon={Eye} color={{ bg: 'bg-violet-500/10', text: 'text-violet-500' }} title="Cookies & local storage">
         <p>
-          UtilKit uses one cookie: a theme preference (light/dark mode) stored in <code className="text-xs bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded">localStorage</code>. It is never transmitted to any server.
+          UtilKit itself uses a single browser <code className="text-xs bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded">localStorage</code> value
+          to remember your theme preference (light/dark mode). It is never transmitted to any server.
         </p>
         <p>
-          We do not use Google Analytics, Meta Pixel, or any other third-party tracking service.
-          We do not serve advertisements. We do not fingerprint browsers.
+          In addition, our advertising partner (Google) and its vendors may set cookies in your browser to
+          serve and measure ads — see the Advertising section below for details and your opt-out choices.
+          We do not run Google Analytics, Meta Pixel, or other independent tracking or fingerprinting scripts.
         </p>
       </Section>
 
-      <Section icon={Trash2} color={{ bg: 'bg-rose-500/10', text: 'text-rose-500' }} title="Third-party services">
+      <Section icon={Megaphone} color={{ bg: 'bg-rose-500/10', text: 'text-rose-500' }} title="Advertising (Google AdSense)">
         <p>
-          We use the following third-party services for specific tool functionality only:
+          UtilKit is a free service supported by advertising. We use{' '}
+          <strong className="text-zinc-700 dark:text-zinc-300">Google AdSense</strong> to display ads on some pages.
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong className="text-zinc-700 dark:text-zinc-300">OpenAI</strong> — processes text for AI tools. Subject to <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">OpenAI's privacy policy</a>. Text is not used to train models under the API terms.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">remove.bg</strong> — processes images for the Background Remover. Subject to <a href="https://www.remove.bg/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">remove.bg's privacy policy</a>.</li>
+          <li>Google, as a third-party vendor, uses cookies (including the DoubleClick cookie) to serve ads based on your prior visits to UtilKit and other websites.</li>
+          <li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this and other sites.</li>
+          <li>Third-party vendors and ad networks may also use cookies to serve ads based on your interests.</li>
         </ul>
         <p>
-          No other third-party services receive your data.
+          You can opt out of personalised advertising by visiting{' '}
+          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">Google Ads Settings</a>.
+          You can also opt out of many third-party vendors' use of cookies for personalised advertising at{' '}
+          <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">aboutads.info/choices</a>.
+          For more information, see{' '}
+          <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">Google's advertising policies</a>.
+        </p>
+        <p>
+          Visitors in the EEA, UK and Switzerland are shown a consent prompt for personalised ads where required.
         </p>
       </Section>
 
-      <Section icon={Mail} color={{ bg: 'bg-pink-500/10', text: 'text-pink-500' }} title="Contact">
+      <Section icon={Server} color={{ bg: 'bg-sky-500/10', text: 'text-sky-500' }} title="Other third-party services">
         <p>
-          Questions about this privacy policy? Reach us at{' '}
-          <a href="mailto:privacy@utilkit.io" className="underline hover:text-indigo-500">
-            privacy@utilkit.io
-          </a>
-          . We aim to respond within 48 hours.
+          Besides advertising, we use these providers strictly to power specific features:
+        </p>
+        <ul className="list-disc pl-5 space-y-1.5">
+          <li><strong className="text-zinc-700 dark:text-zinc-300">OpenAI</strong> — processes text for AI tools. Subject to <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">OpenAI's privacy policy</a>. Text submitted via the API is not used to train models.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">remove.bg</strong> — processes images for the Background Remover. Subject to <a href="https://www.remove.bg/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">remove.bg's privacy policy</a>.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">Google Fonts</strong> — serves the site's typefaces; your browser requests font files from Google's servers.</li>
+        </ul>
+      </Section>
+
+      <Section icon={Mail} color={{ bg: 'bg-pink-500/10', text: 'text-pink-500' }} title="Your rights & contact">
+        <p>
+          Because we store almost no personal data, there is very little for us to hold about you. Where we
+          do (for example a message you send via the contact form, or a URL you shorten), you can ask us to
+          delete it at any time.
+        </p>
+        <p>
+          Questions about this privacy policy, or a request about your data? Reach us via the{' '}
+          <Link to="/contact" className="underline hover:text-indigo-500">Contact page</Link> or at{' '}
+          <a href="mailto:support@utilkit.us" className="underline hover:text-indigo-500">support@utilkit.us</a>.
+          We aim to respond within 48 hours.
         </p>
       </Section>
 

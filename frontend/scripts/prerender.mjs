@@ -257,6 +257,15 @@ function renderHome() {
     }
     body += '</ul></section>'
   }
+
+  // Editorial content — gives the homepage real textual substance for crawlers.
+  body +=
+    '<section class="mt-14 max-w-3xl"><h2 class="text-xl font-bold text-zinc-800 dark:text-zinc-100 mb-4">Free online tools, without the runaround</h2>' +
+    '<p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Most everyday digital tasks — converting a PDF to Word, compressing a photo so it fits an upload limit, generating a QR code for a poster, formatting a messy block of JSON, or working out a percentage — are simple in theory but scattered across dozens of different websites in practice. Each one has its own layout, its own sign-up wall, and its own pile of pop-ups. UtilKit exists to gather the tools you reach for most into a single, consistent place that loads fast and gets out of your way.</p>' +
+    '<p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">There are currently 68 tools spread across PDF, image, developer, generator, calculator, and text categories. You never need an account to use them, and there are no watermarks, trial timers, or file-size paywalls on the core tools. Browse by category or search by name — every tool is one click away and opens instantly.</p>' +
+    '<p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Privacy is built in rather than bolted on. Wherever it is technically possible, tools run entirely inside your browser: when you merge PDFs or resize an image, the file is processed on your own device and never uploaded to a server. A handful of tools that genuinely need one — such as the AI writing helpers and the background remover — send data over an encrypted connection, process it, and return the result without storing it. You can read exactly how each tool handles data in our <a href="/privacy/" class="underline">Privacy Policy</a>.</p>' +
+    '<p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">UtilKit is designed for anyone who works with files and text online — students, professionals, developers, and creators. New tools are added regularly, and each one comes with a short guide and FAQ. Want a tool we do not have yet, or spotted something broken? Tell us on the <a href="/contact/" class="underline">Contact page</a>, or learn more <a href="/about/" class="underline">about UtilKit</a>.</p></section>'
+
   body += '</div>'
   return {
     path: '/',
@@ -286,16 +295,122 @@ function renderAdvertise() {
 
 function renderPrivacy() {
   const body =
-    '<div class="max-w-3xl mx-auto px-4 py-8">' +
-    '<h1 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">Privacy Policy</h1>' +
-    '<p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">UtilKit runs its tools in your browser wherever possible — files processed client-side never leave your device. This page explains what limited data we collect, how cookies and third-party services (such as advertising) are used, and your choices.</p>' +
+    '<div class="max-w-2xl mx-auto px-4 py-10">' +
+    '<h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">Your files stay yours</h1>' +
+    '<p class="text-zinc-500 dark:text-zinc-400 mb-6">UtilKit is built on a simple principle: process your data, return the result, keep as little as possible. Most tools run entirely in your browser, so your files never reach our servers. This policy explains what we collect, the third-party services we use — including advertising — and the choices you have. Last updated: July 2026.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Browser-side tools — no upload ever</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">The majority of UtilKit tools run entirely inside your web browser using JavaScript — all PDF tools, most image tools, and all developer and text tools. Your files and data never leave your device; no bytes are transmitted to any server. Processing happens locally on your own machine.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Server-side tools — processed, then deleted</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">A few tools need our server: the AI tools (Paraphraser, Grammar Fixer, Summarizer, Title Generator, Email Writer) send text over HTTPS to OpenAI and return the result without storing it; the Background Remover sends your image to remove.bg and returns it without storing it; the URL Shortener stores only the shortened URL and a click count. All server communication is encrypted with HTTPS/TLS.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Cookies &amp; local storage</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit itself uses one localStorage value to remember your theme preference; it is never transmitted. Our advertising partner (Google) and its vendors may set cookies to serve and measure ads. We do not run Google Analytics, Meta Pixel, or other independent tracking scripts.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Advertising (Google AdSense)</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit is a free service supported by advertising. We use Google AdSense to display ads. Google, as a third-party vendor, uses cookies (including the DoubleClick cookie) to serve ads based on your prior visits to UtilKit and other sites, and third-party vendors and ad networks may also use cookies to serve ads based on your interests. You can opt out of personalised advertising at <a href="https://www.google.com/settings/ads" class="underline">Google Ads Settings</a> and at <a href="https://www.aboutads.info/choices/" class="underline">aboutads.info/choices</a>. See <a href="https://policies.google.com/technologies/ads" class="underline">Google\'s advertising policies</a> for more. Visitors in the EEA, UK and Switzerland are shown a consent prompt for personalised ads where required.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Other third-party services</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">We use OpenAI to process text for AI tools, remove.bg to process images for the Background Remover, and Google Fonts to serve the site\'s typefaces. Each is used strictly to power that feature.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Your rights &amp; contact</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">We store almost no personal data. Where we do (a contact message, or a URL you shorten), you can ask us to delete it at any time. Contact us via the <a href="/contact/" class="underline">Contact page</a> or at <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>.</p>' +
     '</div>'
   return {
     path: '/privacy',
     title: 'Privacy Policy | UtilKit',
-    description: 'How UtilKit handles your data. Most tools run entirely in your browser; files never leave your device.',
+    description: 'How UtilKit handles your data: most tools run in your browser, files never leave your device. Includes our Google AdSense cookie disclosure and opt-out choices.',
     body,
-    jsonLd: [],
+    jsonLd: [breadcrumbLd([['Home', '/'], ['Privacy', '/privacy']])],
+  }
+}
+
+function renderAbout() {
+  const body =
+    '<div class="max-w-2xl mx-auto px-4 py-10">' +
+    '<h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">One tab for the tools you keep re-searching</h1>' +
+    '<p class="text-zinc-500 dark:text-zinc-400 mb-8">UtilKit brings together 68 of the everyday utilities people bounce between a dozen websites to find — PDF conversion, image editing, QR codes, password generation, JSON formatting, unit conversion and more — under one fast, ad-light, no-sign-up roof.</p>' +
+    '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3">Why we built it</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">The web is full of single-purpose tool sites, and most of them make a simple task feel like a chore: pop-ups, forced sign-ups, watermarks, upload limits, and a wall of ads between you and the download button. UtilKit exists to remove that friction. Every tool lives at a predictable address, opens instantly, and does exactly one job well — no account, no install, no “upgrade to continue.”</p>' +
+    '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">How it actually works</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Wherever it is technically possible, our tools run entirely inside your browser. When you merge two PDFs or resize a photo, the work happens on your own device using JavaScript — the file never travels to a server. That makes the tools fast, keeps them working on flaky connections, and means your documents stay private by default. A small number of tools genuinely need a server (for example AI-powered tools and the background remover); for those, data is sent over encrypted HTTPS, processed, and returned, and we do not retain it.</p>' +
+    '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">What is inside</h2>' +
+    '<ul class="list-disc pl-6 mb-4 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-400">' +
+    '<li>PDF tools — convert, merge, split, compress, watermark, rotate, OCR and e-sign.</li>' +
+    '<li>Image tools — convert formats, compress, resize, upscale and remove backgrounds.</li>' +
+    '<li>Developer tools — JSON/SQL/HTML/CSS formatters, Base64, JWT, regex, hashing and UUIDs.</li>' +
+    '<li>Generators — QR codes, passwords, short links and more.</li>' +
+    '<li>Calculators &amp; converters — percentages, loans, BMI, age, units and number bases.</li>' +
+    '<li>Text tools — word counting, case conversion, lorem ipsum and more.</li></ul>' +
+    '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">What we stand for</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Privacy first — client-side by default, nothing stored that does not have to be. Free to use — the core tools are, and will stay, free. No friction — no sign-up wall to run a tool, no watermarks on your output. Honest UX — clear labels, no dark patterns.</p>' +
+    '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">How UtilKit is funded</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Keeping the tools free and running costs money — servers, domains, and the AI services behind a few of the tools. We cover that through light, clearly-marked advertising and optional paid upgrades for heavier users. We do not sell your data, and we never will.</p>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Questions or tool requests? Visit our <a href="/contact/" class="underline">Contact page</a> or email <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>.</p>' +
+    '</div>'
+  return {
+    path: '/about',
+    title: 'About UtilKit — Free Online Utility Tools',
+    description: 'What UtilKit is, why we built it, and how our 68 free browser-based tools work. Privacy-first, no sign-up, no watermarks.',
+    body,
+    jsonLd: [
+      breadcrumbLd([['Home', '/'], ['About', '/about']]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'About UtilKit',
+        url: canon('/about'),
+        description: 'What UtilKit is, why we built it, and how our free browser-based tools work.',
+      },
+    ],
+  }
+}
+
+function renderContact() {
+  const body =
+    '<div class="max-w-2xl mx-auto px-4 py-10">' +
+    '<h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">Get in touch</h1>' +
+    '<p class="text-zinc-500 dark:text-zinc-400 mb-4">Questions, bug reports, tool requests, or advertising enquiries — send us a message and we will get back to you. You can also email us directly at <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>. We aim to reply within 48 hours.</p>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Use the contact form to tell us your name, email, a subject, and your message, and we will reply to the email address you provide. Whether you have spotted a bug, want a tool we do not have yet, need help using one of our utilities, or would like to advertise on UtilKit, this is the fastest way to reach a human.</p>' +
+    '</div>'
+  return {
+    path: '/contact',
+    title: 'Contact UtilKit — Support, Feedback & Enquiries',
+    description: 'Contact the UtilKit team for support, bug reports, tool requests, or advertising enquiries. Email support@utilkit.us — we reply within 48 hours.',
+    body,
+    jsonLd: [
+      breadcrumbLd([['Home', '/'], ['Contact', '/contact']]),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact UtilKit',
+        url: canon('/contact'),
+        description: 'Contact the UtilKit team for support, feedback, tool requests, or advertising enquiries.',
+      },
+    ],
+  }
+}
+
+function renderTerms() {
+  const body =
+    '<div class="max-w-2xl mx-auto px-4 py-10">' +
+    '<h1 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100 mb-3">Terms of Service &amp; Disclaimer</h1>' +
+    '<p class="text-sm text-zinc-500 dark:text-zinc-400 mb-6">These terms govern your use of UtilKit (utilkit.us). By using the site and its tools, you agree to them. Last updated: July 2026.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Using UtilKit</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit provides a collection of free online utility tools. You may use them for personal or commercial purposes, free of charge, without creating an account. Some optional features may require an account or a paid plan; where they do, that will be made clear before you sign up or pay. You are responsible for the files and content you process, and for making sure you have the right to use them.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Acceptable use</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">You agree not to use the tools to process illegal, infringing, or malicious content; not to disrupt, overload, reverse-engineer, or gain unauthorised access to the service; not to abuse rate limits or resell access to server-side tools as your own service; and not to use the site in any way that violates applicable laws or the rights of others.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Disclaimer — “as is”</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit and all of its tools are provided “as is” and “as available,” without warranties of any kind. We do not guarantee that any tool will be accurate, error-free, or fit for a particular purpose. Results from calculators, converters, generators, and AI-assisted tools are provided for convenience and should not be relied upon as professional, legal, financial, or medical advice. You use the tools at your own risk.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Limitation of liability</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">To the fullest extent permitted by law, UtilKit and its operators will not be liable for any indirect, incidental, or consequential damages — including lost data, lost profits, or business interruption — arising from your use of, or inability to use, the site or its tools.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Advertising &amp; third-party services</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit is supported in part by advertising, which may be served by third-party ad networks. Those networks may use cookies and similar technologies to show and measure ads; how that works, and your choices, are described in our <a href="/privacy/" class="underline">Privacy Policy</a>. We are not responsible for the content or practices of external sites we link to.</p>' +
+    '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Changes to these terms</h2>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">We may update these terms from time to time as the service evolves. When we do, we will revise the “last updated” date above. Continuing to use UtilKit after a change means you accept the updated terms.</p>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Questions about these terms? Reach us via the <a href="/contact/" class="underline">Contact page</a> or at <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>.</p>' +
+    '</div>'
+  return {
+    path: '/terms',
+    title: 'Terms of Service & Disclaimer | UtilKit',
+    description: 'The terms that govern your use of UtilKit, including acceptable use, the “as is” disclaimer, limitation of liability, and advertising disclosures.',
+    body,
+    jsonLd: [breadcrumbLd([['Home', '/'], ['Terms', '/terms']])],
   }
 }
 
@@ -376,6 +491,9 @@ function main() {
     renderBlogIndex(),
     renderAdvertise(),
     renderPrivacy(),
+    renderAbout(),
+    renderContact(),
+    renderTerms(),
     ...tools.map(renderToolPage),
     ...blogPosts.map(renderBlogPost),
   ]

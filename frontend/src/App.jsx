@@ -14,6 +14,9 @@ import Home from './pages/Home'
 // doorway content); restore the import + catch-all route below to re-enable.
 // const ProgrammaticPage = lazy(() => import('./pages/ProgrammaticPage'))
 const Privacy = lazy(() => import('./pages/Privacy'))
+const About = lazy(() => import('./pages/About'))
+const Contact = lazy(() => import('./pages/Contact'))
+const Terms = lazy(() => import('./pages/Terms'))
 const Blog = lazy(() => import('./pages/Blog'))
 const BlogPost = lazy(() => import('./pages/BlogPost'))
 const Advertise = lazy(() => import('./pages/Advertise'))
@@ -218,6 +221,9 @@ export default function App() {
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="terms" element={<Terms />} />
           <Route path="advertise" element={<Advertise />} />
 
           {/* Advertiser accounts (client-only, noindex) */}

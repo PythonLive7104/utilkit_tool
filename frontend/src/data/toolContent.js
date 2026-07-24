@@ -632,32 +632,6 @@ export const toolContent = {
     ],
   },
 
-  'url-shortener': {
-    why: 'Long URLs are a problem in a lot of places: they blow past character limits on social platforms, wrap awkwardly in emails, are impossible to read aloud or type from a flyer, and look untrustworthy with a trail of tracking parameters. A short link fixes all of that — it is clean, fits anywhere, and with a custom slug like /s/blackfriday it is even memorable and on-brand.\n\nThis shortener turns any long URL into a tidy short link in one step, with an optional custom slug or an auto-generated code. It also counts clicks per link, so you can see which channel or post is actually driving traffic — useful for measuring a campaign without a heavyweight analytics setup. To make the redirect work, only the destination URL is stored; no personal data or IP addresses are collected, and links last until you delete them. It is free, with no account required.',
-    howTo: [
-      { step: '1', title: 'Paste your long URL', body: 'Enter the full destination URL — including any tracking parameters — into the input field.' },
-      { step: '2', title: 'Set a custom slug (optional)', body: 'Type a memorable path like "spring-sale", or leave it blank to get a short random code.' },
-      { step: '3', title: 'Copy, share, and track', body: 'Copy the short link and share it anywhere. Watch total clicks for each link in your created-links list.' },
-    ],
-    useCases: [
-      { title: 'Social media', body: 'Fit links within character limits and tidy up previews on X, Instagram bios, and other platforms.' },
-      { title: 'Marketing campaigns', body: 'Create branded, memorable links for print, ads, and email, and compare clicks across channels.' },
-      { title: 'Print & offline', body: 'Use a short, typeable link on flyers, posters, slides, and business cards where a long URL is unusable.' },
-      { title: 'Internal sharing', body: 'Shorten unwieldy dashboard, wiki, or document URLs to paste cleanly into chat.' },
-      { title: 'QR codes', body: 'Encode a short link in a QR code so the pattern is simpler and easier to scan than a long URL.' },
-    ],
-    faq: [
-      { q: 'Are short links permanent?', a: 'Yes. They keep working until you choose to delete them.' },
-      { q: 'Is my URL stored?', a: 'Yes — the destination URL is stored so the redirect can work. Only the URL is kept; no personal data is collected.' },
-      { q: 'Are clicks tracked?', a: 'A total click count is recorded per link. No IP addresses or personal identifiers are stored.' },
-      { q: 'Can I choose my own short code?', a: 'Yes. Set a custom slug to make the link memorable, or leave it blank for an automatically generated code.' },
-      { q: 'What happens if my custom slug is taken?', a: 'Slugs are unique, so if one is already in use you’ll be asked to pick another.' },
-      { q: 'Can I use my own domain?', a: 'Not currently — all links use the default short domain.' },
-      { q: 'Do the links work with tracking parameters?', a: 'Yes. The full destination, including UTM and other query parameters, is preserved on redirect.' },
-      { q: 'Is it free?', a: 'Yes — shorten and track as many links as you need for free, with no sign-up.' },
-    ],
-  },
-
   'password-generator': {
     why: 'Reused and guessable passwords are behind the majority of account breaches. The moment one site you use leaks its database, attackers try that same email-and-password combination everywhere else — so a single weak password can unlock your email, bank, and social accounts at once. The only real defence is a long, random, unique password for every account, which is impossible to invent in your head and tedious to type by hand.\n\nThis generator creates them properly. It uses your browser’s cryptographic randomness — window.crypto.getRandomValues(), not the predictable Math.random() — so the output is genuinely unguessable, and it shows the entropy in bits as a live strength gauge. You control the length and whether to include uppercase, lowercase, numbers, and symbols. Everything happens on your device: the password is never sent over the network, logged, or stored anywhere, so it is safe to generate even for your most sensitive accounts. Generate, copy, and save it straight into your password manager.',
     howTo: [

@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     'corsheaders',
     # Local apps
     'accounts',
-    'url_shortener',
     'bg_remover',
     'ai_tools',
     'payments',

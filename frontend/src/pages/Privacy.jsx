@@ -79,7 +79,6 @@ export default function Privacy() {
         <ul className="list-disc pl-5 space-y-1.5">
           <li><strong className="text-zinc-700 dark:text-zinc-300">AI Tools</strong> (Paraphraser, Grammar Fixer, Summarizer, Title Generator, Email Writer) — your text is sent over HTTPS to our API, which forwards it to OpenAI's GPT-4o mini model. The text is processed and the result is returned. We do not store the text you submit.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Background Remover</strong> — your image is sent over HTTPS to the remove.bg API for AI background removal, then returned to you. We do not store the image.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">URL Shortener</strong> — the URL you shorten is stored in our database to enable redirects, along with a click count. No IP addresses or personal identifiers are stored.</li>
         </ul>
         <p>
           All server communication uses HTTPS/TLS encryption. Data in transit is encrypted.
@@ -103,7 +102,6 @@ export default function Privacy() {
               {[
                 ['AI Tools', 'Text input', 'Not stored'],
                 ['Background Remover', 'Uploaded image', 'Not stored'],
-                ['URL Shortener', 'Shortened URL', 'Until deleted by user'],
                 ['Contact form', 'Name, email, message', 'Kept only to reply'],
               ].map(([tool, data, retention]) => (
                 <tr key={tool} className="bg-white dark:bg-zinc-900">
@@ -166,7 +164,7 @@ export default function Privacy() {
       <Section icon={Mail} color={{ bg: 'bg-pink-500/10', text: 'text-pink-500' }} title="Your rights & contact">
         <p>
           Because we store almost no personal data, there is very little for us to hold about you. Where we
-          do (for example a message you send via the contact form, or a URL you shorten), you can ask us to
+          do (for example a message you send via the contact form), you can ask us to
           delete it at any time.
         </p>
         <p>

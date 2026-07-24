@@ -71,25 +71,6 @@ export const auth = {
   me: () => request('/api/auth/me/'),
 }
 
-// ── URL Shortener ────────────────────────────────────────────
-export const urlShortener = {
-  shorten: (url, slug = '', expiresInDays = null) =>
-    request('/api/urls/shorten/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        url,
-        ...(slug ? { slug } : {}),
-        ...(expiresInDays ? { expires_in_days: expiresInDays } : {}),
-      }),
-    }),
-
-  get: (code) => request(`/api/urls/${code}/`),
-
-  delete: (code) =>
-    request(`/api/urls/${code}/`, { method: 'DELETE' }),
-}
-
 // ── AI Tools ─────────────────────────────────────────────────
 export const aiTool = (action, text) =>
   request('/api/ai/', {

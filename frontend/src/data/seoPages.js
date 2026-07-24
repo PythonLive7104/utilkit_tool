@@ -784,39 +784,6 @@ export const seoPages = {
     features: ['Encode & decode', 'Swap input/output', 'Byte count display'],
   },
 
-  // ── URL Shortener ─────────────────────────────────────────────────────────
-
-  'free-url-shortener': {
-    toolId: 'url-shortener',
-    toolPath: '/tools/url-shortener',
-    toolName: 'URL Shortener',
-    title: 'Free URL Shortener — No Signup, Click Tracking | UtilKit',
-    description: 'Shorten any URL for free with optional custom slug, expiry date, and click tracking. No account required.',
-    h1: 'Free URL Shortener',
-    tagline: 'Shorten any URL for free — custom slugs, expiry dates, click tracking, and QR code generation.',
-    features: ['Custom slug', 'Click tracking', 'QR code for each link'],
-  },
-  'link-shortener-online': {
-    toolId: 'url-shortener',
-    toolPath: '/tools/url-shortener',
-    toolName: 'URL Shortener',
-    title: 'Link Shortener Online — Shorten URLs Free | UtilKit',
-    description: 'Shorten long links online for free. Track clicks, set custom slugs, and generate QR codes for each short link.',
-    h1: 'Online Link Shortener',
-    tagline: 'Turn long ugly URLs into clean short links — track clicks and generate QR codes instantly.',
-    features: ['No signup required', 'Set expiry dates', 'Session history'],
-  },
-  'custom-url-shortener': {
-    toolId: 'url-shortener',
-    toolPath: '/tools/url-shortener',
-    toolName: 'URL Shortener',
-    title: 'Custom URL Shortener — Create Branded Short Links | UtilKit',
-    description: 'Create short links with custom slugs like /s/my-brand. Memorable, shareable, and free with click tracking.',
-    h1: 'Custom URL Shortener',
-    tagline: 'Create memorable branded short links with custom slugs — /s/your-brand-name.',
-    features: ['Custom slug support', 'Letters, numbers, hyphens', 'Click count tracking'],
-  },
-
   // ── Percentage Calculator ────────────────────────────────────────────────
   'percentage-increase-calculator': {
     toolId: 'percentage-calculator', toolPath: '/tools/percentage-calculator', toolName: 'Percentage Calculator',

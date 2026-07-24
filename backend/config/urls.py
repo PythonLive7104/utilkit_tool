@@ -6,16 +6,15 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('accounts.urls')),
-    path('api/urls/', include('url_shortener.urls')),
-    # temp_email app fully removed for AdSense approval (disposable email is
-    # abuse-associated). Its tables are dropped by accounts/migrations/0002.
+    # temp_email and url_shortener apps fully removed as abuse-associated
+    # (disposable email flagged by AdSense; the shortener was abused as an open
+    # phishing redirector). Their tables are dropped by accounts/migrations
+    # 0002 and 0003 respectively.
     path('api/bg/', include('bg_remover.urls')),
     path('api/ai/', include('ai_tools.urls')),
     path('api/billing/', include('payments.urls')),
     path('api/contact/', include('contact.urls')),
     path('api/ads/', include('advertising.urls')),
-    # Short-link redirect lives at the root so /s/<code> is clean
-    path('s/', include('url_shortener.redirect_urls')),
 ]
 
 # In development Django serves uploaded media. In production nginx serves

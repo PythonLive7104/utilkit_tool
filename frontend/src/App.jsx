@@ -36,7 +36,6 @@ const ImageCompressor = lazy(() => import('./pages/tools/ImageCompressor'))
 const BackgroundRemover = lazy(() => import('./pages/tools/BackgroundRemover'))
 const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'))
 const QrCodeGenerator = lazy(() => import('./pages/tools/QrCodeGenerator'))
-const UrlShortener = lazy(() => import('./pages/tools/UrlShortener'))
 const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator'))
 const JsonFormatter = lazy(() => import('./pages/tools/JsonFormatter'))
 const Base64Tool = lazy(() => import('./pages/tools/Base64Tool'))
@@ -149,7 +148,6 @@ export default function App() {
 
           {/* Generator Tools */}
           <Route path="tools/qr-code-generator" element={<QrCodeGenerator />} />
-          <Route path="tools/url-shortener" element={<UrlShortener />} />
           <Route path="tools/password-generator" element={<PasswordGenerator />} />
 
           {/* Original Developer Tools */}

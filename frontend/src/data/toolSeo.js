@@ -326,40 +326,7 @@ export const toolSeo = {
       { q: 'What is the maximum amount of data a QR code can hold?', a: 'A standard QR code holds up to about 3,000 characters (alphanumeric). Longer content produces a denser, harder-to-scan code. Keep URLs short for best results.' },
       { q: 'Can I use a coloured QR code?', a: 'Yes — the colour picker lets you set any foreground colour. Ensure there is strong contrast with the background (white is recommended) for reliable scanning.' },
     ],
-    related: ['url-shortener', 'password-generator'],
-  },
-
-  'url-shortener': {
-    title: 'URL Shortener — Free Link Shortener with QR Code | UtilKit',
-    description: 'Shorten long URLs into compact links. Add a custom slug, set an expiry date, track click counts, and generate a QR code — free, no account needed.',
-    benefits: [
-      { title: 'Custom slugs', description: 'Create memorable short links like /s/my-project instead of a random code. Great for sharing in presentations or print.' },
-      { title: 'Expiry dates', description: 'Set links to expire after 1 day, 7 days, 30 days, or up to 1 year — useful for time-limited promotions or event links.' },
-      { title: 'Click tracking', description: 'See how many times each short link has been clicked, shown live in your session history.' },
-      { title: 'Built-in QR code', description: 'Generate a scannable QR code for any short link with one click and download it as a PNG.' },
-    ],
-    howTo: {
-      title: 'How to shorten a URL',
-      steps: [
-        'Paste your long URL into the input field.',
-        'Optionally enter a custom slug (e.g. "my-event") and choose an expiry period.',
-        'Click "Shorten URL" — your short link appears instantly.',
-        'Copy the link or click the QR icon to generate a scannable code.',
-      ],
-    },
-    examples: [
-      { title: 'Event invitations', description: 'Shorten a long event registration URL to share via SMS or print on a flyer, with a 30-day expiry set for after the event.' },
-      { title: 'Marketing campaigns', description: 'Create a memorable slug like /s/summer-sale for a campaign link you\'ll use across social media and email.' },
-      { title: 'Presentations', description: 'Replace a long resource URL with a short link (and QR code) on a presentation slide so attendees can easily access it.' },
-    ],
-    faq: [
-      { q: 'Are short links permanent?', a: 'By default, links never expire. You can optionally set an expiry date when creating the link. Links can also be deleted manually from your session history.' },
-      { q: 'Can two people use the same custom slug?', a: 'No — slugs are unique across the system. If the slug you entered is already taken, you\'ll be prompted to choose a different one.' },
-      { q: 'Is there a limit to how many links I can create?', a: 'There\'s no hard limit for normal use. Rate limiting prevents abuse, allowing up to 100 requests per minute per user.' },
-      { q: 'Can I edit a short link after creating it?', a: 'Currently links cannot be edited after creation. Delete the link from your history and create a new one if you need to change the destination.' },
-      { q: 'Are short links public?', a: 'The redirect is public — anyone with the short link can use it. The link is not listed or discoverable; only people you share it with can access it.' },
-    ],
-    related: ['qr-code-generator', 'password-generator'],
+    related: ['password-generator'],
   },
 
   'password-generator': {
@@ -392,7 +359,7 @@ export const toolSeo = {
       { q: 'What is a passphrase and is it as secure as a random password?', a: 'A passphrase is multiple random words joined together. A 5-word passphrase from a 100-word list provides about 83 bits of entropy — equivalent to a 13-character random password, but far easier to remember.' },
       { q: 'Should I exclude ambiguous characters?', a: 'Use the "Exclude ambiguous" option when a password will be typed manually — characters like 0, O, l, and 1 are easy to mistake. If you\'re pasting the password, ambiguous characters are fine.' },
     ],
-    related: ['uuid-generator', 'url-shortener', 'base64'],
+    related: ['uuid-generator', 'base64'],
   },
 
   'json-formatter': {

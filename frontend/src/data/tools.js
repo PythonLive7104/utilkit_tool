@@ -409,23 +409,7 @@ export const tools = [
     category: 'generator',
     clientSide: true,
     icon: 'QrCode',
-    related: ['url-shortener', 'password-generator', 'bio-link-generator'],
-  },
-  {
-    id: 'url-shortener',
-    name: 'URL Shortener',
-    description: 'Turn any long URL into a short, shareable link with optional custom slug and click tracking.',
-    features: [
-      'Custom slug option (e.g. /s/my-campaign)',
-      'Tracks total clicks and creation date',
-      'One-click QR code for any short link',
-    ],
-    useCase: 'Marketers shorten tracking URLs for tweets; teams share internal doc links.',
-    path: '/tools/url-shortener',
-    category: 'generator',
-    clientSide: false,
-    icon: 'Link',
-    related: ['qr-code-generator', 'password-generator', 'bio-link-generator'],
+    related: ['password-generator', 'bio-link-generator'],
   },
   {
     id: 'password-generator',
@@ -441,7 +425,7 @@ export const tools = [
     category: 'generator',
     clientSide: true,
     icon: 'KeyRound',
-    related: ['qr-code-generator', 'url-shortener', 'base64'],
+    related: ['qr-code-generator', 'base64'],
   },
 
   // ─── Developer Tools ──────────────────────────────────────
@@ -668,7 +652,7 @@ export const tools = [
     category: 'viral',
     clientSide: true,
     icon: 'Link2',
-    related: ['url-shortener', 'qr-code-generator', 'resume-builder'],
+    related: ['qr-code-generator', 'resume-builder'],
   },
   {
     id: 'typing-speed-test',

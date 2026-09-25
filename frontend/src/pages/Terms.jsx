@@ -39,12 +39,11 @@ export default function Terms() {
       <Section icon={Check} color={{ bg: 'bg-emerald-500/10', text: 'text-emerald-500' }} title="Using UtilKit">
         <p>
           UtilKit provides a collection of free online utility tools. You may use them for personal or
-          commercial purposes, free of charge, without creating an account. Some optional features may
-          require an account or a paid plan; where they do, that will be made clear before you sign up or pay.
+          commercial purposes, free of charge, without creating an account.
         </p>
         <p>
           You are responsible for the files and content you process with the tools, and for making sure you
-          have the right to use them. Many of our tools run entirely in your browser, so the output you
+          have the right to use them. Our tools run entirely in your browser, so the output you
           generate is yours to keep and use.
         </p>
       </Section>
@@ -54,7 +53,6 @@ export default function Terms() {
         <ul className="list-disc pl-5 space-y-1.5">
           <li>Use the tools to process content that is illegal, infringing, malicious, or that you don't have the rights to.</li>
           <li>Attempt to disrupt, overload, reverse-engineer, or gain unauthorised access to the service or its infrastructure.</li>
-          <li>Use automated means to abuse rate limits or resell access to server-side tools as your own service.</li>
           <li>Use the site in any way that violates applicable laws or the rights of others.</li>
         </ul>
         <p>
@@ -70,7 +68,7 @@ export default function Terms() {
           guarantee that any tool will be accurate, error-free, uninterrupted, or fit for a particular purpose.
         </p>
         <p>
-          Results from calculators, converters, generators, and AI-assisted tools are provided for convenience
+          Results from calculators, converters, and generators are provided for convenience
           and should not be relied upon as professional, legal, financial, or medical advice. Always verify
           important results independently. You use the tools at your own risk, and you are responsible for
           keeping your own backups of any files you value.

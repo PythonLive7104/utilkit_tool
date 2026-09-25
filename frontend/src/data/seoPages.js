@@ -573,48 +573,6 @@ export const seoPages = {
     features: ['Up to 30% size reduction', 'Adjustable quality slider', 'Batch up to 10 files'],
   },
 
-  // ── Background Remover ────────────────────────────────────────────────────
-
-  'remove-background-from-image': {
-    toolId: 'background-remover',
-    toolPath: '/tools/background-remover',
-    toolName: 'Background Remover',
-    title: 'Remove Background from Image — Free AI Tool | UtilKit',
-    description: 'Remove the background from any photo using AI. Get a transparent PNG or replace with white, black, or a custom color.',
-    h1: 'Remove Background from Image',
-    tagline: 'AI-powered background removal — transparent PNG output in seconds, no manual masking.',
-    features: ['AI-powered detection', 'Transparent / custom background', 'PNG or JPEG download'],
-  },
-  'background-remover-online': {
-    toolId: 'background-remover',
-    toolPath: '/tools/background-remover',
-    toolName: 'Background Remover',
-    title: 'Background Remover Online — Free, AI-Powered | UtilKit',
-    description: 'Remove image backgrounds online for free using AI. Supports transparent, white, black, or custom color output.',
-    h1: 'Online Background Remover',
-    tagline: 'Remove any background from your photos online — transparent PNG ready to download in seconds.',
-    features: ['No design skills needed', 'Multiple background options', 'Product & portrait photos'],
-  },
-  'remove-background-free': {
-    toolId: 'background-remover',
-    toolPath: '/tools/background-remover',
-    toolName: 'Background Remover',
-    title: 'Remove Background Free — No Signup, AI-Powered | UtilKit',
-    description: 'Free background remover — no account, no credits, no watermark. AI detects and removes backgrounds automatically.',
-    h1: 'Free Background Remover',
-    tagline: 'Remove backgrounds for free — no credits, no signup, and no watermark on your downloads.',
-    features: ['Completely free', 'No watermark', 'Up to 5 MB images'],
-  },
-  'ai-background-remover': {
-    toolId: 'background-remover',
-    toolPath: '/tools/background-remover',
-    toolName: 'Background Remover',
-    title: 'AI Background Remover — Automatic Photo Background Removal | UtilKit',
-    description: 'AI automatically detects and removes the background from any photo. No lasso tools, no manual selection.',
-    h1: 'AI Background Remover',
-    tagline: 'Artificial intelligence detects your subject automatically — no manual selection or masking needed.',
-    features: ['AI subject detection', 'Works on people & products', 'Custom color replacement'],
-  },
 
   // ── Word Counter ──────────────────────────────────────────────────────────
 

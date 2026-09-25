@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
-import { AdBannerRow, useCategoryAds, ROW_SIZE } from './AdSlot'
 import SupportButton from './SupportButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
@@ -144,7 +143,7 @@ function CoffeeBox() {
     <div className="mt-10 rounded-2xl border border-indigo-400/20 bg-indigo-50/50 dark:bg-indigo-950/20 p-5 text-center">
       <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-1">Enjoying UtilKit?</p>
       <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
-        All 68 tools are free. If we saved you time, a small support keeps the lights on.
+        All 60 tools are free. If we saved you time, a small support keeps the lights on.
       </p>
       <SupportButton />
     </div>
@@ -161,10 +160,6 @@ export default function ToolLayout({ title, description, about, toolId, children
   const clientSide = tool?.clientSide ?? true
   const content = toolId ? toolContent[toolId] : null
 
-  // Fetch this category's banners once and share them between the top and
-  // bottom rows so impressions aren't double-counted.
-  const adData = useCategoryAds(tool?.category)
-
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       {!programmatic && (
@@ -173,9 +168,6 @@ export default function ToolLayout({ title, description, about, toolId, children
           <p className="text-zinc-500 dark:text-zinc-400 text-sm">{description}</p>
         </div>
       )}
-
-      {/* Top banner row (below the hero). */}
-      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={0} />}
 
       {toolId && <TrustBadges clientSide={clientSide} />}
 
@@ -186,9 +178,6 @@ export default function ToolLayout({ title, description, about, toolId, children
       {content?.useCases && <UseCases cases={content.useCases} />}
       {content?.faq      && <FAQ items={content.faq} />}
       {toolId            && <RelatedTools toolId={toolId} />}
-
-      {/* Bottom banner row (above the footer) — different advertisers from the top. */}
-      {tool?.category && <AdBannerRow category={tool.category} data={adData} start={ROW_SIZE} />}
 
       {about && (
         <div className="mt-10 border-t border-zinc-200 dark:border-zinc-800 pt-6">

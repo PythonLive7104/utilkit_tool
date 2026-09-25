@@ -194,7 +194,7 @@ export const toolSeo = {
       { q: 'What quality setting should I use?', a: '85% is a good balance for most images. Go lower (60–70%) for web thumbnails where speed matters more. Use 90%+ for images that will be printed or zoomed.' },
       { q: 'Can I convert GIF files?', a: 'You can upload GIFs, but only the first frame will be converted. Animated GIFs are not supported as the output is a static image.' },
     ],
-    related: ['image-compressor', 'image-resizer', 'background-remover'],
+    related: ['image-compressor', 'image-resizer'],
   },
 
   'image-compressor': {
@@ -227,41 +227,9 @@ export const toolSeo = {
       { q: 'Is there a maximum file size?', a: 'Images up to 10 MB are supported. Very high-resolution images (over 20 megapixels) may be slow to process in-browser.' },
       { q: 'Can I compress multiple images at once?', a: 'Currently one image at a time. For batch compression, use the Image Converter tool which supports up to 10 files simultaneously.' },
     ],
-    related: ['image-converter', 'image-resizer', 'background-remover'],
+    related: ['image-converter', 'image-resizer'],
   },
 
-  'background-remover': {
-    title: 'Remove Image Background Online — Free AI Tool | UtilKit',
-    description: 'Remove backgrounds from photos automatically using AI. Get a transparent PNG or choose a custom background colour. Fast, accurate, no design skills needed.',
-    benefits: [
-      { title: 'AI-powered accuracy', description: 'Advanced AI precisely traces around hair, fur, and complex edges that would take minutes to do manually in Photoshop.' },
-      { title: 'Custom background colours', description: 'Keep the background transparent, replace it with white, black, or any custom hex colour — all before downloading.' },
-      { title: 'PNG and JPEG output', description: 'Download as transparent PNG for layered use or as JPEG with a flat background for smaller file size.' },
-      { title: 'Instant side-by-side preview', description: 'Original and result are shown side by side with the actual background colour so you can see exactly what you\'re getting.' },
-    ],
-    howTo: {
-      title: 'How to remove an image background',
-      steps: [
-        'Upload a JPG or PNG photo (up to 5 MB) by dropping it or clicking "Browse".',
-        'Choose an output background: Transparent, White, Black, or a Custom colour.',
-        'Click "Remove Background" and wait a few seconds for AI processing.',
-        'Review the before/after preview, then download as PNG or JPEG.',
-      ],
-    },
-    examples: [
-      { title: 'Product photography', description: 'Remove the background from product photos to place them on a clean white background for an online store listing.' },
-      { title: 'Profile photos', description: 'Remove a messy background from a selfie and replace it with a solid colour for a professional LinkedIn headshot.' },
-      { title: 'Stickers and graphics', description: 'Cut out a subject from a photo as a transparent PNG to use as a sticker, overlay, or graphic element in a design.' },
-    ],
-    faq: [
-      { q: 'What types of images work best?', a: 'Photos with a clear subject (person, product, animal, object) against a distinct background. Complex scenes with multiple overlapping subjects may have lower accuracy.' },
-      { q: 'Does it work on logos or illustrations?', a: 'It works best on photographs. For simple logos or illustrations with solid backgrounds, the result is usually good. Complex illustrated scenes may not process well.' },
-      { q: 'Why is the file size limit 5 MB?', a: 'The AI processes the image at the server — larger files take longer and consume more API credits. 5 MB covers most camera and phone photos at full resolution.' },
-      { q: 'Is my photo stored anywhere?', a: 'No. The image is processed and the result is returned immediately. No images are stored after the response is sent.' },
-      { q: 'Can I change the background colour after downloading?', a: 'If you download as a transparent PNG, you can place it on any background in any image editor. Use the custom colour option here to apply a background before downloading if you don\'t have an editor.' },
-    ],
-    related: ['image-converter', 'image-compressor', 'image-resizer'],
-  },
 
   'image-resizer': {
     title: 'Image Resizer — Resize Images Online Free | UtilKit',
@@ -293,7 +261,7 @@ export const toolSeo = {
       { q: 'Does it preserve transparency?', a: 'Yes for PNG inputs. Transparent areas remain transparent in the output PNG. Only the Fit mode adds a white background fill in padded areas.' },
       { q: 'Can I set dimensions in cm or inches?', a: 'Currently only pixel dimensions are supported. For print sizing, multiply your target inches by your DPI (e.g. 4 inches at 300 DPI = 1200 pixels).' },
     ],
-    related: ['image-converter', 'image-compressor', 'background-remover'],
+    related: ['image-converter', 'image-compressor'],
   },
 
   'qr-code-generator': {

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { tools, categories } from '../data/tools'
-import AdvertiseHere from '../components/AdvertiseHere'
 import {
   Zap, Shield, Lock, Search, ArrowRight, Check,
   FileText, FileOutput, Scissors, PackageOpen, Combine,
@@ -63,8 +62,8 @@ const categoryTheme = {
 }
 
 const STATS = [
-  { value: '68', label: 'Free tools' },
-  { value: '8', label: 'Categories' },
+  { value: String(tools.length), label: 'Free tools' },
+  { value: String(categories.length), label: 'Categories' },
   { value: '0', label: 'Sign-ups needed' },
   { value: '∞', label: 'Uses per day' },
 ]
@@ -75,7 +74,7 @@ const WHY = [
     color: 'text-emerald-500',
     bg: 'bg-emerald-500/10',
     title: 'Privacy by design',
-    body: 'Most tools run entirely inside your browser. Files are never uploaded to any server — they never leave your device.',
+    body: 'Every tool runs entirely inside your browser. Files are never uploaded to any server — they never leave your device.',
   },
   {
     icon: Zap,
@@ -101,7 +100,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'UtilKit',
   url: SITE_URL,
-  description: '68 free online tools — PDF, image, AI, developer, calculator, and text utilities. No sign-up required.',
+  description: '60 free online tools — PDF, image, developer, calculator, and text utilities. No sign-up required.',
   potentialAction: {
     '@type': 'SearchAction',
     target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/?q={search_term_string}` },
@@ -115,7 +114,7 @@ const orgSchema = {
   name: 'UtilKit',
   url: SITE_URL,
   logo: `${SITE_URL}/og-image.png`,
-  description: 'Free online utility tools for everyone — PDF conversion, image editing, AI writing tools, and developer utilities.',
+  description: 'Free online utility tools for everyone — PDF conversion, image editing, calculators, and developer utilities.',
   sameAs: [],
 }
 
@@ -142,20 +141,20 @@ export default function Home() {
     <div className="min-h-screen">
 
       <Helmet>
-        <title>UtilKit — 68 Free Online Tools. No Sign-Up Required.</title>
-        <meta name="description" content="Free PDF converter, image compressor, AI writing tools, calculators, QR code generator, password generator, and 62 more utilities. All browser-based, all free, no account needed." />
+        <title>UtilKit — 60 Free Online Tools. No Sign-Up Required.</title>
+        <meta name="description" content="Free PDF converter, image compressor, calculators, QR code generator, password generator, and 55 more utilities. All browser-based, all free, no account needed." />
         <meta property="og:type"         content="website" />
         <meta property="og:site_name"    content="UtilKit" />
         <meta property="og:url"          content={SITE_URL} />
-        <meta property="og:title"        content="UtilKit — 68 Free Online Tools. No Sign-Up Required." />
-        <meta property="og:description"  content="Free PDF, image, AI, developer, and text tools. All browser-based. No account required." />
+        <meta property="og:title"        content="UtilKit — 60 Free Online Tools. No Sign-Up Required." />
+        <meta property="og:description"  content="Free PDF, image, developer, and text tools. All browser-based. No account required." />
         <meta property="og:image"        content={OG_IMAGE} />
         <meta property="og:image:width"  content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card"        content="summary_large_image" />
         <meta name="twitter:site"        content="@utilkit" />
-        <meta name="twitter:title"       content="UtilKit — 68 Free Online Tools" />
-        <meta name="twitter:description" content="PDF, image, AI, developer, and text tools. Free, no sign-up." />
+        <meta name="twitter:title"       content="UtilKit — 60 Free Online Tools" />
+        <meta name="twitter:description" content="PDF, image, developer, and text tools. Free, no sign-up." />
         <meta name="twitter:image"       content={OG_IMAGE} />
         <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
@@ -205,15 +204,6 @@ export default function Home() {
                 <p className="text-xs text-zinc-500 mt-0.5 leading-snug">{label}</p>
               </div>
             ))}
-          </div>
-        </section>
-      )}
-
-      {/* ── Advertise here CTA (no ads on the homepage) ─────── */}
-      {!filtered && (
-        <section className="px-4 pb-10">
-          <div className="max-w-3xl mx-auto">
-            <AdvertiseHere />
           </div>
         </section>
       )}
@@ -330,7 +320,7 @@ export default function Home() {
                 loads fast and gets out of your way.
               </p>
               <p>
-                There are currently <strong className="text-zinc-700 dark:text-zinc-300">68 tools</strong> spread
+                There are currently <strong className="text-zinc-700 dark:text-zinc-300">60 tools</strong> spread
                 across PDF, image, developer, generator, calculator, and text categories. You never need an
                 account to use them, and there are no watermarks, trial timers, or file-size paywalls on the
                 core tools. Type what you're looking for into the search box above, or browse by category —
@@ -340,9 +330,8 @@ export default function Home() {
                 Privacy is built in rather than bolted on. Wherever it's technically possible, tools run{' '}
                 <strong className="text-zinc-700 dark:text-zinc-300">entirely inside your browser</strong>: when
                 you merge PDFs or resize an image, the file is processed on your own device and never uploaded
-                to a server. A handful of tools that genuinely need one — such as the AI writing helpers and the
-                background remover — send data over an encrypted connection, process it, and return the result
-                without storing it. You can read exactly how each tool handles data in our{' '}
+                to a server. Every tool works this way, so your files stay on your device. You can read more
+                about how we handle data in our{' '}
                 <NavLink to="/privacy" className="text-indigo-500 dark:text-indigo-400 underline">Privacy Policy</NavLink>.
               </p>
               <p>
@@ -365,7 +354,7 @@ export default function Home() {
           <span className="font-bold text-sm text-zinc-700 dark:text-zinc-300">UtilKit</span>
         </div>
         <p className="text-xs text-zinc-400">
-          68 free utility tools · No account required ·{' '}
+          60 free utility tools · No account required ·{' '}
           <NavLink to="/about" className="underline underline-offset-2 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
             About
           </NavLink>

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/tools/:tool(ai-paraphraser|ai-grammar-fixer|ai-summarizer|ai-title-generator|ai-email-writer|background-remover|background-changer)/", "destination": "/", "permanent": true },
+    { "source": "/blog/how-to-remove-a-background-for-product-photos/", "destination": "/blog/", "permanent": true },
+    { "source": "/:page(advertise|login|register|verify-email|dashboard)/", "destination": "/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
+}

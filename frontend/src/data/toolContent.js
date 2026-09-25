@@ -2,135 +2,10 @@ export const toolContent = {
 
   // ─── AI Tools ─────────────────────────────────────────────────────────────
 
-  'ai-paraphraser': {
-    why: 'Rewording something in your own words sounds simple, but doing it well by hand is slow, and swapping words for synonyms one at a time produces clunky, thesaurus-stuffed sentences that read worse than the original. Yet there are countless moments you need exactly this: restating a source so it is not copied verbatim, finding a clearer way to phrase a stubborn sentence, adapting copy for a different audience, or smoothing writing that feels awkward.\n\nThis paraphraser uses GPT-4o to restructure sentences intelligently — changing the wording and the structure together while keeping your original meaning intact — so the result reads naturally rather than mechanically reworded. Paste a passage, click once, and get a fresh version you can use in an essay, article, or post. Your text is sent over HTTPS only for processing and is not stored. Used responsibly, it is a writing aid: when rephrasing a source for academic work, you should still cite the original.',
-    howTo: [
-      { step: '1', title: 'Paste your text', body: 'Enter the sentence, paragraph, or passage you want reworded into the input box.' },
-      { step: '2', title: 'Click Paraphrase', body: 'GPT-4o rewrites it with new structure and vocabulary while preserving the original meaning.' },
-      { step: '3', title: 'Review and use', body: 'Read the output, adjust anything you like, and copy it into your document, essay, or post.' },
-    ],
-    useCases: [
-      { title: 'Academic writers', body: 'Restate source material in your own words to support an argument — always alongside a proper citation.' },
-      { title: 'Content teams', body: 'Refresh existing articles or adapt one piece of copy for different platforms and audiences.' },
-      { title: 'Non-native English writers', body: 'Turn awkward or overly literal phrasing into fluent, natural-sounding English.' },
-      { title: 'Students', body: 'Find a clearer way to express an idea you understand but are struggling to word.' },
-      { title: 'Marketers', body: 'Produce several variations of a headline, tagline, or product description to test.' },
-    ],
-    faq: [
-      { q: 'Does paraphrasing count as plagiarism?', a: 'Rewording a source without crediting it can still be plagiarism. Paraphrasing is acceptable when you cite the original — always add the citation.' },
-      { q: 'Is the original meaning preserved?', a: 'Yes. It keeps your key information and intent while changing the structure and wording.' },
-      { q: 'Is my text stored?', a: 'No. Text is sent over HTTPS, processed, and discarded immediately after the response.' },
-      { q: 'What is the character limit?', a: 'Up to 8,000 characters per request. Run longer text in sections.' },
-      { q: 'Can I get more than one version?', a: 'Run it again on the same input to get a fresh alternative, then pick the phrasing you prefer.' },
-      { q: 'Will it keep technical terms correct?', a: 'It generally preserves terminology, but review specialised or legal text to confirm meaning is intact.' },
-      { q: 'How is this different from the humanizer?', a: 'The paraphraser focuses on rewording for clarity and originality; the AI Humanizer specifically targets AI-detection patterns.' },
-      { q: 'Is it free?', a: 'Yes — paraphrase as much text as you need for free, with no account and no daily rewrite limit.' },
-    ],
-  },
 
-  'ai-grammar-fixer': {
-    why: 'A spell-checker only catches words that are misspelled. It sails right past the errors that actually make writing look unprofessional: a verb that disagrees with its subject, a tense that shifts mid-paragraph, a dangling modifier, a comma splice, or the wrong "its" versus "it’s". Those mistakes are easy to make and surprisingly hard to self-edit, because your brain reads what you meant rather than what you wrote.\n\nThis fixer uses GPT-4o, which understands the context of a sentence rather than matching patterns, so it corrects grammar, punctuation, and clumsy phrasing that rule-based checkers miss — while preserving your voice and only rewriting where it is genuinely needed. Paste your text, click once, and compare the corrected version against the original before copying. Your text is sent over HTTPS purely for processing and is not stored. It is excellent for emails, essays, and posts; for legal or high-stakes documents, treat it as a strong first pass and still give the result a human read.',
-    howTo: [
-      { step: '1', title: 'Paste your text', body: 'Copy the email, paragraph, or document you want corrected into the input box.' },
-      { step: '2', title: 'Click Fix Grammar', body: 'GPT-4o reads the full context and returns a corrected version, not just isolated word fixes.' },
-      { step: '3', title: 'Review and copy', body: 'Compare the original and corrected text, accept what you agree with, and copy the result.' },
-    ],
-    useCases: [
-      { title: 'Non-native English writers', body: 'Catch subtle grammar and article errors that are hard to learn from rules alone but obvious to native readers.' },
-      { title: 'Professionals', body: 'Polish emails, reports, and proposals so they read cleanly before they reach clients or managers.' },
-      { title: 'Students', body: 'Proofread essays and assignments for the mistakes spellcheck never flags, before you submit.' },
-      { title: 'Job seekers', body: 'Make sure a CV, cover letter, or LinkedIn summary is error-free where a typo could cost an interview.' },
-      { title: 'Social & content', body: 'Tidy posts and captions quickly so published writing looks credible.' },
-    ],
-    faq: [
-      { q: 'Is this better than a basic spell-checker?', a: 'Yes for grammar — it understands context and fixes agreement, tense, and punctuation issues that spell-checkers and many rule-based tools miss.' },
-      { q: 'Does it change my writing style?', a: 'It preserves your voice and only rewrites sentences where a correction is genuinely needed, rather than rephrasing everything.' },
-      { q: 'Is my text stored?', a: 'No. It is sent over HTTPS, processed, and discarded immediately afterward.' },
-      { q: 'Is there a character limit?', a: 'Up to 8,000 characters per request; run longer documents in sections.' },
-      { q: 'Will it fix British or American English?', a: 'It works with both. It generally follows the spelling and conventions present in your input.' },
-      { q: 'Should I still proofread the result?', a: 'Yes — for important documents, review the changes. It is a strong assistant, not a replacement for a final human check.' },
-      { q: 'Can it improve clarity, not just grammar?', a: 'It focuses on correctness while keeping your style; for heavier rewording, use the AI Paraphraser.' },
-      { q: 'Is it free?', a: 'Yes — it is free with no sign-up; check as many documents as you like without a word cap.' },
-    ],
-  },
 
-  'ai-summarizer': {
-    why: 'There is always more to read than there is time to read it: long reports, research papers, dense articles, meeting notes, and email threads pile up faster than anyone can keep up. Often you do not need every word — you need the gist, fast, so you can decide whether something is worth a full read or pull the key points into your own notes. Skimming risks missing what matters; reading everything is not realistic.\n\nThis summarizer uses GPT-4o to read the whole text and distil it into a short, accurate summary of the main ideas, so you get the substance in a fraction of the time. Paste in an article or document, click once, and use the result in your notes, emails, or briefings. Your text is sent over HTTPS purely for processing and is not stored afterward. As with any AI summary, it is a fast first pass — always double-check critical figures and quotes against the original before relying on them.',
-    howTo: [
-      { step: '1', title: 'Paste your text', body: 'Copy the article, report, thread, or document you want condensed and paste it into the input box.' },
-      { step: '2', title: 'Click Summarize', body: 'GPT-4o reads the full text and returns a concise summary capturing the most important points.' },
-      { step: '3', title: 'Copy and use it', body: 'Drop the summary into your notes, an email, a brief, or a presentation.' },
-    ],
-    useCases: [
-      { title: 'Researchers & students', body: 'Decide whether a paper or article is relevant before committing to reading the whole thing.' },
-      { title: 'Executives & managers', body: 'Get the takeaways from long reports and proposals without reading every page.' },
-      { title: 'Professionals', body: 'Condense long email threads or meeting notes into a few clear action points.' },
-      { title: 'Content creators', body: 'Summarise competitor articles or source material to inform your own writing quickly.' },
-      { title: 'Newsletters & curation', body: 'Turn a long piece into a tight blurb for a roundup, digest, or social post.' },
-    ],
-    faq: [
-      { q: 'How long can the input text be?', a: 'Up to 8,000 characters per request. For longer documents, summarise it section by section.' },
-      { q: 'Is the summary accurate?', a: 'GPT-4o is designed to capture key facts without inventing them, but always verify critical figures, names, and quotes against the original.' },
-      { q: 'Is my text stored?', a: 'No. It is processed over HTTPS and discarded right after the summary is returned.' },
-      { q: 'Can I summarize a PDF?', a: 'Not directly. Extract the text first with our PDF → Word tool, then paste it here.' },
-      { q: 'Can I control how short the summary is?', a: 'The tool aims for a concise overview of the key points; for a shorter result, summarise the output again or trim it yourself.' },
-      { q: 'Does it work on any subject?', a: 'Yes — articles, reports, research, and general prose all work. Highly technical text still benefits from a human check.' },
-      { q: 'Will it keep the original’s tone?', a: 'Summaries are written in a neutral, informative tone focused on the key ideas rather than mirroring the source style.' },
-      { q: 'Is it free?', a: 'Yes — summarise as many documents as you need for free, with no account beyond the per-request length limit.' },
-    ],
-  },
 
-  'ai-title-generator': {
-    why: 'The headline does most of the work. People decide whether to click an article, watch a video, or open an email almost entirely on the title, and a stronger one can dramatically lift click-through — yet writers often burn far too long staring at a blank line trying to word it well. The hard part is not writing one title; it is generating enough varied options to find the angle that lands.\n\nThis generator produces 8 headline options at once from a short description of your topic, spanning the formats that reliably perform — listicles ("7 ways to…"), how-tos, questions, curiosity-gap hooks, and direct statements. Pick the best, tweak it, or regenerate for a fresh batch in seconds. It uses GPT-4o, and your topic is sent over HTTPS only to be processed, not stored. Include your target keyword in the description and the titles will work for search as well as clicks.',
-    howTo: [
-      { step: '1', title: 'Describe your topic', body: 'Type a short description of your article, video, or post — e.g. "how to make sourdough bread at home".' },
-      { step: '2', title: 'Generate titles', body: 'Click Generate for 8 varied options spanning different proven headline styles.' },
-      { step: '3', title: 'Copy your favourite', body: 'Copy any title with one click, tweak it to fit, or hit Regenerate for a fresh batch.' },
-    ],
-    useCases: [
-      { title: 'Bloggers', body: 'Find a high-click headline before you write, so the finished article actually gets opened.' },
-      { title: 'YouTube creators', body: 'Compare title angles for a video to pick the most watch-worthy option before publishing.' },
-      { title: 'Email marketers', body: 'Generate subject-line options that lift open rates for newsletters and campaigns.' },
-      { title: 'Social & ads', body: 'Spin up hook variations for posts and ad copy to test what resonates.' },
-      { title: 'Beating writer’s block', body: 'Get unstuck with instant options when you cannot find the words for a title.' },
-    ],
-    faq: [
-      { q: 'Can I generate more than 8 titles?', a: 'Yes. Click Regenerate for another batch of 8 as many times as you like.' },
-      { q: 'Are the titles SEO-friendly?', a: 'They are written to be compelling and clickable. For search, include your target keyword in the topic description so it appears in the options.' },
-      { q: 'Should I edit the suggestions?', a: 'Treat them as strong starting points — tweak wording, length, and specifics to match your content and brand voice.' },
-      { q: 'What title styles does it produce?', a: 'A mix of listicles, how-tos, questions, curiosity-gap hooks, and direct-statement formats.' },
-      { q: 'Will it write clickbait?', a: 'It aims for compelling but honest headlines; avoid promising more than your content delivers, which hurts trust and bounce rate.' },
-      { q: 'Is my input stored?', a: 'No. Your topic description is sent over HTTPS, processed, and immediately discarded.' },
-      { q: 'Does it work for any niche?', a: 'Yes — give it a clear topic and it adapts to the subject and audience you describe.' },
-      { q: 'Is it free?', a: 'Yes — generate unlimited batches of headlines for free, with no account required.' },
-    ],
-  },
 
-  'ai-email-writer': {
-    why: 'Some emails are genuinely hard to write — a follow-up that does not sound pushy, an apology that strikes the right tone, cold outreach that gets a reply, a firm-but-polite chase. Getting the wording and tone right takes time most people do not have, and the blank page is where it stalls. The structure is usually the same (subject, greeting, a clear point, a call to action, a sign-off); what is hard is the phrasing.\n\nThis writer turns a one-line description into a complete, ready-to-send email — subject line, greeting, body, CTA, and sign-off — in the tone you pick: Professional, Friendly, Formal, Apologetic, Persuasive, or Follow-up. Describe the goal, choose the tone, and get a polished draft using GPT-4o, in any language you write the request in. Your description is sent over HTTPS only for processing and is not stored. The output is fully editable, so always slot in real names, dates, and specifics before you hit send.',
-    howTo: [
-      { step: '1', title: 'Describe your email', body: 'Say what it should achieve — e.g. "follow up with a client who hasn’t replied in two weeks".' },
-      { step: '2', title: 'Choose a tone', body: 'Pick Professional, Friendly, Formal, Apologetic, Persuasive, or Follow-up to match the situation.' },
-      { step: '3', title: 'Copy, personalise, and send', body: 'Copy the subject line and body, fill in names and specific details, then send.' },
-    ],
-    useCases: [
-      { title: 'Sales & outreach', body: 'Draft cold emails and follow-ups quickly instead of stalling on a blank page.' },
-      { title: 'Customer support', body: 'Produce polished, empathetic responses for common situations and complaints.' },
-      { title: 'Job seekers', body: 'Write cover-letter emails, interview thank-yous, and networking messages that read well.' },
-      { title: 'Managers & admin', body: 'Compose announcements, reminders, and requests in a consistent, professional tone.' },
-      { title: 'Non-native speakers', body: 'Get fluent, correctly toned business English from a short brief in any language.' },
-    ],
-    faq: [
-      { q: 'Can I edit the generated email?', a: 'Yes — the output is fully editable. Always personalise names, dates, and specific details before sending.' },
-      { q: 'How many tone options are there?', a: 'Six: Professional, Friendly, Formal, Apologetic, Persuasive, and Follow-up.' },
-      { q: 'Does it write the subject line too?', a: 'Yes. It produces a complete email — subject, greeting, body, call to action, and sign-off.' },
-      { q: 'Can it write in other languages?', a: 'Yes. Describe your email in any language and it drafts the email in that language.' },
-      { q: 'Should I review before sending?', a: 'Always. Check facts, names, and tone for your specific recipient — treat it as a strong first draft, not a final send.' },
-      { q: 'Is my input stored?', a: 'No. Your description is sent over HTTPS, processed, and immediately discarded.' },
-      { q: 'How detailed should my description be?', a: 'A sentence works, but adding the recipient, context, and goal produces a sharper, more usable draft.' },
-      { q: 'Is it free?', a: 'Yes — draft as many emails as you want for free, with no sign-up.' },
-    ],
-  },
 
   // ─── PDF Tools ────────────────────────────────────────────────────────────
 
@@ -390,7 +265,7 @@ export const toolContent = {
       { q: 'Will I lose quality when converting?', a: 'PNG output is lossless. Converting to JPG or WebP below 100% adds some compression — use 95%+ for near-lossless results.' },
       { q: 'Can I batch convert?', a: 'Yes. Upload up to 10 images and convert them in one go, then download them together.' },
       { q: 'When should I choose WebP?', a: 'For anything shown on the web — it is typically 25–35% smaller than JPG/PNG at similar quality and supports transparency.' },
-      { q: 'Does converting JPG to PNG add transparency?', a: 'It changes the format, but a JPG has no transparent areas to recover. To get a transparent subject, use our Background Remover first.' },
+      { q: 'Does converting JPG to PNG add transparency?', a: 'It changes the format, but a JPG has no transparent areas to recover. It cannot turn the background of a photo transparent.' },
       { q: 'Is there a file size limit?', a: 'Large images work fine; very big files simply take a little longer since all the work happens on your device.' },
       { q: 'Is it free with no watermark?', a: 'Yes — completely free, no sign-up, and no watermark on the output.' },
     ],
@@ -422,31 +297,6 @@ export const toolContent = {
     ],
   },
 
-  'background-remover': {
-    why: 'Cutting a subject out of its background by hand — masking hair, edges, and fine detail in Photoshop or GIMP — is slow, fiddly work that can take ten minutes per image even for someone who knows what they are doing. Yet a clean cut-out is exactly what you need for product listings, profile pictures, presentations, and design compositions, where a busy or inconsistent background looks unprofessional.\n\nThis tool removes the background automatically using the remove.bg AI model, which detects the subject and its edges and returns a clean transparent PNG in a few seconds — accurate enough for real product photography, including tricky areas like hair and fur. You can keep the transparency or drop in a solid white or custom colour behind the subject before downloading. To do this, the image is sent securely over HTTPS to the remove.bg API for processing; it is not stored by UtilKit afterwards. There is no software to install and no manual masking — upload, wait a moment, download.',
-    howTo: [
-      { step: '1', title: 'Upload your image', body: 'Add a portrait, product shot, or any photo with a clear subject you want isolated from its background.' },
-      { step: '2', title: 'Let the AI process it', body: 'The image is sent securely to the remove.bg AI model over HTTPS. Detection of the subject and edges usually takes about 5–10 seconds.' },
-      { step: '3', title: 'Download the result', body: 'Download the transparent PNG, or first fill the background with white or a custom colour to match your needs.' },
-    ],
-    useCases: [
-      { title: 'E-commerce sellers', body: 'Produce clean white or transparent product photos that meet Amazon, Shopify, and Etsy listing requirements.' },
-      { title: 'Designers', body: 'Extract subjects to drop into posters, banners, mockups, and marketing compositions.' },
-      { title: 'Social & content creators', body: 'Make crisp profile pictures, thumbnails, and stickers with no distracting background.' },
-      { title: 'Presentations & docs', body: 'Place people or products onto slide backgrounds and branded templates without an awkward rectangle behind them.' },
-      { title: 'ID & profile photos', body: 'Swap a messy background for a clean solid colour for headshots, badges, and application photos.' },
-    ],
-    faq: [
-      { q: 'How accurate is the background removal?', a: 'Very accurate for people, products, and animals with clear edges — including hair and fur. Scenes where the subject and background are similar colours may need a small manual touch-up.' },
-      { q: 'Is my image uploaded to a server?', a: 'Yes — unlike most tools here, this one sends the image to the remove.bg API over HTTPS for AI processing. It is not stored by UtilKit after the result is returned.' },
-      { q: 'What formats are supported?', a: 'JPG and PNG input. The output is always a transparent PNG so the cut-out can sit on any background.' },
-      { q: 'Can I add a solid background colour?', a: 'Yes. After removal you can fill the transparent area with white or a custom colour before downloading.' },
-      { q: 'Why is the output a PNG and not a JPG?', a: 'JPG cannot store transparency. PNG preserves the see-through background so you can place the subject anywhere; convert to JPG afterwards if you need a solid background.' },
-      { q: 'Is there a file size limit?', a: 'Images up to about 10MB are supported.' },
-      { q: 'Will it work on complex or low-contrast images?', a: 'Most images work well. Very busy backgrounds or subjects that blend into the background are the main cases that may need light cleanup.' },
-      { q: 'Is it free?', a: 'Yes — remove backgrounds from as many photos as you like for free, with no account and no watermark.' },
-    ],
-  },
 
   'image-resizer': {
     why: 'Almost every place you upload an image expects a specific size. Instagram wants a square, a YouTube thumbnail is 1280×720, a profile photo has a minimum, and a website hero needs exact pixels to look crisp. Upload the wrong dimensions and the platform crops off the important part, stretches the picture, or rejects it outright. The straight-from-camera photo is also usually far bigger than needed, which wastes bandwidth and slows pages.\n\nThis resizer lets you set exact width and height, with an aspect-ratio lock so changing one dimension adjusts the other automatically and your image never comes out squashed. Built-in presets cover the common social and web sizes so you do not have to look them up. Everything runs in your browser using the Canvas API, so your image is never uploaded — and your original is untouched, so you can re-export at another size in seconds. No account, no watermark, no limit.',
@@ -568,7 +418,7 @@ export const toolContent = {
     ],
     faq: [
       { q: 'Will converting JPG to PNG improve quality?', a: 'It stops further loss from re-saving, but it cannot recover detail or remove artifacts already baked into the original JPEG.' },
-      { q: 'Does this add transparency to my JPG?', a: 'It produces a PNG that can hold transparency, but a JPG has none to recover. To make the background transparent, use the Background Remover.' },
+      { q: 'Does this add transparency to my JPG?', a: 'It produces a PNG that can hold transparency, but a JPG has none to recover. It cannot make the background of a photo transparent.' },
       { q: 'Does my image get uploaded to a server?', a: 'No — the conversion is done locally by your browser, so the original JPEGs never leave your computer or phone.' },
       { q: 'Will the PNG be larger than the JPG?', a: 'Usually yes. PNG is lossless, so for photographic content it typically produces a bigger file than JPEG.' },
       { q: 'When should I use JPG instead?', a: 'For photographs where small file size matters and you do not need transparency, JPG is the better choice.' },
@@ -1738,29 +1588,4 @@ export const toolContent = {
     ],
   },
 
-  'background-changer': {
-    why: 'Changing the background behind a person or product normally means painstaking manual masking in Photoshop — tracing around hair and edges with a lasso or pen tool — which is slow and hard to do cleanly. Yet a consistent background is what separates an amateur snapshot from a professional headshot or a sellable product photo, and many applications (IDs, passports, listings) actually require a specific plain background.\n\nThis tool automates the whole thing: it detects and cuts out the subject with AI, then drops in the new background you choose — a solid colour or your own image — and gives you a downloadable PNG. The background-removal step uses the same AI as our Background Remover, so the image is sent securely over HTTPS to the remove.bg API for that part; the new background is then composited and the final image produced on your device, with nothing stored afterward. No manual masking, no software to install.',
-    howTo: [
-      { step: '1', title: 'Upload your photo', body: 'Choose the image whose background you want to change — the subject is detected and cut out automatically.' },
-      { step: '2', title: 'Pick a new background', body: 'Select a solid colour, or upload your own background image to place behind the subject.' },
-      { step: '3', title: 'Download', body: 'Preview the composited result and download the finished image as a PNG.' },
-    ],
-    useCases: [
-      { title: 'Profile pictures', body: 'Put a clean, consistent background behind a headshot for LinkedIn, a CV, or a team page.' },
-      { title: 'Product photos', body: 'Place products on a plain white or branded background for stores and marketplaces.' },
-      { title: 'ID & passport photos', body: 'Swap a busy background for the solid colour an application or document requires.' },
-      { title: 'Marketing & social', body: 'Drop a subject onto a branded or themed backdrop for posts and ads.' },
-      { title: 'Consistency', body: 'Give a set of photos the same background so a gallery or grid looks uniform.' },
-    ],
-    faq: [
-      { q: 'How is the background removed?', a: 'The subject is detected and cut out by AI, then composited onto your chosen background. The cutout step uses the remove.bg API; the new background is applied on your device.' },
-      { q: 'Is my image uploaded?', a: 'For the AI cutout, the image is sent securely over HTTPS to the remove.bg API; it is not stored by UtilKit, and the final composite is produced locally.' },
-      { q: 'How accurate is the cutout?', a: 'Very accurate for people and products with clear edges, including hair. Subjects that blend into the original background may need a small touch-up.' },
-      { q: 'Can I use my own background image?', a: 'Yes — upload any image to use as the new background, or pick a solid colour.' },
-      { q: 'What format do I download?', a: 'A PNG, which keeps the edges of the subject crisp against the new background.' },
-      { q: 'What formats can I upload?', a: 'Standard JPG and PNG photos work best.' },
-      { q: 'How is this different from the Background Remover?', a: 'The Background Remover gives you a transparent cutout; this tool goes a step further and drops the subject onto a new colour or image.' },
-      { q: 'Is it free?', a: 'Yes — change as many photo backgrounds as you like for free, with no watermark on the result.' },
-    ],
-  },
 }

@@ -30,7 +30,7 @@ export default function About() {
           One tab for the tools you keep re-searching
         </h1>
         <p className="text-zinc-500 dark:text-zinc-400">
-          UtilKit brings together 68 of the everyday utilities people bounce between a dozen websites to
+          UtilKit brings together 60 of the everyday utilities people bounce between a dozen websites to
           find — PDF conversion, image editing, QR codes, password generation, JSON formatting, unit
           conversion and more — under one fast, ad-light, no-sign-up roof.
         </p>
@@ -52,16 +52,14 @@ export default function About() {
 
       <Section icon={Server} color={{ bg: 'bg-sky-500/10', text: 'text-sky-500' }} title="How it actually works">
         <p>
-          Wherever it's technically possible, our tools run <strong className="text-zinc-700 dark:text-zinc-300">entirely
+          Every one of our tools runs <strong className="text-zinc-700 dark:text-zinc-300">entirely
           inside your browser</strong>. When you merge two PDFs or resize a photo, the work happens on your
           own device using JavaScript — the file never travels to a server. That makes the tools fast,
           keeps them working even on flaky connections, and means your documents stay private by default.
         </p>
         <p>
-          A small number of tools genuinely need a server — for example anything powered by an AI model,
-          or the background remover. For those, data is sent over encrypted HTTPS, processed, and returned,
-          and we don't retain it. Which tools use a server (and what happens to your data) is spelled out
-          in full on our <Link to="/privacy" className="underline hover:text-indigo-500">Privacy Policy</Link>.
+          How we handle data is spelled out in full on
+          our <Link to="/privacy" className="underline hover:text-indigo-500">Privacy Policy</Link>.
         </p>
       </Section>
 
@@ -69,9 +67,9 @@ export default function About() {
         <p>The catalogue is grouped into a handful of practical categories:</p>
         <ul className="list-disc pl-5 space-y-1.5">
           <li><strong className="text-zinc-700 dark:text-zinc-300">PDF tools</strong> — convert, merge, split, compress, watermark, rotate, OCR and e-sign.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">Image tools</strong> — convert formats, compress, resize, upscale and remove backgrounds.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">Image tools</strong> — convert formats, compress, resize, crop and upscale.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Developer tools</strong> — JSON/SQL/HTML/CSS formatters, Base64, JWT, regex, hashing and UUIDs.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">Generators</strong> — QR codes, passwords, short links and more.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">Generators</strong> — QR codes, passwords, CSS gradients and box shadows.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Calculators &amp; converters</strong> — percentages, loans, BMI, age, units and number bases.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Text tools</strong> — word counting, case conversion, lorem ipsum and more.</li>
         </ul>
@@ -92,10 +90,9 @@ export default function About() {
 
       <Section icon={Heart} color={{ bg: 'bg-rose-500/10', text: 'text-rose-500' }} title="How UtilKit is funded">
         <p>
-          Keeping the tools free and running costs money — servers, domains, and the AI services behind a
-          few of the tools. We cover that through light, clearly-marked advertising and optional paid
-          upgrades for heavier users. We don't sell your data, and we never will; advertising is how the
-          free tier stays free for everyone else.
+          Keeping the tools free and running costs money — hosting and domains. We cover that through
+          light, clearly-marked advertising and optional support from users. We don't sell your data, and
+          we never will; advertising is how the tools stay free for everyone.
         </p>
       </Section>
 

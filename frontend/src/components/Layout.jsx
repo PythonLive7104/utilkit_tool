@@ -1,10 +1,8 @@
 import { useState, useEffect, Suspense } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import SupportButton from './SupportButton'
-import ContactWidget from './ContactWidget'
-import { useAuth } from '../lib/auth'
-import { Menu, Moon, Sun, Zap, LayoutDashboard, LogIn } from 'lucide-react'
+import { Menu, Moon, Sun, Zap } from 'lucide-react'
 
 export default function Layout() {
   const [dark, setDark] = useState(() => {
@@ -13,7 +11,6 @@ export default function Layout() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches
   })
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const { isAuthenticated } = useAuth()
 
   useEffect(() => {
     const root = document.documentElement
@@ -65,21 +62,6 @@ export default function Layout() {
           </div>
 
           <div className="ml-auto flex items-center gap-1.5">
-            {isAuthenticated ? (
-              <Link
-                to="/dashboard"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              >
-                <LayoutDashboard size={16} /> <span className="hidden sm:inline">Dashboard</span>
-              </Link>
-            ) : (
-              <Link
-                to="/login"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              >
-                <LogIn size={16} /> <span className="hidden sm:inline">Log in</span>
-              </Link>
-            )}
             <button
               onClick={() => setDark(!dark)}
               className="btn-ghost p-2 rounded-lg"
@@ -99,7 +81,6 @@ export default function Layout() {
       </div>
 
       <SupportButton variant="floating" label="☕ Support our Team" />
-      <ContactWidget />
     </div>
   )
 }

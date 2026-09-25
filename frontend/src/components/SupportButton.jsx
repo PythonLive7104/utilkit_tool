@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { X, Coffee } from 'lucide-react'
 
-// "Support our team" runs on the same Dodo "Pay What You Want" product as the
-// adverts. The checkout host follows VITE_DODO_MODE — the one switch that also
-// drives the Advertise overlay — so a test build never points at the live host
+// "Support our team" runs on a Dodo "Pay What You Want" product. The checkout
+// host follows VITE_DODO_MODE so a test build never points at the live host
 // (which would reject test cards / charge real ones). Env (frontend/.env):
 //   VITE_DODO_MODE             — 'test' or 'live'
 //   VITE_DODO_SUPPORT_PRODUCT  — the PWYW product id, e.g. 'pdt_...'
@@ -75,7 +74,7 @@ function Modal({ onClose }) {
           <>
             <p className="font-bold text-zinc-800 dark:text-zinc-100 mb-1">Support UtilKit ☕</p>
             <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-5">
-              All 68 tools are free. A small support keeps the lights on.
+              All 60 tools are free. A small support keeps the lights on.
             </p>
 
             <form onSubmit={pay} className="space-y-4">

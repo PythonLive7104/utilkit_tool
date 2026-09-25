@@ -2,7 +2,6 @@ import { lazy } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
-import RequireAuth from './components/RequireAuth'
 import Home from './pages/Home'
 
 // Everything below the landing page is lazy-loaded: each route — and the heavy
@@ -19,11 +18,6 @@ const Contact = lazy(() => import('./pages/Contact'))
 const Terms = lazy(() => import('./pages/Terms'))
 const Blog = lazy(() => import('./pages/Blog'))
 const BlogPost = lazy(() => import('./pages/BlogPost'))
-const Advertise = lazy(() => import('./pages/Advertise'))
-const Login = lazy(() => import('./pages/Login'))
-const Register = lazy(() => import('./pages/Register'))
-const VerifyEmail = lazy(() => import('./pages/VerifyEmail'))
-const Dashboard = lazy(() => import('./pages/Dashboard'))
 
 // Original tools
 const PdfToWord = lazy(() => import('./pages/tools/PdfToWord'))
@@ -33,7 +27,6 @@ const CompressPdf = lazy(() => import('./pages/tools/CompressPdf'))
 const SplitPdf = lazy(() => import('./pages/tools/SplitPdf'))
 const ImageConverter = lazy(() => import('./pages/tools/ImageConverter'))
 const ImageCompressor = lazy(() => import('./pages/tools/ImageCompressor'))
-const BackgroundRemover = lazy(() => import('./pages/tools/BackgroundRemover'))
 const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'))
 const QrCodeGenerator = lazy(() => import('./pages/tools/QrCodeGenerator'))
 const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator'))
@@ -44,13 +37,6 @@ const CodeDiff = lazy(() => import('./pages/tools/CodeDiff'))
 const WordCounter = lazy(() => import('./pages/tools/WordCounter'))
 const CaseConverter = lazy(() => import('./pages/tools/CaseConverter'))
 const LoremIpsum = lazy(() => import('./pages/tools/LoremIpsum'))
-
-// AI Tools
-const AiParaphraser = lazy(() => import('./pages/tools/AiParaphraser'))
-const AiGrammarFixer = lazy(() => import('./pages/tools/AiGrammarFixer'))
-const AiSummarizer = lazy(() => import('./pages/tools/AiSummarizer'))
-const AiTitleGenerator = lazy(() => import('./pages/tools/AiTitleGenerator'))
-const AiEmailWriter = lazy(() => import('./pages/tools/AiEmailWriter'))
 
 // New PDF Tools
 const PdfWatermark = lazy(() => import('./pages/tools/PdfWatermark'))
@@ -112,7 +98,6 @@ const BoxShadowGenerator = lazy(() => import('./pages/tools/BoxShadowGenerator')
 const FindAndReplace = lazy(() => import('./pages/tools/FindAndReplace'))
 const RemoveDuplicateLines = lazy(() => import('./pages/tools/RemoveDuplicateLines'))
 const SortTextLines = lazy(() => import('./pages/tools/SortTextLines'))
-const BackgroundChanger = lazy(() => import('./pages/tools/BackgroundChanger'))
 
 export default function App() {
   return (
@@ -138,7 +123,6 @@ export default function App() {
           {/* Image Tools */}
           <Route path="tools/image-converter" element={<ImageConverter />} />
           <Route path="tools/image-compressor" element={<ImageCompressor />} />
-          <Route path="tools/background-remover" element={<BackgroundRemover />} />
           <Route path="tools/image-resizer" element={<ImageResizer />} />
           <Route path="tools/meme-generator" element={<MemeGenerator />} />
           <Route path="tools/ai-image-upscaler" element={<AiImageUpscaler />} />
@@ -168,13 +152,6 @@ export default function App() {
           <Route path="tools/word-counter" element={<WordCounter />} />
           <Route path="tools/case-converter" element={<CaseConverter />} />
           <Route path="tools/lorem-ipsum" element={<LoremIpsum />} />
-
-          {/* AI Tools */}
-          <Route path="tools/ai-paraphraser" element={<AiParaphraser />} />
-          <Route path="tools/ai-grammar-fixer" element={<AiGrammarFixer />} />
-          <Route path="tools/ai-summarizer" element={<AiSummarizer />} />
-          <Route path="tools/ai-title-generator" element={<AiTitleGenerator />} />
-          <Route path="tools/ai-email-writer" element={<AiEmailWriter />} />
 
           {/* Viral Tools */}
           <Route path="tools/invoice-generator" element={<InvoiceGenerator />} />
@@ -215,20 +192,12 @@ export default function App() {
           <Route path="tools/find-and-replace" element={<FindAndReplace />} />
           <Route path="tools/remove-duplicate-lines" element={<RemoveDuplicateLines />} />
           <Route path="tools/sort-text-lines" element={<SortTextLines />} />
-          <Route path="tools/background-changer" element={<BackgroundChanger />} />
 
           {/* Static pages */}
           <Route path="privacy" element={<Privacy />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="terms" element={<Terms />} />
-          <Route path="advertise" element={<Advertise />} />
-
-          {/* Advertiser accounts (client-only, noindex) */}
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="verify-email" element={<VerifyEmail />} />
-          <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
 
           {/* Blog */}
           <Route path="blog" element={<Blog />} />

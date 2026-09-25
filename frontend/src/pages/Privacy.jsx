@@ -1,4 +1,4 @@
-import { Shield, Lock, Server, Eye, Clock, Megaphone, Mail, Zap } from 'lucide-react'
+import { Shield, Lock, Server, Eye, Megaphone, Mail, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 function Section({ icon: Icon, color, title, children }) {
@@ -31,7 +31,7 @@ export default function Privacy() {
         </h1>
         <p className="text-zinc-500 dark:text-zinc-400">
           UtilKit is built on a simple principle: process your data, return the result, keep as little as
-          possible. Most tools run entirely in your browser, so your files never reach our servers. This
+          possible. Every tool runs entirely in your browser, so your files never reach our servers. This
           policy explains exactly what we collect, the third-party services we use — including advertising —
           and the choices you have.
         </p>
@@ -43,8 +43,7 @@ export default function Privacy() {
         <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300 mb-3">TL;DR — The short version</p>
         <ul className="space-y-2">
           {[
-            'Most tools run entirely in your browser — your files never touch our servers.',
-            'A few tools (AI tools, Background Remover) send data to our server for processing, then discard it.',
+            'Every tool runs entirely in your browser — your files never touch our servers.',
             'We show ads through Google AdSense, which may use cookies to make ads more relevant.',
             'We never sell your personal data, and you can opt out of personalised ads at any time.',
           ].map((item) => (
@@ -58,61 +57,14 @@ export default function Privacy() {
 
       <Section icon={Lock} color={{ bg: 'bg-emerald-500/10', text: 'text-emerald-500' }} title="Browser-side tools — no upload ever">
         <p>
-          The majority of UtilKit tools run entirely inside your web browser using JavaScript. This includes
-          all PDF tools, most image tools, and all developer and text tools.
+          Every UtilKit tool runs entirely inside your web browser using JavaScript — PDF, image,
+          developer, text, calculator and generator tools alike.
         </p>
         <p>
           When you use these tools, your files and data never leave your device. No bytes are transmitted
           to any server — not ours, not anyone else's. Processing happens locally using the same CPU and
           memory your browser already has access to.
         </p>
-        <p className="font-medium text-zinc-700 dark:text-zinc-300">
-          Browser-only tools include: all PDF tools, image converter/compressor/resizer/upscaler,
-          all developer tools, word counter, case converter, lorem ipsum, and the generators.
-        </p>
-      </Section>
-
-      <Section icon={Server} color={{ bg: 'bg-sky-500/10', text: 'text-sky-500' }} title="Server-side tools — HTTPS, processed, deleted">
-        <p>
-          A small number of tools require our server to process your request. These are:
-        </p>
-        <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong className="text-zinc-700 dark:text-zinc-300">AI Tools</strong> (Paraphraser, Grammar Fixer, Summarizer, Title Generator, Email Writer) — your text is sent over HTTPS to our API, which forwards it to OpenAI's GPT-4o mini model. The text is processed and the result is returned. We do not store the text you submit.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">Background Remover</strong> — your image is sent over HTTPS to the remove.bg API for AI background removal, then returned to you. We do not store the image.</li>
-        </ul>
-        <p>
-          All server communication uses HTTPS/TLS encryption. Data in transit is encrypted.
-        </p>
-      </Section>
-
-      <Section icon={Clock} color={{ bg: 'bg-amber-500/10', text: 'text-amber-500' }} title="Data retention">
-        <p>
-          For server-side tools, data is discarded immediately or within a short, fixed window:
-        </p>
-        <div className="overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700/50">
-          <table className="w-full text-xs">
-            <thead className="bg-zinc-100 dark:bg-zinc-800">
-              <tr>
-                <th className="text-left px-4 py-2.5 text-zinc-600 dark:text-zinc-300 font-semibold">Tool</th>
-                <th className="text-left px-4 py-2.5 text-zinc-600 dark:text-zinc-300 font-semibold">Data stored</th>
-                <th className="text-left px-4 py-2.5 text-zinc-600 dark:text-zinc-300 font-semibold">Retention</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-zinc-200 dark:divide-zinc-700/50">
-              {[
-                ['AI Tools', 'Text input', 'Not stored'],
-                ['Background Remover', 'Uploaded image', 'Not stored'],
-                ['Contact form', 'Name, email, message', 'Kept only to reply'],
-              ].map(([tool, data, retention]) => (
-                <tr key={tool} className="bg-white dark:bg-zinc-900">
-                  <td className="px-4 py-2.5 text-zinc-700 dark:text-zinc-300 font-medium">{tool}</td>
-                  <td className="px-4 py-2.5 text-zinc-500">{data}</td>
-                  <td className="px-4 py-2.5 text-zinc-500">{retention}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </Section>
 
       <Section icon={Eye} color={{ bg: 'bg-violet-500/10', text: 'text-violet-500' }} title="Cookies & local storage">
@@ -155,17 +107,16 @@ export default function Privacy() {
           Besides advertising, we use these providers strictly to power specific features:
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong className="text-zinc-700 dark:text-zinc-300">OpenAI</strong> — processes text for AI tools. Subject to <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">OpenAI's privacy policy</a>. Text submitted via the API is not used to train models.</li>
-          <li><strong className="text-zinc-700 dark:text-zinc-300">remove.bg</strong> — processes images for the Background Remover. Subject to <a href="https://www.remove.bg/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">remove.bg's privacy policy</a>.</li>
+          <li><strong className="text-zinc-700 dark:text-zinc-300">Dodo Payments</strong> — processes optional support payments on its own hosted checkout page. Subject to <a href="https://dodopayments.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">Dodo Payments' privacy policy</a>.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Google Fonts</strong> — serves the site's typefaces; your browser requests font files from Google's servers.</li>
         </ul>
       </Section>
 
       <Section icon={Mail} color={{ bg: 'bg-pink-500/10', text: 'text-pink-500' }} title="Your rights & contact">
         <p>
-          Because we store almost no personal data, there is very little for us to hold about you. Where we
-          do (for example a message you send via the contact form), you can ask us to
-          delete it at any time.
+          We don't store personal data on our servers, so there is very little for us to hold about you.
+          If you email us, we keep that correspondence only as long as needed to reply, and you can ask us
+          to delete it at any time.
         </p>
         <p>
           Questions about this privacy policy, or a request about your data? Reach us via the{' '}

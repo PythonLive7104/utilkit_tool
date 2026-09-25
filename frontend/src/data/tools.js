@@ -1,14 +1,5 @@
 export const categories = [
   {
-    id: 'ai',
-    name: 'AI Tools',
-    description: 'Humanize AI text, paraphrase writing, fix grammar, summarize documents, generate titles, and compose emails using GPT-4o.',
-    color: 'text-purple-500 dark:text-purple-400',
-    bg: 'bg-purple-500/10',
-    border: 'border-purple-500/20',
-    accent: 'purple',
-  },
-  {
     id: 'pdf',
     name: 'PDF Tools',
     description: 'Convert, merge, compress, split, rotate, watermark, and sign PDF documents entirely in your browser — no files ever leave your device.',
@@ -20,7 +11,7 @@ export const categories = [
   {
     id: 'image',
     name: 'Image Tools',
-    description: 'Convert formats, compress file sizes, resize, upscale, create memes, and remove backgrounds — all client-side.',
+    description: 'Convert formats, compress file sizes, resize, crop, upscale, and create memes — all client-side.',
     color: 'text-sky-500 dark:text-sky-400',
     bg: 'bg-sky-500/10',
     border: 'border-sky-500/20',
@@ -29,7 +20,7 @@ export const categories = [
   {
     id: 'generator',
     name: 'Generator Tools',
-    description: 'Create QR codes, shorten long URLs, and generate cryptographically strong passwords in seconds.',
+    description: 'Create QR codes, generate cryptographically strong passwords, and build CSS gradients and box shadows in seconds.',
     color: 'text-violet-500 dark:text-violet-400',
     bg: 'bg-violet-500/10',
     border: 'border-violet-500/20',
@@ -47,7 +38,7 @@ export const categories = [
   {
     id: 'text',
     name: 'Text Tools',
-    description: 'Analyse writing stats, convert text case, generate lorem ipsum, and create disposable email addresses.',
+    description: 'Analyse writing stats, convert text case, generate lorem ipsum, clean up text, and find, replace, sort, or de-duplicate lines.',
     color: 'text-emerald-500 dark:text-emerald-400',
     bg: 'bg-emerald-500/10',
     border: 'border-emerald-500/20',
@@ -65,7 +56,7 @@ export const categories = [
   {
     id: 'viral',
     name: 'Viral Tools',
-    description: 'Generate invoices, build resumes, create fake chat screenshots, design bio link pages, and test your typing speed.',
+    description: 'Generate invoices, build resumes, design bio link pages, and test your typing speed.',
     color: 'text-pink-500 dark:text-pink-400',
     bg: 'bg-pink-500/10',
     border: 'border-pink-500/20',
@@ -74,67 +65,6 @@ export const categories = [
 ]
 
 export const tools = [
-  // ─── AI Tools ─────────────────────────────────────────────
-  {
-    id: 'ai-paraphraser',
-    name: 'AI Paraphraser',
-    description: 'Rewrite any text using different words and sentence structures while preserving the original meaning.',
-    features: ['Full sentence and paragraph restructuring', 'Produces natural, fluent output', 'Works up to 8,000 characters'],
-    useCase: 'Academic writers avoiding plagiarism; content teams refreshing existing articles.',
-    path: '/tools/ai-paraphraser',
-    category: 'ai',
-    clientSide: false,
-    icon: 'RefreshCw',
-    related: ['ai-grammar-fixer', 'ai-summarizer', 'ai-email-writer'],
-  },
-  {
-    id: 'ai-grammar-fixer',
-    name: 'AI Grammar Fixer',
-    description: 'Fix all grammar, spelling, punctuation, and style errors using AI — including errors basic spell-checkers miss.',
-    features: ['Fixes dangling modifiers and tense errors', 'Side-by-side original vs corrected view', 'Handles complex grammar rules'],
-    useCase: 'Non-native English speakers and writers polishing emails, essays, and reports.',
-    path: '/tools/ai-grammar-fixer',
-    category: 'ai',
-    clientSide: false,
-    icon: 'SpellCheck',
-    related: ['ai-paraphraser', 'ai-summarizer', 'word-counter'],
-  },
-  {
-    id: 'ai-summarizer',
-    name: 'AI Summarizer',
-    description: 'Condense long articles, reports, essays, or any text into a concise summary that captures the key points.',
-    features: ['Extracts main ideas from any text', 'Shows live word count', 'Works on documents up to 8,000 characters'],
-    useCase: 'Researchers and students getting the gist of long documents quickly.',
-    path: '/tools/ai-summarizer',
-    category: 'ai',
-    clientSide: false,
-    icon: 'FileText',
-    related: ['ai-paraphraser', 'ai-title-generator', 'word-counter'],
-  },
-  {
-    id: 'ai-title-generator',
-    name: 'AI Title Generator',
-    description: 'Generate 8 compelling, click-worthy headlines for any topic — listicles, how-tos, questions, and curiosity-gap titles.',
-    features: ['Generates 8 varied title styles per request', 'Covers how-to, listicle, and statement formats', 'One-click copy per title or regenerate all'],
-    useCase: 'Bloggers and YouTube creators crafting high-CTR titles before publishing.',
-    path: '/tools/ai-title-generator',
-    category: 'ai',
-    clientSide: false,
-    icon: 'Heading',
-    related: ['ai-summarizer', 'ai-email-writer', 'ai-paraphraser'],
-  },
-  {
-    id: 'ai-email-writer',
-    name: 'AI Email Writer',
-    description: 'Compose complete professional emails from a short description — subject line, greeting, body, CTA, and sign-off included.',
-    features: ['6 tone options: Professional, Friendly, Formal, Apologetic, Persuasive, Follow-up', 'Writes subject + full email body', 'Copy with one click'],
-    useCase: 'Professionals drafting cold outreach, follow-ups, apologies, and client communications quickly.',
-    path: '/tools/ai-email-writer',
-    category: 'ai',
-    clientSide: false,
-    icon: 'Mail',
-    related: ['ai-grammar-fixer', 'ai-paraphraser', 'ai-title-generator'],
-  },
 
   // ─── PDF Tools ────────────────────────────────────────────
   {
@@ -301,22 +231,6 @@ export const tools = [
     related: ['image-converter', 'image-resizer', 'webp-converter'],
   },
   {
-    id: 'background-remover',
-    name: 'Background Remover',
-    description: 'AI-powered background removal that outputs a clean transparent PNG in seconds.',
-    features: [
-      'Edge detection via remove.bg AI model',
-      'Outputs transparent PNG with clean cutout',
-      'Optional white or custom hex background fill',
-    ],
-    useCase: 'Used by freelancers and e-commerce sellers removing backgrounds from product photos.',
-    path: '/tools/background-remover',
-    category: 'image',
-    clientSide: false,
-    icon: 'Eraser',
-    related: ['image-compressor', 'image-converter', 'image-resizer'],
-  },
-  {
     id: 'image-resizer',
     name: 'Image Resizer',
     description: 'Resize images to exact pixel dimensions with aspect ratio lock and social media presets.',
@@ -330,7 +244,7 @@ export const tools = [
     category: 'image',
     clientSide: true,
     icon: 'Maximize',
-    related: ['image-compressor', 'image-converter', 'background-remover'],
+    related: ['image-compressor', 'image-converter'],
   },
 
   {
@@ -582,7 +496,7 @@ export const tools = [
     category: 'text',
     clientSide: true,
     icon: 'AlignLeft',
-    related: ['case-converter', 'ai-summarizer', 'lorem-ipsum'],
+    related: ['case-converter', 'lorem-ipsum'],
   },
   {
     id: 'case-converter',
@@ -628,7 +542,7 @@ export const tools = [
     category: 'viral',
     clientSide: true,
     icon: 'Receipt',
-    related: ['resume-builder', 'word-counter', 'ai-email-writer'],
+    related: ['resume-builder', 'word-counter'],
   },
   {
     id: 'resume-builder',
@@ -640,7 +554,7 @@ export const tools = [
     category: 'viral',
     clientSide: true,
     icon: 'ClipboardList',
-    related: ['invoice-generator', 'ai-grammar-fixer', 'word-counter'],
+    related: ['invoice-generator', 'word-counter'],
   },
   {
     id: 'bio-link-generator',
@@ -963,18 +877,6 @@ export const tools = [
     clientSide: true,
     icon: 'ArrowDownAZ',
     related: ['remove-duplicate-lines', 'find-and-replace', 'text-cleaner'],
-  },
-  {
-    id: 'background-changer',
-    name: 'Background Changer',
-    description: "Remove a photo's background and replace it with a solid colour or your own background image.",
-    features: ['Automatic background removal', 'Solid colour or image background', 'Download as PNG'],
-    useCase: 'Creating profile pictures, product shots, and ID photos with a new background.',
-    path: '/tools/background-changer',
-    category: 'image',
-    clientSide: false,
-    icon: 'Wand2',
-    related: ['background-remover', 'image-resizer', 'image-cropper'],
   },
 ]
 

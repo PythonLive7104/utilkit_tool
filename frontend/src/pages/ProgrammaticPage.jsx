@@ -4,7 +4,6 @@ import { ArrowRight, CheckCircle2, Home, ChevronRight } from 'lucide-react'
 import { seoPages } from '../data/seoPages'
 import { SeoOverrideContext } from '../context/SeoOverrideContext'
 
-import BackgroundRemover from './tools/BackgroundRemover'
 import Base64Tool from './tools/Base64Tool'
 import CaseConverter from './tools/CaseConverter'
 import CodeDiff from './tools/CodeDiff'
@@ -43,7 +42,6 @@ import TextCleaner from './tools/TextCleaner'
 import SlugGenerator from './tools/SlugGenerator'
 
 const TOOL_COMPONENTS = {
-  'background-remover': BackgroundRemover,
   'base64-tool': Base64Tool,
   'case-converter': CaseConverter,
   'code-diff': CodeDiff,

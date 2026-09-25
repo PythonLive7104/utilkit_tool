@@ -575,35 +575,6 @@ export const blogPosts = [
       { type: 'p', text: 'The Compress PDF tool re-renders pages at a quality level you choose and shows the before/after size, so you can get under the limit in one step — without uploading your file anywhere.' },
     ],
   },
-  {
-    slug: 'how-to-remove-a-background-for-product-photos',
-    title: 'How to Remove a Background for Clean Product Photos',
-    description: 'Why a clean white or transparent background matters for ecommerce, how background removal works, and tips for the best results.',
-    toolId: 'background-remover',
-    toolPath: '/tools/background-remover',
-    toolName: 'Background Remover',
-    category: 'image',
-    date: '2026-06-03',
-    readTime: '4 min',
-    excerpt: 'Marketplaces demand clean backgrounds. Here is how automatic background removal works and how to get crisp cutouts.',
-    content: [
-      { type: 'p', text: 'A clean, distraction-free background makes a product look professional and is a hard requirement on marketplaces like Amazon and many ecommerce themes. Removing a background by hand is fiddly; AI removal does it in seconds.' },
-      { type: 'h2', text: 'Why it matters' },
-      { type: 'ul', items: [
-        'Consistency — a uniform background makes a catalogue look cohesive.',
-        'Focus — nothing competes with the product for attention.',
-        'Flexibility — a transparent PNG drops onto any color or scene later.',
-      ] },
-      { type: 'h2', text: 'How automatic removal works' },
-      { type: 'p', text: 'A machine-learning model identifies the main subject and separates it from everything else, producing a transparent PNG. Modern models handle complex edges like hair and fur far better than the old "magic wand" selection tools.' },
-      { type: 'h2', text: 'Tips for the cleanest cutout' },
-      { type: 'tip', text: 'Shoot the subject with good, even lighting and clear contrast against the background. Sharp focus and a distinct subject give the model the best chance at clean edges.' },
-      { type: 'h2', text: 'After removal' },
-      { type: 'p', text: 'Once you have a transparent PNG, you can place the product on a pure white background for listings, or any brand color for ads and social posts.' },
-      { type: 'h2', text: 'Remove a background' },
-      { type: 'p', text: 'The Background Remover produces a clean transparent PNG from a product or portrait photo, with the option to fill the background with white or a custom color.' },
-    ],
-  },
 ]
 
 export function getPostBySlug(slug) {

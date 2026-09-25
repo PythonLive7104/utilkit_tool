@@ -104,10 +104,9 @@ export default function Privacy() {
 
       <Section icon={Server} color={{ bg: 'bg-sky-500/10', text: 'text-sky-500' }} title="Other third-party services">
         <p>
-          Besides advertising, we use these providers strictly to power specific features:
+          Besides advertising, we use one other provider, strictly to power a specific feature:
         </p>
         <ul className="list-disc pl-5 space-y-1.5">
-          <li><strong className="text-zinc-700 dark:text-zinc-300">Dodo Payments</strong> — processes optional support payments on its own hosted checkout page. Subject to <a href="https://dodopayments.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-500">Dodo Payments' privacy policy</a>.</li>
           <li><strong className="text-zinc-700 dark:text-zinc-300">Google Fonts</strong> — serves the site's typefaces; your browser requests font files from Google's servers.</li>
         </ul>
       </Section>

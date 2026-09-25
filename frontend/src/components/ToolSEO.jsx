@@ -4,7 +4,8 @@ import { tools } from '../data/tools'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://utilkit.us'
-const OG_IMAGE = `${SITE_URL}/og-image.png`
+// Bump ?v= whenever og-image.png changes so social apps re-fetch it.
+const OG_IMAGE = `${SITE_URL}/og-image.png?v=2`
 
 export default function ToolSEO({ toolId }) {
   const override = useSeoOverride()

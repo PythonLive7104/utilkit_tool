@@ -4,7 +4,8 @@ import { Home, ChevronRight, Clock, ArrowRight, Lightbulb } from 'lucide-react'
 import { getPostBySlug, blogPosts } from '../data/blogPosts'
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://utilkit.us'
-const OG_IMAGE = `${SITE_URL}/og-image.png`
+// Bump ?v= whenever og-image.png changes so social apps re-fetch it.
+const OG_IMAGE = `${SITE_URL}/og-image.png?v=2`
 
 function Block({ block }) {
   switch (block.type) {

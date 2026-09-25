@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { ChevronDown, ChevronUp, ArrowRight, Check } from 'lucide-react'
 import ToolSEO from './ToolSEO'
 import TrustBadges from './TrustBadges'
-import SupportButton from './SupportButton'
 import { useSeoOverride } from '../context/SeoOverrideContext'
 import { tools } from '../data/tools'
 import { toolContent } from '../data/toolContent'
@@ -137,19 +136,6 @@ function RelatedTools({ toolId }) {
   )
 }
 
-// ── Support CTA ───────────────────────────────────────────────────────────────
-function CoffeeBox() {
-  return (
-    <div className="mt-10 rounded-2xl border border-indigo-400/20 bg-indigo-50/50 dark:bg-indigo-950/20 p-5 text-center">
-      <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-1">Enjoying UtilKit?</p>
-      <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
-        All 60 tools are free. If we saved you time, a small support keeps the lights on.
-      </p>
-      <SupportButton />
-    </div>
-  )
-}
-
 // ── Main layout ───────────────────────────────────────────────────────────────
 export default function ToolLayout({ title, description, about, toolId, children }) {
   const [showAbout, setShowAbout] = useState(false)
@@ -201,8 +187,6 @@ export default function ToolLayout({ title, description, about, toolId, children
           )}
         </div>
       )}
-
-      <CoffeeBox />
 
       {toolId && <ToolSEO toolId={toolId} />}
     </div>

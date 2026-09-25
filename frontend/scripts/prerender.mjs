@@ -26,7 +26,8 @@ import { blogPosts } from '../src/data/blogPosts.js'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DIST = resolve(__dirname, '..', 'dist')
 const SITE = (process.env.VITE_SITE_URL || 'https://utilkit.us').replace(/\/$/, '')
-const OG_IMAGE = `${SITE}/og-image.png`
+// Bump ?v= whenever og-image.png changes so social apps re-fetch it.
+const OG_IMAGE = `${SITE}/og-image.png?v=2`
 
 // Canonical URL for a route. Pages are served directory-style (/about/),
 // so the server 301-redirects the no-slash form to the slash form. Canonicals,
@@ -279,7 +280,7 @@ function renderPrivacy() {
     '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Advertising (Google AdSense)</h2>' +
     '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">UtilKit is a free service supported by advertising. We use Google AdSense to display ads. Google, as a third-party vendor, uses cookies (including the DoubleClick cookie) to serve ads based on your prior visits to UtilKit and other sites, and third-party vendors and ad networks may also use cookies to serve ads based on your interests. You can opt out of personalised advertising at <a href="https://www.google.com/settings/ads" class="underline">Google Ads Settings</a> and at <a href="https://www.aboutads.info/choices/" class="underline">aboutads.info/choices</a>. See <a href="https://policies.google.com/technologies/ads" class="underline">Google\'s advertising policies</a> for more. Visitors in the EEA, UK and Switzerland are shown a consent prompt for personalised ads where required.</p>' +
     '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Other third-party services</h2>' +
-    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">We use Google Fonts to serve the site\'s typefaces, and Dodo Payments to process optional support payments. Each is used strictly to power that feature.</p>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">We use Google Fonts to serve the site\'s typefaces.</p>' +
     '<h2 class="text-base font-bold text-zinc-800 dark:text-zinc-100 mb-2">Your rights &amp; contact</h2>' +
     '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">We do not store personal data on our servers. If you email us, we keep that correspondence only as long as needed to reply, and you can ask us to delete it at any time. Contact us via the <a href="/contact/" class="underline">Contact page</a> or at <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>.</p>' +
     '</div>'
@@ -312,7 +313,7 @@ function renderAbout() {
     '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">What we stand for</h2>' +
     '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Privacy first — client-side by default, nothing stored that does not have to be. Free to use — the core tools are, and will stay, free. No friction — no sign-up wall to run a tool, no watermarks on your output. Honest UX — clear labels, no dark patterns.</p>' +
     '<h2 class="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-3 mt-8">How UtilKit is funded</h2>' +
-    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Keeping the tools free and running costs money — hosting and domains. We cover that through light, clearly-marked advertising and optional support from users. We do not sell your data, and we never will.</p>' +
+    '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Keeping the tools free and running costs money — hosting and domains. We cover that through light, clearly-marked advertising. We do not sell your data, and we never will.</p>' +
     '<p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Questions or tool requests? Visit our <a href="/contact/" class="underline">Contact page</a> or email <a href="mailto:support@utilkit.us" class="underline">support@utilkit.us</a>.</p>' +
     '</div>'
   return {

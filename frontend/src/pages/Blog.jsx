@@ -4,7 +4,8 @@ import { ArrowRight, Clock, BookOpen } from 'lucide-react'
 import { blogPosts } from '../data/blogPosts'
 
 const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://utilkit.us'
-const OG_IMAGE = `${SITE_URL}/og-image.png`
+// Bump ?v= whenever og-image.png changes so social apps re-fetch it.
+const OG_IMAGE = `${SITE_URL}/og-image.png?v=2`
 
 const categoryColors = {
   ai: 'text-purple-500 dark:text-purple-400',

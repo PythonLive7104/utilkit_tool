@@ -1,7 +1,6 @@
 import { useState, useEffect, Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
-import SupportButton from './SupportButton'
 import { Menu, Moon, Sun, Zap } from 'lucide-react'
 
 export default function Layout() {
@@ -80,7 +79,6 @@ export default function Layout() {
         </main>
       </div>
 
-      <SupportButton variant="floating" label="☕ Support our Team" />
     </div>
   )
 }

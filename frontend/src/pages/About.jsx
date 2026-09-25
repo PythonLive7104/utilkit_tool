@@ -91,8 +91,7 @@ export default function About() {
       <Section icon={Heart} color={{ bg: 'bg-rose-500/10', text: 'text-rose-500' }} title="How UtilKit is funded">
         <p>
           Keeping the tools free and running costs money — hosting and domains. We cover that through
-          light, clearly-marked advertising and optional support from users. We don't sell your data, and
-          we never will; advertising is how the tools stay free for everyone.
+          light, clearly-marked advertising. We don't sell your data, and we never will; advertising is how the tools stay free for everyone.
         </p>
       </Section>
 
